@@ -76,10 +76,17 @@
                               <label>Navigation</label>
                          </li>
                          <li class="nav-item">
-                              <a href="<?= base_url('dash'); ?>" onclick="calldash()" class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                              <a href="<?= base_url('dash'); ?>" onclick="calldash()" class="nav-link"><span class="pcoded-micon"><i class="feather icon-globe"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                          </li>
                          <li class="nav-item pcoded-menu-caption">
                               <label>Data Master</label>`
+                         </li>
+                         <li class="nav-item pcoded-hasmenu">
+                              <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Data Perusahaan</span></a>
+                              <ul class="pcoded-submenu">
+                                   <li><a href="<?= base_url('perusahaan'); ?>">Perusahaan</a></li>
+                                   <li><a href="#">Struktur Perusahaan</a></li>
+                              </ul>
                          </li>
                          <li class="nav-item pcoded-hasmenu">
                               <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-share-2"></i></span><span class="pcoded-mtext">Data Pekerjaan</span></a>
@@ -135,7 +142,6 @@
                          <li class="nav-item pcoded-hasmenu">
                               <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Sistem</span></a>
                               <ul class="pcoded-submenu">
-                                   <li><a href="<?= base_url('perusahaan'); ?>">Perusahaan</a></li>
                                    <li><a href="#">Audit</a></li>
                                    <li><a href="#">Akses Menu</a></li>
                                    <li><a href="#">User</a></li>

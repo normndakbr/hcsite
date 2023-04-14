@@ -117,22 +117,6 @@
                          }
                     }
                })
-
-               $('#perPerusahaan').change(function() {
-                    let auth_per = $("#perPerusahaan").val();
-
-                    $.ajax({
-                         type: "POST",
-                         url: "<?= base_url("departemen/get_by_authper") ?>",
-                         data: {
-                              auth_per: auth_per
-                         },
-                         success: function(data) {
-                              var data = JSON.parse(data);
-                              $("#depPerusahaan").html(data.dprt);
-                         }
-                    })
-               });
                $("#btnTambahPerusahaan").click(function() {
                     var prs = $("#perPerusahaan").val();
                     var kode = $("#kodePerusahaan").val();
@@ -417,7 +401,7 @@
                               "width": "10%"
                          },
                          {
-                              "data": 'perusahaan',
+                              "data": 'nama_perusahaan',
                               "className": "text-nowrap",
                               "width": "25%"
                          },
@@ -428,11 +412,6 @@
                          },
                          {
                               "data": 'stat_perusahaan',
-                              "className": "text-center text-nowrap",
-                              "width": "1%"
-                         },
-                         {
-                              "data": 'kode_perusahaan',
                               "className": "text-center text-nowrap",
                               "width": "1%"
                          },

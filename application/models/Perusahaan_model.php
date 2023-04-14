@@ -5,8 +5,8 @@ class Perusahaan_model extends CI_Model
 {
 
      var $table = 'vw_perusahaan';
-     var $column_order = array(null, 'kd_perusahaan', 'perusahaan', 'alamat_perusahaan', 'ket_perusahaan', 'stat_perusahaan', 'tgl_buat', null); //set column field database for datatable orderable
-     var $column_search = array('kd_perusahaan', 'perusahaan', 'alamat_perusahaan', 'ket_perusahaan', 'stat_perusahaan', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
+     var $column_order = array(null, 'kd_perusahaan', 'nama_perusahaan', 'alamat_perusahaan', 'ket_perusahaan', 'stat_perusahaan', 'tgl_buat', null); //set column field database for datatable orderable
+     var $column_search = array('kd_perusahaan', 'nama_perusahaan', 'alamat_perusahaan', 'ket_perusahaan', 'stat_perusahaan', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
      var $order = array('kd_perusahaan' => 'desc'); // default order 
 
      public function __construct()
