@@ -30,7 +30,7 @@ class Perusahaan extends My_Controller
           $this->load->view('dashboard/perusahaan/perusahaan_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/perusahaan');
      }
 
      public function ajax_list()

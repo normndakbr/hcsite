@@ -18,7 +18,7 @@ class Level extends My_Controller
           $this->load->view('dashboard/level/level');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/level');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Level extends My_Controller
           $this->load->view('dashboard/level/level_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/level');
      }
 
      public function ajax_list()

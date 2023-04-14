@@ -18,7 +18,7 @@ class Tipe extends My_Controller
           $this->load->view('dashboard/tipe/tipe');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/tipe');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Tipe extends My_Controller
           $this->load->view('dashboard/tipe/tipe_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/tipe');
      }
 
      public function ajax_list()
