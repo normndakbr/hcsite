@@ -114,7 +114,7 @@
                          <li class="nav-item pcoded-hasmenu">
                               <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-users"></i></span><span class="pcoded-mtext">Data Karyawan</span></a>
                               <ul class="pcoded-submenu">
-                                   <li><a href="#">Karyawan</a></li>
+                                   <li><a href="<?= base_url('karyawan'); ?>">Karyawan</a></li>
                                    <li><a href="#">Approval</a></li>
                               </ul>
                          </li>
