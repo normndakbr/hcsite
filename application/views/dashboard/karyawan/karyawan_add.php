@@ -116,113 +116,143 @@
                                              </form>
                                         </div>
                                    </div>
-                              </div>
-                              <div class="card mb-0">
-                                   <div class="card-header" id="headingTwo">
-                                        <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Kontak Darurat</a></h5>
-                                   </div>
-                                   <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                        <form class=" mx-3 my-5">
-                                             <div class="card-body row">
-                                                  <div class="col-lg-2 col-md-2 col-sm-12">
-                                                       <label for="noKTP">No. KTP :</label>
-                                                       <input placeholder="" id='noKTP' name='noKTP' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorNoKTP text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                                  <div class="col-lg-4 col-md-4 col-sm-12">
-                                                       <label for="namaLengkap">Nama Lengkap :</label>
-                                                       <input placeholder="" id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                                  <div class="col-lg-3 col-md-3 col-sm-12">
-                                                       <label for="alamatEmail">Alamat Email :</label>
-                                                       <input placeholder="" id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                                  <div class="col-lg-3 col-md-3 col-sm-12">
-                                                       <label for="noTelp">No. Telp :</label>
-                                                       <input placeholder="" id='noTelp' name='noTelp' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorNoTelp text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                             </div>
-
-                                             <div class="card-body row">
-                                                  <div class="col-lg-4 col-md-4 col-sm-12">
-                                                       <label for="tempatLahir">Tempat & Tanggal Lahir :</label>
-                                                       <div class="d-flex">
-                                                            <input id='tempatLahir' name='tempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" placeholder="" required>
-
-                                                            <input id='tanggalLahir' name='tanggalLahir' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user ml-3" value="" placeholder="Tanggal lahir" required>
+                                   <div class="card mb-0">
+                                        <div class="card-header" id="headingFour">
+                                             <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Data Domisili</a></h5>
+                                        </div>
+                                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                             <form class=" mx-3 my-5">
+                                                  <div class="card-body row">
+                                                       <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <label for="alamatLengkap">Alamat Lengkap :</label>
+                                                            <input placeholder="" id='alamatLengkap' name='alamatLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="erroralamatLengkap text-danger font-italic font-weight-bold"></small><br>
                                                        </div>
-                                                       <small class="errorTanggalLahir text-danger font-italic font-weight-bold"></small>
-                                                  </div>
-                                                  <div class="col-lg-4 col-md-4 col-sm-12">
-                                                       <label for="alamatEmail">Usia :</label>
-                                                       <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                                  <div class="col-lg-4 col-md-4 col-sm-12">
-                                                       <label for="alamatEmail">Kewarganegaraan :</label>
-                                                       <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                             </div>
-                                             <button type="submit" class="btn  btn-primary ml-3">Simpan Data Pribadi</button>
-                                        </form>
-                                   </div>
-                              </div>
-                              <div class="card">
-                                   <div class="card-header" id="headingThree">
-                                        <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Medical Check Up</a></h5>
-                                   </div>
-                                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                        <form class=" mx-3 my-5">
-                                             <div class="card-body row">
-                                                  <div class="col-lg-2 col-md-2 col-sm-12">
-                                                       <label for="noKTP">No. KTP :</label>
-                                                       <input placeholder="" id='noKTP' name='noKTP' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorNoKTP text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                                  <div class="col-lg-4 col-md-4 col-sm-12">
-                                                       <label for="namaLengkap">Nama Lengkap :</label>
-                                                       <input placeholder="" id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                                  <div class="col-lg-3 col-md-3 col-sm-12">
-                                                       <label for="alamatEmail">Alamat Email :</label>
-                                                       <input placeholder="" id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                                  <div class="col-lg-3 col-md-3 col-sm-12">
-                                                       <label for="noTelp">No. Telp :</label>
-                                                       <input placeholder="" id='noTelp' name='noTelp' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorNoTelp text-danger font-italic font-weight-bold"></small><br>
-                                                  </div>
-                                             </div>
-
-                                             <div class="card-body row">
-                                                  <div class="col-lg-4 col-md-4 col-sm-12">
-                                                       <label for="tempatLahir">Tempat & Tanggal Lahir :</label>
-                                                       <div class="d-flex">
-                                                            <input id='tempatLahir' name='tempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" placeholder="" required>
-
-                                                            <input id='tanggalLahir' name='tanggalLahir' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user ml-3" value="" placeholder="Tanggal lahir" required>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <label for="namaLengkap">Kecamatan :</label>
+                                                            <input placeholder="" id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
                                                        </div>
-                                                       <small class="errorTanggalLahir text-danger font-italic font-weight-bold"></small>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <label for="alamatEmail">Kelurahan :</label>
+                                                            <input placeholder="" id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <label for="noTelp">Kabupaten :</label>
+                                                            <input placeholder="" id='noTelp' name='noTelp' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNoTelp text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <label for="noTelp">Provinsi :</label>
+                                                            <input placeholder="" id='noTelp' name='noTelp' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNoTelp text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
                                                   </div>
-                                                  <div class="col-lg-4 col-md-4 col-sm-12">
-                                                       <label for="alamatEmail">Usia :</label>
-                                                       <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
+
+
+                                                  <button type="submit" class="btn  btn-primary ml-3">Simpan Data Pribadi</button>
+                                             </form>
+                                        </div>
+                                   </div>
+                                   <div class="card mb-0">
+                                        <div class="card-header" id="headingTwo">
+                                             <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Kontak Darurat</a></h5>
+                                        </div>
+                                        <div id="collapseTwo" class="collapse px-3 py-5" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                             <form>
+                                                  <div class="card-body row">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="noKTP">Nama :</label>
+                                                            <input placeholder="" id='noKTP' name='noKTP' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNoKTP text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="namaLengkap">Nomor Telp :</label>
+                                                            <input placeholder="" id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="namaLengkap">Hubungan :</label>
+                                                            <input placeholder="" id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
                                                   </div>
-                                                  <div class="col-lg-4 col-md-4 col-sm-12">
-                                                       <label for="alamatEmail">Kewarganegaraan :</label>
-                                                       <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                                       <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
+                                                  <button type="submit" class="btn btn-sm btn-primary ml-3">Tambah Data Kontak Darurat</button>
+                                             </form>
+                                             <div class="col-lg-12 mt-5">
+                                                  <div class="table-responsive">
+                                                       <table id="tbmKontakDarurat" class="table table-striped table-bordered table-hover text-black" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                                                            <thead>
+                                                                 <tr class="font-weight-boldtext-white">
+                                                                      <th style="text-align:center;width:1%;">No.</th>
+                                                                      <th>Nama</th>
+                                                                      <th>No. Telp</th>
+                                                                      <!-- <th>Telp</th> -->
+                                                                      <th style="text-align:center;">Hubungan</th>
+                                                                      <th style="text-align:center;">Proses</th>
+                                                                 </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            </tbody>
+                                                       </table>
                                                   </div>
                                              </div>
-                                             <button type="submit" class="btn  btn-primary ml-3">Simpan Data Pribadi</button>
-                                        </form>
+                                        </div>
+                                   </div>
+                                   <div class="card">
+                                        <div class="card-header" id="headingThree">
+                                             <h5 class="mb-0"><a href="#!" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Medical Check Up</a></h5>
+                                        </div>
+                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                             <form class=" mx-3 my-5">
+                                                  <div class="card-body row">
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
+                                                            <label for="noKTP">No. KTP :</label>
+                                                            <input placeholder="" id='noKTP' name='noKTP' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNoKTP text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="namaLengkap">Nama Lengkap :</label>
+                                                            <input placeholder="" id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <label for="alamatEmail">Alamat Email :</label>
+                                                            <input placeholder="" id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <label for="noTelp">No. Telp :</label>
+                                                            <input placeholder="" id='noTelp' name='noTelp' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorNoTelp text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                  </div>
+
+                                                  <div class="card-body row">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="tempatLahir">Tempat & Tanggal Lahir :</label>
+                                                            <div class="d-flex">
+                                                                 <input id='tempatLahir' name='tempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" placeholder="" required>
+
+                                                                 <input id='tanggalLahir' name='tanggalLahir' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user ml-3" value="" placeholder="Tanggal lahir" required>
+                                                            </div>
+                                                            <small class="errorTanggalLahir text-danger font-italic font-weight-bold"></small>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="alamatEmail">Usia :</label>
+                                                            <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <label for="alamatEmail">Kewarganegaraan :</label>
+                                                            <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
+                                                            <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                  </div>
+                                                  <button type="submit" class="btn  btn-primary ml-3">Simpan Data Domisili</button>
+                                             </form>
+                                        </div>
                                    </div>
                               </div>
                          </div>
