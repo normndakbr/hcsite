@@ -56,10 +56,10 @@
                          <div class="card-body">
                               <div class="mt-3">
                                    <div class="mb-2">
-                                        <a href="<?= base_url('Perusahaan'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
-                                        <a id="addbtn" href="<?= base_url('Perusahaan/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
+                                        <a href="<?= base_url('perusahaan'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
+                                        <a id="addbtn" href="<?= base_url('perusahaan/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
                                    </div>
-                                   <div class="alert alert-danger err_psn_Perusahaan animate__animated animate__bounce d-none"></div>
+                                   <div class="alert alert-danger err_psn_perusahaan animate__animated animate__bounce d-none"></div>
                               </div>
                               <div class="row">
                                    <div class="col-lg-12">
@@ -72,7 +72,6 @@
                                                             <th>Perusahaan</th>
                                                             <th>Alamat</th>
                                                             <th style="text-align:center;">Status</th>
-                                                            <th style="text-align:center;">Perusahaan</th>
                                                             <th style="text-align:center;">Tgl. Dibuat</th>
                                                             <th style="text-align:center;">Proses</th>
                                                        </tr>

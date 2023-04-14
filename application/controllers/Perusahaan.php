@@ -44,7 +44,7 @@ class Perusahaan extends My_Controller
                $row['no'] = $no;
                $row['auth_perusahaan'] = $prs->auth_perusahaan;
                $row['kd_perusahaan'] = $prs->kd_perusahaan;
-               $row['perusahaan'] = $prs->perusahaan;
+               $row['nama_perusahaan'] = $prs->nama_perusahaan;
                $row['alamat_perusahaan'] = $prs->alamat_perusahaan;
                $row['ket_perusahaan'] = $prs->ket_perusahaan;
 
@@ -54,7 +54,6 @@ class Perusahaan extends My_Controller
                     $row['stat_perusahaan'] = "<div class='btn btn-danger btn-sm'> NONAKTIF </div>";
                }
 
-               $row['kode_perusahaan'] = $prs->kode_perusahaan;
                $row['tgl_buat'] = date('d-M-Y', strtotime($prs->tgl_buat));
                $row['tgl_edit'] = date('d-M-Y', strtotime($prs->tgl_edit));
                $row['proses'] = '<button id="' . $prs->auth_perusahaan . '" class="btn btn-primary btn-sm font-weight-bold dtlperusahaan" title="Detail" value="' . $prs->perusahaan . '"> <i class="fas fa-asterisk"></i> </button> 
