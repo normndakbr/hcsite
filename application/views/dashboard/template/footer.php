@@ -16,9 +16,3 @@
 <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
 <script src="<?= base_url(); ?>assets/assets/js/pages/dashboard-main.js"></script>
-
-<script>
-     $("#logout").click(function() {
-          $("#logoutmdl").modal("show");
-     });
-</script>
