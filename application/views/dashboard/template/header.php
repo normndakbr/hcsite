@@ -135,7 +135,7 @@
                          <li class="nav-item pcoded-hasmenu">
                               <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Sistem</span></a>
                               <ul class="pcoded-submenu">
-                                   <li><a href="#">Perusahaan</a></li>
+                                   <li><a href="<?= base_url('perusahaan'); ?>">Perusahaan</a></li>
                                    <li><a href="#">Audit</a></li>
                                    <li><a href="#">Akses Menu</a></li>
                                    <li><a href="#">User</a></li>

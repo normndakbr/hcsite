@@ -1,6 +1,11 @@
 <script>
      //========================================== depart ========================================================
      $(document).ready(function() {
+
+          $("#logout").click(function() {
+               $("#logoutmdl").modal("show");
+          });
+
           $('#btnupdatedepart').click(function() {
                let kode = $('#editDepartKode').val();
                let depart = $('#editDepart').val();
