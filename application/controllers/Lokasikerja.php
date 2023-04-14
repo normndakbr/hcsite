@@ -18,7 +18,7 @@ class Lokasikerja extends My_Controller
           $this->load->view('dashboard/lokker/lokker');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/lokker');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Lokasikerja extends My_Controller
           $this->load->view('dashboard/lokker/lokker_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/lokker');
      }
 
      public function ajax_list()

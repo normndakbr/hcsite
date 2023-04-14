@@ -18,7 +18,7 @@ class Section extends My_Controller
           $this->load->view('dashboard/section/section');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/section');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Section extends My_Controller
           $this->load->view('dashboard/section/section_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/section');
      }
 
      public function ajax_list()

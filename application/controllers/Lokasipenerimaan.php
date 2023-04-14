@@ -18,7 +18,7 @@ class Lokasipenerimaan extends My_Controller
           $this->load->view('dashboard/lokterima/lokterima');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/lokterima');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Lokasipenerimaan extends My_Controller
           $this->load->view('dashboard/lokterima/lokterima_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/lokterima');
      }
 
      public function ajax_list()

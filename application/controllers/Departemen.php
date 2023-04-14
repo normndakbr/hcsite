@@ -18,7 +18,7 @@ class Departemen extends My_Controller
           $this->load->view('dashboard/departemen/depart');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/departemen');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Departemen extends My_Controller
           $this->load->view('dashboard/departemen/depart_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/departemen');
      }
 
      public function ajax_list()

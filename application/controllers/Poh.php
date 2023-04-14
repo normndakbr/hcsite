@@ -18,7 +18,7 @@ class Poh extends My_Controller
           $this->load->view('dashboard/poh/poh');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/poh');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Poh extends My_Controller
           $this->load->view('dashboard/poh/poh_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/poh');
      }
 
      public function ajax_list()

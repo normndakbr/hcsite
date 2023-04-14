@@ -18,7 +18,7 @@ class Posisi extends My_Controller
           $this->load->view('dashboard/posisi/posisi');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/posisi');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Posisi extends My_Controller
           $this->load->view('dashboard/posisi/posisi_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/posisi');
      }
 
      public function ajax_list()

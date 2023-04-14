@@ -18,7 +18,7 @@ class Bank extends My_Controller
           $this->load->view('dashboard/bank/bank');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/bank');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Bank extends My_Controller
           $this->load->view('dashboard/bank/bank_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/bank');
      }
 
      public function ajax_list()

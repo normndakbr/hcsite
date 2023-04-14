@@ -18,7 +18,7 @@ class Grade extends My_Controller
           $this->load->view('dashboard/grade/grade');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/grade');
      }
 
      public function new()
@@ -30,7 +30,7 @@ class Grade extends My_Controller
           $this->load->view('dashboard/grade/grade_add');
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard/code/grade');
      }
 
      public function ajax_list()
