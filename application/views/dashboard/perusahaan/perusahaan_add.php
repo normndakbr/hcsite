@@ -14,13 +14,13 @@
                                         </a>
                                    </li>
                                    <li class="breadcrumb-item">
-                                        <a href="<?= base_url('Level'); ?>">
-                                             Level
+                                        <a href="<?= base_url('Perusahaan'); ?>">
+                                             Perusahaan
                                         </a>
                                    </li>
                                    <li class="breadcrumb-item">
                                         <a id="bc2">
-                                             Tambah Level
+                                             Tambah Perusahaan
                                         </a>
                                    </li>
                               </ul>
@@ -32,7 +32,7 @@
                <div class="col-xl-12 col-md-12">
                     <div class="card latest-update-card">
                          <div class="card-header">
-                              <h5>Level</h5>
+                              <h5>Perusahaan</h5>
                               <div class="card-header-right">
                                    <div class="btn-group card-option">
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -56,41 +56,113 @@
                          <div class="card-body">
                               <div class="mt-3">
                                    <div class="mb-4">
-                                        <a href="<?= base_url('Level'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
-                                        <a href="<?= base_url('Level/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
+                                        <a href="<?= base_url('perusahaan'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
+                                        <a href="<?= base_url('perusahaan/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
                                    </div>
-                                   <div class="alert alert-danger err_psn_level animate__animated animate__bounce d-none"></div>
+                                   <div class="alert alert-danger err_psn_perusahaan animate__animated animate__bounce d-none"></div>
                               </div>
-                              <div class="row ">
-                                   <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <label for="perLevel">Perusahaan :</label><br>
-                                        <select id='perLevel' name='perLevel' class="form-control form-control-user">
-                                             <option value="">-- Pilih Perusahaan --</option>
-                                        </select>
-                                        <small class="error1 text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <hr>
-                                   </div>
+                              <div class="row">
                                    <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <label for="kodeLevel">Kode :</label>
-                                        <input id='kodeLevel' name='kodeLevel' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                        <small class="error2 text-danger font-italic font-weight-bold"></small><br>
+                                        <div class="form-group fill">
+                                             <label for="kodePerusahaan" class="floating-label">Kode Perusahaan :</label>
+                                             <input id='kodePerusahaan' name='kodePerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                             <small class="error1 text-danger font-italic font-weight-bold"></small>
+                                        </div>
+
                                    </div>
                                    <div class="col-lg-9 col-md-8 col-sm-12">
-                                        <label for="Level">Level :</label>
-                                        <input id='Level' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                        <small class="error3 text-danger font-italic font-weight-bold"></small><br>
+                                        <div class="form-group fill">
+                                             <label for="Perusahaan" class="floating-label">Nama Perusahaan :</label>
+                                             <input id='Perusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                             <small class="error2 text-danger font-italic font-weight-bold"></small>
+                                        </div>
+
+                                   </div>
+                                   <div class="col-lg-10 col-md-10 col-sm-12">
+                                        <div class="form-group fill">
+                                             <label for="alamatPerusahaan" class="floating-label">Alamat :</label>
+                                             <input id='alamatPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                             <small class="error3 text-danger font-italic font-weight-bold"></small>
+                                        </div>
+
+                                   </div>
+                                   <div class="col-lg-2 col-md-2 col-sm-12">
+                                        <div class="form-group fill">
+                                             <label for="kodeposPerusahaan" class="floating-label">Kodepos :</label>
+                                             <input id='kodeposPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
+                                             <small class="error4 text-danger font-italic font-weight-bold"></small>
+                                        </div>
+                                   </div>
+                                   <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label for="provPerusahaan">Provinsi :</label><br>
+                                        <select id='provPerusahaan' name='provPerusahaan' class="form-control" required>
+                                             <option value="">-- PILIH PROVINSI --</option>
+                                        </select>
+                                        <small class="error5 text-danger font-italic font-weight-bold"></small>
+                                   </div>
+                                   <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <label for="kabPerusahaan">Kabupaten/Kota :</label><br>
+                                        <select id='kabPerusahaan' name='kabPerusahaan' class="form-control" required>
+                                             <option value="">-- KABUPATEN TIDAK DITEMUKAN --</option>
+                                        </select>
+                                        <small class="error6 text-danger font-italic font-weight-bold"></small>
+                                   </div>
+                                   <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
+                                        <label for="kecPerusahaan">Kecamatan :</label><br>
+                                        <select id='kecPerusahaan' name='kecPerusahaan' class="form-control" required>
+                                             <option value="">-- KECAMATAN TIDAK DITEMUKAN --</option>
+                                        </select>
+                                        <small class="error7 text-danger font-italic font-weight-bold"></small>
+                                   </div>
+                                   <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
+                                        <label for="kelPerusahaan">Kelurahan :</label><br>
+                                        <select id='kelPerusahaan' name='kelPerusahaan' class="form-control" required>
+                                             <option value="">-- KELURAHAN TIDAK DITEMUKAN --</option>
+                                        </select>
+                                        <small class="error8 text-danger font-italic font-weight-bold"></small>
+                                   </div>
+                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                        <div class="form-group fill">
+                                             <label for="telpPerusahaan" class="floating-label">No. Telpon :</label>
+                                             <input id='telpPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
+                                        </div>
+                                        <small class="error9 text-danger font-italic font-weight-bold"></small>
+                                   </div>
+                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                        <div class="form-group fill">
+                                             <label for="emailPerusahaan" class="floating-label">Email :</label>
+                                             <input id='emailPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
+                                             <small class="error10 text-danger font-italic font-weight-bold"></small>
+                                        </div>
+                                   </div>
+                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                        <div class="form-group fill">
+                                             <label for="webPerusahaan" class="floating-label">Website :</label>
+                                             <input id='webPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
+                                             <small class="error11 text-danger font-italic font-weight-bold"></small>
+                                        </div>
+                                   </div>
+                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                        <div class="form-group fill">
+                                             <label for="npwpPerusahaan" class="floating-label">No. NPWP :</label>
+                                             <input id='npwpPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
+                                             <small class="error12 text-danger font-italic font-weight-bold"></small>
+                                        </div>
                                    </div>
                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <label for="ketLevel">Keterangan :</label><br>
-                                        <textarea id='ketLevel' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user"></textarea>
-                                        <small id="error4" class="text-danger font-italic font-weight-bold"></small><br>
+                                        <label for="kegPerusahaan">Kegiatan :</label><br>
+                                        <textarea id='kegPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user"></textarea>
+                                        <small class="error13 text-danger font-italic font-weight-bold"></small>
+                                   </div>
+                                   <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <label for="ketPerusahaan">Keterangan :</label><br>
+                                        <textarea id='ketPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user"></textarea>
+                                        <small class="error14 text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <hr class="mb-2">
-                                        <button type="button" name="btnTambahLevel" id="btnTambahLevel" class="btn font-weight-bold btn-primary">Simpan</button>
-                                        <button type="button" name="btnBatalLevel" id="btnBatalLevel" class="btn font-weight-bold btn-danger">Batal</button>
+                                        <button type="button" name="btnTambahPerusahaan" id="btnTambahPerusahaan" class="btn font-weight-bold btn-primary">Simpan</button>
+                                        <button type="button" name="btnBatalPerusahaan" id="btnBatalPerusahaan" class="btn font-weight-bold btn-danger">Batal</button>
                                    </div>
                               </div>
                          </div>

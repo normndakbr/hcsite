@@ -5,9 +5,9 @@ class Perusahaan_model extends CI_Model
 {
 
      var $table = 'vw_perusahaan';
-     var $column_order = array(null, 'kd_perusahaan', 'nama_perusahaan', 'alamat_perusahaan', 'ket_perusahaan', 'stat_perusahaan', 'tgl_buat', null); //set column field database for datatable orderable
-     var $column_search = array('kd_perusahaan', 'nama_perusahaan', 'alamat_perusahaan', 'ket_perusahaan', 'stat_perusahaan', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
-     var $order = array('kd_perusahaan' => 'desc'); // default order 
+     var $column_order = array(null, 'kode_perusahaan', 'nama_perusahaan', 'alamat_perusahaan', 'ket_perusahaan', 'stat_perusahaan', 'tgl_buat', null); //set column field database for datatable orderable
+     var $column_search = array('kode_perusahaan', 'nama_perusahaan', 'alamat_perusahaan', 'ket_perusahaan', 'stat_perusahaan', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
+     var $order = array('kode_perusahaan' => 'desc'); // default order 
 
      public function __construct()
      {
@@ -101,23 +101,23 @@ class Perusahaan_model extends CI_Model
           }
      }
 
-     public function cek_kode($id_perusahaan, $kd_perusahaan)
+     public function cek_kode($kode_perusahaan)
      {
-          $query = $this->db->get_where('tb_perusahaan', ['kd_perusahaan' => $kd_perusahaan, 'id_perusahaan' => $id_perusahaan]);
-          if (!empty($query->result())) {
-               return true;
+          $query = $this->db->get_where('tb_perusahaan', ['kode_perusahaan' => $kode_perusahaan]);
+          if (empty($query->result())) {
+               return 200;
           } else {
-               return false;
+               return 201;
           }
      }
 
-     public function cek_perusahaan($id_perusahaan, $perusahaan)
+     public function cek_perusahaan($nama_perusahaan)
      {
-          $query = $this->db->get_where('tb_perusahaan', ['perusahaan' => $perusahaan, 'id_perusahaan' => $id_perusahaan]);
-          if (!empty($query->result())) {
-               return true;
+          $query = $this->db->get_where('tb_perusahaan', ['nama_perusahaan' => $nama_perusahaan]);
+          if (empty($query->result())) {
+               return 200;
           } else {
-               return false;
+               return 201;
           }
      }
 
@@ -148,7 +148,6 @@ class Perusahaan_model extends CI_Model
 
      public function edit_perusahaan($kd_perusahaan, $perusahaan, $ket_perusahaan, $status)
      {
-          $id_perusahaan = $this->session->userdata('id_perusahaan');
           $id_perusahaan = $this->session->userdata('id_perusahaan');
 
           $query = $this->db->query("SELECT * FROM tb_perusahaan WHERE kd_perusahaan='" . $kd_perusahaan . "' AND id_perusahaan=" . $id_perusahaan . " AND id_perusahaan <> " . $id_perusahaan);
