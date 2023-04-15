@@ -16,7 +16,7 @@ class Perusahaan extends My_Controller
           $data['menu'] = $this->session->userdata("id_menu");
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/perusahaan/perusahaan');
-          $this->load->view('dashboard/modal/mdlform');
+          $this->load->view('dashboard/modal/perusahaan');
           $this->load->view('dashboard/template/footer', $data);
           $this->load->view('dashboard/code/perusahaan');
      }
@@ -28,7 +28,6 @@ class Perusahaan extends My_Controller
           $data['menu'] = $this->session->userdata("id_menu");
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/perusahaan/perusahaan_add');
-          $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
           $this->load->view('dashboard/code/perusahaan');
      }
@@ -78,9 +77,6 @@ class Perusahaan extends My_Controller
 
      public function input_perusahaan()
      {
-
-
-
           $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
                'required' => 'Kode wajib diisi',
                'max_length' => 'Kode maksimal 8 karakter'
@@ -100,9 +96,9 @@ class Perusahaan extends My_Controller
                'required' => 'Provinsi wajib dipilih',
                'max_length' => 'Provinsi maksimal 3 karakter'
           ]);
-          $this->form_validation->set_rules("kab", "kab", "required|trim|max_length[6]", [
+          $this->form_validation->set_rules("kab", "kab", "required|trim|max_length[7]", [
                'required' => 'Kabupaten wajib dipilih',
-               'max_length' => 'Kabupaten maksimal 6 karakter'
+               'max_length' => 'Kabupaten maksimal 7 karakter'
           ]);
           $this->form_validation->set_rules("kec", "kec", "required|trim|max_length[8]", [
                'required' => 'Kecamatan wajib dipilih',
@@ -121,8 +117,8 @@ class Perusahaan extends My_Controller
           $this->form_validation->set_rules("web", "web", "trim|max_length[100]", [
                'max_length' => 'Website maksimal 100 karakter'
           ]);
-          $this->form_validation->set_rules("npwp", "npwp", "trim|max_length[20]", [
-               'max_length' => 'No. NPWP maksimal 20 karakter'
+          $this->form_validation->set_rules("npwp", "npwp", "trim|max_length[25]", [
+               'max_length' => 'No. NPWP maksimal 25 karakter'
           ]);
           $this->form_validation->set_rules("keg", "keg", "trim|max_length[1000]", [
                'max_length' => 'Kegiatan maksimal 1000 karakter'
@@ -151,7 +147,6 @@ class Perusahaan extends My_Controller
                echo json_encode($error);
                return;
           } else {
-
                $kode_perusahaan = htmlspecialchars($this->input->post("kode", true));
                $nama_perusahaan = htmlspecialchars($this->input->post("perusahaan", true));
                $alamat = htmlspecialchars($this->input->post("alamat", true));
@@ -208,36 +203,6 @@ class Perusahaan extends My_Controller
                } else {
                     echo json_encode(array("statusCode" => 201, "pesan" => "Perusahaan gagal disimpan"));
                }
-
-               // $data = [
-               //      'id_parent' => 0,
-               //      'kode_perusahaan' => 'AAA',
-               //      'nama_perusahaan' => 'AAAAA',
-               //      'alamat_perusahaan' => 'DDDD',
-               //      'kodepos_perusahaan' => '11111',
-               //      'kel_perusahaan' => '10101010',
-               //      'kec_perusahaan' => '101010',
-               //      'kab_perusahaan' => '1010',
-               //      'prov_perusahaan' => '10',
-               //      'telp_perusahaan' => '123123',
-               //      'ket_perusahaan' => 'ASDASD',
-               //      'kegiatan' => 'ASDASD',
-               //      'url_rk3l' => 'ASDAS',
-               //      'email_perusahaan' => 'ihf4n@gmail.com',
-               //      'website_perusahaan' => 'asdas',
-               //      'npwp_perusahaan' => '2134234',
-               //      'stat_perusahaan' => 'T',
-               //      'tgl_buat' => date('Y-m-d H:i:s'),
-               //      'tgl_edit' => date('Y-m-d H:i:s'),
-               //      'id_user' => $this->session->userdata('id_user')
-               // ];
-
-               // $perusahaan = $this->prs->input_perusahaan($data);
-               // if ($perusahaan) {
-               //      echo json_encode(array("statusCode" => 200, "pesan" => "Perusahaan berhasil disimpan"));
-               // } else {
-               //      echo json_encode(array("statusCode" => 201, "pesan" => "Perusahaan gagal disimpan"));
-               // }
           }
      }
 
@@ -251,8 +216,11 @@ class Perusahaan extends My_Controller
           } else if ($query == 201) {
                echo json_encode(array("statusCode" => 201, "pesan" => "Perusahaan gagal dihapus"));
                return;
+          } else if ($query == 203) {
+               echo json_encode(array("statusCode" => 203, "pesan" => "Perusahaan tidak dapat dihapus, ada pada struktur perusahaan"));
+               return;
           } else {
-               echo json_encode(array("statusCode" => 202, "pesan" => "P{erusahaan tidak ditemukan"));
+               echo json_encode(array("statusCode" => 202, "pesan" => "Perusahaan tidak ditemukan"));
                return;
           }
      }
@@ -269,20 +237,83 @@ class Perusahaan extends My_Controller
                          $status = "NONAKTIF";
                     }
 
+                    $prov = $this->drh->get_prov_by_id($list->prov_perusahaan);
+                    $kab = $this->drh->get_kab_by_id($list->kab_perusahaan);
+                    $kec = $this->drh->get_kec_by_id($list->kec_perusahaan);
+                    $kel = $this->drh->get_kel_by_id($list->kel_perusahaan);
+
+                    if ($list->kodepos_perusahaan == 0) {
+                         $kodepos = "";
+                    } else {
+                         $kodepos = " " . $list->kodepos_perusahaan;
+                    }
+
                     $data = [
                          'statusCode' => 200,
-                         'nama_perusahaan' => $list->nama_perusahaan,
-                         'kode' => $list->kd_perusahaan,
-                         'perusahaan' => $list->perusahaan,
-                         'alamat_perusahaan' => $list->alamat_perusahaan,
+                         'kode' => $list->kode_perusahaan,
+                         'perusahaan' => $list->nama_perusahaan,
+                         'alamat' => $list->alamat_perusahaan . ", KEL. " . $kel . ", KEC. " . $kec . ", " . $kab . ", " . $prov . $kodepos,
+                         'telp' => $list->telp_perusahaan,
+                         'email' => $list->email_perusahaan,
+                         'web' => $list->website_perusahaan,
+                         'npwp' => $list->npwp_perusahaan,
+                         'keg' => $list->kegiatan,
                          'ket' => $list->ket_perusahaan,
                          'status' => $status,
                          'tgl_buat' => date('d-M-Y H:i:s', strtotime($list->tgl_buat)),
+                         'tgl_edit' => date('d-M-Y H:i:s', strtotime($list->tgl_edit)),
                          'pembuat' => $list->nama_user
                     ];
 
-                    $this->session->set_userdata('id_parent_prs', $list->id_parent);
                     $this->session->set_userdata('id_perusahaan_prs', $list->id_perusahaan);
+               }
+               echo json_encode($data);
+          } else {
+               echo json_encode(array('statusCode' => 201, "pesan" => "Perusahaan tidak ditemukan"));
+          }
+     }
+
+     public function edit_detail_perusahaan()
+     {
+          $auth_perusahaan = htmlspecialchars(trim($this->input->post("auth_perusahaan")));
+          $query = $this->prs->get_perusahaan_id($auth_perusahaan);
+          if (!empty($query)) {
+               foreach ($query as $list) {
+                    if ($list->stat_perusahaan == "T") {
+                         $status = "AKTIF";
+                    } else {
+                         $status = "NONAKTIF";
+                    }
+
+                    if ($list->kodepos_perusahaan == 0) {
+                         $kodepos = "";
+                    } else {
+                         $kodepos = $list->kodepos_perusahaan;
+                    }
+
+                    $data = [
+                         'statusCode' => 200,
+                         'judul' => "Edit Perusahaan | " . $list->nama_perusahaan,
+                         'kode' => $list->kode_perusahaan,
+                         'perusahaan' => $list->nama_perusahaan,
+                         'alamat' => $list->alamat_perusahaan,
+                         'kodepos' => $kodepos,
+                         'kel' => $list->kel_perusahaan,
+                         'kec' => $list->kec_perusahaan,
+                         'kab' => $list->kab_perusahaan,
+                         'prov' => $list->prov_perusahaan,
+                         'telp' => $list->telp_perusahaan,
+                         'email' => $list->email_perusahaan,
+                         'web' => $list->website_perusahaan,
+                         'npwp' => $list->npwp_perusahaan,
+                         'keg' => $list->kegiatan,
+                         'ket' => $list->ket_perusahaan,
+                         'status' => $status,
+                         'tgl_buat' => date('d-M-Y H:i:s', strtotime($list->tgl_buat)),
+                         'tgl_edit' => date('d-M-Y H:i:s', strtotime($list->tgl_edit)),
+                         'pembuat' => $list->nama_user
+                    ];
+                    $this->session->set_userdata('id_perusahaan_prs_edit', $list->id_perusahaan);
                }
                echo json_encode($data);
           } else {
@@ -300,44 +331,120 @@ class Perusahaan extends My_Controller
                'required' => 'Perusahaan wajib diisi',
                'max_length' => 'Perusahaan maksimal 100 karakter'
           ]);
+          $this->form_validation->set_rules("alamat", "alamat", "required|trim|max_length[100]", [
+               'required' => 'Alamat wajib diisi',
+               'max_length' => 'Alamat maksimal 100 karakter'
+          ]);
+          $this->form_validation->set_rules("kodepos", "kodepos", "trim|max_length[6]", [
+               'max_length' => 'Alamat maksimal 6 karakter'
+          ]);
+          $this->form_validation->set_rules("prov", "prov", "required|trim|max_length[3]", [
+               'required' => 'Provinsi wajib dipilih',
+               'max_length' => 'Provinsi maksimal 3 karakter'
+          ]);
+          $this->form_validation->set_rules("kab", "kab", "required|trim|max_length[7]", [
+               'required' => 'Kabupaten wajib dipilih',
+               'max_length' => 'Kabupaten maksimal 7 karakter'
+          ]);
+          $this->form_validation->set_rules("kec", "kec", "required|trim|max_length[8]", [
+               'required' => 'Kecamatan wajib dipilih',
+               'max_length' => 'Kecamatan maksimal 8 karakter'
+          ]);
+          $this->form_validation->set_rules("kel", "kel", "required|trim|max_length[10]", [
+               'required' => 'Kelurahan wajib dipilih',
+               'max_length' => 'Kelurahan maksimal 10 karakter'
+          ]);
+          $this->form_validation->set_rules("telp", "telp", "trim|max_length[15]", [
+               'max_length' => 'No. Telp maksimal 15 karakter'
+          ]);
+          $this->form_validation->set_rules("email", "email", "trim|valid_email", [
+               'valid_email' => 'Format email tidak sesuai'
+          ]);
+          $this->form_validation->set_rules("web", "web", "trim|max_length[100]", [
+               'max_length' => 'Website maksimal 100 karakter'
+          ]);
+          $this->form_validation->set_rules("npwp", "npwp", "trim|max_length[25]", [
+               'max_length' => 'No. NPWP maksimal 25 karakter'
+          ]);
+          $this->form_validation->set_rules("keg", "keg", "trim|max_length[1000]", [
+               'max_length' => 'Kegiatan maksimal 1000 karakter'
+          ]);
           $this->form_validation->set_rules("ket", "ket", "trim|max_length[1000],[
                'max_length' => 'Keterangan maksimal 1000 karakter'
           ]");
-          $this->form_validation->set_rules("status", "status", "required|trim", [
-               'required' => 'Status wajib dipilih'
-          ]);
 
           if ($this->form_validation->run() == false) {
                $error = [
                     'statusCode' => 202,
                     'kode' => form_error("kode"),
                     'perusahaan' => form_error("perusahaan"),
-                    'status' => form_error("status")
+                    'alamat' => form_error("alamat"),
+                    'kodepos' => form_error("kodepos"),
+                    'prov' => form_error("prov"),
+                    'kab' => form_error("kab"),
+                    'kec' => form_error("kec"),
+                    'kel' => form_error("kel"),
+                    'telp' => form_error("telp"),
+                    'email' => form_error("email"),
+                    'web' => form_error("web"),
+                    'npwp' => form_error("npwp"),
+                    'keg' => form_error("keg"),
+                    'ket' => form_error("ket"),
                ];
 
                echo json_encode($error);
                die;
           } else {
-               if ($this->session->userdata('id_perusahaan') == "") {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "Perusahaan tidak terdaftar"));
-                    return;
-               }
-
-               if ($this->session->userdata('id_perusahaan') == "") {
+               if ($this->session->userdata('id_perusahaan_prs_edit') == "") {
                     echo json_encode(array("statusCode" => 201, "pesan" => "Perusahaan tidak ditemukan"));
                     return;
                }
 
-               $kd_perusahaan = htmlspecialchars($this->input->post("kode", true));
-               $perusahaan = htmlspecialchars($this->input->post("perusahaan", true));
-               $ket_perusahaan = htmlspecialchars($this->input->post("ket", true));
-               if (htmlspecialchars($this->input->post("status", true)) == "AKTIF") {
-                    $status = "T";
-               } else {
-                    $status = "F";
-               }
+               $id_perusahaan = $this->session->userdata('id_perusahaan_prs_edit');
+               $kode_perusahaan = htmlspecialchars($this->input->post("kode", true));
+               $nama_perusahaan = htmlspecialchars($this->input->post("perusahaan", true));
+               $alamat = htmlspecialchars($this->input->post("alamat", true));
+               $kodepos = htmlspecialchars($this->input->post("kodepos", true));
+               $prov = htmlspecialchars($this->input->post("prov", true));
+               $kab = htmlspecialchars($this->input->post("kab", true));
+               $kec = htmlspecialchars($this->input->post("kec", true));
+               $kel = htmlspecialchars($this->input->post("kel", true));
+               $telp = htmlspecialchars($this->input->post("telp", true));
+               $email = htmlspecialchars($this->input->post("email", true));
+               $web = htmlspecialchars($this->input->post("web", true));
+               $npwp = htmlspecialchars($this->input->post("npwp", true));
+               $keg = htmlspecialchars($this->input->post("keg", true));
+               $ket = htmlspecialchars($this->input->post("ket", true));
+               $status = htmlspecialchars($this->input->post("status", true));
 
-               $perusahaan = $this->prs->edit_perusahaan($kd_perusahaan, $perusahaan, $ket_perusahaan, $status);
+               $data = array(
+                    'id_parent' => 0,
+                    'kode_perusahaan' => $kode_perusahaan,
+                    'nama_perushaaan' => $nama_perusahaan,
+                    'alamat_perusahaan' => $alamat,
+                    'kel_perusahaan' => $kel,
+                    'kec_perusahaan' => $kec,
+                    'kab_perusahaan' => $kab,
+                    'prov_perusahaan' => $prov,
+                    'kodepos_perusahaan' => $kodepos,
+                    'telp_perusahaan' => $telp,
+                    'email_perusahaan' => $email,
+                    'website_perusahaan' => $web,
+                    'npwp_perusahaan' => $npwp,
+                    'stat_perusahaan' => $status,
+                    'ket_perusahaan' => $ket,
+                    'kegiatan' => $keg,
+                    'url_rk3l' => '',
+                    'tgl_edit' => date('Y-m-d H:i:s'),
+               );
+
+               $where = array(
+                    'id_perusahaan' => $id_perusahaan
+               );
+
+               $perusahaan = $this->prs->edit_data_perusahaan($where, $data);
+
+               // $perusahaan = $this->prs->edit_perusahaan($kd_perusahaan, $perusahaan, $ket_perusahaan, $status);
                if ($perusahaan == 200) {
                     echo json_encode(array("statusCode" => 200, "pesan" => "Perusahaan berhasil diupdate"));
                } else if ($perusahaan == 201) {

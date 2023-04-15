@@ -89,60 +89,73 @@
                                    <div class="col-lg-2 col-md-2 col-sm-12">
                                         <div class="form-group fill">
                                              <label for="kodeposPerusahaan" class="floating-label">Kodepos :</label>
-                                             <input id='kodeposPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
+                                             <input id='kodeposPerusahaan' type="number" autocomplete="off" spellcheck="false" class="form-control" value="">
                                              <small class="error4 text-danger font-italic font-weight-bold"></small>
                                         </div>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <label for="provPerusahaan">Provinsi :</label><br>
-                                        <select id='provPerusahaan' name='provPerusahaan' class="form-control" required>
-                                             <option value="">-- PILIH PROVINSI --</option>
-                                        </select>
+                                        <div class="input-group">
+                                             <select id='provPerusahaan' name='provPerusahaan' class="form-control" required>
+                                                  <option value="">-- PILIH PROVINSI --</option>
+                                             </select>
+                                             <button class="btn btn-primary btn-sm feather icon-refresh-ccw refprov" title="Reload Provinsi"></button>
+                                        </div>
+
                                         <small class="error5 text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <label for="kabPerusahaan">Kabupaten/Kota :</label><br>
-                                        <select id='kabPerusahaan' name='kabPerusahaan' class="form-control" required>
-                                             <option value="">-- KABUPATEN TIDAK DITEMUKAN --</option>
-                                        </select>
+                                        <div class="input-group">
+                                             <select id='kabPerusahaan' name='kabPerusahaan' class="form-control" required>
+                                                  <option value="">-- KABUPATEN TIDAK DITEMUKAN --</option>
+                                             </select>
+                                             <button class="btn btn-primary btn-sm feather icon-refresh-ccw refkab" title="Reload Kabupaten"></button>
+                                        </div>
                                         <small class="error6 text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
                                         <label for="kecPerusahaan">Kecamatan :</label><br>
-                                        <select id='kecPerusahaan' name='kecPerusahaan' class="form-control" required>
-                                             <option value="">-- KECAMATAN TIDAK DITEMUKAN --</option>
-                                        </select>
+                                        <div class="input-group">
+                                             <select id='kecPerusahaan' name='kecPerusahaan' class="form-control" required>
+                                                  <option value="">-- KECAMATAN TIDAK DITEMUKAN --</option>
+                                             </select>
+                                             <button class="btn btn-primary btn-sm feather icon-refresh-ccw refkec" title="Reload Kecamatan"></button>
+                                        </div>
                                         <small class="error7 text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
                                         <label for="kelPerusahaan">Kelurahan :</label><br>
-                                        <select id='kelPerusahaan' name='kelPerusahaan' class="form-control" required>
-                                             <option value="">-- KELURAHAN TIDAK DITEMUKAN --</option>
-                                        </select>
+                                        <div class="input-group">
+                                             <select id='kelPerusahaan' name='kelPerusahaan' class="form-control" required>
+                                                  <option value="">-- KELURAHAN TIDAK DITEMUKAN --</option>
+                                             </select>
+                                             <button class="btn btn-primary btn-sm feather icon-refresh-ccw refkel" title="Reload Kelurahan"></button>
+                                        </div>
                                         <small class="error8 text-danger font-italic font-weight-bold"></small>
                                    </div>
-                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
                                         <div class="form-group fill">
                                              <label for="telpPerusahaan" class="floating-label">No. Telpon :</label>
                                              <input id='telpPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
                                         </div>
                                         <small class="error9 text-danger font-italic font-weight-bold"></small>
                                    </div>
-                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
                                         <div class="form-group fill">
                                              <label for="emailPerusahaan" class="floating-label">Email :</label>
                                              <input id='emailPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
                                              <small class="error10 text-danger font-italic font-weight-bold"></small>
                                         </div>
                                    </div>
-                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
                                         <div class="form-group fill">
                                              <label for="webPerusahaan" class="floating-label">Website :</label>
                                              <input id='webPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
                                              <small class="error11 text-danger font-italic font-weight-bold"></small>
                                         </div>
                                    </div>
-                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                   <div class="col-lg-3 col-md-3 col-sm-12 mt-3">
                                         <div class="form-group fill">
                                              <label for="npwpPerusahaan" class="floating-label">No. NPWP :</label>
                                              <input id='npwpPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
