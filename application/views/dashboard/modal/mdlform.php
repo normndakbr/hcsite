@@ -493,11 +493,6 @@
                                         </select>
                                         <small id="error3ep" class="text-danger font-italic font-weight-bold"></small><br>
                                    </div>
-                                   <div class="col-lg-3 col-md-3 col-sm-12">
-                                        <label for="editPosisiKode">Kode :</label><br>
-                                        <input id='editPosisiKode' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user bg-white" value="">
-                                        <small id="error1ep" class="text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <label for="editPosisi">Posisi :</label><br>
                                         <input id='editPosisi' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user bg-white" value="">
@@ -707,11 +702,6 @@
                                              <option value="">-- Pilih Level --</option>
                                         </select>
                                         <small id="error3eg" class="text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-4 col-md-4 col-sm-12">
-                                        <label for="editGradeKode">Kode :</label><br>
-                                        <input id='editGradeKode' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                        <small id="error1eg" class="text-danger font-italic font-weight-bold"></small><br>
                                    </div>
                                    <div class="col-lg-2 col-md-2 col-sm-12">
                                         <label for="editGrade">Grade :</label><br>
@@ -1010,12 +1000,7 @@
                          <div class="col-lg-12">
                               <div class="alert alert-danger err_psn_edit_bank animate__animated animate__bounce d-none"></div>
                               <div class="row">
-                                   <div class="col-lg-3 col-md-3 col-sm-12">
-                                        <label for="editBankKode">Kode :</label><br>
-                                        <input id='editBankKode' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user bg-white" value="">
-                                        <small id="error1ebk" class="text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-6 col-md-6 col-sm-12">
+                                   <div class="col-lg-9 col-md-9 col-sm-12">
                                         <label for="editBank">Bank :</label><br>
                                         <input id='editBank' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user bg-white" value="">
                                         <small id="error2ebk" class="text-danger font-italic font-weight-bold"></small><br>

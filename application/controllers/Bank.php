@@ -43,7 +43,6 @@ class Bank extends My_Controller
                $row = array();
                $row['no'] = $no;
                $row['auth_bank'] = $bnk->auth_bank;
-               $row['kd_bank'] = $bnk->kd_bank;
                $row['bank'] = $bnk->bank;
                $row['ket_bank'] = $bnk->ket_bank;
 
@@ -73,10 +72,6 @@ class Bank extends My_Controller
 
      public function input_bank()
      {
-          $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
-               'required' => 'Kode wajib diisi',
-               'max_length' => 'Kode maksimal 8 karakter'
-          ]);
           $this->form_validation->set_rules("bank", "bank", "required|trim|max_length[100]", [
                'required' => 'bank wajib diisi',
                'max_length' => 'bank maksimal 100 karakter'
@@ -88,7 +83,6 @@ class Bank extends My_Controller
           if ($this->form_validation->run() == false) {
                $error = [
                     'statusCode' => 202,
-                    'kode' => form_error("kode"),
                     'bank' => form_error("bank"),
                     'ket' => form_error("ket")
                ];
@@ -96,15 +90,8 @@ class Bank extends My_Controller
                echo json_encode($error);
                return;
           } else {
-               $kd_bank = htmlspecialchars($this->input->post("kode", true));
                $bank = htmlspecialchars($this->input->post("bank", true));
                $ket_bank = htmlspecialchars($this->input->post("ket"));
-
-               $cekkode = $this->bnk->cek_kode($kd_bank);
-               if ($cekkode) {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "Kode sudah digunakan"));
-                    return;
-               }
 
                $cekbank = $this->bnk->cek_bank($bank);
                if ($cekbank) {
@@ -113,7 +100,6 @@ class Bank extends My_Controller
                }
 
                $data = [
-                    'kd_bank' => $kd_bank,
                     'bank' => $bank,
                     'ket_bank' => $ket_bank,
                     'stat_bank' => 'T',
@@ -161,7 +147,6 @@ class Bank extends My_Controller
 
                     $data = [
                          'statusCode' => 200,
-                         'kode' => $list->kd_bank,
                          'bank' => $list->bank,
                          'ket' => $list->ket_bank,
                          'status' => $status,
@@ -179,10 +164,6 @@ class Bank extends My_Controller
 
      public function edit_bank()
      {
-          $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
-               'required' => 'Kode wajib diisi',
-               'max_length' => 'Kode maksimal 8 karakter'
-          ]);
           $this->form_validation->set_rules("bank", "bank", "required|trim|max_length[100]", [
                'required' => 'Bank wajib diisi',
                'max_length' => 'Bank maksimal 100 karakter'
@@ -197,9 +178,9 @@ class Bank extends My_Controller
           if ($this->form_validation->run() == false) {
                $error = [
                     'statusCode' => 202,
-                    'kode' => form_error("kode"),
                     'bank' => form_error("bank"),
-                    'status' => form_error("status")
+                    'status' => form_error("status"),
+                    'ket' => form_error('ket')
                ];
 
                echo json_encode($error);
@@ -210,7 +191,6 @@ class Bank extends My_Controller
                     return;
                }
 
-               $kd_bank = htmlspecialchars($this->input->post("kode", true));
                $bank = htmlspecialchars($this->input->post("bank", true));
                $ket_bank = htmlspecialchars($this->input->post("ket", true));
                if (htmlspecialchars($this->input->post("status", true)) == "AKTIF") {
@@ -219,13 +199,11 @@ class Bank extends My_Controller
                     $status = "F";
                }
 
-               $bank = $this->bnk->edit_bank($kd_bank, $bank, $ket_bank, $status);
+               $bank = $this->bnk->edit_bank($bank, $ket_bank, $status);
                if ($bank == 200) {
                     echo json_encode(array("statusCode" => 200, "pesan" => "Bank berhasil diupdate"));
                } else if ($bank == 201) {
                     echo json_encode(array("statusCode" => 201, "pesan" => "Bank gagal diupdate"));
-               } else if ($bank == 203) {
-                    echo json_encode(array("statusCode" => 203, "pesan" => "Kode sudah digunakan"));
                } else if ($bank == 204) {
                     echo json_encode(array("statusCode" => 205, "pesan" => "Bank sudah digunakan"));
                }

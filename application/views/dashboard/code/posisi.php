@@ -2,7 +2,6 @@
     //========================================== Posisi ========================================================
     $(document).ready(function() {
         $('#btnupdatePosisi').click(function() {
-            let kode = $('#editPosisiKode').val();
             let posisi = $('#editPosisi').val();
             let depart = $('#editPosisiDepart').val();
             let status = $('#editPosisiStatus').val();
@@ -12,7 +11,6 @@
                 type: "POST",
                 url: "<?= base_url('posisi/edit_posisi'); ?>",
                 data: {
-                    kode: kode,
                     posisi: posisi,
                     depart: depart,
                     status: status,
@@ -27,11 +25,9 @@
                         $(".err_psn_posisi").removeClass('alert-danger');
                         $(".err_psn_posisi").addClass('alert-info');
                         $(".err_psn_posisi").html(data.pesan);
-                        $("#editPosisiKode").val('');
                         $("#editPosisi").val('');
                         $("#editPosisiKet").val('');
                         $("#editPosisiStatus").val('');
-                        $("#error1ep").html('');
                         $("#error2ep").html('');
                         $("#error3ep").html('');
                         $("#error4ep").html('');
@@ -48,7 +44,6 @@
                             $(".err_psn_edit_posisi").slideUp(500);
                         });
                     } else if (data.statusCode == 202) {
-                        $("#error1ep").html(data.kode);
                         $("#error2ep").html(data.posisi);
                         $("#error3ep").html(data.depart);
                         $("#error4ep").html(data.status);
@@ -139,7 +134,6 @@
             $("#btnTambahPosisi").click(function() {
                 var prs = $("#perPosisi").val();
                 var depart = $("#depPosisi").val();
-                var kode = $("#kodePosisi").val();
                 var posisi = $("#Posisi").val();
                 var ket = $("#ketPosisi").val();
 
@@ -148,7 +142,6 @@
                     url: "<?= base_url("Posisi/input_Posisi") ?>",
                     data: {
                         prs: prs,
-                        kode: kode,
                         posisi: posisi,
                         depart: depart,
                         ket: ket
@@ -163,12 +156,10 @@
                             $(".err_psn_posisi").html(data.pesan);
                             $("#perPosisi").val('').trigger('change');
                             $("#depPosisi").val('').trigger('change');
-                            $("#kodePosisi").val('');
                             $("#Posisi").val('');
                             $("#ketPosisi").val('');
                             $(".error1").html('');
                             $(".error2").html('');
-                            $(".error3").html('');
                             $(".error4").html('');
                             $(".error5").html('');
                         } else if (data.statusCode == 201) {
@@ -179,7 +170,6 @@
                         } else if (data.statusCode == 202) {
                             $(".error1").html(data.prs);
                             $(".error2").html(data.depart);
-                            $(".error3").html(data.kode);
                             $(".error4").html(data.posisi);
                             $(".error5").html(data.ket);
                         }
@@ -297,7 +287,6 @@
                             if (data.statusCode == 200) {
                                 $("#detailPosisiPerusahaan").val(data.nama_perusahaan);
                                 $("#detailPosisiDepart").val(data.depart);
-                                $("#detailPosisiKode").val(data.kode);
                                 $("#detailPosisi").val(data.posisi);
                                 $("#detailPosisiStatus").val(data.status);
                                 $("#detailPosisiKet").val(data.ket);
@@ -362,13 +351,11 @@
                                             $(".err_psn_edit_dprt").css("display", "block");
                                             $(".err_psn_edit_dprt").html(data.pesan);
                                         }
-                                        $("#editPosisiKode").val(dataPosisi.kode);
                                         $("#editPosisiDepart").val(dataPosisi.auth_depart);
                                         $("#editPosisi").val(dataPosisi.posisi);
                                         $("#editPosisiStatus").val(dataPosisi.status);
                                         $("#editPosisiKet").val(dataPosisi.ket);
                                         $("#editPosisimdl").modal("show");
-                                        $("#error1ep").html('');
                                         $("#error2ep").html('');
                                         $("#error3ep").html('');
                                         $("#error4ep").html('');
@@ -429,7 +416,7 @@
                 "serverSide": true,
                 "ordering": true,
                 "order": [
-                    [5, 'asc'],
+                    [2, 'asc'],
                 ],
                 "ajax": {
                     "url": "<?= base_url('posisi/ajax_list'); ?>",
@@ -456,10 +443,6 @@
                         },
                         "className": "text-center",
                         "width": "1%"
-                    },
-                    {
-                        "data": 'kd_posisi',
-                        "width": "10%"
                     },
                     {
                         "data": 'posisi',

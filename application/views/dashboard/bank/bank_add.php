@@ -62,12 +62,7 @@
                                    <div class="alert alert-danger err_psn_bank animate__animated animate__bounce d-none"></div>
                               </div>
                               <div class="row ">
-                                   <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <label for="kodeBank">Kode :</label>
-                                        <input id='kodeBank' name='kodeBank' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                        <small class="error1 text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-9 col-md-8 col-sm-12">
+                                   <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="Bank">Bank :</label>
                                         <input id='Bank' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
                                         <small class="error2 text-danger font-italic font-weight-bold"></small><br>

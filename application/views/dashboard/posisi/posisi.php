@@ -68,7 +68,6 @@
                                                   <thead>
                                                        <tr class="font-weight-boldtext-white">
                                                             <th style="text-align:center;width:1%;">No.</th>
-                                                            <th>Kode</th>
                                                             <th>Posisi</th>
                                                             <th>Departemen</th>
                                                             <th style="text-align:center;">Status</th>

@@ -2,7 +2,6 @@
     //========================================== Grade ========================================================
     $(document).ready(function() {
         $('#btnupdateGrade').click(function() {
-            let kode = $('#editGradeKode').val();
             let grade = $('#editGrade').val();
             let level = $('#editGradeLevel').val();
             let status = $('#editGradeStatus').val();
@@ -12,7 +11,6 @@
                 type: "POST",
                 url: "<?= base_url('grade/edit_grade'); ?>",
                 data: {
-                    kode: kode,
                     grade: grade,
                     level: level,
                     status: status,
@@ -27,7 +25,6 @@
                         $(".err_psn_grade").removeClass('alert-danger');
                         $(".err_psn_grade").addClass('alert-info');
                         $(".err_psn_grade").html(data.pesan);
-                        $("#editGradeKode").val('');
                         $("#editGrade").val('');
                         $("#editGradeKet").val('');
                         $("#editGradeStatus").val('');
@@ -47,13 +44,11 @@
                         $(".err_psn_edit_grade").fadeTo(3000, 500).slideUp(500, function() {
                             $(".err_psn_edit_grade").slideUp(500);
                         });
-                        $("#error1eg").html('');
                         $("#error2eg").html('');
                         $("#error3eg").html('');
                         $("#error4eg").html('');
                         $("#error5eg").html('');
                     } else if (data.statusCode == 202) {
-                        $("#error1eg").html(data.kode);
                         $("#error2eg").html(data.grade);
                         $("#error3eg").html(data.level);
                         $("#error4eg").html(data.status);
@@ -143,7 +138,6 @@
             });
             $("#btnTambahGrade").click(function() {
                 let prs = $("#perGrade").val();
-                let kode = $("#kodeGrade").val();
                 let level = $("#lvlGrade").val();
                 let grade = $("#Grade").val();
                 let ket = $("#ketGrade").val();
@@ -153,7 +147,6 @@
                     url: "<?= base_url("grade/input_grade") ?>",
                     data: {
                         prs: prs,
-                        kode: kode,
                         level: level,
                         grade: grade,
                         ket: ket
@@ -168,12 +161,10 @@
                             $(".err_psn_grade").html(data.pesan);
                             $("#perGrade").val('').trigger('change');
                             $("#depGrade").val('').trigger('change');
-                            $("#kodeGrade").val('');
                             $("#Grade").val('');
                             $("#ketGrade").val('');
                             $(".error1").html('');
                             $(".error2").html('');
-                            $(".error3").html('');
                             $(".error4").html('');
                             $(".error5").html('');
                         } else if (data.statusCode == 201) {
@@ -184,7 +175,6 @@
                         } else if (data.statusCode == 202) {
                             $(".error1").html(data.prs);
                             $(".error2").html(data.level);
-                            $(".error3").html(data.kode);
                             $(".error4").html(data.grade);
                             $(".error5").html(data.ket);
                         }
@@ -301,7 +291,6 @@
                             if (data.statusCode == 200) {
                                 $("#detailGradePerusahaan").val(data.nama_perusahaan);
                                 $("#detailGradeLevel").val(data.level);
-                                $("#detailGradeKode").val(data.kode);
                                 $("#detailGrade").val(data.grade);
                                 $("#detailGradeStatus").val(data.status);
                                 $("#detailGradeKet").val(data.ket);
@@ -367,7 +356,6 @@
                                             $(".err_psn_edit_dprt").css("display", "block");
                                             $(".err_psn_edit_dprt").html(data.pesan);
                                         }
-                                        $("#editGradeKode").val(dataGrade.kode);
                                         $("#editGrade").val(dataGrade.grade);
                                         $("#editGradeLevel").val(dataGrade.auth_level);
                                         $("#editGradeStatus").val(dataGrade.status);
@@ -434,7 +422,7 @@
                 "serverSide": true,
                 "ordering": true,
                 "order": [
-                    [2, 'asc'],
+                    [1, 'asc'],
                 ],
                 "ajax": {
                     "url": "<?= base_url('grade/ajax_list'); ?>",
@@ -461,10 +449,6 @@
                         },
                         "className": "text-center",
                         "width": "1%"
-                    },
-                    {
-                        "data": 'kd_grade',
-                        "width": "10%"
                     },
                     {
                         "data": 'grade',

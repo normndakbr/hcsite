@@ -79,12 +79,7 @@
                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <hr>
                                    </div>
-                                   <div class="col-lg-3 col-md-4 col-sm-12">
-                                        <label for="kodeGrade">Kode :</label>
-                                        <input id='kodeGrade' name='kodeGrade' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
-                                        <small class="error3 text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-9 col-md-8 col-sm-12">
+                                   <div class="col-lg-2 col-md-2 col-sm-12">
                                         <label for="Grade">Grade :</label>
                                         <input id='Grade' type="number" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="" required>
                                         <small class="error4 text-danger font-italic font-weight-bold"></small><br>

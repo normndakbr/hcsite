@@ -43,7 +43,6 @@ class Grade extends My_Controller
                $row = array();
                $row['no'] = $no;
                $row['auth_grade'] = $grd->auth_grade;
-               $row['kd_grade'] = $grd->kd_grade;
                $row['grade'] = $grd->grade;
                $row['level'] = $grd->level;
                $row['ket_grade'] = $grd->ket_grade;
@@ -82,10 +81,6 @@ class Grade extends My_Controller
           $this->form_validation->set_rules("level", "level", "required|trim", [
                'required' => 'Level wajib dipilih'
           ]);
-          $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
-               'required' => 'Kode wajib diisi',
-               'max_length' => 'Kode maksimal 8 karakter'
-          ]);
           $this->form_validation->set_rules("grade", "grade", "required|trim|max_length[4]|integer", [
                'required' => 'Grade wajib diisi',
                'max_length' => 'Grade maksimal 100 karakter',
@@ -99,7 +94,6 @@ class Grade extends My_Controller
                     'statusCode' => 202,
                     'prs' => form_error("prs"),
                     'level' => form_error("level"),
-                    'kode' => form_error("kode"),
                     'grade' => form_error("grade"),
                     'ket' => form_error("ket")
                ];
@@ -109,7 +103,6 @@ class Grade extends My_Controller
           } else {
                $auth_perusahaan = htmlspecialchars($this->input->post("prs", true));
                $auth_level = htmlspecialchars($this->input->post("level", true));
-               $kd_grade = htmlspecialchars($this->input->post("kode", true));
                $grade = htmlspecialchars($this->input->post("grade", true));
                $ket_grade = htmlspecialchars($this->input->post("ket"));
                $id_perusahaan = $this->prs->get_by_auth($auth_perusahaan);
@@ -130,7 +123,6 @@ class Grade extends My_Controller
                }
 
                $data = [
-                    'kd_grade' => $kd_grade,
                     'grade' => $grade,
                     'id_level' => $id_level,
                     'ket_grade' => $ket_grade,
@@ -187,7 +179,6 @@ class Grade extends My_Controller
                     $data = [
                          'statusCode' => 200,
                          'nama_perusahaan' => $list->nama_perusahaan,
-                         'kode' => $list->kd_grade,
                          'grade' => $list->grade,
                          'level' =>  $list->level,
                          'auth_level' =>  $auth_level,
@@ -208,10 +199,6 @@ class Grade extends My_Controller
 
      public function edit_grade()
      {
-          $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
-               'required' => 'Kode wajib diisi',
-               'max_length' => 'Kode maksimal 8 karakter'
-          ]);
           $this->form_validation->set_rules("grade", "grade", "required|trim|max_length[10]|integer", [
                'required' => 'Grade wajib diisi',
                'max_length' => 'Grade maksimal 10 karakter',
@@ -230,7 +217,6 @@ class Grade extends My_Controller
           if ($this->form_validation->run() == false) {
                $error = [
                     'statusCode' => 202,
-                    'kode' => form_error("kode"),
                     'level' => form_error("level"),
                     'grade' => form_error("grade"),
                     'status' => form_error("status"),
@@ -250,7 +236,6 @@ class Grade extends My_Controller
                     return;
                }
 
-               $kd_grade = htmlspecialchars($this->input->post("kode", true));
                $grade = htmlspecialchars($this->input->post("grade", true));
                $level = htmlspecialchars($this->input->post("level", true));
                $ket_grade = htmlspecialchars($this->input->post("ket", true));
@@ -265,13 +250,11 @@ class Grade extends My_Controller
                     return;
                }
 
-               $grad = $this->grd->edit_grade($kd_grade, $grade, $level, $ket_grade, $status);
+               $grad = $this->grd->edit_grade($grade, $level, $ket_grade, $status);
                if ($grad == 200) {
                     echo json_encode(array("statusCode" => 200, "pesan" => "Grade berhasil diupdate"));
                } else if ($grad == 201) {
                     echo json_encode(array("statusCode" => 201, "pesan" => "Grade gagal diupdate"));
-               } else if ($grad == 203) {
-                    echo json_encode(array("statusCode" => 203, "pesan" => "Kode sudah digunakan"));
                } else if ($grad == 204) {
                     echo json_encode(array("statusCode" => 205, "pesan" => "Grade dengan level yang dipilih sudah digunakan"));
                }

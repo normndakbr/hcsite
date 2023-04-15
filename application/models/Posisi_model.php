@@ -5,9 +5,9 @@ class Posisi_model extends CI_Model
 {
 
      var $table = 'vw_posisi';
-     var $column_order = array(null, 'kd_posisi', 'posisi', 'depart', 'ket_posisi', 'stat_posisi', 'tgl_buat', null); //set column field database for datatable orderable
-     var $column_search = array('kd_posisi', 'posisi', 'depart', 'ket_posisi', 'stat_posisi', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
-     var $order = array('kd_posisi' => 'desc'); // default order 
+     var $column_order = array(null, 'posisi', 'depart', 'ket_posisi', 'stat_posisi', 'tgl_buat', null); //set column field database for datatable orderable
+     var $column_search = array('posisi', 'depart', 'ket_posisi', 'stat_posisi', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
+     var $order = array('id_perusahaan' => 'desc'); // default order 
 
      public function __construct()
      {
@@ -101,16 +101,6 @@ class Posisi_model extends CI_Model
           }
      }
 
-     public function cek_kode($id_perusahaan, $kd_posisi)
-     {
-          $query = $this->db->get_where('tb_posisi', ['kd_posisi' => $kd_posisi, 'id_perusahaan' => $id_perusahaan]);
-          if (!empty($query->result())) {
-               return true;
-          } else {
-               return false;
-          }
-     }
-
      public function cek_posisi($id_perusahaan, $posisi)
      {
           $query = $this->db->get_where('tb_posisi', ['posisi' => $posisi, 'id_perusahaan' => $id_perusahaan]);
@@ -146,7 +136,7 @@ class Posisi_model extends CI_Model
           return $query->result();
      }
 
-     public function edit_posisi($kd_posisi, $posisi, $depart, $ket_posisi, $status)
+     public function edit_posisi($posisi, $depart, $ket_posisi, $status)
      {
           $id_perusahaan = $this->session->userdata('id_perusahaan');
           $id_posisi = $this->session->userdata('id_posisi');
@@ -160,13 +150,6 @@ class Posisi_model extends CI_Model
                $id_depart = 0;
           }
 
-          $query = $this->db->query("SELECT * FROM tb_posisi WHERE kd_posisi='" . $kd_posisi .
-               "' AND id_perusahaan=" . $id_perusahaan . " AND id_depart=" . $id_depart .
-               " AND id_posisi <> " . $id_posisi);
-          if (!empty($query->result())) {
-               return 203;
-          }
-
           $query = $this->db->query("SELECT * FROM tb_posisi WHERE posisi='" . $posisi .
                "' AND id_perusahaan=" . $id_perusahaan . " AND id_depart=" . $id_depart .
                " AND id_posisi <> " . $id_posisi);
@@ -174,7 +157,6 @@ class Posisi_model extends CI_Model
                return 204;
           }
 
-          $this->db->set('kd_posisi', $kd_posisi);
           $this->db->set('posisi', $posisi);
           $this->db->set('id_depart', $id_depart);
           $this->db->set('ket_posisi', $ket_posisi);

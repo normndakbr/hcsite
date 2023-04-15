@@ -2,7 +2,6 @@
     //========================================== Bank ========================================================
     $(document).ready(function() {
         $('#btnupdateBank').click(function() {
-            let kode = $('#editBankKode').val();
             let bank = $('#editBank').val();
             let status = $('#editBankStatus').val();
             let ket = $('#editBankKet').val();
@@ -11,7 +10,6 @@
                 type: "POST",
                 url: "<?= base_url('bank/edit_bank'); ?>",
                 data: {
-                    kode: kode,
                     bank: bank,
                     status: status,
                     ket: ket
@@ -25,7 +23,6 @@
                         $(".err_psn_bank").removeClass('alert-danger');
                         $(".err_psn_bank").addClass('alert-info');
                         $(".err_psn_bank").html(data.pesan);
-                        $("#editBankKode").val('');
                         $("#editBank").val('');
                         $("#editBankKet").val('');
                         $("#editBankStatus").val('');
@@ -44,12 +41,10 @@
                         $(".err_psn_edit_bank").fadeTo(3000, 500).slideUp(500, function() {
                             $(".err_psn_edit_bank").slideUp(500);
                         });
-                        $("#error1ebk").html('');
                         $("#error2ebk").html('');
                         $("#error3ebk").html('');
                         $("#error4ebk").html('');
                     } else if (data.statusCode == 202) {
-                        $("#error1ebk").html(data.kode);
                         $("#error2ebk").html(data.bank);
                         $("#error3ebk").html(data.status);
                         $("#error4ebk").html(data.ket);
@@ -79,7 +74,6 @@
         $.LoadingOverlay("hide");
 
         $("#btnBatalBank").click(function() {
-            $("#kodeBank").val('');
             $("#Bank").val('');
             $("#ketBank").val('');
             $(".error1").html('');
@@ -88,7 +82,6 @@
         });
 
         $("#btnTambahBank").click(function() {
-            var kode = $("#kodeBank").val();
             var bank = $("#Bank").val();
             var ket = $("#ketBank").val();
 
@@ -96,7 +89,6 @@
                 type: "POST",
                 url: "<?= base_url("bank/input_bank") ?>",
                 data: {
-                    kode: kode,
                     bank: bank,
                     ket: ket
                 },
@@ -108,10 +100,8 @@
                         $(".err_psn_bank").removeClass('alert-danger');
                         $(".err_psn_bank").addClass('alert-info');
                         $(".err_psn_bank").html(data.pesan);
-                        $("#kodeBank").val('');
                         $("#Bank").val('');
                         $("#ketBank").val('');
-                        $(".error1").html('');
                         $(".error2").html('');
                         $(".error3").html('');
                     } else if (data.statusCode == 201) {
@@ -120,7 +110,6 @@
                         $(".err_psn_bank").addClass('alert-danger');
                         $(".err_psn_bank").html(data.pesan);
                     } else if (data.statusCode == 202) {
-                        $(".error1").html(data.kode);
                         $(".error2").html(data.bank);
                         $(".error3").html(data.ket);
                     }
@@ -241,7 +230,6 @@
                     success: function(data) {
                         var data = JSON.parse(data);
                         if (data.statusCode == 200) {
-                            $("#detailBankKode").val(data.kode);
                             $("#detailBank").val(data.bank);
                             $("#detailBankStatus").val(data.status);
                             $("#detailBankKet").val(data.ket);
@@ -290,7 +278,6 @@
                     success: function(data) {
                         var dataBank = JSON.parse(data);
                         if (dataBank.statusCode == 200) {
-                            $("#editBankKode").val(dataBank.kode);
                             $("#editBank").val(dataBank.bank);
                             $("#editBankStatus").val(dataBank.status);
                             $("#editBankKet").val(dataBank.ket);
@@ -364,11 +351,6 @@
                     },
                     "className": "text-center align-middle",
                     "width": "1%"
-                },
-                {
-                    "data": 'kd_bank',
-                    "className": "text-nowrap align-middle",
-                    "width": "10%"
                 },
                 {
                     "data": 'bank',
