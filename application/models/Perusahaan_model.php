@@ -123,20 +123,25 @@ class Perusahaan_model extends CI_Model
 
      public function hapus_perusahaan($auth_perusahaan)
      {
-          $cek_id = $this->db->get_where('vw_perusahaan', ['auth_perusahaan' => $auth_perusahaan]);
-          if (!empty($cek_id->result())) {
-               foreach ($cek_id->result() as $list) {
-                    $id_perusahaan = $list->id_perusahaan;
-               }
-
-               $this->db->delete('tb_perusahaan', ['id_perusahaan' => $id_perusahaan]);
-               if ($this->db->affected_rows() > 0) {
-                    return 200;
-               } else {
-                    return 201;
-               }
+          $cekper = $this->get_m_per_auth($auth_perusahaan);
+          if (!empty($cekper)) {
+               return 203;
           } else {
-               return 202;
+               $cek_id = $this->db->get_where('vw_perusahaan', ['auth_perusahaan' => $auth_perusahaan]);
+               if (!empty($cek_id->result())) {
+                    foreach ($cek_id->result() as $list) {
+                         $id_perusahaan = $list->id_perusahaan;
+                    }
+
+                    $this->db->delete('tb_perusahaan', ['id_perusahaan' => $id_perusahaan]);
+                    if ($this->db->affected_rows() > 0) {
+                         return 200;
+                    } else {
+                         return 201;
+                    }
+               } else {
+                    return 202;
+               }
           }
      }
 
@@ -144,6 +149,32 @@ class Perusahaan_model extends CI_Model
      {
           $query = $this->db->get_where('vw_perusahaan', ['auth_perusahaan' => $auth_perusahaan]);
           return $query->result();
+     }
+
+     public function get_m_per_auth($auth_perusahaan)
+     {
+          $query = $this->db->get_where('vw_m_perusahaan', ['auth_perusahaan' => $auth_perusahaan]);
+
+          if (!empty($query->result())) {
+               foreach ($query->result() as $list) {
+                    $nama_perusahaan = $list->nama_perusahaan;
+               }
+          } else {
+               $nama_perusahaan = "";
+          }
+
+          return $nama_perusahaan;
+     }
+
+     function edit_data_perusahaan($where, $data)
+     {
+          $this->db->where($where);
+          $this->db->update('tb_perusahaan', $data);
+          if ($this->db->affected_rows() > 0) {
+               return 200;
+          } else {
+               return 201;
+          }
      }
 
      public function edit_perusahaan($kd_perusahaan, $perusahaan, $ket_perusahaan, $status)
