@@ -150,8 +150,9 @@
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="kecamatan">Kecamatan</label>
+                                                                 <label for="kecamatan">Kecamatan</label>
                                                                  <select id="addKecamatan" class="mb-0 form-control" required>
+                                                                      <option value="">Data Tidak Ditemukan</option>
                                                                       <!-- <option value="wni" default>Warga Negara Indonesia (WNI)</option>
                                                                       <option value="wna">Warga Negara Asing (WNA)</option> -->
                                                                  </select>
@@ -160,24 +161,27 @@
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="kelurahan">Kelurahan</label>
+                                                                 <label for="kelurahan">Kelurahan</label>
                                                                  <select id="addKelurahan" class="mb-0 form-control" required>
+                                                                      <option value="">Data Tidak Ditemukan</option>
                                                                  </select>
                                                             </div>
                                                             <small class="errorKelurahan text-danger font-italic font-weight-bold"></small><br>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="kabupaten">Kabupaten</label>
+                                                                 <label for="kabupaten">Kabupaten</label>
                                                                  <select id="addKabupaten" class="mb-0 form-control" required>
+                                                                      <option value="">Data Tidak Ditemukan</option>
                                                                  </select>
                                                             </div>
                                                             <small class="errorKabupaten text-danger font-italic font-weight-bold"></small><br>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="provinsi">Provinsi</label>
+                                                                 <label for="provinsi">Provinsi</label>
                                                                  <select id="addProvinsi" class="mb-0 form-control" required>
+                                                                      <option value="">Data Tidak Ditemukan</option>
                                                                  </select>
                                                             </div>
                                                             <small class="errorProvinsi text-danger font-italic font-weight-bold"></small><br>
@@ -216,7 +220,7 @@
                                                             </div>
                                                        </div>
                                                        <div class="d-flex justify-content-center">
-                                                            <button type="submit" class="btn btn-sm btn-primary ml-3">Tambah Data Kontak Darurat</button>
+                                                            <button type="submit" class="btn btn-primary ml-3">Tambah Data Kontak Darurat</button>
                                                        </div>
                                                   </div>
                                              </form>
