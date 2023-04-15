@@ -43,7 +43,6 @@ class Posisi extends My_Controller
                $row = array();
                $row['no'] = $no;
                $row['auth_posisi'] = $pss->auth_posisi;
-               $row['kd_posisi'] = $pss->kd_posisi;
                $row['posisi'] = $pss->posisi;
                $row['depart'] = $pss->depart;
                $row['ket_posisi'] = $pss->ket_posisi;
@@ -82,10 +81,6 @@ class Posisi extends My_Controller
           $this->form_validation->set_rules("depart", "depart", "required|trim", [
                'required' => 'Departemen wajib dipilih'
           ]);
-          $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
-               'required' => 'Kode wajib diisi',
-               'max_length' => 'Kode maksimal 8 karakter'
-          ]);
           $this->form_validation->set_rules("posisi", "posisi", "required|trim|max_length[100]", [
                'required' => 'Posisi wajib diisi',
                'max_length' => 'Posisi maksimal 100 karakter'
@@ -99,7 +94,6 @@ class Posisi extends My_Controller
                     'statusCode' => 202,
                     'prs' => form_error("prs"),
                     'depart' => form_error("depart"),
-                    'kode' => form_error("kode"),
                     'posisi' => form_error("posisi"),
                     'ket' => form_error("ket")
                ];
@@ -109,7 +103,6 @@ class Posisi extends My_Controller
           } else {
                $auth_perusahaan = htmlspecialchars($this->input->post("prs", true));
                $auth_depart = htmlspecialchars($this->input->post("depart", true));
-               $kd_posisi = htmlspecialchars($this->input->post("kode", true));
                $posisi = htmlspecialchars($this->input->post("posisi", true));
                $ket_posisi = htmlspecialchars($this->input->post("ket"));
                $id_perusahaan = $this->prs->get_by_auth($auth_perusahaan);
@@ -129,20 +122,13 @@ class Posisi extends My_Controller
                     }
                }
 
-               $cekkode = $this->pss->cek_kode($id_perusahaan, $id_depart, $kd_posisi);
-               if ($cekkode) {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "Kode sudah digunakan"));
-                    return;
-               }
-
                $cekposisi = $this->pss->cek_posisi($id_perusahaan, $id_depart, $posisi);
                if ($cekposisi) {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "posisi sudah digunakan"));
+                    echo json_encode(array("statusCode" => 201, "pesan" => "Posisi sudah digunakan"));
                     return;
                }
 
                $data = [
-                    'kd_posisi' => $kd_posisi,
                     'posisi' => $posisi,
                     'id_depart' => $id_depart,
                     'ket_posisi' => $ket_posisi,
@@ -155,9 +141,9 @@ class Posisi extends My_Controller
 
                $posisi = $this->pss->input_posisi($data);
                if ($posisi) {
-                    echo json_encode(array("statusCode" => 200, "pesan" => "posisi berhasil disimpan"));
+                    echo json_encode(array("statusCode" => 200, "pesan" => "Posisi berhasil disimpan"));
                } else {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "posisi gagal disimpan"));
+                    echo json_encode(array("statusCode" => 201, "pesan" => "Posisi gagal disimpan"));
                }
           }
      }
@@ -167,13 +153,13 @@ class Posisi extends My_Controller
           $auth_posisi = htmlspecialchars(trim($this->input->post('authposisi')));
           $query = $this->pss->hapus_posisi($auth_posisi);
           if ($query == 200) {
-               echo json_encode(array("statusCode" => 200, "pesan" => "posisi berhasil dihapus"));
+               echo json_encode(array("statusCode" => 200, "pesan" => "Posisi berhasil dihapus"));
                return;
           } else if ($query == 201) {
-               echo json_encode(array("statusCode" => 201, "pesan" => "posisi gagal dihapus"));
+               echo json_encode(array("statusCode" => 201, "pesan" => "Posisi gagal dihapus"));
                return;
           } else {
-               echo json_encode(array("statusCode" => 202, "pesan" => "posisi tidak ditemukan"));
+               echo json_encode(array("statusCode" => 202, "pesan" => "Posisi tidak ditemukan"));
                return;
           }
      }
@@ -198,7 +184,6 @@ class Posisi extends My_Controller
                     $data = [
                          'statusCode' => 200,
                          'nama_perusahaan' => $list->nama_perusahaan,
-                         'kode' => $list->kd_posisi,
                          'posisi' => $list->posisi,
                          'depart' =>  $list->depart,
                          'auth_depart' => $auth_depart,
@@ -219,10 +204,6 @@ class Posisi extends My_Controller
 
      public function edit_posisi()
      {
-          $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
-               'required' => 'Kode wajib diisi',
-               'max_length' => 'Kode maksimal 8 karakter'
-          ]);
           $this->form_validation->set_rules("posisi", "posisi", "required|trim|max_length[100]", [
                'required' => 'posisi wajib diisi',
                'max_length' => 'posisi maksimal 100 karakter'
@@ -240,7 +221,6 @@ class Posisi extends My_Controller
           if ($this->form_validation->run() == false) {
                $error = [
                     'statusCode' => 202,
-                    'kode' => form_error("kode"),
                     'depart' => form_error("depart"),
                     'posisi' => form_error("posisi"),
                     'status' => form_error("status"),
@@ -265,7 +245,6 @@ class Posisi extends My_Controller
                     return;
                }
 
-               $kd_posisi = htmlspecialchars($this->input->post("kode", true));
                $posisi = htmlspecialchars($this->input->post("posisi", true));
                $depart = htmlspecialchars($this->input->post("depart", true));
                $ket_posisi = htmlspecialchars($this->input->post("ket", true));
@@ -274,13 +253,11 @@ class Posisi extends My_Controller
                } else {
                     $status = "F";
                }
-               $posisi = $this->pss->edit_posisi($kd_posisi, $posisi, $depart, $ket_posisi, $status);
+               $posisi = $this->pss->edit_posisi($posisi, $depart, $ket_posisi, $status);
                if ($posisi == 200) {
                     echo json_encode(array("statusCode" => 200, "pesan" => "posisi berhasil diupdate"));
                } else if ($posisi == 201) {
                     echo json_encode(array("statusCode" => 201, "pesan" => "posisi gagal diupdate"));
-               } else if ($posisi == 203) {
-                    echo json_encode(array("statusCode" => 203, "pesan" => "Kode sudah digunakan"));
                } else if ($posisi == 204) {
                     echo json_encode(array("statusCode" => 205, "pesan" => "posisi sudah digunakan"));
                }

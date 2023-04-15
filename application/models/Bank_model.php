@@ -5,9 +5,9 @@ class Bank_model extends CI_Model
 {
 
      var $table = 'vw_bank';
-     var $column_order = array(null, 'kd_bank', 'bank', 'ket_bank', 'stat_bank', 'tgl_buat', null); //set column field database for datatable orderable
-     var $column_search = array('kd_bank', 'bank', 'ket_bank', 'stat_bank', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
-     var $order = array('kd_bank' => 'desc'); // default order 
+     var $column_order = array(null,  'bank', 'ket_bank', 'stat_bank', 'tgl_buat', null); //set column field database for datatable orderable
+     var $column_search = array('bank', 'ket_bank', 'stat_bank', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
+     var $order = array('bank' => 'desc'); // default order 
 
      public function __construct()
      {
@@ -101,16 +101,6 @@ class Bank_model extends CI_Model
           }
      }
 
-     public function cek_kode($kd_bank)
-     {
-          $query = $this->db->get_where('tb_bank', ['kd_bank' => $kd_bank]);
-          if (!empty($query->result())) {
-               return true;
-          } else {
-               return false;
-          }
-     }
-
      public function cek_bank($bank)
      {
           $query = $this->db->get_where('tb_bank', ['bank' => $bank]);
@@ -146,21 +136,15 @@ class Bank_model extends CI_Model
           return $query->result();
      }
 
-     public function edit_bank($kd_bank, $bank, $ket_bank, $status)
+     public function edit_bank($bank, $ket_bank, $status)
      {
           $id_bank = $this->session->userdata('id_bank');
-
-          $query = $this->db->query("SELECT * FROM tb_bank WHERE kd_bank='" . $kd_bank . "' AND id_bank <> " . $id_bank);
-          if (!empty($query->result())) {
-               return 203;
-          }
 
           $query = $this->db->query("SELECT * FROM tb_bank WHERE bank='" . $bank . "' AND id_bank <> " . $id_bank);
           if (!empty($query->result())) {
                return 204;
           }
 
-          $this->db->set('kd_bank', $kd_bank);
           $this->db->set('bank', $bank);
           $this->db->set('ket_bank', $ket_bank);
           $this->db->set('stat_bank', $status);

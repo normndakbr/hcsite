@@ -5,9 +5,9 @@ class Grade_model extends CI_Model
 {
 
      var $table = 'vw_grade';
-     var $column_order = array(null, 'kd_grade', 'grade', 'level', 'ket_grade', 'stat_grade', 'tgl_buat', null); //set column field database for datatable orderable
-     var $column_search = array('kd_grade', 'grade', 'level', 'ket_grade', 'stat_grade', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
-     var $order = array('kd_grade' => 'desc'); // default order 
+     var $column_order = array(null, 'grade', 'level', 'ket_grade', 'stat_grade', 'tgl_buat', null); //set column field database for datatable orderable
+     var $column_search = array('grade', 'level', 'ket_grade', 'stat_grade', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
+     var $order = array('grade' => 'desc'); // default order 
 
      public function __construct()
      {
@@ -101,16 +101,6 @@ class Grade_model extends CI_Model
           }
      }
 
-     public function cek_kode($id_perusahaan, $kd_grade)
-     {
-          $query = $this->db->get_where('tb_grade', ['kd_grade' => $kd_grade, 'id_perusahaan' => $id_perusahaan]);
-          if (!empty($query->result())) {
-               return true;
-          } else {
-               return false;
-          }
-     }
-
      public function cek_grade($id_perusahaan, $grade)
      {
           $query = $this->db->get_where('tb_grade', ['grade' => $grade, 'id_perusahaan' => $id_perusahaan]);
@@ -146,7 +136,7 @@ class Grade_model extends CI_Model
           return $query->result();
      }
 
-     public function edit_grade($kd_grade, $grade, $level, $ket_grade, $status)
+     public function edit_grade($grade, $level, $ket_grade, $status)
      {
           $id_perusahaan = $this->session->userdata('id_perusahaan_level');
           $id_grade = $this->session->userdata('id_grade');
@@ -160,12 +150,6 @@ class Grade_model extends CI_Model
                $id_level = 0;
           }
 
-          $query = $this->db->query("SELECT * FROM tb_grade WHERE kd_grade='" . $kd_grade .
-               "' AND id_perusahaan=" . $id_perusahaan . " AND id_grade <> " . $id_grade);
-          if (!empty($query->result())) {
-               return 203;
-          }
-
           $query = $this->db->query("SELECT * FROM tb_grade WHERE grade=" . $grade .
                " AND id_level =" . $id_level . " AND id_perusahaan=" . $id_perusahaan .
                " AND id_grade <> " . $id_grade);
@@ -173,7 +157,6 @@ class Grade_model extends CI_Model
                return 204;
           }
 
-          $this->db->set('kd_grade', $kd_grade);
           $this->db->set('grade', $grade);
           $this->db->set('id_level', $id_level);
           $this->db->set('ket_grade', $ket_grade);
