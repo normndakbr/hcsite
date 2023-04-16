@@ -64,17 +64,16 @@
                               <div class="row">
                                    <div class="col-lg-12">
                                         <div class="table-responsive">
-                                             <table id="tbmdepart" class="table table-striped table-bordered table-hover text-black" style="width:100%;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                                             <table id="tbmKaryawan" class="table table-striped table-bordered table-hover text-black" style="width:100%;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
                                                   <thead>
                                                        <tr class="font-weight-boldtext-white">
                                                             <th style="text-align:center;width:1%;">No.</th>
                                                             <th>Nama</th>
-                                                            <th>Email</th>
-                                                            <!-- <th>Telp</th> -->
-                                                            <th style="text-align:center;">Status</th>
-                                                            <th style="text-align:center;">Perusahaan</th>
+                                                            <!-- <th>Departemen</th>
+                                                            <th>Section</th>
+                                                            <th>Posisi</th>
                                                             <th style="text-align:center;">Tgl. Dibuat</th>
-                                                            <th style="text-align:center;">Proses</th>
+                                                            <th style="text-align:center;">Proses</th> -->
                                                        </tr>
                                                   </thead>
                                                   <tbody>

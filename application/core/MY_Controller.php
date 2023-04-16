@@ -7,6 +7,7 @@ class My_Controller extends CI_Controller
           parent::__construct();
           $this->load->model("login_model", "lgn");
           $this->load->model('depart_model', 'dprt');
+          $this->load->model('karyawan_model', 'kry');
           $this->load->model('section_model', 'sctn');
           $this->load->model('posisi_model', 'pss');
           $this->load->model('level_model', 'lvl');
