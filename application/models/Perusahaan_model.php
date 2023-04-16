@@ -177,25 +177,25 @@ class Perusahaan_model extends CI_Model
           }
      }
 
-     public function edit_perusahaan($kd_perusahaan, $perusahaan, $ket_perusahaan, $status)
+     public function edit_perusahaan($kd_perusahaan)
      {
-          $id_perusahaan = $this->session->userdata('id_perusahaan');
+          $id_perusahaan = $this->session->userdata('id_perusahaan_prs_edit');
 
-          $query = $this->db->query("SELECT * FROM tb_perusahaan WHERE kd_perusahaan='" . $kd_perusahaan . "' AND id_perusahaan=" . $id_perusahaan . " AND id_perusahaan <> " . $id_perusahaan);
+          $query = $this->db->query("SELECT * FROM tb_perusahaan WHERE kode_perusahaan='" . $kd_perusahaan . "' AND id_perusahaan=" . $id_perusahaan . " AND id_perusahaan <> " . $id_perusahaan);
           if (!empty($query->result())) {
                return 203;
           }
 
-          $query = $this->db->query("SELECT * FROM tb_perusahaan WHERE perusahaan='" . $perusahaan . "' AND id_perusahaan=" . $id_perusahaan . " AND id_perusahaan <> " . $id_perusahaan);
-          if (!empty($query->result())) {
-               return 204;
-          }
+          // $query = $this->db->query("SELECT * FROM tb_perusahaan WHERE perusahaan='" . $perusahaan . "' AND id_perusahaan=" . $id_perusahaan . " AND id_perusahaan <> " . $id_perusahaan);
+          // if (!empty($query->result())) {
+          //      return 204;
+          // }
 
-          $this->db->set('kd_perusahaan', $kd_perusahaan);
-          $this->db->set('perusahaan', $perusahaan);
-          $this->db->set('ket_perusahaan', $ket_perusahaan);
-          $this->db->set('stat_perusahaan', $status);
-          $this->db->set('tgl_edit', date('Y-m-d H:i:s'));
+          $this->db->set('kode_perusahaan', $kd_perusahaan);
+          // $this->db->set('perusahaan', $perusahaan);
+          // $this->db->set('ket_perusahaan', $ket_perusahaan);
+          // $this->db->set('stat_perusahaan', $status);
+          // $this->db->set('tgl_edit', date('Y-m-d H:i:s'));
           $this->db->where('id_perusahaan', $id_perusahaan);
           $this->db->update('tb_perusahaan');
           if ($this->db->affected_rows() > 0) {

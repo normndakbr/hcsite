@@ -1,3 +1,23 @@
+<!-- Modal -->
+<div class="modal fade" id="logoutmdl" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+          <div class="modal-content">
+               <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Log out</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                         <span aria-hidden="true">&times;</span>
+                    </button>
+               </div>
+               <div class="modal-body">
+                    <h5>Pilih "Keluar" jika ingin mengakhir pekerjaan</h5>
+               </div>
+               <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                    <a href="<?= base_url(); ?>dash/logout" type="button" class="btn btn-primary">Keluar</a>
+               </div>
+          </div>
+     </div>
+</div>
 <div class="modal fade" id="detailPerusahaanmdl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
      <div class="modal-dialog modal-dialog-centered" role="document" style="margin-left: auto; margin-right: auto;max-width:80%;">
           <div class="modal-content">
@@ -119,15 +139,15 @@
                                         <div class="form-group fill">
                                              <label for="editPerusahaanAlamat" class="floating-label">Alamat : </label>
                                              <input id='editPerusahaanAlamat' type="text" autocomplete="off" placeholder="Alamat Perusahaan" spellcheck="false" class="form-control" value="">
-                                             <small id="error3eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error3eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-2 col-md-3 col-sm-12">
                                         <div class="form-group fill">
                                              <label for="editPerusahaanKodepos" class="floating-label">Kodepos : </label>
                                              <input id='editPerusahaanKodepos' type="text" autocomplete="off" placeholder="Kodepos" spellcheck="false" class="form-control" value="">
-                                             <small id="error4eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error4eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <label for="editPerusahaanProv">Provinsi : </label><br>
@@ -135,8 +155,8 @@
                                              <select id='editPerusahaanProv' autocomplete="off" spellcheck="false" class="form-control form-control-user">
                                                   <option value="">-- PILIH PROVINSI --</option>
                                              </select>
-                                             <small id="error5eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error5eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <label for="editPerusahaanKab">Kabupaten : </label><br>
@@ -144,8 +164,8 @@
                                              <select id='editPerusahaanKab' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
                                                   <option value="">-- KABUPATEN TIDAK DITEMUKAN --</option>
                                              </select>
-                                             <small id="error6eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error6eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
                                         <label for="editPerusahaanKec">Kecamatan : </label><br>
@@ -153,8 +173,8 @@
                                              <select id='editPerusahaanKec' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
                                                   <option value="">-- KECAMATAN TIDAK DITEMUKAN --</option>
                                              </select>
-                                             <small id="error7eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error7eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12 mt-3">
                                         <label for="editPerusahaanKel">Kelurahan :</label><br>
@@ -162,36 +182,36 @@
                                              <select id='editPerusahaanKel' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
                                                   <option value="">-- KELURAHAN TIDAK DITEMUKAN --</option>
                                              </select>
-                                             <small id="error8eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error8eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
                                         <div class="form-group fill">
                                              <label for="editPerusahaanTelp" class="floating-label">No. Telpon :</label>
                                              <input id='editPerusahaanTelp' type="text" autocomplete="off" placeholder="No. Telpon" spellcheck="false" class="form-control" value="">
-                                             <small id="error9eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error9eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
                                         <div class="form-group fill">
                                              <label for="editPerusahaanEmail" class="floating-label">Email :</label>
                                              <input id='editPerusahaanEmail' type="text" autocomplete="off" placeholder="Email" spellcheck="false" class="form-control" value="">
-                                             <small id="error10eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error10eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
                                         <div class="form-group fill">
                                              <label for="editPerusahaanWeb" class="floating-label">Website :</label>
                                              <input id='editPerusahaanWeb' type="text" autocomplete="off" placeholder="Website" spellcheck="false" class="form-control" value="">
-                                             <small id="error11eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error11eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-3 col-md-6 col-sm-12 mt-3">
                                         <div class="form-group fill">
                                              <label for="editPerusahaanNpwp" class="floating-label">No. NPWP :</label>
                                              <input id='editPerusahaanNpwp' type="text" autocomplete="off" placeholder="No. NPWP" spellcheck="false" class="form-control" value="">
-                                             <small id="error12eper" class="text-danger font-italic font-weight-bold"></small>
                                         </div>
+                                        <small id="error12eper" class="text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="editPerusahaanKeg" class="floating-label">Kegiatan :</label>

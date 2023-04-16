@@ -382,7 +382,7 @@
                 ],
                 "columns": [{
                         data: 'no',
-                        name: 'id_depart',
+                        name: 'id_kary',
                         render: function(data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         },

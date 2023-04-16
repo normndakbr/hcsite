@@ -62,7 +62,7 @@
                                         <a href="user-profile.html"><i class="feather icon-user m-r-5"></i>Profil</a>
                                    </li>
                                    <li class="list-group-item">
-                                        <a href="#" id="ubahSandi" onclick="gantiSandi()"><i class="feather icon-lock m-r-5"></i>Ganti Sandi</a>
+                                        <a href="<?= base_url('gantisandi'); ?>"><i class="feather icon-lock m-r-5"></i>Ganti Sandi</a>
                                    </li>
                                    <li class="list-group-item">
                                         <a href="#" id="logout"><i class="feather icon-log-out m-r-5"></i>Logout</a>

@@ -8,4 +8,9 @@ class Dash_model extends CI_Model
      {
           return $this->db->count_all_results('vw_user');
      }
+
+     public function count_all_karyawan()
+     {
+          return $this->db->count_all_results('vw_karyawan');
+     }
 }
