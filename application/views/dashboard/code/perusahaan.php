@@ -238,10 +238,10 @@
                          web: web,
                          npwp: npwp,
                          status: status,
+                         keg: kegiatan,
                          ket: ket
                     },
                     success: function(data) {
-                         alert(data);
                          var data = JSON.parse(data);
                          if (data.statusCode == 200) {
                               tbmPerusahaan.draw();
@@ -271,21 +271,43 @@
                                    $(".err_psn_edit_perusahaan").slideUp(500);
                                    $(".err_psn_edit_perusahaan").addClass('d-none');
                               });
-                              $("#error1el").html('');
-                              $("#error2el").html('');
-                              $("#error3el").html('');
-                              $("#error4el").html('');
+                              $("#error1eper").html('');
+                              $("#error2eper").html('');
+                              $("#error3eper").html('');
+                              $("#error4eper").html('');
+                              $("#error5eper").html('');
+                              $("#error6eper").html('');
+                              $("#error7eper").html('');
+                              $("#error8eper").html('');
+                              $("#error9eper").html('');
+                              $("#error10eper").html('');
+                              $("#error11eper").html('');
+                              $("#error12eper").html('');
+                              $("#error13eper").html('');
+                              $("#error14eper").html('');
+                              $("#error15eper").html('');
                          } else if (data.statusCode == 202) {
-                              $("#error1el").html(data.kode);
-                              $("#error2el").html(data.Perusahaan);
-                              $("#error3el").html(data.status);
-                              $("#error4el").html(data.ket);
+                              $("#error1eper").html(data.kode);
+                              $("#error2eper").html(data.perusahaan);
+                              $("#error3eper").html(data.alamat);
+                              $("#error4eper").html(data.kodepos);
+                              $("#error5eper").html(data.prov);
+                              $("#error6eper").html(data.kab);
+                              $("#error7eper").html(data.kec);
+                              $("#error8eper").html(data.kel);
+                              $("#error9eper").html(data.telp);
+                              $("#error10eper").html(data.email);
+                              $("#error11eper").html(data.web);
+                              $("#error12eper").html(data.npwp);
+                              $("#error13eper").html(data.keg);
+                              $("#error14eper").html(data.ket);
+                              $("#error15eper").html(data.status);
                          }
                     },
                     error: function(xhr, ajaxOptions, thrownError) {
                          $(".err_psn_perusahaan").removeClass("alert-primary");
                          $(".err_psn_perusahaan").addClass("alert-danger");
-                         $(".err_psn_perusahaan").addClass("d-none");
+                         $(".err_psn_perusahaan").removeClass("d-none");
                          if (xhr.status == 404) {
                               $(".err_psn_perusahaan").html("Perusahaan gagal diupdate, Link data tidak ditemukan");
                          } else if (xhr.status == 0) {
@@ -293,7 +315,7 @@
                          } else {
                               $(".err_psn_perusahaan").html("Terjadi kesalahan saat meng-update data, hubungi administrator");
                          }
-                         // $("#editPerusahaanmdl").modal("hide");
+                         $("#editPerusahaanmdl").modal("hide");
                          $(".err_psn_perusahaan ").fadeTo(3000, 500).slideUp(500, function() {
                               $(".err_psn_perusahaan ").slideUp(500);
                               $(".err_psn_perusahaan").addClass('d-none');

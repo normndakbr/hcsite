@@ -45,4 +45,30 @@ class Login_model extends CI_Model
                return json_encode(array("statusCode" => 201, "pesan" => "Email tidak terdaftar"));
           }
      }
+
+     public function ganti_sandi($sandilama, $sandibaru)
+     {
+          $email = $this->session->userdata('email');
+          $query = $this->db->get_where('vw_user', ['email_user' => $email]);
+          if (!empty($query->result())) {
+               foreach ($query->result() as $list) {
+                    $id_user = $list->id_user;
+                    if (md5($sandilama) == $list->sesi) {
+                         $this->db->set('sesi', md5($sandibaru));
+                         $this->db->set('tgl_edit', date('Y-m-d H:i:s'));
+                         $this->db->where('id_user',  $id_user);
+                         $this->db->update('tb_user');
+                         if ($this->db->affected_rows() > 0) {
+                              return 200;
+                         } else {
+                              return 202;
+                         }
+                    } else {
+                         return 201;
+                    }
+               }
+          } else {
+               return 203;
+          }
+     }
 }

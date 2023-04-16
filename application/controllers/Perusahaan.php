@@ -328,15 +328,15 @@ class Perusahaan extends My_Controller
                'max_length' => 'Kode maksimal 8 karakter'
           ]);
           $this->form_validation->set_rules("perusahaan", "perusahaan", "required|trim|max_length[100]", [
-               'required' => 'Perusahaan wajib diisi',
-               'max_length' => 'Perusahaan maksimal 100 karakter'
+               'required' => 'Nama perusahaan wajib diisi',
+               'max_length' => 'Nama perusahaan maksimal 100 karakter'
           ]);
           $this->form_validation->set_rules("alamat", "alamat", "required|trim|max_length[100]", [
                'required' => 'Alamat wajib diisi',
                'max_length' => 'Alamat maksimal 100 karakter'
           ]);
           $this->form_validation->set_rules("kodepos", "kodepos", "trim|max_length[6]", [
-               'max_length' => 'Alamat maksimal 6 karakter'
+               'max_length' => 'Kodepos maksimal 6 karakter'
           ]);
           $this->form_validation->set_rules("prov", "prov", "required|trim|max_length[3]", [
                'required' => 'Provinsi wajib dipilih',
@@ -369,9 +369,13 @@ class Perusahaan extends My_Controller
           $this->form_validation->set_rules("keg", "keg", "trim|max_length[1000]", [
                'max_length' => 'Kegiatan maksimal 1000 karakter'
           ]);
-          $this->form_validation->set_rules("ket", "ket", "trim|max_length[1000],[
+          $this->form_validation->set_rules("ket", "ket", "trim|max_length[1000]", [
                'max_length' => 'Keterangan maksimal 1000 karakter'
-          ]");
+          ]);
+          $this->form_validation->set_rules("status", "status", "required|trim|max_length[10]", [
+               'required' => 'Status wajib dipilih',
+               'max_length' => 'Keterangan maksimal 10 karakter',
+          ]);
 
           if ($this->form_validation->run() == false) {
                $error = [
@@ -390,6 +394,7 @@ class Perusahaan extends My_Controller
                     'npwp' => form_error("npwp"),
                     'keg' => form_error("keg"),
                     'ket' => form_error("ket"),
+                    'status' => form_error("status")
                ];
 
                echo json_encode($error);
@@ -415,12 +420,16 @@ class Perusahaan extends My_Controller
                $npwp = htmlspecialchars($this->input->post("npwp", true));
                $keg = htmlspecialchars($this->input->post("keg", true));
                $ket = htmlspecialchars($this->input->post("ket", true));
-               $status = htmlspecialchars($this->input->post("status", true));
+
+               if (htmlspecialchars($this->input->post("status", true)) == "AKTIF") {
+                    $status = "T";
+               } else {
+                    $status = "F";
+               }
 
                $data = array(
-                    'id_parent' => 0,
                     'kode_perusahaan' => $kode_perusahaan,
-                    'nama_perushaaan' => $nama_perusahaan,
+                    'nama_perusahaan' => $nama_perusahaan,
                     'alamat_perusahaan' => $alamat,
                     'kel_perusahaan' => $kel,
                     'kec_perusahaan' => $kec,
@@ -435,7 +444,7 @@ class Perusahaan extends My_Controller
                     'ket_perusahaan' => $ket,
                     'kegiatan' => $keg,
                     'url_rk3l' => '',
-                    'tgl_edit' => date('Y-m-d H:i:s'),
+                    'tgl_edit' => date('Y-m-d H:i:s')
                );
 
                $where = array(
@@ -443,8 +452,8 @@ class Perusahaan extends My_Controller
                );
 
                $perusahaan = $this->prs->edit_data_perusahaan($where, $data);
+               // $perusahaan = $this->prs->edit_perusahaan($kode_perusahaan);
 
-               // $perusahaan = $this->prs->edit_perusahaan($kd_perusahaan, $perusahaan, $ket_perusahaan, $status);
                if ($perusahaan == 200) {
                     echo json_encode(array("statusCode" => 200, "pesan" => "Perusahaan berhasil diupdate"));
                } else if ($perusahaan == 201) {

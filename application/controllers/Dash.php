@@ -11,12 +11,12 @@ class Dash extends My_Controller
 
      public function index()
      {
-
+          $jml_karyawan = $this->dsmod->count_all_karyawan();
           $jml_user = $this->dsmod->count_all_user();
           $data['nama'] = $this->session->userdata("nama");
           $data['email'] = $this->session->userdata("email");
           $data['menu'] = $this->session->userdata("id_menu");
-          $data['jml_link'] = $jml_user;
+          $data['jml_karyawan'] = $jml_karyawan;
           $data['jml_user'] = $jml_user;
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/beranda', $data);

@@ -18,7 +18,6 @@
           </div>
      </div>
 </div>
-
 <div class="modal fade" id="uploaddepartmdl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
      <div class="modal-dialog modal-dialog-centered" role="document" style="margin-left: auto; margin-right: auto;max-width:60%;">
           <div class="modal-content">
