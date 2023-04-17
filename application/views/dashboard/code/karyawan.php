@@ -31,27 +31,27 @@
             });
 
             $("#btnrefreshdepart").click(function() {
-                $('#tbmdepart').LoadingOverlay("show");
-                tbmdepart.draw()
-                $('#tbmdepart').LoadingOverlay("hide");
+                $('#tbmKaryawan').LoadingOverlay("show");
+                tbmKaryawan.draw()
+                $('#tbmKaryawan').LoadingOverlay("hide");
             });
 
-            tbmdepart = $('#tbmdepart').DataTable({
+            tbmKaryawan = $('#tbmKaryawan').DataTable({
                 "processing": true,
                 "responsive": true,
                 "serverSide": true,
                 "ordering": true,
                 "order": [
-                    [1, 'desc']
+                    [1, 'asc']
                 ],
                 "ajax": {
-                    "url": "<?= base_url('departemen/ajax_list'); ?>",
+                    "url": "<?= base_url('karyawan/ajax_list'); ?>",
                     "type": "POST",
                     "error": function(xhr, error, code) {
                         if (code != "") {
                             $(".err_psn_depart").removeClass("d-none");
                             $(".err_psn_depart").css("display", "block");
-                            $(".err_psn_depart").html("terjadi kesalahan saat melakukan load data departemen, hubungi administrator");
+                            $(".err_psn_depart").html("terjadi kesalahan saat melakukan load data karyawan, hubungi administrator");
                             $("#addbtn").addClass("disabled");
                             $(".err_psn_depart ").fadeTo(3000, 500).slideUp(500, function() {
                                 $(".err_psn_depart ").slideUp(500);
@@ -65,41 +65,32 @@
                     [10, 25, 50]
                 ],
                 "columns": [{
-                        data: 'no',
-                        name: 'id_depart',
+                        "data": 'no',
                         render: function(data, type, row, meta) {
                             return meta.row + meta.settings._iDisplayStart + 1;
                         },
-                        "className": "text-center",
+                        "className": "text-center align-middle",
                         "width": "1%"
                     },
                     {
-                        "data": 'kd_depart',
-                        "width": "10%"
+                        "data": 'nama_lengkap',
+                        "className": "align-middle align-middle",
                     },
                     {
                         "data": 'depart',
-                        "className": "text-nowrap",
-                        "width": "67%"
+                        "className": "text-wrap align-middle",
                     },
                     {
-                        "data": 'stat_depart',
-                        "className": "text-center text-nowrap",
-                        "width": "1%"
+                        "data": 'section',
+                        "className": "text-nowrap align-middle",
                     },
                     {
-                        "data": 'kode_perusahaan',
-                        "className": "text-center text-nowrap",
-                        "width": "1%"
-                    },
-                    {
-                        "data": 'tgl_buat',
-                        "className": "text-center text-nowrap",
-                        "width": "8%"
+                        "data": 'posisi',
+                        "className": "text-wrap align-middle",
                     },
                     {
                         "data": 'proses',
-                        "className": "text-center text-nowrap",
+                        "className": "text-center text-nowrap align-middle",
                         "width": "1%"
                     }
                 ]

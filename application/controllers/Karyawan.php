@@ -37,28 +37,21 @@ class Karyawan extends My_Controller
      {
           $list = $this->kry->get_datatables();
           $data = array();
-          $no = $_POST['start'];
+          $no = 0;
           foreach ($list as $kry) {
                $no++;
                $row = array();
                $row['no'] = $no;
-               $row['auth_depart'] = $kry->auth_depart;
-               $row['kd_depart'] = $kry->kd_depart;
+               $row['no_acr'] = $kry->no_acr;
+               $row['nama_lengkap'] = $kry->nama_lengkap;
                $row['depart'] = $kry->depart;
-               $row['ket_depart'] = $kry->ket_depart;
+               $row['section'] = $kry->section;
+               $row['posisi'] = $kry->posisi;
 
-               if ($kry->stat_depart == "T") {
-                    $row['stat_depart'] = "<span class='btn btn-success btn-sm '> AKTIF </span>";
-               } else {
-                    $row['stat_depart'] = "<div class='btn btn-danger btn-sm'> NONAKTIF </div>";
-               }
-
-               $row['kode_perusahaan'] = $kry->kode_perusahaan;
                $row['tgl_buat'] = date('d-M-Y', strtotime($kry->tgl_buat));
-               $row['tgl_edit'] = date('d-M-Y', strtotime($kry->tgl_edit));
-               $row['proses'] = '<button id="' . $kry->auth_depart . '" class="btn btn-primary btn-sm font-weight-bold dtldepart" title="Detail" value="' . $kry->depart . '"> <i class="fas fa-asterisk"></i> </button> 
-                    <button id="' . $kry->auth_depart . '" class="btn btn-warning btn-sm font-weight-bold edttdepart" title="Edit" value="' . $kry->depart . '"> <i class="fas fa-edit"></i> </button> 
-                    <button id="' . $kry->auth_depart . '" class="btn btn-danger btn-sm font-weight-bold hpsdepart" title="Hapus" value="' . $kry->depart . '"> <i class="fas fa-trash-alt"></i> </button>';
+               $row['proses'] = '<button id="' . $kry->auth_karyawan . '" class="btn btn-primary btn-sm font-weight-bold dtldepart" title="Detail" value="' . $kry->nama_lengkap . '"> <i class="fas fa-asterisk"></i> </button> 
+                    <button id="' . $kry->auth_karyawan . '" class="btn btn-warning btn-sm font-weight-bold edttdepart" title="Edit" value="' . $kry->nama_lengkap . '"> <i class="fas fa-edit"></i> </button> 
+                    <button id="' . $kry->auth_karyawan . '" class="btn btn-danger btn-sm font-weight-bold hpsdepart" title="Hapus" value="' . $kry->nama_lengkap . '"> <i class="fas fa-trash-alt"></i> </button>';
                $data[] = $row;
           }
 
