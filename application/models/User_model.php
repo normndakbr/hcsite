@@ -5,9 +5,9 @@ class User_model extends CI_Model
 {
 
      var $table = 'vw_user';
-     var $column_order = array(null, 'Nama', 'Email', 'stat_aktif', 'tgl_aktif', 'tgl_exp', 'tgl_buat', null); //set column field database for datatable orderable
-     var $column_search = array('Nama', 'Email', 'stat_aktif', 'tgl_aktif', 'tgl_exp', 'tgl_buat'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-     var $order = array('Nama' => 'asc'); // default order 
+     var $column_order = array(null, 'nama_user', 'email_user', 'tgl_exp', 'id_menu', 'stat_user', 'tgl_buat', null); //set column field database for datatable orderable
+     var $column_search = array('nama_user', 'email_user', 'tgl_exp', 'id_menu', 'stat_user', 'tgl_buat'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+     var $order = array('nama_user' => 'asc'); // default order 
 
      public function __construct()
      {
@@ -132,6 +132,16 @@ class User_model extends CI_Model
           return $query;
      }
 
+     public function cek_email($email)
+     {
+          $query = $this->db->get_where('vw_user', ['email_user' => $email]);
+          if (empty($query->result())) {
+               return 200;
+          } else {
+               return 201;
+          }
+     }
+
      public function ganti_sandi($auth_user, $sesi)
      {
           $query = $this->db->get_where('vw_user', ['auth_user' => $auth_user])->row();
@@ -184,6 +194,35 @@ class User_model extends CI_Model
                }
           } else {
                return "202";
+          }
+     }
+
+     public function get_user_id($auth_user)
+     {
+          $query = $this->db->get_where('vw_user', ['auth_user' => $auth_user]);
+          return $query->result();
+     }
+
+     public function edit_user($nama, $email, $tgl_aktif, $tgl_exp, $akses_menu, $status)
+     {
+          $id_user = $this->session->userdata('id_user_usr');
+          $query = $this->db->query("SELECT * FROM tb_user WHERE email_user='" . $email . "' AND id_user <> " . $id_user);
+          if (!empty($query->result())) {
+               return 202;
+          }
+          $this->db->set('nama_user', $nama);
+          $this->db->set('email_user', $email);
+          $this->db->set('tgl_aktif', $tgl_aktif);
+          $this->db->set('tgl_exp', $tgl_exp);
+          $this->db->set('id_menu', $akses_menu);
+          $this->db->set('stat_user', $status);
+          $this->db->set('tgl_edit', date('Y-m-d H:i:s'));
+          $this->db->where('id_user', $id_user);
+          $this->db->update('tb_user');
+          if ($this->db->affected_rows() > 0) {
+               return 200;
+          } else {
+               return 201;
           }
      }
 }
