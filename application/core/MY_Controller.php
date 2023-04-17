@@ -23,6 +23,7 @@ class My_Controller extends CI_Controller
           $this->load->model('dash_model', 'dsmod');
           $this->load->model('User_model', 'usr');
           $this->load->model('perusahaan_model', 'prs');
+          $this->load->model('Karyawan_model', 'kry');
           $this->load->helper('url', 'form');
           $this->load->library("form_validation");
           $this->load->library('session');
