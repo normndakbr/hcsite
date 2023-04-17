@@ -85,7 +85,7 @@
                               <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Data Perusahaan</span></a>
                               <ul class="pcoded-submenu">
                                    <li><a href="<?= base_url('perusahaan'); ?>">Perusahaan</a></li>
-                                   <li><a href="#">Struktur Perusahaan</a></li>
+                                   <li><a href="<?= base_url('struktur'); ?>">Struktur Perusahaan</a></li>
                               </ul>
                          </li>
                          <li class="nav-item pcoded-hasmenu">
@@ -139,12 +139,12 @@
                          <li class="nav-item pcoded-menu-caption">
                               <label>Sistem</label>
                          </li>
-                         <li class="nav-item pcoded-hasmenu">
+                         <li class="nav-item pcoded-hasmenu" style="margin-bottom:300px;">
                               <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-settings"></i></span><span class="pcoded-mtext">Sistem</span></a>
                               <ul class="pcoded-submenu">
                                    <li><a href="#">Audit</a></li>
                                    <li><a href="#">Akses Menu</a></li>
-                                   <li><a href="#">User</a></li>
+                                   <li><a href="<?= base_url('user'); ?>">User</a></li>
                               </ul>
                          </li>
                     </ul>

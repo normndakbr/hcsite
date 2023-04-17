@@ -37,13 +37,6 @@ class Gantisandi extends My_Controller
           ]);
 
           if ($this->form_validation->run() == false) {
-               $error = [
-                    'statusCode' => 204,
-                    'lamaSandi' => form_error("lamaSandi"),
-                    'baruSandi' => form_error("baruSandi"),
-                    'ulangSandi' => form_error("ulangSandi")
-               ];
-
                $data['nama'] = $this->session->userdata("nama");
                $data['email'] = $this->session->userdata("email");
                $data['menu'] = $this->session->userdata("id_menu");
@@ -75,55 +68,6 @@ class Gantisandi extends My_Controller
                $this->load->view('dashboard/modal/gantisandi');
                $this->load->view('dashboard/template/footer', $data);
                $this->load->view('dashboard/code/gantisandi');
-          }
-     }
-
-     public function get_all()
-     {
-          $query = $this->lvl->get_all();
-          $output = "<option value=''>-- Pilih level --</option>";
-          if (!empty($query)) {
-               foreach ($query as $list) {
-                    $output = $output . "<option value='" . $list->auth_level . "'>" . $list->level . "</option>";
-               }
-               echo json_encode(array("statusCode" => 200, "lvl" => $output));
-          } else {
-               $output = "<option value=''>-- level Tidak Ditemukan --</option>";
-               echo json_encode(array("statusCode" => 201, "lvl" => $output));
-          }
-     }
-
-     public function get_by_authper()
-     {
-          $auth_per = $this->input->post('auth_per');
-
-          $query = $this->lvl->get_by_authper($auth_per);
-          $output = "<option value=''>-- Pilih Level --</option>";
-          if (!empty($query)) {
-               foreach ($query as $list) {
-                    $output = $output . "<option value='" . $list->auth_level . "'>" . $list->level . "</option>";
-               }
-               echo json_encode(array("statusCode" => 200, "lvl" => $output));
-          } else {
-               $output = "<option value=''>-- Level Tidak Ditemukan --</option>";
-               echo json_encode(array("statusCode" => 201, "lvl" => $output));
-          }
-     }
-
-     public function get_by_idper()
-     {
-          if ($this->session->userdata('id_perusahaan_level') != "") {
-               $id_per = $this->session->userdata('id_perusahaan_level');
-               $output = "<option value=''>-- Pilih Level --</option>";
-               $query = $this->lvl->get_by_idper($id_per);
-               foreach ($query as $list) {
-                    $output = $output . " <option value='" . $list->auth_level . "'>" . $list->level . "</option>";
-               }
-
-               echo json_encode(array("statusCode" => 200, "level" => $output, "pesan" => "Sukses"));
-          } else {
-               $output = "<option value=''>-- levelemen tidak ditemukan --</option>";
-               echo json_encode(array("statusCode" => 200, "level" => $output, "pesan", "Level gagal ditampilkan"));
           }
      }
 }
