@@ -68,15 +68,71 @@
                                                   <thead>
                                                        <tr class="font-weight-boldtext-white">
                                                             <th style="text-align:center;width:1%;">No.</th>
-                                                            <th>Kode</th>
                                                             <th>Perusahaan</th>
                                                             <th>Jenis Perusahaan</th>
-                                                            <th style="text-align:center;">Status</th>
-                                                            <th style="text-align:center;">Tgl. Dibuat</th>
-                                                            <th style="text-align:center;">Proses</th>
                                                        </tr>
                                                   </thead>
-                                                  <tbody></tbody>
+                                                  <tbody>
+                                                       <?php
+
+
+                                                       function GetPenerbit($idparent)
+                                                       {
+
+
+                                                            $servername = "localhost";
+                                                            $username = "root";
+                                                            $password = "";
+                                                            $dbname = "db_hc";
+
+                                                            static $space;
+                                                            $conn = mysqli_connect($servername, $username, $password, $dbname);
+                                                            $sql = "SELECT * from vw_m_perusahaan where id_parent=" . $idparent;
+
+                                                            $result = mysqli_query($conn, $sql);
+
+                                                            $no = 0;
+                                                            $id = 0;
+                                                            $penerbit = "";
+                                                            if (mysqli_num_rows($result) > 0) {
+                                                                 $space .= " " . "&roarr;";
+
+                                                                 while ($row = mysqli_fetch_assoc($result)) {
+
+                                                                      $id = $row["id_m_perusahaan"];
+                                                                      $id_parent = $row["id_parent"];
+                                                                      $nama_per = $row["nama_perusahaan"];
+                                                                      $jenis_per = $row["jenis_perusahaan"];
+
+                                                                      echo "<tr class='rataTengah'>";
+
+                                                                      if ($idparent == 0) {
+                                                                           $no++;
+                                                                           echo "<td style='text-align:center;width:1%;'>" . $no . "</td>";
+                                                                           echo "<td style='color:red;width:70%;'><b>" . $nama_per . "</b></td>";
+                                                                           echo "<td style='width:70%;'>" . $jenis_per . "</td>";
+                                                                      } else {
+                                                                           $no = "";
+                                                                           echo "<td style='text-align:center;width:1%;'>" . $no . "</td>";
+                                                                           echo "<td style='width:70%;'>" . $space . " " . $nama_per . "</td>";
+                                                                           echo "<td style='width:70%;'>" . $jenis_per . "</td>";
+                                                                      }
+
+                                                                      echo "</tr>";
+
+                                                                      GetPenerbit($id);
+                                                                 }
+
+                                                                 $space = substr($space, 0, strlen($space) - 7);
+                                                            }
+
+                                                            mysqli_close($conn);
+                                                       }
+
+                                                       GetPenerbit(0);
+
+                                                       ?>
+                                                  </tbody>
                                              </table>
                                         </div>
                                    </div>

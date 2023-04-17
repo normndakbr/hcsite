@@ -383,7 +383,7 @@
                     [1, 'asc'],
                 ],
                 "ajax": {
-                    "url": "<?= base_url('struktur/ajax_list'); ?>",
+                    "url": "<?= base_url('struktur/getdata'); ?>",
                     "type": "POST",
                     "error": function(xhr, error, code) {
                         if (code != "") {
