@@ -283,20 +283,19 @@ class Struktur extends My_Controller
           }
      }
 
-     public function get_by_idper()
+     public function get_by_idjenis()
      {
-          if ($this->session->userdata('id_perusahaan_struktur') != "") {
-               $id_per = $this->session->userdata('id_perusahaan_struktur');
-               $output = "<option value=''>-- Pilih struktur --</option>";
-               $query = $this->str->get_by_idper($id_per);
+          $idjenis = htmlspecialchars($this->input->post('id_jenis'));
+          $query = $this->str->get_by_idjenis(intval($idjenis) - 1);
+          if (!empty($query)) {
+               $output = "<option value=''>-- PILIH PERUSAHAAN --</option> ";
                foreach ($query as $list) {
-                    $output = $output . " <option value='" . $list->auth_struktur . "'>" . $list->struktur . "</option>";
+                    $output = $output . " <option value='" . $list->auth_perusahaan . "'>" . $list->nama_perusahaan . "</option> ";
                }
-
-               echo json_encode(array("statusCode" => 200, "struktur" => $output, "pesan" => "Sukses"));
           } else {
-               $output = "<option value=''>-- strukturemen tidak ditemukan --</option>";
-               echo json_encode(array("statusCode" => 200, "struktur" => $output, "pesan", "struktur gagal ditampilkan"));
+               $output = "<option value=''>-- PERUSAHAAN TIDAK DITEMUKAN --</option> ";
           }
+
+          echo json_encode(array("per" => $output));
      }
 }

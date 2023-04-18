@@ -51,7 +51,7 @@
           var url = '<?= base_url('dash/gt_data'); ?>';
           $.getJSON(url, function(response) {
                chart.updateSeries([{
-                    name: 'Jml Kary : ',
+                    name: 'Jml Karyawan : ',
                     data: response
                }])
           });

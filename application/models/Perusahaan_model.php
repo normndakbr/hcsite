@@ -233,4 +233,22 @@ class Perusahaan_model extends CI_Model
                return 0;
           }
      }
+
+     function getPerusahaan($postData)
+     {
+          $response = array();
+
+          if (isset($postData['search'])) {
+
+               $this->db->select('*');
+               $this->db->like("nama_perusahaan", $postData['search']);
+
+               $records = $this->db->get('vw_perusahaan')->result();
+
+               foreach ($records as $row) {
+                    $response[] = array("value" => $row->auth_perusahaan, "label" => $row->nama_perusahaan);
+               }
+          }
+          return $response;
+     }
 }
