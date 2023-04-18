@@ -71,7 +71,7 @@ class Karyawan_model extends CI_Model
     public function get_by_id($id)
     {
         $this->db->from($this->table);
-        $this->db->where('id_depart', $id);
+        $this->db->where('id_kary', $id);
         $query = $this->db->get();
 
         return $query->row();
