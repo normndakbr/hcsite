@@ -514,4 +514,15 @@ class Perusahaan extends My_Controller
                echo json_encode(array("statusCode" => 201, "prs" => $output));
           }
      }
+
+     public function getPerusahaan()
+     {
+          // POST data
+          $data = $this->input->post();
+
+          // Get data
+          $list = $this->prs->getPerusahaan($data);
+
+          echo json_encode($list);
+     }
 }

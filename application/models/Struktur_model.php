@@ -102,9 +102,10 @@ class Struktur_model extends CI_Model
           return $query->result();
      }
 
-     public function get_by_idper($id_per)
+     public function get_by_idjenis($idjenis)
      {
-          $query = $this->db->get_where('vw_m_perusahaan', ['id_perusahaan' => $id_per]);
+          $query = $this->db->query("SELECT DISTINCT id_perusahaan, nama_perusahaan, auth_perusahaan " .
+               " FROM vw_m_perusahaan WHERE id_jenis_perusahaan=" . $idjenis);
           return $query->result();
      }
 }

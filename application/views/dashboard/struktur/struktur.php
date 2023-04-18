@@ -70,6 +70,11 @@
                                                             <th style="text-align:center;width:1%;">No.</th>
                                                             <th>Perusahaan</th>
                                                             <th>Jenis Perusahaan</th>
+                                                            <th style="text-align:center;">Kode. ACR</th>
+                                                            <th>No. Izin</th>
+                                                            <th>No. SIO</th>
+                                                            <th style="text-align:center;">Kode</th>
+                                                            <th style="text-align:center;">Proses</th>
                                                        </tr>
                                                   </thead>
                                                   <tbody>
@@ -99,21 +104,54 @@
                                                                       $id = $row["id_m_perusahaan"];
                                                                       $nama_per = $row["nama_perusahaan"];
                                                                       $jenis_per = $row["jenis_perusahaan"];
+                                                                      $no_jenis_per = $row["no_jenis_perusahaan"];
+                                                                      $no_izin = $row["no_izin_perusahaan"];
+                                                                      $no_sio = $row["no_sio_perusahaan"];
+                                                                      $kode_per = $row["kode_perusahaan"];
 
                                                                       echo "<tr class='rataTengah'>";
 
                                                                       if ($idparent == 0) {
                                                                            $no++;
-                                                                           echo "<td style='text-align:center;width:1%;'>" . $no . "</td>";
-                                                                           echo "<td style='color:red;width:70%;'><b>" . $nama_per . "</b></td>";
-                                                                           echo "<td style='width:70%;'>" . $jenis_per . "</td>";
+                                                                           echo "<td class='align-middle' style='text-align:center;width:1%;'>" . $no . "</td>";
+                                                                           echo "<td class='align-middle' style='color:red;width:25%;'><b>" . $nama_per . "</b></td>";
+                                                                           echo "<td class='align-middle' style='width:15%;'>" . $jenis_per . "</td>";
+                                                                           echo "<td class='align-middle' style='width:8%;text-align:center'>" . $no_jenis_per . "</td>";
+                                                                           if ($no_izin == null) {
+                                                                                echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada izin</span></td>";
+                                                                           } else {
+                                                                                echo "<td class='align-middle' style='width:15%;'>" . $no_izin . "</td>";
+                                                                           }
+                                                                           if ($no_sio == null) {
+                                                                                echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada SIO</span></td>";
+                                                                           } else {
+                                                                                echo "<td class='align-middle' style='width:15%;'>" . $no_sio . "</td>";
+                                                                           }
+                                                                           echo "<td class='align-middle' style='width:1%;text-align:center'>" . $kode_per . "</td>";
                                                                       } else {
                                                                            $no = "";
-                                                                           echo "<td style='text-align:center;width:1%;'>" . $no . "</td>";
-                                                                           echo "<td style='width:70%;'>" . $space . " " . $nama_per . "</td>";
-                                                                           echo "<td style='width:70%;'>" . $jenis_per . "</td>";
-                                                                      }
+                                                                           echo "<td class='align-middle' style='text-align:center;width:1%;'>" . $no . "</td>";
+                                                                           echo "<td class='align-middle' style='width:25%;'><b>" . $space . " " . $nama_per . "</b></td>";
+                                                                           echo "<td class='align-middle' style='width:15%;'>" . $jenis_per . "</td>";
+                                                                           echo "<td class='align-middle' style='width:8%;text-align:center'>" . $no_jenis_per . "</td>";
+                                                                           if ($no_izin == null) {
+                                                                                echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada izin</span></td>";
+                                                                           } else {
+                                                                                echo "<td class='align-middle' style='width:15%;'>" . $no_izin . "</td>";
+                                                                           }
+                                                                           if ($no_sio == null) {
+                                                                                echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada SIO</span></td>";
+                                                                           } else {
+                                                                                echo "<td class='align-middle' style='width:15%;'>" . $no_sio . "</td>";
+                                                                           }
 
+                                                                           echo "<td class='align-middle' style='width:1%;text-align:center'>" . $kode_per . "</td>";
+                                                                      }
+                                                                      echo "<td class='align-middle' style='width:1%;text-align:center'>";
+                                                                      echo "<button class='btn btn-primary btn-sm' title='Detail'><i class='fas fa-asterisk'></i></button> ";
+                                                                      echo "<button class='btn btn-success btn-sm' title='Edit'><i class='fas fa-edit'></i></button> ";
+                                                                      echo "<button class='btn btn-danger btn-sm' title='Hapus'><i class='fas fa-trash'></i></button> ";
+                                                                      echo "</td>";
                                                                       echo "</tr>";
 
                                                                       GetStruktur($id);
