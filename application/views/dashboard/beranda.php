@@ -110,7 +110,7 @@
                <div class="col-xl-12 col-md-12">
                     <div class="card latest-update-card">
                          <div class="card-header">
-                              <h5>Grafik</h5>
+                              <h5>Perbandingan Jumlah Karywan per-tanggal : <?= date("d-M-Y"); ?></h5>
                               <div class="card-header-right">
                                    <div class="btn-group card-option">
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -132,7 +132,7 @@
                               </div>
                          </div>
                          <div class="card-body">
-
+                              <div id="bar-chart-1"></div>
                          </div>
                     </div>
                </div>
