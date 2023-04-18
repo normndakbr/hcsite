@@ -39,4 +39,52 @@ class Dash extends My_Controller
           $this->session->unset_userdata('id_menu');
           redirect("login");
      }
+
+     public function data_grafik()
+     {
+          $query = $this->dsmod->data_grafik_1();
+          if (!empty($query)) {
+               foreach ($query as $jml) {
+                    $nilai1 = $jml->bulan_now;
+               }
+
+               $data1 = [
+                    "x" => "April 2023",
+                    "y" => $nilai1
+               ];
+          }
+
+          $query = $this->dsmod->data_grafik_2();
+          if (!empty($query)) {
+               foreach ($query as $jml) {
+                    $nilai2 = $jml->bulan_now;
+               }
+
+               $data2 = [
+                    "x" => "Maret 2023",
+                    "y" => $nilai2
+               ];
+          }
+
+          $query = $this->dsmod->data_grafik_3();
+          if (!empty($query)) {
+               foreach ($query as $jml) {
+                    $nilai3 = $jml->bulan_now;
+               }
+
+               $data3 = [
+                    "x" => "Februari 2023",
+                    "y" => $nilai3
+               ];
+          }
+          $data = [$data1, $data2, $data3];
+          echo json_encode($data);
+     }
+
+     public function gt_data()
+     {
+          $query = $this->dsmod->get_data_grafik();
+
+          echo $query;
+     }
 }

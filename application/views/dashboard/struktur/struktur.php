@@ -74,11 +74,8 @@
                                                   </thead>
                                                   <tbody>
                                                        <?php
-
-
-                                                       function GetPenerbit($idparent)
+                                                       function GetStruktur($idparent)
                                                        {
-
 
                                                             $servername = "localhost";
                                                             $username = "root";
@@ -100,7 +97,6 @@
                                                                  while ($row = mysqli_fetch_assoc($result)) {
 
                                                                       $id = $row["id_m_perusahaan"];
-                                                                      $id_parent = $row["id_parent"];
                                                                       $nama_per = $row["nama_perusahaan"];
                                                                       $jenis_per = $row["jenis_perusahaan"];
 
@@ -120,7 +116,7 @@
 
                                                                       echo "</tr>";
 
-                                                                      GetPenerbit($id);
+                                                                      GetStruktur($id);
                                                                  }
 
                                                                  $space = substr($space, 0, strlen($space) - 7);
@@ -129,7 +125,7 @@
                                                             mysqli_close($conn);
                                                        }
 
-                                                       GetPenerbit(0);
+                                                       GetStruktur(0);
 
                                                        ?>
                                                   </tbody>

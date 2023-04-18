@@ -1,4 +1,63 @@
 <script>
+     $(function() {
+          var options = {
+               chart: {
+                    height: 500,
+                    type: 'bar',
+               },
+               plotOptions: {
+                    bar: {
+                         horizontal: false,
+                         columnWidth: '55%',
+                         endingShape: 'rounded'
+                    },
+               },
+               dataLabels: {
+                    enabled: true
+               },
+               colors: ["#0e9e4a", "#4680ff", "#ff5252"],
+               stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+               },
+               series: [],
+               noData: {
+                    text: 'Loading...'
+               },
+               yaxis: {
+                    title: {
+                         text: 'Jumlah Karyawan'
+                    }
+               },
+               fill: {
+                    opacity: 1
+
+               },
+               tooltip: {
+                    y: {
+                         formatter: function(val) {
+                              return val + " Orang"
+                         }
+                    }
+               }
+          }
+          var chart = new ApexCharts(
+               document.querySelector("#bar-chart-1"),
+               options
+          );
+          chart.render();
+
+          var url = '<?= base_url('dash/gt_data'); ?>';
+          $.getJSON(url, function(response) {
+               chart.updateSeries([{
+                    name: 'Jml Kary : ',
+                    data: response
+               }])
+          });
+     });
+</script>
+<script>
      //========================================== StatJanji ========================================================
      $(document).ready(function() {
           $('#btnupdateStatJanji').click(function() {
