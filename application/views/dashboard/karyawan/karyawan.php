@@ -70,8 +70,9 @@
                                                             <th style="text-align:center;width:1%;">No.</th>
                                                             <th>Nama</th>
                                                             <th>Departemen</th>
-                                                            <th>Section</th>
+                                                            <!-- <th>Section</th> -->
                                                             <th>Posisi</th>
+                                                            <th>Perusahaan</th>
                                                             <!-- <th>Telp</th> -->
                                                             <!-- <th style="text-align:center;">Status</th> -->
                                                             <!-- <th style="text-align:center;">Tgl. Dibuat</th> -->

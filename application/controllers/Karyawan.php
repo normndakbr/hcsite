@@ -69,6 +69,7 @@ class Karyawan extends My_Controller
                $row['nama_lengkap'] = $kry->nama_lengkap;
                $row['depart'] = $kry->depart;
                $row['section'] = $kry->section;
+               $row['kode_perusahaan'] = $kry->kode_perusahaan;
                $row['posisi'] = $kry->posisi;
 
                $row['tgl_buat'] = date('d-M-Y', strtotime($kry->tgl_buat));
