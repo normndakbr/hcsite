@@ -80,13 +80,17 @@
                         "data": 'depart',
                         "className": "text-wrap align-middle",
                     },
-                    {
-                        "data": 'section',
-                        "className": "text-nowrap align-middle",
-                    },
+                    // {
+                    //     "data": 'section',
+                    //     "className": "text-nowrap align-middle",
+                    // },
                     {
                         "data": 'posisi',
                         "className": "text-wrap align-middle",
+                    },
+                    {
+                        "data": 'kode_perusahaan',
+                        "className": "text-wrap align-middle text-center",
                     },
                     {
                         "data": 'proses',
