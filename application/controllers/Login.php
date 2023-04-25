@@ -23,7 +23,6 @@ class Login extends My_Controller
           $this->form_validation->set_rules('tsandi', 'sandi', 'required|trim', [
                'required' => "Sandi tidak boleh kosong"
           ]);
-
           if ($this->form_validation->run() == false) {
                $this->load->view('login/login');
           } else {
