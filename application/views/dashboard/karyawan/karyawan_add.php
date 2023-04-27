@@ -118,13 +118,28 @@
                                                                  <small class="errorUsia text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div> -->
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="kewarganegaraan">Kewarganegaraan</label>
                                                                  <!-- <input id='kewarganegaraan' name='kewarganegaraan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required> -->
                                                                  <select id="kewarganegaraan" class="mb-3 form-control">
-                                                                      <option value="wni" default>Warga Negara Indonesia (WNI)</option>
-                                                                      <option value="wna">Warga Negara Asing (WNA)</option>
+                                                                      <option value="wni" default>WNI</option>
+                                                                      <option value="wna">WNA</option>
+                                                                 </select>
+                                                                 <small class="errorKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="kewarganegaraan">Agama</label>
+                                                                 <!-- <input id='kewarganegaraan' name='kewarganegaraan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required> -->
+                                                                 <select id="kewarganegaraan" class="mb-3 form-control">
+                                                                      <option value="wni" default>Islam</option>
+                                                                      <option value="wna">Kristen</option>
+                                                                      <option value="wna">Katolik</option>
+                                                                      <option value="wna">Hindu</option>
+                                                                      <option value="wna">Budha</option>
+                                                                      <option value="wna">Konghucu</option>
                                                                  </select>
                                                                  <small class="errorKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
