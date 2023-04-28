@@ -32,7 +32,7 @@
                <div class="col-xl-12 col-md-12">
                     <div class="card latest-update-card">
                          <div class="card-header">
-                              <h5>Detail Data Karyawan</h5>
+                              <h5>Detail Data Karyawan - <?= $data_kary->nama_lengkap ?></h5>
                               <div class="card-header-right">
                                    <div class="btn-group card-option">
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,6 +62,7 @@
                                    <div class="alert alert-danger err_psn_depart animate__animated animate__bounce d-none"></div>
                               </div>
                               <div class="accordion" id="accordionExample">
+                                   <!-- Data Personal -->
                                    <div class="card mb-0">
                                         <div class="card-header" id="headingOne">
                                              <h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Data Pribadi</a></h5>
@@ -69,46 +70,113 @@
                                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                              <form class=" mx-3 py-4">
                                                   <div class="card-body row">
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 pb-3">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noKTP">No. KTP</label>
-                                                                 <input id='noKTP' name='noKTP' type="text" autocomplete="off" spellcheck="false" class="form-control" value=" <?= $data_kary->no_ktp ?> ">
+                                                                 <h6>No. KTP</h6>
+                                                                 <h5><?= $data_kary->no_ktp ?></h5>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="namaLengkap">Nama Lengkap</label>
-                                                                 <input id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $data_kary->nama_lengkap ?>" required>
+                                                                 <h6>Nama Lengkap</h6>
+                                                                 <h5><?= $data_kary->nama_lengkap ?></h5>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="alamatEmail">Alamat Email</label>
-                                                                 <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control" value=" <?= $data_kary->email_pribadi ?> " required>
+                                                                 <h6>Alamat Email</h6>
+                                                                 <h5><?= $data_kary->email_pribadi ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>No. Telp</h6>
+                                                                 <h5><?= $data_kary->hp_1 ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Tempat & Tanggal Lahir</h6>
+                                                                 <h5><?= $data_kary->tmp_lahir . ", " . $data_kary->tgl_lahir ?></h5>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noTelp">No. Telp</label>
-                                                                 <input id='noTelp' name='noTelp' type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $data_kary->hp_1 ?>" required>
+                                                                 <h6>Kewarganegaraan</h6>
+                                                                 <h5><?= $data_kary->warga_negara ?></h5>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="tempatLahir">Tempat & Tanggal Lahir</label>
-                                                                 <input id='tempatLahir' name='tempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control" value=" <?= $data_kary->tmp_lahir . ", " . $data_kary->tgl_lahir ?> " required>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-1 col-md-1 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label class="floating-label" for="kewarganegaraan">Kewarganegaraan</label>
-                                                                 <input id='tempatLahir' name='tempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control" value=" <?= $data_kary->warga_negara ?> ">
+                                                                 <h6>Agama</h6>
+                                                                 <h5><?= $data_kary->agama ?></h5>
                                                             </div>
                                                        </div>
                                                   </div>
                                              </form>
                                         </div>
                                    </div>
+                                   <!-- Data Karyawan -->
+                                   <div class="card mb-0">
+                                        <div class="card-header" id="headingFive">
+                                             <h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">Data Karyawan</a></h5>
+                                        </div>
+                                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                                             <form class=" mx-3 py-4">
+                                                  <div class="card-body row">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 pb-3">
+                                                            <div class="form-group">
+                                                                 <h6>Nama Perusahaan</h6>
+                                                                 <h5><?= $data_kary->nama_perusahaan ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-2 col-md-2 col-sm-12 pb-3">
+                                                            <div class="form-group">
+                                                                 <h6>NIK</h6>
+                                                                 <h5><?= $data_kary->no_nik ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Status Karyawan</h6>
+                                                                 <h5><?= $data_kary->stat_kerja ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-1 col-md-1 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Grade</h6>
+                                                                 <h5><?= $data_kary->grade ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Level</h6>
+                                                                 <h5><?= $data_kary->level ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Departemen</h6>
+                                                                 <h5><?= $data_kary->depart ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Section</h6>
+                                                                 <h5><?= $data_kary->section ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Posisi</h6>
+                                                                 <h5><?= $data_kary->posisi ?></h5>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </form>
+                                        </div>
+                                   </div>
+                                   <!-- Data Domisili -->
                                    <div class="card mb-0">
                                         <div class="card-header" id="headingFour">
                                              <h5 class="mb-0"><a href="#!" id="collapseDataDomisili" class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Data Domisili</a></h5>
@@ -161,11 +229,11 @@
                                                             </div>
                                                             <small class="errorProvinsi text-danger font-italic font-weight-bold"></small><br>
                                                        </div>
-                                                       <button type="submit" class="btn  btn-primary ml-3">Simpan Data Domisili</button>
                                                   </div>
                                              </form>
                                         </div>
                                    </div>
+                                   <!-- Kontak Darurat -->
                                    <div class="card mb-0">
                                         <div class="card-header" id="headingTwo">
                                              <h5 class="mb-0"><a href="#!" id="collapseKontakDarurat" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Kontak Darurat</a></h5>
@@ -195,7 +263,6 @@
                                                             </div>
                                                        </div>
                                                        <div class="d-flex justify-content-center">
-                                                            <button type="submit" class="btn btn-primary ml-3">Tambah Data Kontak Darurat</button>
                                                        </div>
                                                   </div>
                                              </form>
@@ -219,6 +286,7 @@
                                              </div>
                                         </div>
                                    </div>
+                                   <!-- Medical Checkup -->
                                    <div class="card">
                                         <div class="card-header" id="headingThree">
                                              <h5 class="mb-0"><a href="#!" id="collapseMCU" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Medical Check Up</a></h5>
@@ -249,7 +317,6 @@
                                                             <small id="error4" class="text-danger font-italic font-weight-bold"></small>
                                                        </div>
                                                   </div>
-                                                  <button type="submit" class="btn  btn-primary ml-3">Simpan Data Medical Check Up</button>
                                              </form>
                                         </div>
                                    </div>
