@@ -130,10 +130,46 @@
                                                                  <h5><?= $data_kary->nama_perusahaan ?></h5>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-2 col-md-2 col-sm-12 pb-3">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 pb-3">
                                                             <div class="form-group">
                                                                  <h6>NIK</h6>
                                                                  <h5><?= $data_kary->no_nik ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 pb-3">
+                                                            <div class="form-group">
+                                                                 <h6>Departemen</h6>
+                                                                 <h5><?= $data_kary->depart ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 pb-3">
+                                                            <div class="form-group">
+                                                                 <h6>Section</h6>
+                                                                 <h5><?= $data_kary->section ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Posisi</h6>
+                                                                 <h5><?= $data_kary->posisi ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Tipe </h6>
+                                                                 <h5><?= $data_kary->tipe ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Roster</h6>
+                                                                 <h5><?= $data_kary->roster ?></h5>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-2 col-md-2 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Point Of Hire </h6>
+                                                                 <h5><?= $data_kary->poh ?></h5>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
@@ -154,24 +190,6 @@
                                                                  <h5><?= $data_kary->level ?></h5>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Departemen</h6>
-                                                                 <h5><?= $data_kary->depart ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Section</h6>
-                                                                 <h5><?= $data_kary->section ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Posisi</h6>
-                                                                 <h5><?= $data_kary->posisi ?></h5>
-                                                            </div>
-                                                       </div>
                                                   </div>
                                              </form>
                                         </div>
@@ -186,48 +204,9 @@
                                                   <div class="card-body row">
                                                        <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="alamatLengkap">Alamat Lengkap</label>
-                                                                 <input id='alamatLengkap' name='alamatLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <h6>Alamat Lengkap </h6>
+                                                                 <h5><?= $alamat_kary->alamat_ktp ?></h5>
                                                             </div>
-                                                            <small class="erroralamatLengkap text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label for="kecamatan">Kecamatan</label>
-                                                                 <select id="addKecamatan" class="mb-0 form-control" required>
-                                                                      <option value="">Data Tidak Ditemukan</option>
-                                                                      <!-- <option value="wni" default>Warga Negara Indonesia (WNI)</option>
-                                                                      <option value="wna">Warga Negara Asing (WNA)</option> -->
-                                                                 </select>
-                                                            </div>
-                                                            <small class="errorKecamatan text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label for="kelurahan">Kelurahan</label>
-                                                                 <select id="addKelurahan" class="mb-0 form-control" required>
-                                                                      <option value="">Data Tidak Ditemukan</option>
-                                                                 </select>
-                                                            </div>
-                                                            <small class="errorKelurahan text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label for="kabupaten">Kabupaten</label>
-                                                                 <select id="addKabupaten" class="mb-0 form-control" required>
-                                                                      <option value="">Data Tidak Ditemukan</option>
-                                                                 </select>
-                                                            </div>
-                                                            <small class="errorKabupaten text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label for="provinsi">Provinsi</label>
-                                                                 <select id="addProvinsi" class="mb-0 form-control" required>
-                                                                      <option value="">Data Tidak Ditemukan</option>
-                                                                 </select>
-                                                            </div>
-                                                            <small class="errorProvinsi text-danger font-italic font-weight-bold"></small><br>
                                                        </div>
                                                   </div>
                                              </form>
