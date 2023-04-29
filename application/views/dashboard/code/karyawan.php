@@ -91,6 +91,7 @@
                     {
                         "data": 'kode_perusahaan',
                         "className": "text-wrap align-middle text-center",
+                        "width": "1%"
                     },
                     {
                         "data": 'proses',
