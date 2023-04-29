@@ -68,6 +68,15 @@ class Karyawan_model extends CI_Model
         return $this->db->count_all_results();
     }
 
+    public function get_alamat_by_id($id)
+    {
+        $this->db->from('vw_alamat_karyawan');
+        $this->db->where('id_kary', $id);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
     public function get_by_id($id)
     {
         $this->db->from($this->table);
@@ -175,18 +184,18 @@ class Karyawan_model extends CI_Model
 
     public function get_all()
     {
-        return $this->db->get('vw_depart')->result();
+        return $this->db->get('vw_karyawan')->result();
     }
 
     public function get_by_idper($id_per)
     {
-        $query = $this->db->get_where('vw_depart', ['id_perusahaan' => $id_per]);
+        $query = $this->db->get_where('vw_karyawan', ['id_perusahaan' => $id_per]);
         return $query->result();
     }
 
     public function get_by_authper($auth_per)
     {
-        $query = $this->db->get_where('vw_depart', ['auth_perusahaan' => $auth_per]);
+        $query = $this->db->get_where('vw_karyawan', ['auth_perusahaan' => $auth_per]);
         return $query->result();
     }
 }
