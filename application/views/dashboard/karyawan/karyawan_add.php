@@ -59,7 +59,7 @@
                                         <a href="<?= base_url('karyawan'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
                                         <a href="<?= base_url('karyawan/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
                                    </div>
-                                   <div class="alert alert-danger err_psn_depart animate__animated animate__bounce d-none"></div>
+                                   <div class="alert alert-danger err_psn_dtPersonal animate__animated animate__bounce d-none"></div>
                               </div>
                               <div class="accordion" id="accordionExample">
                                    <div class="card mb-0">
@@ -123,28 +123,29 @@
                                                                  <label class="floating-label" for="kewarganegaraan">Kewarganegaraan</label>
                                                                  <!-- <input id='kewarganegaraan' name='kewarganegaraan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required> -->
                                                                  <select id="kewarganegaraan" class="mb-3 form-control">
-                                                                      <option value="wni" default>WNI</option>
-                                                                      <option value="wna">WNA</option>
+                                                                      <option value="WNI" default>WNI</option>
+                                                                      <option value="WNA">WNA</option>
                                                                  </select>
                                                                  <small class="errorKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="kewarganegaraan">Agama</label>
+                                                                 <label class="floating-label" for="agama">Agama</label>
                                                                  <!-- <input id='kewarganegaraan' name='kewarganegaraan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required> -->
-                                                                 <select id="kewarganegaraan" class="mb-3 form-control">
-                                                                      <option value="wni" default>Islam</option>
-                                                                      <option value="wna">Kristen</option>
-                                                                      <option value="wna">Katolik</option>
-                                                                      <option value="wna">Hindu</option>
-                                                                      <option value="wna">Budha</option>
-                                                                      <option value="wna">Konghucu</option>
+                                                                 <select id="agama" class="mb-3 form-control">
+                                                                      <option value="islam" default>Islam</option>
+                                                                      <option value="kristen">Kristen</option>
+                                                                      <option value="katolik">Katolik</option>
+                                                                      <option value="hindu">Hindu</option>
+                                                                      <option value="budha">Budha</option>
+                                                                      <option value="konghucu">Konghucu</option>
                                                                  </select>
                                                                  <small class="errorKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <button type="submit" class="btn  btn-primary ml-3">Simpan & Lanjutkan</button>
+                                                       <button type="button" name="btnTambahDtPersonal" id="btnTambahDtPersonal" class="btn font-weight-bold btn-primary ml-3">Simpan & Lanjutkan</button>
+                                                       <!-- <button type="submit" class="btn btn-primary ml-3">Simpan & Lanjutkan</button> -->
                                                   </div>
                                              </form>
                                         </div>
