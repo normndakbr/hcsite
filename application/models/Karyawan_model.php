@@ -96,7 +96,8 @@ class Karyawan_model extends CI_Model
         return $this->db->count_all_results('vw_user');
     }
 
-    public function input_personal($data)
+    // input baru data personal karyawan
+    public function input_dtPersonal($data)
     {
         $this->db->insert('tb_personal', $data);
         if ($this->db->affected_rows() > 0) {
@@ -118,9 +119,9 @@ class Karyawan_model extends CI_Model
         }
     }
 
-    public function cek_depart($id_perusahaan, $depart)
+    public function cek_noKTP($noKTP)
     {
-        $query = $this->db->get_where('tb_depart', ['depart' => $depart, 'id_perusahaan' => $id_perusahaan]);
+        $query = $this->db->get_where('tb_personal', ['no_ktp' => $noKTP]);
         if (!empty($query->result())) {
             return true;
         } else {

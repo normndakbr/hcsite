@@ -94,12 +94,101 @@
                         "width": "1%"
                     },
                     {
+                        "data": 'tgl_buat',
+                        "className": "text-wrap align-middle text-center",
+                        "width": "1%"
+                    },
+                    {
                         "data": 'proses',
                         "className": "text-center text-nowrap align-middle",
                         "width": "1%"
                     }
                 ]
             });
+        });
+
+        $("#btnTambahDtPersonal").click(function() {
+            var noKTP = $("#noKTP").val();
+            var namaLengkap = $("#namaLengkap").val();
+            var alamatEmail = $("#alamatEmail").val();
+            var noTelp = $("#noTelp").val();
+            var tempatLahir = $("#tempatLahir").val();
+            var tanggalLahir = $("#tanggalLahir").val();
+            var kewarganegaraan = $("#kewarganegaraan").val();
+            var agama = $("#agama").val();
+
+            console.log(noKTP);
+            console.log(namaLengkap);
+            console.log(alamatEmail);
+            console.log(noTelp);
+            console.log(tempatLahir);
+            console.log(tanggalLahir);
+            console.log(kewarganegaraan);
+            console.log(agama);
+
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url("karyawan/input_dtPersonal") ?>",
+                data: {
+                    noKTP: noKTP,
+                    namaLengkap: namaLengkap,
+                    alamatEmail: alamatEmail,
+                    noTelp: noTelp,
+                    tempatLahir: tempatLahir,
+                    tanggalLahir: tanggalLahir,
+                    kewarganegaraan: kewarganegaraan,
+                    agama: agama,
+                },
+                timeout: 20000,
+                success: function(data) {
+                    console.log(data);
+                    var data = JSON.parse(data);
+                    console.log(data);
+                    if (data.statusCode == 200) {
+                        $(".err_psn_dtPersonal").removeClass('d-none');
+                        $(".err_psn_dtPersonal").removeClass('alert-danger');
+                        $(".err_psn_dtPersonal").addClass('alert-info');
+                        $(".err_psn_dtPersonal").html(data.pesan);
+                        $("#noTelp").val('');
+                        $("#namaLengkap").val('');
+                        $("#alamatEmail").val('');
+                        $("#noKTP").val('');
+                        $(".error1").html('');
+                        $(".error2").html('');
+                        $(".error3").html('');
+                    } else if (data.statusCode == 201) {
+                        $(".err_psn_dtPersonal").removeClass('d-none');
+                        $(".err_psn_dtPersonal").removeClass('alert-info');
+                        $(".err_psn_dtPersonal").addClass('alert-danger');
+                        $(".err_psn_dtPersonal").html(data.pesan);
+                    } else if (data.statusCode == 202) {
+                        $(".error1").html(data.prs);
+                        $(".error2").html(data.kode);
+                        $(".error3").html(data.depart);
+                    }
+
+                    $(".err_psn_dtPersonal").fadeTo(3000, 500).slideUp(500, function() {
+                        $(".err_psn_dtPersonal").slideUp(500);
+                    });
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    $.LoadingOverlay("hide");
+                    $(".err_psn_dtPersonal").removeClass("alert-primary");
+                    $(".err_psn_dtPersonal").addClass("alert-danger");
+                    $(".err_psn_dtPersonal").css("display", "block");
+                    if (xhr.status == 404) {
+                        $(".err_psn_dtPersonal").html("Departemen gagal disimpan, Link data tidak ditemukan");
+                    } else if (xhr.status == 0) {
+                        $(".err_psn_dtPersonal").html("Departemen gagal disimpan, Waktu koneksi habis");
+                    } else {
+                        $(".err_psn_dtPersonal").html("Terjadi kesalahan saat menghapus data, hubungi administrator");
+                    }
+
+                    $(".err_psn_dtPersonal ").fadeTo(3000, 500).slideUp(500, function() {
+                        $(".err_psn_dtPersonal ").slideUp(500);
+                    });
+                }
+            })
         });
 
     });
