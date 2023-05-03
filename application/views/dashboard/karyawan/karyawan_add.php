@@ -111,19 +111,11 @@
                                                                  <small class="errorTanggalLahir text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <!-- <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label class="floating-label" for="usia">Usia</label>
-                                                                 <input id='usia' name='usia' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" readonly>
-                                                                 <small class="errorUsia text-danger font-italic font-weight-bold"></small><br>
-                                                            </div>
-                                                       </div> -->
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="kewarganegaraan">Kewarganegaraan</label>
-                                                                 <!-- <input id='kewarganegaraan' name='kewarganegaraan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required> -->
                                                                  <select id="kewarganegaraan" class="mb-3 form-control">
-                                                                      <option value="WNI" default>WNI</option>
+                                                                      <option value="WNI" selected>WNI</option>
                                                                       <option value="WNA">WNA</option>
                                                                  </select>
                                                                  <small class="errorKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
@@ -132,9 +124,8 @@
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="agama">Agama</label>
-                                                                 <!-- <input id='kewarganegaraan' name='kewarganegaraan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required> -->
                                                                  <select id="agama" class="mb-3 form-control">
-                                                                      <option value="islam" default>Islam</option>
+                                                                      <option value="islam" selected>Islam</option>
                                                                       <option value="kristen">Kristen</option>
                                                                       <option value="katolik">Katolik</option>
                                                                       <option value="hindu">Hindu</option>
@@ -145,7 +136,6 @@
                                                             </div>
                                                        </div>
                                                        <button type="button" name="btnTambahDtPersonal" id="btnTambahDtPersonal" class="btn font-weight-bold btn-primary ml-3">Simpan & Lanjutkan</button>
-                                                       <!-- <button type="submit" class="btn btn-primary ml-3">Simpan & Lanjutkan</button> -->
                                                   </div>
                                              </form>
                                         </div>
@@ -169,8 +159,6 @@
                                                                  <label for="kecamatan">Kecamatan</label>
                                                                  <select id="addKecamatan" class="mb-0 form-control" required>
                                                                       <option value="">Data Tidak Ditemukan</option>
-                                                                      <!-- <option value="wni" default>Warga Negara Indonesia (WNI)</option>
-                                                                      <option value="wna">Warga Negara Asing (WNA)</option> -->
                                                                  </select>
                                                             </div>
                                                             <small class="errorKecamatan text-danger font-italic font-weight-bold"></small><br>

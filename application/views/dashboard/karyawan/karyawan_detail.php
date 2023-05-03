@@ -53,250 +53,191 @@
                                    </div>
                               </div>
                          </div>
-                         <div class="card-body">
-                              <div class="mt-3">
-                                   <div class="mb-4">
-                                        <a href="<?= base_url('karyawan'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
-                                        <!-- <a href="<?= base_url('karyawan/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a> -->
+                         <div class="card-body pt-4">
+                              <div class="row">
+                                   <div class="col-md-2 col-sm-12">
+                                        <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                             <li><a class="nav-link text-left has-ripple active" id="v-pills-dtPersonal-tab" data-toggle="pill" href="#v-pills-dtPersonal" role="tab" aria-controls="v-pills-dtPersonal" aria-selected="true">Data Personal<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -152.188px; left: -96.625px;"></span></a></li>
+                                             <li><a class="nav-link text-left has-ripple" id="v-pills-dtKaryawan-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Data Karyawan<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -162.188px; left: -102.625px;"></span></a></li>
+                                             <li><a class="nav-link text-left has-ripple" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Alamat Domisili<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
+                                             <li><a class="nav-link text-left has-ripple" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Kontak Darurat<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -168.188px; left: -119.625px;"></span></a></li>
+                                        </ul>
                                    </div>
-                                   <div class="alert alert-danger err_psn_depart animate__animated animate__bounce d-none"></div>
-                              </div>
-                              <div class="accordion" id="accordionExample">
-                                   <!-- Data Personal -->
-                                   <div class="card mb-0">
-                                        <div class="card-header" id="headingOne">
-                                             <h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Data Pribadi</a></h5>
-                                        </div>
-                                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                             <form class=" mx-3 py-4">
+                                   <div class="col-md-10 col-sm-12">
+                                        <div class="tab-content" id="v-pills-tabContent">
+                                             <div class="tab-pane fade active show" id="v-pills-dtPersonal" role="tabpanel" aria-labelledby="v-pills-dtPersonal-tab">
                                                   <div class="card-body row">
-                                                       <div class="col-lg-4 col-md-4 col-sm-12 pb-3">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>No. KTP</h6>
-                                                                 <h5><?= $data_kary->no_ktp ?></h5>
+                                                                 <h5>No. KTP</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->no_ktp ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>Nama Lengkap</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->nama_lengkap ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>Alamat Email</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->email_pribadi ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>No. Telp</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->no_ktp ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Nama Lengkap</h6>
-                                                                 <h5><?= $data_kary->nama_lengkap ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Alamat Email</h6>
-                                                                 <h5><?= $data_kary->email_pribadi ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>No. Telp</h6>
-                                                                 <h5><?= $data_kary->hp_1 ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Tempat & Tanggal Lahir</h6>
-                                                                 <h5><?= $data_kary->tmp_lahir . ", " . $data_kary->tgl_lahir ?></h5>
+                                                                 <h5>Tempat & Tanggal Lahir</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->tmp_lahir . ", " . $data_kary->tgl_lahir ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Kewarganegaraan</h6>
-                                                                 <h5><?= $data_kary->warga_negara ?></h5>
+                                                                 <h5>Status Pernikahan</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->stat_kawin ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Agama</h6>
-                                                                 <h5><?= $data_kary->agama ?></h5>
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                             </form>
-                                        </div>
-                                   </div>
-                                   <!-- Data Karyawan -->
-                                   <div class="card mb-0">
-                                        <div class="card-header" id="headingFive">
-                                             <h5 class="mb-0"><a href="#!" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">Data Karyawan</a></h5>
-                                        </div>
-                                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                                             <form class=" mx-3 py-4">
-                                                  <div class="card-body row">
-                                                       <div class="col-lg-4 col-md-4 col-sm-12 pb-3">
-                                                            <div class="form-group">
-                                                                 <h6>Nama Perusahaan</h6>
-                                                                 <h5><?= $data_kary->nama_perusahaan ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12 pb-3">
-                                                            <div class="form-group">
-                                                                 <h6>NIK</h6>
-                                                                 <h5><?= $data_kary->no_nik ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12 pb-3">
-                                                            <div class="form-group">
-                                                                 <h6>Departemen</h6>
-                                                                 <h5><?= $data_kary->depart ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12 pb-3">
-                                                            <div class="form-group">
-                                                                 <h6>Section</h6>
-                                                                 <h5><?= $data_kary->section ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Posisi</h6>
-                                                                 <h5><?= $data_kary->posisi ?></h5>
+                                                                 <h5>Kewarganegaraan</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->warga_negara ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Tipe </h6>
-                                                                 <h5><?= $data_kary->tipe ?></h5>
+                                                                 <h5>Agama</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->agama ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-2 col-md-2 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Roster</h6>
-                                                                 <h5><?= $data_kary->roster ?></h5>
+                                                                 <h5>Jenis Kelamin</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->jk ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-2 col-md-2 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Point Of Hire </h6>
-                                                                 <h5><?= $data_kary->poh ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-2 col-md-2 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Status Karyawan</h6>
-                                                                 <h5><?= $data_kary->stat_kerja ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-1 col-md-1 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Grade</h6>
-                                                                 <h5><?= $data_kary->grade ?></h5>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-2 col-md-2 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Level</h6>
-                                                                 <h5><?= $data_kary->level ?></h5>
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                             </form>
-                                        </div>
-                                   </div>
-                                   <!-- Data Domisili -->
-                                   <div class="card mb-0">
-                                        <div class="card-header" id="headingFour">
-                                             <h5 class="mb-0"><a href="#!" id="collapseDataDomisili" class="collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Data Domisili</a></h5>
-                                        </div>
-                                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                                             <form class=" mx-3 py-4">
-                                                  <div class="card-body row">
-                                                       <div class="col-lg-12 col-md-12 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Alamat Lengkap </h6>
-                                                                 <h5><?= $alamat_kary->alamat_ktp ?></h5>
-                                                            </div>
-                                                       </div>
-                                                  </div>
-                                             </form>
-                                        </div>
-                                   </div>
-                                   <!-- Kontak Darurat -->
-                                   <div class="card mb-0">
-                                        <div class="card-header" id="headingTwo">
-                                             <h5 class="mb-0"><a href="#!" id="collapseKontakDarurat" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Kontak Darurat</a></h5>
-                                        </div>
-                                        <div id="collapseTwo" class="collapse px-3 py-4" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                             <form>
-                                                  <div class="card-body row">
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label class="floating-label" for="nmKontakDarurat">Nama</label>
-                                                                 <input id='nmKontakDarurat' name='nmKontakDarurat' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            </div>
-                                                            <small class="errorNmKontakDarurat text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label class="floating-label" for="telpKontakDarurat">Nomor Telp</label>
-                                                                 <input id='telpKontakDarurat' name='telpKontakDarurat' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorTelpKontakDarurat text-danger font-italic font-weight-bold"></small><br>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label class="floating-label" for="hubKontakDarurat">Hubungan</label>
-                                                                 <input id='hubKontakDarurat' name='hubKontakDarurat' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorHubKontakDarurat text-danger font-italic font-weight-bold"></small><br>
-                                                            </div>
-                                                       </div>
-                                                       <div class="d-flex justify-content-center">
-                                                       </div>
-                                                  </div>
-                                             </form>
-                                             <div class="col-lg-12 mt-3 ml-1">
-                                                  <div class="table-responsive">
-                                                       <table id="tbmKontakDarurat" class="table table-striped table-bordered table-hover text-black" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-                                                            <thead>
-                                                                 <tr class="font-weight-boldtext-white">
-                                                                      <th style="text-align:center;width:1%;">No.</th>
-                                                                      <th>Nama</th>
-                                                                      <th>No. Telp</th>
-                                                                      <!-- <th>Telp</th> -->
-                                                                      <th style="text-align:center;">Hubungan</th>
-                                                                      <th style="text-align:center;">Proses</th>
-                                                                 </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            </tbody>
-                                                       </table>
                                                   </div>
                                              </div>
-                                        </div>
-                                   </div>
-                                   <!-- Medical Checkup -->
-                                   <div class="card">
-                                        <div class="card-header" id="headingThree">
-                                             <h5 class="mb-0"><a href="#!" id="collapseMCU" class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Medical Check Up</a></h5>
-                                        </div>
-                                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                             <form class=" mx-3 my-5">
+                                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-dtKaryawan-tab">
                                                   <div class="card-body row">
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <label class="floating-label" for="noKTP">Tanggal Medical Check Up :</label>
-                                                            <input id='noKTP' name='noKTP' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            <small class="errorNoKTP text-danger font-italic font-weight-bold"></small><br>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>Nama Perusahaan</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->nama_perusahaan ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>NIK</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->no_nik ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>Departemen</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->depart ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>Section</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->section ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>Posisi</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->posisi ?>" style="background-color:transparent;" disabled>
+                                                            </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <label class="floating-label" for="namaLengkap">Tanggal Follow Up :</label>
-                                                            <input id='namaLengkap' name='namaLengkap' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
+                                                            <div class="form-group">
+                                                                 <h5>Jenis Karyawan</h5>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->tipe ?>" style="background-color:transparent;" disabled>
+                                                            </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <label class="floating-label" for="alamatEmail">Scan Berkas Medical Checkup (.pdf) :</label>
-                                                            <input id='alamatEmail' name='alamatEmail' type="file" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
+                                                       <?php if ($data_kary->stat_kerja == "Permanen") { ?>
+                                                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                                            <?php } else { ?>
+                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
+
+                                                                 <?php } ?>
+                                                                 <div class="form-group">
+                                                                      <h5>Status Karyawan</h5>
+                                                                      <input type="text" class="form-control" value="<?= $data_kary->stat_kerja ?>" style="background-color:transparent;" disabled>
+                                                                 </div>
+                                                                 </div>
+                                                                 <?php if ($data_kary->stat_kerja == "Permanen") { ?>
+                                                                      <div class="col-lg-2 col-md-2 col-sm-12">
+                                                                           <div class="form-group">
+                                                                                <h5>Tanggal Permanen</h5>
+                                                                                <input type="text" class="form-control" value="<?= $data_kary->tgl_permanen ?>" style="background-color:transparent;" disabled>
+                                                                           </div>
+                                                                      </div>
+                                                                 <?php } ?>
+                                                                 <div class="col-lg-2 col-md-2 col-sm-12">
+                                                                      <div class="form-group">
+                                                                           <h5>Tipe Roster</h5>
+                                                                           <input type="text" class="form-control" value="<?= $data_kary->roster ?>" style="background-color:transparent;" disabled>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="col-lg-2 col-md-2 col-sm-12">
+                                                                      <div class="form-group">
+                                                                           <h5>Status Residence</h5>
+                                                                           <input type="text" class="form-control" value="<?= $data_kary->roster == "R" ? "Residence" : "Non Residence" ?>" style="background-color:transparent;" disabled>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="col-lg-4 col-md-4 col-sm-12">
+                                                                      <div class="form-group">
+                                                                           <h5>Point of Hire</h5>
+                                                                           <input type="text" class="form-control" value="<?= $data_kary->poh ?>" style="background-color:transparent;" disabled>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="col-lg-2 col-md-2 col-sm-12">
+                                                                      <div class="form-group">
+                                                                           <h5>Grade</h5>
+                                                                           <input type="text" class="form-control" value="<?= $data_kary->grade ?>" style="background-color:transparent;" disabled>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="col-lg-2 col-md-2 col-sm-12">
+                                                                      <div class="form-group">
+                                                                           <h5>Level</h5>
+                                                                           <input type="text" class="form-control" value="<?= $data_kary->level ?>" style="background-color:transparent;" disabled>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="col-lg-2 col-md-2 col-sm-12">
+                                                                      <div class="form-group">
+                                                                           <h5>Lokasi Kerja</h5>
+                                                                           <input type="text" class="form-control" value="<?= $data_kary->lokker ?>" style="background-color:transparent;" disabled>
+                                                                      </div>
+                                                                 </div>
+                                                                 <div class="col-lg-2 col-md-2 col-sm-12">
+                                                                      <div class="form-group">
+                                                                           <h5>Lokasi Penerimaan</h5>
+                                                                           <input type="text" class="form-control" value="<?= $data_kary->lokterima ?>" style="background-color:transparent;" disabled>
+                                                                      </div>
+                                                                 </div>
+                                                            </div>
                                                   </div>
-                                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                                       <div class="form-group">
-                                                            <label class="floating-label" for="ketMCU">Keterangan</label>
-                                                            <input id='ketMCU' type="text" autocomplete="off" spellcheck="false" class="form-control">
-                                                            <small id="error4" class="text-danger font-italic font-weight-bold"></small>
-                                                       </div>
+                                                  <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                                                       <p class="mb-0">Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit
+                                                            nostrud magna
+                                                            nulla. Velit et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
                                                   </div>
-                                             </form>
+                                                  <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                       <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
+                                                            duis
+                                                            aliqua do.
+                                                            Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
+                                                            eiusmod.
+                                                       </p>
+                                                  </div>
+                                             </div>
                                         </div>
                                    </div>
                               </div>
@@ -305,6 +246,5 @@
                </div>
           </div>
      </div>
-</div>
 </div>
 </div>
