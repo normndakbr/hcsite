@@ -40,7 +40,7 @@ class Karyawan extends My_Controller
           $data['menu'] = $this->session->userdata("id_menu");
 
           $data["data_kary"] = $this->kry->get_by_id($id_kary);
-          $data["alamat_kary"] = $this->kry->get_alamat_by_id($id_kary);
+          // $data["alamat_kary"] = $this->kry->get_alamat_by_id($id_kary);
 
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/karyawan/karyawan_detail', $data);
