@@ -72,7 +72,7 @@
                                                             <th>Departemen</th>
                                                             <th>Posisi</th>
                                                             <th>Perusahaan</th>
-                                                            <th style="text-align:center;">Tgl. Dibuat</th>
+                                                            <!-- <th style="text-align:center;">Tgl. Dibuat</th> -->
                                                             <th style="text-align:center;">Proses</th>
                                                        </tr>
                                                   </thead>

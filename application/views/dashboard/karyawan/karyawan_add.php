@@ -56,8 +56,8 @@
                          <div class="card-body">
                               <div class="mt-3">
                                    <div class="mb-2">
-                                        <a href="<?= base_url('karyawan'); ?>" class="btn btn-danger font-weight-bold">Batal</a>
-                                        <a id="addbtn" href="<?= base_url('karyawan/new'); ?>" class="btn btn-success font-weight-bold">Reset</a>
+                                        <a href="<?= base_url('karyawan'); ?>" class="btn btn-sm btn-danger font-weight-bold">Batal</a>
+                                        <a id="addbtn" href="<?= base_url('karyawan/new'); ?>" class="btn btn-sm btn-warning font-weight-bold">Reset</a>
                                    </div>
                                    <div class="alert alert-danger err_psn_depart animate__animated animate__bounce d-none"></div>
                               </div>
@@ -76,74 +76,117 @@
                                                   <div class="card-body row">
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>No. KTP</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="noKTP">No. KTP</label>
+                                                                 <input id='noKTP' name='noKTP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoKTP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Nama Lengkap</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="namaLengkap">Nama Lengkap</label>
+                                                                 <input id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Alamat Email</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="alamatEmail">Alamat Email</label>
+                                                                 <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>No. Telp</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="noTelp">No. Telp</label>
+                                                                 <input id='noTelp' name='noTelp' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoTelp text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="tempatLahir">Tempat & Tanggal Lahir</label>
+                                                                 <input id='tempatLahir' name='tempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorTempatLahir text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <input id='tanggalLahir' name='tanggalLahir' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorTanggalLahir text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Tempat & Tanggal Lahir</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Status Pernikahan</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h6>Kewarganegaraan</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="statPernikahan">Status Pernikahan</label>
+                                                                 <select id="statPernikahan" class="mb-3 form-control">
+                                                                      <option value="TK" selected>TK</option>
+                                                                      <option value="K0">K0</option>
+                                                                      <option value="K1">K1</option>
+                                                                      <option value="K2">K2</option>
+                                                                      <option value="K3">K3</option>
+                                                                      <option value="K4">K4</option>
+                                                                 </select>
+                                                                 <small class="errorStatPernikahan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Agama</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="kewarganegaraan">Kewarganegaraan</label>
+                                                                 <select id="kewarganegaraan" class="mb-3 form-control">
+                                                                      <option value="WNI" selected>WNI</option>
+                                                                      <option value="WNA">WNA</option>
+                                                                 </select>
+                                                                 <small class="errorKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Jenis Kelamin</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="agama">Agama</label>
+                                                                 <select id="agama" class="mb-3 form-control">
+                                                                      <option value="islam" selected>Islam</option>
+                                                                      <option value="kristen">Kristen</option>
+                                                                      <option value="katolik">Katolik</option>
+                                                                      <option value="hindu">Hindu</option>
+                                                                      <option value="budha">Budha</option>
+                                                                      <option value="konghucu">Konghucu</option>
+                                                                 </select>
+                                                                 <small class="errorAgama text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Kode Bank</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="jenisKelamin">Jenis Kelamin</label>
+                                                                 <select id="jenisKelamin" class="mb-3 form-control">
+                                                                      <option value="LK" selected>Laki - Laki</option>
+                                                                      <option value="P">Perempuan</option>
+                                                                 </select>
+                                                                 <small class="errorJenisKelamin text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>No. Rekening</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="kodeBank">Kode Bank</label>
+                                                                 <select id="kodeBank" class="mb-3 form-control">
+                                                                      <option value="BRI" selected>BRI</option>
+                                                                      <option value="BNI">BNI</option>
+                                                                      <option value="BCA">BCA</option>
+                                                                      <option value="Mandiri">Mandiri</option>
+                                                                 </select>
+                                                                 <small class="errorKodeBank text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>No. NPWP</h6>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="noRek">No. Rekening</label>
+                                                                 <input id='noRek' name='noRek' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoRek text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="noNPWP">No. NPWP</label>
+                                                                 <input id='noNPWP' name='noNPWP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoNPWP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                   </div>
@@ -192,14 +235,12 @@
                                                                  <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <?php if ($data_kary->stat_kerja == "Permanen") { ?>
-                                                            <div class="col-lg-4 col-md-4 col-sm-12">
-                                                                 <div class="form-group">
-                                                                      <h5>Tanggal Permanen</h5>
-                                                                      <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
-                                                                 </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h5>Tanggal Permanen</h5>
+                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
                                                             </div>
-                                                       <?php } ?>
+                                                       </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <h5>Tipe Roster</h5>

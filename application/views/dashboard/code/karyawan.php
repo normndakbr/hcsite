@@ -94,11 +94,6 @@
                         "width": "1%"
                     },
                     {
-                        "data": 'tgl_buat',
-                        "className": "text-wrap align-middle text-center",
-                        "width": "1%"
-                    },
-                    {
                         "data": 'proses',
                         "className": "text-center text-nowrap align-middle",
                         "width": "1%"
