@@ -147,6 +147,7 @@
                     }
                 })
             });
+            
             $("#btnTambahSection").click(function() {
                 var prs = $("#perSection").val();
                 var depart = $("#depSection").val();

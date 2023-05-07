@@ -188,4 +188,10 @@ class Section_model extends CI_Model
                return 201;
           }
      }
+
+     public function get_by_authdepart($auth_depart)
+     {
+          $query = $this->db->get_where('vw_section', ['auth_depart' => $auth_depart]);
+          return $query->result();
+     }
 }

@@ -13,8 +13,8 @@
                 data: {},
                 success: function(data) {
                     var data = JSON.parse(data);
-                    $("#perDepart").html(data.prs);
-                    $('#perDepart').select2({
+                    $("#addPerKary").html(data.prs);
+                    $('#addPerKary').select2({
                         theme: 'bootstrap4'
                     });
                 },
@@ -30,10 +30,90 @@
                 }
             });
 
-            $("#btnrefreshdepart").click(function() {
-                $('#tbmKaryawan').LoadingOverlay("show");
-                tbmKaryawan.draw()
-                $('#tbmKaryawan').LoadingOverlay("hide");
+            $("#addPerKary").change(function() {
+                let auth_per = $("#addPerKary").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('departemen/get_by_authper') ?>",
+                    data: {
+                        auth_per: auth_per
+                    },
+                    success: function(data) {
+                        $("#addDepartKary").removeAttr('disabled');
+                        var data = JSON.parse(data);
+                        $("#addDepartKary").html(data.dprt);
+                        $('#addDepartKary').select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        $(".errormsg").removeClass('d-none');
+                        $(".errormsg").removeClass('alert-info');
+                        $(".errormsg").addClass('alert-danger');
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data departemen, hubungi administrator");
+                            // $("#btnTambahDepart").attr("disabled", true);
+                        }
+                    }
+                });
+            });
+
+            $("#addDepartKary").change(function() {
+                let auth_depart = $("#addDepartKary").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('section/get_by_authdepart') ?>",
+                    data: {
+                        auth_depart: auth_depart
+                    },
+                    success: function(data) {
+                        $("#addSectionKary").removeAttr('disabled');
+                        var data = JSON.parse(data);
+                        $("#addSectionKary").html(data.section);
+                        $('#addSectionKary').select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        $(".errormsg").removeClass('d-none');
+                        $(".errormsg").removeClass('alert-info');
+                        $(".errormsg").addClass('alert-danger');
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data section, hubungi administrator");
+                            // $("#btnTambahSection").attr("disabled", true);
+                        }
+                    }
+                });
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('posisi/get_by_authdepart') ?>",
+                    data: {
+                        auth_depart: auth_depart
+                    },
+                    success: function(data) {
+                        $("#addPosisiKary").removeAttr('disabled');
+                        var data = JSON.parse(data);
+                        $("#addPosisiKary").html(data.posisi);
+                        $("#addPosisiKary").select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        $(".errormsg").removeClass('d-none');
+                        $(".errormsg").removeClass('alert-info');
+                        $(".errormsg").addClass('alert-danger');
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data posisi, hubungi administrator");
+                            // $("#btnTambahPosisi").attr("disabled", true);
+                        }
+                    }
+                });
             });
 
             tbmKaryawan = $('#tbmKaryawan').DataTable({

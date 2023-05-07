@@ -280,4 +280,21 @@ class Posisi extends My_Controller
                echo json_encode(array("statusCode" => 200, "depart" => $output, "pesan", "Departemen gagal ditampilkan"));
           }
      }
+
+     public function get_by_authdepart()
+     {
+          $auth_depart = $this->input->post('auth_depart');
+
+          $query = $this->pss->get_by_authdepart($auth_depart);
+          $output = "<option value=''>-- Pilih Posisi --</option>";
+          if (!empty($query)) {
+               foreach ($query as $list) {
+                    $output = $output . "<option value='" . $list->auth_posisi . "'>" . $list->posisi . "</option>";
+               }
+               echo json_encode(array("statusCode" => 200, "posisi" => $output));
+          } else {
+               $output = "<option value=''>-- posisi Tidak Ditemukan --</option>";
+               echo json_encode(array("statusCode" => 201, "posisi" => $output));
+          }
+     }
 }

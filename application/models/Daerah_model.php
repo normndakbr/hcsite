@@ -19,6 +19,13 @@ class Daerah_model extends CI_Model
           return $query->result();
      }
 
+     public function get_all_kab()
+     {
+          $db2 = $this->load->database('db_daerah', TRUE);
+          $query = $db2->get_where('regencies');
+          return $query->result();
+     }
+
      public function get_kec($id_kab)
      {
           $db2 = $this->load->database('db_daerah', TRUE);
