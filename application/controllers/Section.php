@@ -303,4 +303,20 @@ class Section extends My_Controller
                echo json_encode(array("statusCode" => 200, "depart" => $output, "pesan", "Departemen gagal ditampilkan"));
           }
      }
+     public function get_by_authdepart()
+     {
+          $auth_depart = $this->input->post('auth_depart');
+
+          $query = $this->sctn->get_by_authdepart($auth_depart);
+          $output = "<option value=''>-- Pilih Section --</option>";
+          if (!empty($query)) {
+               foreach ($query as $list) {
+                    $output = $output . "<option value='" . $list->auth_section . "'>" . $list->section . "</option>";
+               }
+               echo json_encode(array("statusCode" => 200, "section" => $output));
+          } else {
+               $output = "<option value=''>-- Section Tidak Ditemukan --</option>";
+               echo json_encode(array("statusCode" => 201, "section" => $output));
+          }
+     }
 }

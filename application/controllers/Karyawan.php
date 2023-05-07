@@ -55,6 +55,12 @@ class Karyawan extends My_Controller
           echo json_encode($list);
      }
 
+     public function get_all_kab()
+     {
+          $list = $this->drh->get_all_kab();
+          echo json_encode($list);
+     }
+
      public function input_dtPersonal()
      {
           $this->form_validation->set_rules("noKTP", "noKTP", "required|trim", [
@@ -146,6 +152,13 @@ class Karyawan extends My_Controller
                     echo json_encode(array("statusCode" => 201, "pesan" => "Data Personal Karyawan gagal disimpan"));
                }
           }
+     }
+
+     public function get_id_perusahaan($auth_perusahaan)
+     {
+          $id_perusahaan = $this->prs->get_by_auth($auth_perusahaan);
+          $_SESSION["addPerKary"] = $id_perusahaan;
+          echo json_encode($id_perusahaan);
      }
 
      // fetch data karyawan

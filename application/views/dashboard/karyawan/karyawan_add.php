@@ -194,39 +194,51 @@
                                              <div class="tab-pane fade" id="v-pills-dtKaryawan" role="tabpanel" aria-labelledby="v-pills-dtKaryawan-tab">
                                                   <div class="card-body row">
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <label for="addPerKary">Perusahaan :</label><br>
+                                                            <select id='addPerKary' name='addPerKary' class="form-control form-control-user">
+                                                                 <option value="">-- Pilih Perusahaan --</option>
+                                                            </select>
+                                                            <small class="errorAddPerKary text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Nama Perusahaan</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addDepartKary">Departemen :</label><br>
+                                                                 <select id='addDepartKary' name='addDepartKary' class="form-control form-control-user" disabled>
+                                                                      <option value="">-- Pilih Departemen --</option>
+                                                                 </select>
+                                                                 <small class="errorAddDepartKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>NIK</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addSectionKary">Section :</label><br>
+                                                                 <select id='addSectionKary' name='addSectionKary' class="form-control form-control-user" disabled>
+                                                                      <option value="">-- Pilih Section --</option>
+                                                                 </select>
+                                                                 <small class="errorAddSectionKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Departemen</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addPosisiKary">Posisi :</label><br>
+                                                                 <select id='addPosisiKary' name='addPosisiKary' class="form-control form-control-user" disabled>
+                                                                      <option value="">-- Pilih Posisi --</option>
+                                                                 </select>
+                                                                 <small class="errorAddPosisiKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Section</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="addNIKKary">NIK</label>
+                                                                 <input id='addNIKKary' name='addNIKKary' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="erroraddNIKKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Posisi</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <h5>Jenis Karyawan</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="addJenisKaryawan">Jenis Karyawan</label>
+                                                                 <input id='addJenisKaryawan' name='addJenisKaryawan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="erroraddJenisKaryawan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
