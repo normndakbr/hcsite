@@ -235,14 +235,14 @@ class Poh extends My_Controller
      public function get_all()
      {
           $query = $this->pho->get_all();
-          $output = "<option value=''>-- Pilih poh --</option>";
+          $output = "<option value=''>-- Pilih lokasi POH --</option>";
           if (!empty($query)) {
                foreach ($query as $list) {
                     $output = $output . "<option value='" . $list->auth_poh . "'>" . $list->poh . "</option>";
                }
                echo json_encode(array("statusCode" => 200, "pho" => $output));
           } else {
-               $output = "<option value=''>-- poh tidak Ditemukan --</option>";
+               $output = "<option value=''>-- Lokasi POH tidak ditemukan --</option>";
                echo json_encode(array("statusCode" => 201, "pho" => $output));
           }
      }
@@ -278,6 +278,23 @@ class Poh extends My_Controller
           } else {
                $output = "<option value=''>-- pohemen tidak ditemukan --</option>";
                echo json_encode(array("statusCode" => 200, "poh" => $output, "pesan", "poh gagal ditampilkan"));
+          }
+     }
+
+     public function get_by_authpoh()
+     {
+          $auth_poh = $this->input->post('auth_poh');
+
+          $query = $this->pho->get_poh_id($auth_poh);
+          $output = "<option value=''>-- Pilih Lokasi POH --</option>";
+          if (!empty($query)) {
+               foreach ($query as $list) {
+                    $output = $output . "<option value='" . $list->auth_poh . "'>" . $list->poh . "</option>";
+               }
+               echo json_encode(array("statusCode" => 200, "pho" => $output));
+          } else {
+               $output = "<option value=''>-- Data lokasi POH tidak ada --</option>";
+               echo json_encode(array("statusCode" => 201, "pho" => $output));
           }
      }
 }
