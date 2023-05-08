@@ -114,6 +114,30 @@
                         }
                     }
                 });
+
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url('poh/get_all') ?>",
+                data: {},
+                success: function(data) {
+                    var data = JSON.parse(data);
+                    $("#addPOHKary").html(data.pho);
+                    $("#addPOHKary").select2({
+                        theme: 'bootstrap4'
+                    });
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    $.LoadingOverlay("hide");
+                    $(".errormsg").removeClass('d-none');
+                    $(".errormsg").removeClass('alert-info');
+                    $(".errormsg").addClass('alert-danger');
+                    if (thrownError != "") {
+                        $(".errormsg").html("Terjadi kesalahan saat load data POH, hubungi administrator");
+                        // $("#btnTambahPosisi").attr("disabled", true);
+                    }
+                }
             });
 
             tbmKaryawan = $('#tbmKaryawan').DataTable({

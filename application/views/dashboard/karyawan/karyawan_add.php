@@ -237,59 +237,86 @@
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addJenisKaryawan">Jenis Karyawan</label>
-                                                                 <input id='addJenisKaryawan' name='addJenisKaryawan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <select id='addStatusKaryawan' name='addStatusKaryawan' class="form-control form-control-user">
+                                                                      <option value="Staff">Staff</option>
+                                                                      <option value="Non Staff">Non Staff</option>
+                                                                 </select>
                                                                  <small class="erroraddJenisKaryawan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Status Karyawan</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addStatusKaryawan">Status Karyawan</label>
+                                                                 <select id='addStatusKaryawan' name='addStatusKaryawan' class="form-control form-control-user">
+                                                                      <option value="Permanen" default>Permanen</option>
+                                                                      <option value="Kontrak">Kontrak</option>
+                                                                 </select>
+                                                                 <small class="erroraddStatusKaryawan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Tanggal Permanen</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addStatusKaryawan">Tanggal Permanen</label>
+                                                                 <input type="date" class="form-control" value="" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Tipe Roster</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="addTipeRoster">Tipe Roster</label>
+                                                                 <select id='addTipeRoster' name='addTipeRoster' class="form-control form-control-user">
+                                                                      <option value="1" default>6 - 2 Week</option>
+                                                                      <option value="2">10 - 2 Week</option>
+                                                                 </select>
+                                                                 <small class="erroraddTipeRoster text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Status Residence</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label class="floating-label" for="addStatusResidence">Status Residence</label>
+                                                                 <select id='addStatusResidence' name='addStatusResidence' class="form-control form-control-user">
+                                                                      <option value="R" default>Residence</option>
+                                                                      <option value="NR">Non Residence</option>
+                                                                 </select>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Point of Hire</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addPOHKary">Point of Hire</label>
+                                                                 <select id='addPOHKary' name='addPOHKary' class="form-control form-control-user">
+                                                                      <option value="">-- Pilih lokasi POH --</option>
+                                                                 </select>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Grade</h5>
+                                                                 <label for="addLevel">Grade</label>
                                                                  <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Level</h5>
+                                                                 <label for="addLevel">Level</label>
                                                                  <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Lokasi Kerja</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <!-- <h5>Lokasi Kerja</h5>
+                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled> -->
+                                                                 <label for="addLokasiKerja">Lokasi Kerja</label>
+                                                                 <select id='addLokasiKerja' name='addLokasiKerja' class="form-control form-control-user">
+                                                                      <option value="" default>MSF CPP33</option>
+                                                                      <option value="" default>Head Office Sangkulirang Permai</option>
+                                                                      <option value="" default>Office KM14</option>
+                                                                      <option value="" default>MSF Port</option>
+                                                                      <option value="" default>MCC Port</option>
+                                                                      <option value="" default>Pengadan</option>
+                                                                      <option value="" default>Mess Blok Utara</option>
+                                                                      <option value="" default>Office Blok 7</option>
+                                                                 </select>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
                                                                  <h5>Lokasi Penerimaan</h5>
                                                                  <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
