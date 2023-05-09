@@ -58,6 +58,32 @@
                         }
                     }
                 });
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('level/get_by_authper') ?>",
+                    data: {
+                        auth_per: auth_per
+                    },
+                    success: function(data) {
+                        $("#addLevelKary").removeAttr('disabled');
+                        var data = JSON.parse(data);
+                        $("#addLevelKary").html(data.lvl);
+                        $("#addLevelKary").select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        $(".errormsg").removeClass('d-none');
+                        $(".errormsg").removeClass('alert-info');
+                        $(".errormsg").addClass('alert-danger');
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data level, hubungi administrator");
+                            // $("#btnTambahPosisi").attr("disabled", true);
+                        }
+                    }
+                });
             });
 
             $("#addDepartKary").change(function() {
@@ -115,6 +141,36 @@
                     }
                 });
 
+            });
+
+            $("#addLevelKary").change(function() {
+                let auth_Level = $("#addLevelKary").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('grade/get_by_authlevel') ?>",
+                    data: {
+                        auth_level: auth_level
+                    },
+                    success: function(data) {
+                        $("#addGradeKary").removeAttr('disabled');
+                        var data = JSON.parse(data);
+                        $("#addGradeKary").html(data.lvl);
+                        $('#addGradeKary').select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        $(".errormsg").removeClass('d-none');
+                        $(".errormsg").removeClass('alert-info');
+                        $(".errormsg").addClass('alert-danger');
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data grade, hubungi administrator");
+                            // $("#btnTambahSection").attr("disabled", true);
+                        }
+                    }
+                });
             });
 
             $.ajax({
