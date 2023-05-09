@@ -289,14 +289,18 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="addLevel">Grade</label>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addLevelKary">Level</label>
+                                                                 <select id='addLevelKary' name='addLevelKary' class="form-control form-control-user" disabled>
+                                                                      <option value="">-- Pilih level karyawan --</option>
+                                                                 </select>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="addLevel">Level</label>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addGradeKary">Grade</label>
+                                                                 <select id='addGradeKary' name='addGradeKary' class="form-control form-control-user" disabled>
+                                                                      <option value="">-- Pilih grade karyawan --</option>
+                                                                 </select>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
