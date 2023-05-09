@@ -261,20 +261,37 @@ class Grade extends My_Controller
           }
      }
 
-     public function get_by_idper()
-     {
-          if ($this->session->userdata('id_perusahaan') != "") {
-               $id_per = $this->session->userdata('id_perusahaan');
-               $output = "<option value=''>-- Pilih Level --</option>";
-               $query = $this->lvl->get_by_idper($id_per);
-               foreach ($query as $list) {
-                    $output = $output . " <option value='" . $list->auth_level . "'>" . $list->level . "</option>";
-               }
+     // public function get_by_idper()
+     // {
+     //      if ($this->session->userdata('id_perusahaan') != "") {
+     //           $id_per = $this->session->userdata('id_perusahaan');
+     //           $output = "<option value=''>-- Pilih Level --</option>";
+     //           $query = $this->lvl->get_by_idper($id_per);
+     //           foreach ($query as $list) {
+     //                $output = $output . " <option value='" . $list->auth_level . "'>" . $list->level . "</option>";
+     //           }
 
-               echo json_encode(array("statusCode" => 200, "level" => $output, "pesan" => "Sukses"));
+     //           echo json_encode(array("statusCode" => 200, "level" => $output, "pesan" => "Sukses"));
+     //      } else {
+     //           $output = "<option value=''>-- Level tidak ditemukan --</option>";
+     //           echo json_encode(array("statusCode" => 200, "level" => $output, "pesan", "Level gagal ditampilkan"));
+     //      }
+     // }
+
+     public function get_by_authlevel()
+     {
+          $auth_level = $this->input->post('auth_level');
+
+          $query = $this->grd->get_by_authlevel($auth_level);
+          $output = "<option value=''>-- Pilih Grade --</option>";
+          if (!empty($query)) {
+               foreach ($query as $list) {
+                    $output = $output . "<option value='" . $list->auth_grade . "'>" . $list->grade . "</option>";
+               }
+               echo json_encode(array("statusCode" => 200, "grd" => $output));
           } else {
-               $output = "<option value=''>-- Level tidak ditemukan --</option>";
-               echo json_encode(array("statusCode" => 200, "level" => $output, "pesan", "Level gagal ditampilkan"));
+               $output = "<option value=''>-- Data grade tidak ditemukan --</option>";
+               echo json_encode(array("statusCode" => 201, "grd" => $output));
           }
      }
 }
