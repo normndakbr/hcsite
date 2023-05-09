@@ -170,4 +170,10 @@ class Grade_model extends CI_Model
                return 201;
           }
      }
+
+     public function get_by_authlevel($auth_level)
+     {
+          $query = $this->db->get_where('vw_grade', ['auth_level' => $auth_level]);
+          return $query->result();
+     }
 }
