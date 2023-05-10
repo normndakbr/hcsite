@@ -237,7 +237,7 @@
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addJenisKaryawan">Jenis Karyawan</label>
-                                                                 <select id='addStatusKaryawan' name='addStatusKaryawan' class="form-control form-control-user">
+                                                                 <select id='addJenisKaryawan' name='addJenisKaryawan' class="form-control form-control-user">
                                                                       <option value="Staff">Staff</option>
                                                                       <option value="Non Staff">Non Staff</option>
                                                                  </select>
@@ -254,10 +254,22 @@
                                                                  <small class="erroraddStatusKaryawan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div id="addFieldPermanen" class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <label for="addStatusKaryawan">Tanggal Permanen</label>
-                                                                 <input type="date" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <input type="date" class="form-control" value="" style="background-color:transparent;">
+                                                            </div>
+                                                       </div>
+                                                       <div id="addFieldKontrakAwal" class="col-lg-4 col-md-4 col-sm-12 d-none">
+                                                            <div class="form-group">
+                                                                 <label for="addKontrakKaryawanAwal">Tanggal Awal</label>
+                                                                 <input type="date" class="form-control" value="" style="background-color:transparent;">
+                                                            </div>
+                                                       </div>
+                                                       <div id="addFieldKontrakAkhir" class="col-lg-4 col-md-4 col-sm-12 d-none">
+                                                            <div class="form-group">
+                                                                 <label for="addKontrakKaryawanAkhir">Tanggal Berakhir</label>
+                                                                 <input type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
