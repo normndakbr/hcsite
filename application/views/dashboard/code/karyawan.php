@@ -6,7 +6,24 @@
             $("#logoutmdl").modal("show");
         });
 
+
         $(document).ready(function() {
+            $("#addStatusKaryawan").change(function() {
+                let currentStatusKaryawan = $("#addStatusKaryawan").val();
+
+                console.log(currentStatusKaryawan);
+
+                if (currentStatusKaryawan == "Permanen") {
+                    $("#addFieldKontrakAwal").addClass('d-none');
+                    $("#addFieldKontrakAkhir").addClass('d-none');
+                    $("#addFieldPermanen").removeClass('d-none');
+                } else {
+                    $("#addFieldKontrakAwal").removeClass('d-none');
+                    $("#addFieldKontrakAkhir").removeClass('d-none');
+                    $("#addFieldPermanen").addClass('d-none');
+                }
+            });
+
             $.ajax({
                 type: "POST",
                 url: "<?= base_url("perusahaan/get_all") ?>",
