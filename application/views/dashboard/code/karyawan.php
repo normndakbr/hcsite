@@ -169,7 +169,7 @@
             });
 
             $("#addLevelKary").change(function() {
-                let auth_Level = $("#addLevelKary").val();
+                let auth_level = $("#addLevelKary").val();
 
                 $.ajax({
                     type: "POST",
@@ -180,7 +180,7 @@
                     success: function(data) {
                         $("#addGradeKary").removeAttr('disabled');
                         var data = JSON.parse(data);
-                        $("#addGradeKary").html(data.lvl);
+                        $("#addGradeKary").html(data.grd);
                         $('#addGradeKary').select2({
                             theme: 'bootstrap4'
                         });
