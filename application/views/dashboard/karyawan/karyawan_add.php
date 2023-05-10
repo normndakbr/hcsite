@@ -322,8 +322,10 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h5>Lokasi Penerimaan</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled>
+                                                                 <label for="addLokterimaKary">Lokasi Penerimaan</label>
+                                                                 <select id='addLokterimaKary' name='addLokterimaKary' class="form-control form-control-user" disabled>
+                                                                      <option value="">-- Pilih lokasi penerimaan --</option>
+                                                                 </select>
                                                             </div>
                                                        </div>
                                                   </div>
