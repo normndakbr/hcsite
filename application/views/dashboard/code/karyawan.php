@@ -84,6 +84,31 @@
                         }
                     }
                 });
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('lokasipenerimaan/get_by_authper') ?>",
+                    data: {
+                        auth_per: auth_per
+                    },
+                    success: function(data) {
+                        $("#addLokterimaKary").removeAttr('disabled');
+                        var data = JSON.parse(data);
+                        $("#addLokterimaKary").html(data.lkt);
+                        $("#addLokterimaKary").select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function() {
+                        $.LoadingOverlay("hide");
+                        $(".errormsg").removeClass('d-none');
+                        $(".errormsg").removeClass('alert-info');
+                        $(".errormsg").removeClass('alert-danger');
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data lokasi penerimaan, hubungi administrator");
+                        }
+                    }
+                });
             });
 
             $("#addDepartKary").change(function() {
