@@ -30,6 +30,29 @@
                 }
             });
 
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url("lokasikerja/get_all") ?>",
+                data: {},
+                success: function(data) {
+                    var data = JSON.parse(data);
+                    $("#addLokasiKerja").html(data.lkr);
+                    $('#addLokasiKerja').select2({
+                        theme: 'bootstrap4'
+                    });
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    $.LoadingOverlay("hide");
+                    $(".errormsg").removeClass('d-none');
+                    $(".errormsg").removeClass('alert-info');
+                    $(".errormsg").addClass('alert-danger');
+                    if (thrownError != "") {
+                        $(".errormsg").html("Terjadi kesalahan saat load data perusahaan, hubungi administrator");
+                        $("#btnTambahDepart").attr("disabled", true);
+                    }
+                }
+            });
+
             $("#addPerKary").change(function() {
                 let auth_per = $("#addPerKary").val();
 
