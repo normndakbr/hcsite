@@ -189,6 +189,27 @@
                                                                  <small class="errorNoNPWP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="noBPJSTK">No. BPJS Tenaga Kerja</label>
+                                                                 <input id='noBPJSTK' name='noBPJSTK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoBPJSTK text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="noBPJSKES">No. BPJS Kesehatan</label>
+                                                                 <input id='noBPJSKES' name='noBPJSKES' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoBPJSKES text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="noEquity">No. Equity</label>
+                                                                 <input id='noEquity' name='noEquity' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoEquity text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
                                                   </div>
                                              </div>
                                              <div class="tab-pane fade" id="v-pills-dtKaryawan" role="tabpanel" aria-labelledby="v-pills-dtKaryawan-tab">

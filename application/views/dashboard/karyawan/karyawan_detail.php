@@ -139,6 +139,24 @@
                                                                  <input type="text" class="form-control" value="<?= $data_kary->no_npwp ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>No. BPJS Tenaga Kerja</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->no_bpjstk ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>No. BPJS Kesehatan</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->no_bpjskes ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>No. Equity</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->no_equity ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
                                                   </div>
                                              </div>
                                              <div class="tab-pane fade" id="v-pills-dtKaryawan" role="tabpanel" aria-labelledby="v-pills-dtKaryawan-tab">
