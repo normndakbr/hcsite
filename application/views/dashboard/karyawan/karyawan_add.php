@@ -338,17 +338,16 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <!-- <h5>Lokasi Kerja</h5>
-                                                                 <input type="text" class="form-control" value="" style="background-color:transparent;" disabled> -->
                                                                  <label for="addLokasiKerja">Lokasi Kerja</label>
                                                                  <select id='addLokasiKerja' name='addLokasiKerja' class="form-control form-control-user">
-                                                                      <option value="" default>MSF CPP33</option>
+                                                                      <option value="" default>CPP 33</option>
+                                                                      <option value="" default>MSF CPP 33</option>
                                                                       <option value="" default>Head Office Sangkulirang Permai</option>
                                                                       <option value="" default>Office KM14</option>
                                                                       <option value="" default>MSF Port</option>
                                                                       <option value="" default>MCC Port</option>
-                                                                      <option value="" default>Pengadan</option>
-                                                                      <option value="" default>Mess Blok Utara</option>
+                                                                      <option value="" default>Office Pengadan</option>
+                                                                      <option value="" default>Office Blok Utara</option>
                                                                       <option value="" default>Office Blok 7</option>
                                                                  </select>
                                                             </div>
