@@ -266,6 +266,30 @@
                                                                  <input type="text" class="form-control" value="<?= $data_kary->lokterima ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Date of Hire</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->doh ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Tanggal Aktif Bekerja</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->tgl_aktif ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Klasifikasi Pekerjaan</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->klasifikasi ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Status Pajak</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->statpajak ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
                                                   </div>
                                              </div>
                                              <div class="tab-pane fade" id="v-pills-dtDomisili" role="tabpanel" aria-labelledby="v-pills-dtDomisili-tab">

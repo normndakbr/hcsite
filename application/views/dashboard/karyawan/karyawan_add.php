@@ -257,40 +257,40 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addJenisKaryawan">Jenis Karyawan</label>
-                                                                 <select id='addJenisKaryawan' name='addJenisKaryawan' class="form-control form-control-user">
+                                                                 <label class="floating-label" for="addJenisKary">Jenis Karyawan</label>
+                                                                 <select id='addJenisKary' name='addJenisKary' class="form-control form-control-user">
                                                                       <option value="Staff">Staff</option>
                                                                       <option value="Non Staff">Non Staff</option>
                                                                  </select>
-                                                                 <small class="erroraddJenisKaryawan text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="erroraddJenisKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="addStatusKaryawan">Status Karyawan</label>
-                                                                 <select id='addStatusKaryawan' name='addStatusKaryawan' class="form-control form-control-user">
+                                                                 <label for="addStatusKary">Status Karyawan</label>
+                                                                 <select id='addStatusKary' name='addStatusKary' class="form-control form-control-user">
                                                                       <option value="Permanen" default>Permanen</option>
                                                                       <option value="Kontrak">Kontrak</option>
                                                                  </select>
-                                                                 <small class="erroraddStatusKaryawan text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="erroraddStatusKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div id="addFieldPermanen" class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="addStatusKaryawan">Tanggal Permanen</label>
-                                                                 <input type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="tglPermanen">Tanggal Permanen</label>
+                                                                 <input id="tglPermanen" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div id="addFieldKontrakAwal" class="col-lg-4 col-md-4 col-sm-12 d-none">
                                                             <div class="form-group">
-                                                                 <label for="addKontrakKaryawanAwal">Tanggal Awal</label>
-                                                                 <input type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="tglKontrakAwal">Tanggal Awal</label>
+                                                                 <input id="tglKontrakAwal" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div id="addFieldKontrakAkhir" class="col-lg-4 col-md-4 col-sm-12 d-none">
                                                             <div class="form-group">
-                                                                 <label for="addKontrakKaryawanAkhir">Tanggal Berakhir</label>
-                                                                 <input type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="tglKontrakAkhir">Tanggal Berakhir</label>
+                                                                 <input id="tglKontrakAkhir" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
@@ -355,8 +355,8 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="addLokterimaKary">Lokasi Penerimaan</label>
-                                                                 <select id='addLokterimaKary' name='addLokterimaKary' class="form-control form-control-user" disabled>
+                                                                 <label for="addLokterima">Lokasi Penerimaan</label>
+                                                                 <select id='addLokterima' name='addLokterima' class="form-control form-control-user" disabled>
                                                                       <option value="">-- Pilih lokasi penerimaan --</option>
                                                                  </select>
                                                             </div>
