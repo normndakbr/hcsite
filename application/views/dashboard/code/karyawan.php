@@ -8,12 +8,10 @@
 
 
         $(document).ready(function() {
-            $("#addStatusKaryawan").change(function() {
-                let currentStatusKaryawan = $("#addStatusKaryawan").val();
+            $("#addStatusKary").change(function() {
+                let currentStatusKary = $("#addStatusKary").val();
 
-                console.log(currentStatusKaryawan);
-
-                if (currentStatusKaryawan == "Permanen") {
+                if (currentStatusKary == "Permanen") {
                     $("#addFieldKontrakAwal").addClass('d-none');
                     $("#addFieldKontrakAkhir").addClass('d-none');
                     $("#addFieldPermanen").removeClass('d-none');
@@ -21,6 +19,18 @@
                     $("#addFieldKontrakAwal").removeClass('d-none');
                     $("#addFieldKontrakAkhir").removeClass('d-none');
                     $("#addFieldPermanen").addClass('d-none');
+                }
+            });
+
+            $("#domStatusResidence").change(function() {
+                let domStatusResidence = $("#domStatusResidence").val();
+
+                if (domStatusResidence == "R") {
+                    $("#addFieldNonResidence").addClass('d-none');
+                    $("#addFieldResidence").removeClass('d-none');
+                } else {
+                    $("#addFieldNonResidence").removeClass('d-none');
+                    $("#addFieldResidence").addClass('d-none');
                 }
             });
 
@@ -45,6 +55,165 @@
                         $("#btnTambahDepart").attr("disabled", true);
                     }
                 }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url("daerah/get_prov") ?>",
+                data: {},
+                success: function(data) {
+                    var data = JSON.parse(data);
+                    $("#provAlmtKTP").html(data.prov);
+                    $('#provAlmtKTP').select2({
+                        theme: 'bootstrap4'
+                    });
+                    $("#provAlmtDom").html(data.prov);
+                    $('#provAlmtDom').select2({
+                        theme: 'bootstrap4'
+                    });
+                },
+                error: function(xhr, ajaxOptions, thrownError) {
+                    $.LoadingOverlay("hide");
+                    if (thrownError != "") {
+                        $(".errormsg").html("Terjadi kesalahan saat load data perusahaan, hubungi administrator");
+                        $("#btnTambahDepart").attr("disabled", true);
+                    }
+                }
+            });
+
+            $("#provAlmtKTP").change(function() {
+                let id_prov = $("#provAlmtKTP").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('daerah/get_kab') ?>",
+                    data: {
+                        id_prov: id_prov
+                    },
+                    success: function(data) {
+                        var data = JSON.parse(data);
+                        $("#kabAlmtKTP").removeAttr('disabled');
+                        $("#kabAlmtKTP").html(data.kab);
+                        $('#kabAlmtKTP').select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data kabupaten, hubungi administrator");
+                            // $("#btnTambahDepart").attr("disabled", true);
+                        }
+                    }
+                });
+            });
+
+            $("#provAlmtDom").change(function() {
+                let id_prov = $("#provAlmtDom").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('daerah/get_kab') ?>",
+                    data: {
+                        id_prov: id_prov
+                    },
+                    success: function(data) {
+                        var data = JSON.parse(data);
+                        $("#kabAlmtDom").removeAttr('disabled');
+                        $("#kabAlmtDom").html(data.kab);
+                        $('#kabAlmtDom').select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data kabupaten, hubungi administrator");
+                            // $("#btnTambahDepart").attr("disabled", true);
+                        }
+                    }
+                });
+            });
+
+            $("#provAlmtDom").change(function() {
+                let id_prov = $("#provAlmtDom").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('daerah/get_kab') ?>",
+                    data: {
+                        id_prov: id_prov
+                    },
+                    success: function(data) {
+                        var data = JSON.parse(data);
+                        $("#kabAlmtDom").removeAttr('disabled');
+                        $("#kabAlmtDom").html(data.kab);
+                        $('#kabAlmtDom').select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data kabupaten, hubungi administrator");
+                            // $("#btnTambahDepart").attr("disabled", true);
+                        }
+                    }
+                });
+            });
+
+            $("#kabAlmtDom").change(function() {
+                let id_kab = $("#kabAlmtDom").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('daerah/get_kec') ?>",
+                    data: {
+                        id_kab: id_kab
+                    },
+                    success: function(data) {
+                        var data = JSON.parse(data);
+                        $("#kecAlmtDom").removeAttr('disabled');
+                        $("#kecAlmtDom").html(data.kec);
+                        $('#kecAlmtDom').select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data kecamatan, hubungi administrator");
+                            // $("#btnTambahDepart").attr("disabled", true);
+                        }
+                    }
+                });
+            });
+
+            $("#kabAlmtKTP").change(function() {
+                let id_kab = $("#kabAlmtKTP").val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "<?= base_url('daerah/get_kec') ?>",
+                    data: {
+                        id_kab: id_kab
+                    },
+                    success: function(data) {
+                        var data = JSON.parse(data);
+                        $("#kecAlmtKTP").removeAttr('disabled');
+                        $("#kecAlmtKTP").html(data.kec);
+                        $('#kecAlmtKTP').select2({
+                            theme: 'bootstrap4'
+                        });
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        $.LoadingOverlay("hide");
+                        if (thrownError != "") {
+                            $(".errormsg").html("Terjadi kesalahan saat load data kecamatan, hubungi administrator");
+                            // $("#btnTambahDepart").attr("disabled", true);
+                        }
+                    }
+                });
             });
 
             $.ajax({

@@ -81,7 +81,7 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Alamat Email</h6>
+                                                                 <h6>Alamat Email Pribadi</h6>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->email_pribadi ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
@@ -139,19 +139,25 @@
                                                                  <input type="text" class="form-control" value="<?= $data_kary->no_npwp ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <h6>No. BPJS Tenaga Kerja</h6>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->no_bpjstk ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <h6>No. BPJS Kesehatan</h6>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->no_bpjskes ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>No. BPJS Pensiun</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->no_bpjspensiun ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <h6>No. Equity</h6>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->no_equity ?>" style="background-color:transparent;" disabled>
@@ -167,7 +173,13 @@
                                                                  <input type="text" class="form-control" value="<?= $data_kary->nama_perusahaan ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Alamat Email Perusahaan</h6>
+                                                                 <input type="text" class="form-control" value=" - " style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <h5>NIK</h5>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->no_nik ?>" style="background-color:transparent;" disabled>
@@ -266,28 +278,40 @@
                                                                  <input type="text" class="form-control" value="<?= $data_kary->lokterima ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <h6>Date of Hire</h6>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->doh ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <h6>Tanggal Aktif Bekerja</h6>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->tgl_aktif ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <h6>Klasifikasi Pekerjaan</h6>
+                                                                 <h6>Klasifikasi</h6>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->klasifikasi ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <h6>Status Pajak</h6>
                                                                  <input type="text" class="form-control" value="<?= $data_kary->statpajak ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-5 col-md-5 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Tanggal Nonaktif</h6>
+                                                                 <input type="date" class="form-control" value="<?= $data_kary->tgl_nonaktif == '1970-01-01' ? '-' : $data_kary->tgl_nonaktif ?>" style="background-color:transparent;" disabled>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-7 col-md-7 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <h6>Alasan Nonaktif</h6>
+                                                                 <input type="text" class="form-control" value="<?= $data_kary->alasan_nonaktif ?>" style="background-color:transparent;" disabled>
                                                             </div>
                                                        </div>
                                                   </div>
