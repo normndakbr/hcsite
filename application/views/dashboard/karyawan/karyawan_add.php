@@ -72,6 +72,7 @@
                                    </div>
                                    <div class="col-md-10 col-sm-12">
                                         <div class="tab-content" id="v-pills-tabContent">
+                                             <!-- Tab data personal -->
                                              <div class="tab-pane fade active show" id="v-pills-dtPersonal" role="tabpanel" aria-labelledby="v-pills-dtPersonal-tab">
                                                   <div class="card-body row">
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
@@ -90,7 +91,7 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="alamatEmail">Alamat Email</label>
+                                                                 <label class="floating-label" for="alamatEmail">Alamat Email Pribadi</label>
                                                                  <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
@@ -115,7 +116,7 @@
                                                                  <small class="errorTanggalLahir text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="statPernikahan">Status Pernikahan</label>
                                                                  <select id="statPernikahan" class="mb-3 form-control">
@@ -127,6 +128,13 @@
                                                                       <option value="K4">K4</option>
                                                                  </select>
                                                                  <small class="errorStatPernikahan text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="noKK">No. Kartu Keluarga</label>
+                                                                 <input id='noKK' name='noKK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoKK text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
@@ -189,21 +197,28 @@
                                                                  <small class="errorNoNPWP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="noBPJSTK">No. BPJS Tenaga Kerja</label>
                                                                  <input id='noBPJSTK' name='noBPJSTK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorNoBPJSTK text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="noBPJSKES">No. BPJS Kesehatan</label>
                                                                  <input id='noBPJSKES' name='noBPJSKES' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorNoBPJSKES text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="noBPJSPensiun">No. BPJS Pensiun</label>
+                                                                 <input id='noBPJSPensiun' name='noBPJSPensiun' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoBPJSPensiun text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="noEquity">No. Equity</label>
                                                                  <input id='noEquity' name='noEquity' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
@@ -212,6 +227,7 @@
                                                        </div>
                                                   </div>
                                              </div>
+                                             <!-- Tab data karyawan -->
                                              <div class="tab-pane fade" id="v-pills-dtKaryawan" role="tabpanel" aria-labelledby="v-pills-dtKaryawan-tab">
                                                   <div class="card-body row">
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
@@ -248,14 +264,21 @@
                                                                  <small class="errorAddPosisiKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addNIKKary">NIK</label>
+                                                                 <label class="floating-label" for="addEmailPerusahaan">Alamat Email Perusahaan</label>
+                                                                 <input id='addEmailPerusahaan' name='addEmailPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddEmailPerusahaan text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addNIKKary">NIK Karyawan</label>
                                                                  <input id='addNIKKary' name='addNIKKary' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="erroraddNIKKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addJenisKary">Jenis Karyawan</label>
                                                                  <select id='addJenisKary' name='addJenisKary' class="form-control form-control-user">
@@ -312,7 +335,7 @@
                                                                  </select>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <label for="addPOHKary">Point of Hire</label>
                                                                  <select id='addPOHKary' name='addPOHKary' class="form-control form-control-user">
@@ -320,7 +343,7 @@
                                                                  </select>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <label for="addLevelKary">Level</label>
                                                                  <select id='addLevelKary' name='addLevelKary' class="form-control form-control-user" disabled>
@@ -328,7 +351,7 @@
                                                                  </select>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <label for="addGradeKary">Grade</label>
                                                                  <select id='addGradeKary' name='addGradeKary' class="form-control form-control-user" disabled>
@@ -360,13 +383,161 @@
                                                                  </select>
                                                             </div>
                                                        </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label for="tglDOH">Date of Hire</label>
+                                                                 <input id="tglDOH" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label for="tglAktif">Tanggal Aktif Bekerja</label>
+                                                                 <input id="tglAktif" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label for="addKlasifikasi">Klasifikasi</label>
+                                                                 <select id='addKlasifikasi' name='addKlasifikasi' class="form-control form-control-user">
+                                                                      <option value="">-- Pilih Klasifikasi --</option>
+                                                                 </select>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label for="addStatusPajak">Status Pajak</label>
+                                                                 <select id='addStatusPajak' name='addStatusPajak' class="form-control form-control-user">
+                                                                      <option value="">-- Pilih Status Pajak --</option>
+                                                                 </select>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-5 col-md-5 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label for="tglNonAktif">Tanggal Nonaktif</label>
+                                                                 <input id="tglNonAktif" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-7 col-md-7 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label for="addAlasanNonAktif">Alasan Nonaktif</label>
+                                                                 <input id="addAlasanNonAktif" type="text" class="form-control" value="" style="background-color:transparent;">
+                                                            </div>
+                                                       </div>
                                                   </div>
                                              </div>
+                                             <!-- Tab data domisili -->
                                              <div class="tab-pane fade" id="v-pills-dtDomisili" role="tabpanel" aria-labelledby="v-pills-dtDomisili-tab">
-                                                  <p class="mb-0">Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit
-                                                       nostrud magna
-                                                       nulla. Velit et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
+                                                  <div class="card-body row">
+                                                       <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addAlamatKTP">Alamat KTP</label>
+                                                                 <input id='addAlamatKTP' name='addAlamatKTP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddAlamatKTP text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <label for="provAlmtKTP">Provinsi :</label><br>
+                                                            <select id='provAlmtKTP' name='provAlmtKTP' class="form-control form-control-user">
+                                                                 <option value="">-- Pilih Provinsi --</option>
+                                                            </select>
+                                                            <small class="errorProvAlmtKTP text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <label for="kabAlmtKTP">Kabupaten :</label><br>
+                                                            <select id='kabAlmtKTP' name='kabAlmtKTP' class="form-control form-control-user" disabled>
+                                                                 <option value="">-- Pilih Kabupaten --</option>
+                                                            </select>
+                                                            <small class="errorKabAlmtKTP text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <label for="kecAlmtKTP">Kecamatan :</label><br>
+                                                            <select id='kecAlmtKTP' name='kecAlmtKTP' class="form-control form-control-user" disabled>
+                                                                 <option value="">-- Pilih Kecamatan --</option>
+                                                            </select>
+                                                            <small class="errorKecAlmtKTP text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div class="col-lg-12 col-md-12 col-sm-12 mb-1">
+                                                            <label for="domStatusResidence">Status Residence :</label><br>
+                                                            <select id='domStatusResidence' name='domStatusResidence' class="form-control form-control-user">
+                                                                 <option value="R">Residence</option>
+                                                                 <option value="NR">Non Residence</option>
+                                                            </select>
+                                                            <small class="errorDomStatusResidence text-danger font-italic font-weight-bold"></small><br>
+                                                       </div>
+                                                       <div id="addFieldResidence" class="card-body row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                                                 <div class="form-group">
+                                                                      <label class="floating-label" for="addAlamatTinggal">Lokasi Mess</label>
+                                                                      <input id='addAlamatTinggal' name='addAlamatTinggal' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                      <small class="errorAddAlamatTinggal text-danger font-italic font-weight-bold"></small><br>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                                                 <div class="form-group">
+                                                                      <label class="floating-label" for="addAlamatTinggal">Blok</label>
+                                                                      <input id='addAlamatTinggal' name='addAlamatTinggal' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                      <small class="errorAddAlamatTinggal text-danger font-italic font-weight-bold"></small><br>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                                                 <div class="form-group">
+                                                                      <label class="floating-label" for="addAlamatTinggal">Kamar</label>
+                                                                      <input id='addAlamatTinggal' name='addAlamatTinggal' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                      <small class="errorAddAlamatTinggal text-danger font-italic font-weight-bold"></small><br>
+                                                                 </div>
+                                                            </div>
+                                                       </div>
+                                                       <div id="addFieldNonResidence" class="card-body row d-none">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                 <div class="form-group">
+                                                                      <label class="floating-label" for="addAlamatTinggal">Alamat Tinggal</label>
+                                                                      <input id='addAlamatTinggal' name='addAlamatTinggal' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                      <small class="errorAddAlamatTinggal text-danger font-italic font-weight-bold"></small><br>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                                 <label for="provAlmtDom">Provinsi Tinggal : </label><br>
+                                                                 <select id='provAlmtDom' name='provAlmtDom' class="form-control form-control-user">
+                                                                      <option value="">-- Pilih Provinsi --</option>
+                                                                 </select>
+                                                                 <small class="errorProvAlmtDom text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                                 <label for="kabAlmtDom">Kabupaten Tinggal : </label><br>
+                                                                 <select id='kabAlmtDom' name='kabAlmtDom' class="form-control form-control-user" disabled>
+                                                                      <option value="">-- Pilih Kabupaten --</option>
+                                                                 </select>
+                                                                 <small class="errorKabAlmtDom text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                                                 <label for="kecAlmtDom">Kecamatan Tinggal : </label><br>
+                                                                 <select id='kecAlmtDom' name='kecAlmtDom' class="form-control form-control-user" disabled>
+                                                                      <option value="">-- Pilih Kecamatan --</option>
+                                                                 </select>
+                                                                 <small class="errorKecAlmtDom text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                  </div>
                                              </div>
+                                             <!-- Tab medical checkup -->
+                                             <div class="tab-pane fade" id="v-pills-dtMCU" role="tabpanel" aria-labelledby="v-pills-MCU-tab">
+                                                  <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
+                                                       duis
+                                                       aliqua do.
+                                                       Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
+                                                       eiusmod.
+                                                  </p>
+                                             </div>
+                                             <!-- Tab vaksin -->
+                                             <div class="tab-pane fade" id="v-pills-dtVaksin" role="tabpanel" aria-labelledby="v-pills-dtVaksin-tab">
+                                                  <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
+                                                       duis
+                                                       aliqua do.
+                                                       Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
+                                                       eiusmod.
+                                                  </p>
+                                             </div>
+                                             <!-- Tab kontak darurat -->
                                              <div class="tab-pane fade" id="v-pills-dtKontakDarurat" role="tabpanel" aria-labelledby="v-pills-dtKontakDarurat-tab">
                                                   <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
                                                        duis
