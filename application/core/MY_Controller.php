@@ -25,6 +25,8 @@ class My_Controller extends CI_Controller
           $this->load->model('Struktur_model', 'str');
           $this->load->model('perusahaan_model', 'prs');
           $this->load->model('Karyawan_model', 'kry');
+          $this->load->model('Vaksin_Jenis_model', 'vjns');
+          $this->load->model('Vaksin_Nama_model', 'vnma');
           $this->load->helper('url', 'form');
           $this->load->library("form_validation");
           $this->load->library('session');
