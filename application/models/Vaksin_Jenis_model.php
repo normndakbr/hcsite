@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Nama_Vaksin_Model extends CI_Model
+class Vaksin_Jenis_Model extends CI_Model
 {
 
      var $table = 'tb_vaksin_jenis';
