@@ -67,8 +67,9 @@
                                              <li><a class="nav-link text-left has-ripple active" id="v-pills-dtPersonal-tab" data-toggle="pill" href="#v-pills-dtPersonal" role="tab" aria-controls="v-pills-dtPersonal" aria-selected="true">Data Personal<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -152.188px; left: -96.625px;"></span></a></li>
                                              <li><a class="nav-link text-left has-ripple" id="v-pills-dtKaryawan-tab" data-toggle="pill" href="#v-pills-dtKaryawan" role="tab" aria-controls="v-pills-dtKaryawan" aria-selected="false">Data Karyawan<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -162.188px; left: -102.625px;"></span></a></li>
                                              <li><a class="nav-link text-left has-ripple" id="v-pills-dtDomisili-tab" data-toggle="pill" href="#v-pills-dtDomisili" role="tab" aria-controls="v-pills-dtDomisili" aria-selected="false">Domisili<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
-                                             <li><a class="nav-link text-left has-ripple" id="v-pills-dtMCU-tab" data-toggle="pill" href="#v-pills-dtMCU" role="tab" aria-controls="v-pills-dtMCU" aria-selected="false">Medical Checkup<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
-                                             <li><a class="nav-link text-left has-ripple" id="v-pills-dtVaksin-tab" data-toggle="pill" href="#v-pills-dtVaksin" role="tab" aria-controls="v-pills-dtVaksin" aria-selected="false">Vaksin<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
+                                             <li><a class="nav-link text-left has-ripple" id="v-pills-dtSertifikasi-tab" data-toggle="pill" href="#v-pills-dtSertifikasi" role="tab" aria-controls="v-pills-dtSertifikasi" aria-selected="false">Sertifikasi<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
+                                             <li><a class="nav-link text-left has-ripple" id="v-pills-dtMCU-tab" data-toggle="pill" href="#v-pills-dtMCU" role="tab" aria-controls="v-pills-dtMCU" aria-selected="false">Medical Check Up<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
+                                             <li><a class="nav-link text-left has-ripple" id="v-pills-dtVaksin-tab" data-toggle="pill" href="#v-pills-dtVaksin" role="tab" aria-controls="v-pills-dtVaksin" aria-selected="false">Vaksinasi<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
                                              <li><a class="nav-link text-left has-ripple" id="v-pills-dtBerkas-tab" data-toggle="pill" href="#v-pills-dtBerkas" role="tab" aria-controls="v-pills-dtBerkas" aria-selected="false">Berkas<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
                                              <li><a class="nav-link text-left has-ripple" id="v-pills-dtKontakDarurat-tab" data-toggle="pill" href="#v-pills-dtKontakDarurat" role="tab" aria-controls="v-pills-dtKontakDarurat" aria-selected="false">Kontak Darurat<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -168.188px; left: -119.625px;"></span></a></li>
                                         </ul>
@@ -522,7 +523,49 @@
                                                        </div>
                                                   </div>
                                              </div>
-                                             <!-- Tab medical checkup -->
+                                             <!-- Tab sertifikasi -->
+                                             <div class="tab-pane fade" id="v-pills-dtSertifikasi" role="tabpanel" aria-labelledby="v-pills-dtSertifikasi-tab">
+                                                  <div class="card-body row">
+                                                       <div class="col-lg-9 col-md-9 col-sm-12 mb-2">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="kodeBank">Jenis Sertifikasi</label>
+                                                                 <select id="kodeBank" class="mb-3 form-control">
+                                                                      <option value="0" selected>-- Pilih Jenis Sertifikasi --</option>
+                                                                 </select>
+                                                                 <small class="errorKodeBank text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-2">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="noRek">No. Sertifikat</label>
+                                                                 <input id='noRek' name='noRek' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoRek text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label for="addJenisKary">Tanggal Sertifikat</label>
+                                                                 <input id='addEmailPerusahaan' name='addEmailPerusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="erroraddJenisKary text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label for="addJenisKary">Tanggal Berakhir Sertifikat</label>
+                                                                 <input id='addEmailPerusahaan' name='addEmailPerusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="erroraddJenisKary text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label>
+                                                                 <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                             <!-- Tab medical check up -->
                                              <div class="tab-pane fade" id="v-pills-dtMCU" role="tabpanel" aria-labelledby="v-pills-MCU-tab">
                                                   <div class="card-body row">
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
@@ -562,64 +605,57 @@
                                                        </div>
                                                   </div>
                                              </div>
-                                        </div>
-                                        <!-- Tab vaksin -->
-                                        <div class="tab-pane fade" id="v-pills-dtVaksin" role="tabpanel" aria-labelledby="v-pills-dtVaksin-tab">
-                                             <div class="card-body row">
-                                                  <div class="col-lg-6 col-md-6 col-sm-12">
-                                                       <div class="form-group">
-                                                            <label class="floating-label" for="tglMCU">Hasil Medical Check Up :</label><br>
-                                                            <input id='addHasilMCU' name='addHasilMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            <small class="errorAddGasilMCU text-danger font-italic font-weight-bold"></small><br>
+                                             <!-- Tab vaksinasi -->
+                                             <div class="tab-pane fade" id="v-pills-dtVaksin" role="tabpanel" aria-labelledby="v-pills-dtVaksin-tab">
+                                                  <div class="card-body row">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <label for="addJenisVaksin">Jenis Vaksin : </label><br>
+                                                            <select id='addJenisVaksin' name='addJenisVaksin' class="form-control form-control-user" disabled>
+                                                                 <option value="">-- Pilih Jenis Vaksin --</option>
+                                                            </select>
+                                                            <small class="errorAddJenisVaksin text-danger font-italic font-weight-bold"></small><br>
                                                        </div>
-                                                  </div>
-                                                  <div class="col-lg-6 col-md-6 col-sm-12">
-                                                       <div class="form-group">
-                                                            <label class="floating-label" for="tglMCU">Tanggal Medical Check Up :</label><br>
-                                                            <input id='addTglMCU' name='addTglMCU' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            <small class="errorAddTglMCU text-danger font-italic font-weight-bold"></small><br>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <label for="addNamaVaksin">Nama Vaksin : </label><br>
+                                                            <select id='addNamaVaksin' name='addNamaVaksin' class="form-control form-control-user" disabled>
+                                                                 <option value="">-- Pilih Nama Vaksin --</option>
+                                                            </select>
+                                                            <small class="errorAddNamaVaksin text-danger font-italic font-weight-bold"></small><br>
                                                        </div>
-                                                  </div>
-                                                  <div class="col-lg-6 col-md-6 col-sm-12">
-                                                       <div class="form-group">
-                                                            <label class="floating-label" for="tglMCU">Hasil Follow Up :</label><br>
-                                                            <input id='addHasilMCU' name='addHasilMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            <small class="errorAddGasilMCU text-danger font-italic font-weight-bold"></small><br>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="tglMCU">Tanggal Medical Check Up :</label><br>
+                                                                 <input id='addTglMCU' name='addTglMCU' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddTglMCU text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
                                                        </div>
-                                                  </div>
-                                                  <div class="col-lg-6 col-md-6 col-sm-12">
-                                                       <div class="form-group">
-                                                            <label class="floating-label" for="tglMCU">Tanggal Follow Up :</label><br>
-                                                            <input id='addTglMCU' name='addTglMCU' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            <small class="errorAddTglMCU text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                  </div>
-                                                  <div class="col-lg-12 col-md-12 col-sm-12">
-                                                       <div class="form-group">
-                                                            <label class="floating-label" for="addKetMCU">Keterangan :</label><br>
-                                                            <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                            <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small><br>
+                                                       <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label><br>
+                                                                 <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
                                                        </div>
                                                   </div>
                                              </div>
-                                        </div>
-                                        <!-- Tab berkas -->
-                                        <div class="tab-pane fade" id="v-pills-dtBerkas" role="tabpanel" aria-labelledby="v-pills-dtBerkas-tab">
-                                             <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
-                                                  duis
-                                                  aliqua do.
-                                                  Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
-                                                  eiusmod.
-                                             </p>
-                                        </div>
-                                        <!-- Tab kontak darurat -->
-                                        <div class="tab-pane fade" id="v-pills-dtKontakDarurat" role="tabpanel" aria-labelledby="v-pills-dtKontakDarurat-tab">
-                                             <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
-                                                  duis
-                                                  aliqua do.
-                                                  Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
-                                                  eiusmod.
-                                             </p>
+                                             <!-- Tab berkas -->
+                                             <div class="tab-pane fade" id="v-pills-dtBerkas" role="tabpanel" aria-labelledby="v-pills-dtBerkas-tab">
+                                                  <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
+                                                       duis
+                                                       aliqua do.
+                                                       Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
+                                                       eiusmod.
+                                                  </p>
+                                             </div>
+                                             <!-- Tab kontak darurat -->
+                                             <div class="tab-pane fade" id="v-pills-dtKontakDarurat" role="tabpanel" aria-labelledby="v-pills-dtKontakDarurat-tab">
+                                                  <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
+                                                       duis
+                                                       aliqua do.
+                                                       Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
+                                                       eiusmod.
+                                                  </p>
+                                             </div>
                                         </div>
                                    </div>
                               </div>
