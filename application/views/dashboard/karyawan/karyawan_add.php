@@ -528,39 +528,39 @@
                                                   <div class="card-body row">
                                                        <div class="col-lg-9 col-md-9 col-sm-12 mb-2">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="kodeBank">Jenis Sertifikasi</label>
-                                                                 <select id="kodeBank" class="mb-3 form-control">
+                                                                 <label class="floating-label" for="addJnsSertf">Jenis Sertifikasi</label>
+                                                                 <select id="addJnsSertf" class="mb-3 form-control">
                                                                       <option value="0" selected>-- Pilih Jenis Sertifikasi --</option>
                                                                  </select>
-                                                                 <small class="errorKodeBank text-danger font-italic font-weight-bold"></small>
+                                                                 <small class="errorAddJnsSertf text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12 mb-2">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noRek">No. Sertifikat</label>
-                                                                 <input id='noRek' name='noRek' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoRek text-danger font-italic font-weight-bold"></small>
+                                                                 <label class="floating-label" for="noSertf">No. Sertifikat</label>
+                                                                 <input id='noSertf' name='noSertf' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorNoSertf text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="addJenisKary">Tanggal Sertifikat</label>
-                                                                 <input id='addEmailPerusahaan' name='addEmailPerusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="erroraddJenisKary text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label for="addTglSertf">Tanggal Sertifikasi</label>
+                                                                 <input id='addTglSertf' name='addTglSertf' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddTglSertf text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="addJenisKary">Tanggal Berakhir Sertifikat</label>
-                                                                 <input id='addEmailPerusahaan' name='addEmailPerusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="erroraddJenisKary text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label for="addTglAkhirSertf">Tanggal Berakhir Sertifikasi</label>
+                                                                 <input id='addTglAkhirSertf' name='addTglAkhirSertf' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddTglAkhirSertf text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label>
-                                                                 <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small>
+                                                                 <label class="floating-label" for="addKetSertf">Keterangan :</label>
+                                                                 <input id='addKetSertf' name='addKetSertf' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddKetSertf text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
                                                   </div>
