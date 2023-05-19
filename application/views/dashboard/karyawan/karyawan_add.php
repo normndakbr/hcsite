@@ -644,7 +644,7 @@
                                                        </div>
                                                        <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label><br>
+                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label>
                                                                  <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
@@ -655,30 +655,30 @@
                                              <div class="tab-pane fade" id="v-pills-dtVaksin" role="tabpanel" aria-labelledby="v-pills-dtVaksin-tab">
                                                   <div class="card-body row">
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="addJenisVaksin">Jenis Vaksin : </label><br>
-                                                            <select id='addJenisVaksin' name='addJenisVaksin' class="form-control form-control-user" disabled>
+                                                            <label for="addJenisVaksin">Jenis Vaksin : </label>
+                                                            <select id='addJenisVaksin' name='addJenisVaksin' class="form-control form-control-user" required>
                                                                  <option value="">-- Pilih Jenis Vaksin --</option>
                                                             </select>
-                                                            <small class="errorAddJenisVaksin text-danger font-italic font-weight-bold"></small><br>
+                                                            <small class="errorAddJenisVaksin text-danger font-italic font-weight-bold"></small>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="addNamaVaksin">Nama Vaksin : </label><br>
-                                                            <select id='addNamaVaksin' name='addNamaVaksin' class="form-control form-control-user" disabled>
+                                                            <label for="addNamaVaksin">Nama Vaksin : </label>
+                                                            <select id='addNamaVaksin' name='addNamaVaksin' class="form-control form-control-user" required>
                                                                  <option value="">-- Pilih Nama Vaksin --</option>
                                                             </select>
-                                                            <small class="errorAddNamaVaksin text-danger font-italic font-weight-bold"></small><br>
+                                                            <small class="errorAddNamaVaksin text-danger font-italic font-weight-bold"></small>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mt-4 pt-2">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="tglMCU">Tanggal Medical Check Up :</label><br>
+                                                                 <label for="tglMCU">Tanggal Medical Check Up :</label>
                                                                  <input id='addTglMCU' name='addTglMCU' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddTglMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label><br>
-                                                                 <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label>
+                                                                 <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
                                                                  <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
