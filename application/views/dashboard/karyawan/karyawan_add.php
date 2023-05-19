@@ -70,7 +70,7 @@
                                              <li><a class="nav-link text-left has-ripple" id="v-pills-dtSertifikasi-tab" data-toggle="pill" href="#v-pills-dtSertifikasi" role="tab" aria-controls="v-pills-dtSertifikasi" aria-selected="false">Sertifikasi<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
                                              <li><a class="nav-link text-left has-ripple" id="v-pills-dtMCU-tab" data-toggle="pill" href="#v-pills-dtMCU" role="tab" aria-controls="v-pills-dtMCU" aria-selected="false">Medical Check Up<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
                                              <li><a class="nav-link text-left has-ripple" id="v-pills-dtVaksin-tab" data-toggle="pill" href="#v-pills-dtVaksin" role="tab" aria-controls="v-pills-dtVaksin" aria-selected="false">Vaksinasi<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
-                                             <li><a class="nav-link text-left has-ripple" id="v-pills-dtBerkas-tab" data-toggle="pill" href="#v-pills-dtBerkas" role="tab" aria-controls="v-pills-dtBerkas" aria-selected="false">Berkas<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
+                                             <li><a class="nav-link text-left has-ripple" id="v-pills-dtBerkas-tab" data-toggle="pill" href="#v-pills-dtBerkas" role="tab" aria-controls="v-pills-dtBerkas" aria-selected="false">Berkas Pendukung<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -174.188px; left: -108.625px;"></span></a></li>
                                              <li><a class="nav-link text-left has-ripple" id="v-pills-dtKontakDarurat-tab" data-toggle="pill" href="#v-pills-dtKontakDarurat" role="tab" aria-controls="v-pills-dtKontakDarurat" aria-selected="false">Kontak Darurat<span class="ripple ripple-animate" style="height: 373.25px; width: 373.25px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -168.188px; left: -119.625px;"></span></a></li>
                                         </ul>
                                    </div>
@@ -141,7 +141,14 @@
                                                                  <small class="errorNoKK text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addNamaIbu">Nama Gadis Ibu Kandung</label>
+                                                                 <input id='addNamaIbu' name='addNamaIbu' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNamaIbu text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="kewarganegaraan">Kewarganegaraan</label>
                                                                  <select id="kewarganegaraan" class="mb-3 form-control">
@@ -151,7 +158,7 @@
                                                                  <small class="errorKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="agama">Agama</label>
                                                                  <select id="agama" class="mb-3 form-control">
@@ -165,7 +172,7 @@
                                                                  <small class="errorAgama text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="jenisKelamin">Jenis Kelamin</label>
                                                                  <select id="jenisKelamin" class="mb-3 form-control">
@@ -227,6 +234,45 @@
                                                                  <label class="floating-label" for="noEquity">No. Equity</label>
                                                                  <input id='noEquity' name='noEquity' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorNoEquity text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-2">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addPendidikanTerakhir">Pendidikan Terakhir</label>
+                                                                 <select id="addPendidikanTerakhir" class="mb-3 form-control">
+                                                                      <option value="SD" selected>SD</option>
+                                                                      <option value="SMP">SMP</option>
+                                                                      <option value="SMA">SMA</option>
+                                                                      <option value="SMK">SMK</option>
+                                                                      <option value="D3">D3</option>
+                                                                      <option value="D4">D4</option>
+                                                                      <option value="S1">S1</option>
+                                                                      <option value="S1">S1</option>
+                                                                      <option value="S2">S2</option>
+                                                                      <option value="S3">S3</option>
+                                                                 </select>
+                                                                 <small class="errorAddPendidikanTerakhir text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-9 col-md-9 col-sm-12 mb-2">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addInstansiPendidikan">Instansi Pendidikan</label>
+                                                                 <input id='addInstansiPendidikan' name='addInstansiPendidikan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddInstansiPendidikan text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addFakultas">Fakultas</label>
+                                                                 <input id='addFakultas' name='addFakultas' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddFakultas text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addJurusan">Jurusan</label>
+                                                                 <input id='addJurusan' name='addJurusan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddJurusan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                   </div>
@@ -598,7 +644,7 @@
                                                        </div>
                                                        <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label><br>
+                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label>
                                                                  <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
@@ -609,30 +655,30 @@
                                              <div class="tab-pane fade" id="v-pills-dtVaksin" role="tabpanel" aria-labelledby="v-pills-dtVaksin-tab">
                                                   <div class="card-body row">
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="addJenisVaksin">Jenis Vaksin : </label><br>
-                                                            <select id='addJenisVaksin' name='addJenisVaksin' class="form-control form-control-user" disabled>
+                                                            <label for="addJenisVaksin">Jenis Vaksin : </label>
+                                                            <select id='addJenisVaksin' name='addJenisVaksin' class="form-control form-control-user" required>
                                                                  <option value="">-- Pilih Jenis Vaksin --</option>
                                                             </select>
-                                                            <small class="errorAddJenisVaksin text-danger font-italic font-weight-bold"></small><br>
+                                                            <small class="errorAddJenisVaksin text-danger font-italic font-weight-bold"></small>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="addNamaVaksin">Nama Vaksin : </label><br>
-                                                            <select id='addNamaVaksin' name='addNamaVaksin' class="form-control form-control-user" disabled>
+                                                            <label for="addNamaVaksin">Nama Vaksin : </label>
+                                                            <select id='addNamaVaksin' name='addNamaVaksin' class="form-control form-control-user" required>
                                                                  <option value="">-- Pilih Nama Vaksin --</option>
                                                             </select>
-                                                            <small class="errorAddNamaVaksin text-danger font-italic font-weight-bold"></small><br>
+                                                            <small class="errorAddNamaVaksin text-danger font-italic font-weight-bold"></small>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mt-4 pt-2">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="tglMCU">Tanggal Medical Check Up :</label><br>
+                                                                 <label for="tglMCU">Tanggal Medical Check Up :</label>
                                                                  <input id='addTglMCU' name='addTglMCU' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddTglMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label><br>
-                                                                 <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label>
+                                                                 <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
                                                                  <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
@@ -640,12 +686,19 @@
                                              </div>
                                              <!-- Tab berkas -->
                                              <div class="tab-pane fade" id="v-pills-dtBerkas" role="tabpanel" aria-labelledby="v-pills-dtBerkas-tab">
-                                                  <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum
-                                                       duis
-                                                       aliqua do.
-                                                       Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo
-                                                       eiusmod.
-                                                  </p>
+                                                  <div class="form-group">
+                                                       <h5>Unggah Berkas Pendukung</h5>
+                                                       <ul>
+                                                            <li>Berkas pendukung terdiri dari scan <b>CV, KTP, KK dan Ijazah</b> dari pendidikan terakhir</li>
+                                                            <li>File - file berkas pendukung digabung menjadi 1 file dalam bentuk .pdf</li>
+                                                            <li>Ukuran maksimal dari file .pdf yang diperbolehkan adalah sebesar 100kb</li>
+                                                       </ul>
+                                                       <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" id="validatedCustomFile" required="">
+                                                            <label class="custom-file-label" for="validatedCustomFile">Pilih berkas...</label>
+                                                            <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                                       </div>
+                                                  </div>
                                              </div>
                                              <!-- Tab kontak darurat -->
                                              <div class="tab-pane fade" id="v-pills-dtKontakDarurat" role="tabpanel" aria-labelledby="v-pills-dtKontakDarurat-tab">
