@@ -730,8 +730,8 @@
                                                                       <li>Ukuran maksimal dari file .pdf yang diperbolehkan adalah sebesar 100kb</li>
                                                                  </ul>
                                                                  <div class="custom-file">
-                                                                      <input type="file" class="custom-file-input" id="validatedCustomFile" required="">
-                                                                      <label class="custom-file-label" for="validatedCustomFile">Pilih berkas...</label>
+                                                                      <input type="file" class="custom-file-input" id="addBerkasSertf" required>
+                                                                      <label class="custom-file-label" for="addBerkasSertf">Pilih berkas...</label>
                                                                       <div class="invalid-feedback">Example invalid custom file feedback</div>
                                                                  </div>
                                                             </div><br>
@@ -748,7 +748,7 @@
                                         <div id="colDataMCU" class="collapse" aria-labelledby="headingThree">
                                              <div class="card-body mt-3">
                                                   <div class="card-body row">
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addHasilMCU">Hasil Medical Check Up :</label><br>
                                                                  <input id='addHasilMCU' name='addHasilMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
@@ -757,12 +757,12 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addTglMCU">Tanggal Medical Check Up :</label><br>
+                                                                 <label for="addTglMCU">Tanggal Medical Check Up :</label>
                                                                  <input id='addTglMCU' name='addTglMCU' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddTglMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addHasilFMCU">Hasil Follow Up :</label><br>
                                                                  <input id='addHasilFMCU' name='addHasilFMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
@@ -771,18 +771,19 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addTglFMCU">Tanggal Follow Up :</label><br>
+                                                                 <label for="addTglFMCU">Tanggal Follow Up :</label>
                                                                  <input id='addTglFMCU' name='addTglFMCU' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddTglFMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-12 col-md-12 col-sm-12">
+                                                       <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label>
+                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label><br>
                                                                  <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
+                                                       <button type="button" id="btnSimpanDataMCU" class="btn btn-primary">Simpan Data Medical Check Up</button>
                                                   </div>
                                              </div>
                                         </div>
@@ -810,18 +811,19 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12 mt-4 pt-2">
                                                             <div class="form-group">
-                                                                 <label for="tglMCU">Tanggal Medical Check Up :</label>
-                                                                 <input id='addTglMCU' name='addTglMCU' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddTglMCU text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label for="tglVaksin">Tanggal Vaksinasi :</label>
+                                                                 <input id='addTglVaksin' name='addTglVaksin' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddTglVaksin text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-12 col-md-12 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addKetMCU">Keterangan :</label>
-                                                                 <input id='addKetMCU' name='addKetMCU' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
-                                                                 <small class="errorAddKetMCU text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addKetVaksin">Keterangan :</label>
+                                                                 <input id='addKetVaksin' name='addKetVaksin' type="text" autocomplete="off" spellcheck="false" class="form-control" value="">
+                                                                 <small class="errorAddKetVaksin text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
+                                                       <button type="button" id="btnSimpanDataMCU" class="btn btn-primary">Simpan Data Vaksinasi</button>
                                                   </div>
                                              </div>
                                         </div>
