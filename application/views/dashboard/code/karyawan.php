@@ -6,6 +6,9 @@
             $("#logoutmdl").modal("show");
         });
 
+        $("#btnCollapsePersonal").click(() => {
+            $("#collapsePersonal").addClass("show");
+        });
 
         $(document).ready(function() {
             $("#addStatusKary").change(function() {
