@@ -66,54 +66,54 @@
                                         <div class="card-header" id="headingOne">
                                              <h5 class="mb-0"><a href="#!" id="btnDataPersonal" data-toggle="collapse" data-target="#colDataPersonal" aria-expanded="true" aria-controls="colDataPersonal">Data Personal</a></h5>
                                         </div>
-                                        <div id="colDataPersonal" class="collapse" aria-labelledby="headingOne">
+                                        <div id="colDataPersonal" class="collapse mt-3" aria-labelledby="headingOne">
                                              <div class="card-body mt-3">
                                                   <div class="card-body row">
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noKTP">No. KTP</label>
-                                                                 <input id='noKTP' name='noKTP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoKTP text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoKTP">No. KTP</label>
+                                                                 <input id='addNoKTP' name='addNoKTP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoKTP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="namaLengkap">Nama Lengkap</label>
-                                                                 <input id='namaLengkap' name='namaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNamaLengkap text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for=addNamaLengkap">Nama Lengkap</label>
+                                                                 <input id=addNamaLengkap' name=addNamaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="erroAddNamaLengkap text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="alamatEmail">Alamat Email Pribadi</label>
-                                                                 <input id='alamatEmail' name='alamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAlamatEmail text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addAlamatEmail">Alamat Email Pribadi</label>
+                                                                 <input id='addAlamatEmail' name='addAlamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddAlamatEmail text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noTelp">No. Telp</label>
-                                                                 <input id='noTelp' name='noTelp' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoTelp text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoTelp">No. Telp</label>
+                                                                 <input id='addNoTelp' name='addNoTelp' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoTelp text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="tempatLahir">Tempat & Tanggal Lahir</label>
-                                                                 <input id='tempatLahir' name='tempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorTempatLahir text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addTempatLahir">Tempat & Tanggal Lahir</label>
+                                                                 <input id='addTempatLahir' name='addTempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddTempatLahir text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <input id='tanggalLahir' name='tanggalLahir' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorTanggalLahir text-danger font-italic font-weight-bold"></small><br>
+                                                                 <input id='addTanggalLahir' name='addTanggalLahir' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddTanggalLahir text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="statPernikahan">Status Pernikahan</label>
-                                                                 <select id="statPernikahan" class="mb-3 form-control">
+                                                                 <label class="floating-label" for="addStatPernikahan">Status Pernikahan</label>
+                                                                 <select id="addStatPernikahan" class="mb-3 form-control">
                                                                       <option value="TK" selected>TK</option>
                                                                       <option value="K0">K0</option>
                                                                       <option value="K1">K1</option>
@@ -121,14 +121,14 @@
                                                                       <option value="K3">K3</option>
                                                                       <option value="K4">K4</option>
                                                                  </select>
-                                                                 <small class="errorStatPernikahan text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddStatPernikahan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noKK">No. Kartu Keluarga</label>
-                                                                 <input id='noKK' name='noKK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoKK text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoKK">No. Kartu Keluarga</label>
+                                                                 <input id='addNoKK' name='addNoKK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoKK text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
@@ -140,18 +140,18 @@
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="kewarganegaraan">Kewarganegaraan</label>
-                                                                 <select id="kewarganegaraan" class="mb-3 form-control">
+                                                                 <label class="floating-label" for="addKewarganegaraan">Kewarganegaraan</label>
+                                                                 <select id="addKewarganegaraan" class="mb-3 form-control">
                                                                       <option value="WNI" selected>WNI</option>
                                                                       <option value="WNA">WNA</option>
                                                                  </select>
-                                                                 <small class="errorKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="erroraddKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="agama">Agama</label>
-                                                                 <select id="agama" class="mb-3 form-control">
+                                                                 <label class="floating-label" for="addAgama">Agama</label>
+                                                                 <select id="addAgama" class="mb-3 form-control">
                                                                       <option value="islam" selected>Islam</option>
                                                                       <option value="kristen">Kristen</option>
                                                                       <option value="katolik">Katolik</option>
@@ -159,71 +159,71 @@
                                                                       <option value="budha">Budha</option>
                                                                       <option value="konghucu">Konghucu</option>
                                                                  </select>
-                                                                 <small class="errorAgama text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="erroraddAgama text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="jenisKelamin">Jenis Kelamin</label>
-                                                                 <select id="jenisKelamin" class="mb-3 form-control">
+                                                                 <label class="floating-label" for="addJenisKelamin">Jenis Kelamin</label>
+                                                                 <select id="addJenisKelamin" class="mb-3 form-control">
                                                                       <option value="LK" selected>Laki - Laki</option>
                                                                       <option value="P">Perempuan</option>
                                                                  </select>
-                                                                 <small class="errorJenisKelamin text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddJenisKelamin text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="kodeBank">Kode Bank</label>
-                                                                 <select id="kodeBank" class="mb-3 form-control">
+                                                                 <label class="floating-label" for="addKodeBank">Kode Bank</label>
+                                                                 <select id="addKodeBank" class="mb-3 form-control">
                                                                       <option value="BRI" selected>BRI</option>
                                                                       <option value="BNI">BNI</option>
                                                                       <option value="BCA">BCA</option>
                                                                       <option value="Mandiri">Mandiri</option>
                                                                  </select>
-                                                                 <small class="errorKodeBank text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddKodeBank text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noRek">No. Rekening</label>
-                                                                 <input id='noRek' name='noRek' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoRek text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoRek">No. Rekening</label>
+                                                                 <input id='addNoRek' name='addNoRek' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoRek text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noNPWP">No. NPWP</label>
-                                                                 <input id='noNPWP' name='noNPWP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoNPWP text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoNPWP">No. NPWP</label>
+                                                                 <input id='addNoNPWP' name='addNoNPWP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoNPWP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noBPJSTK">No. BPJS Tenaga Kerja</label>
-                                                                 <input id='noBPJSTK' name='noBPJSTK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoBPJSTK text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoBPJSTK">No. BPJS Tenaga Kerja</label>
+                                                                 <input id='addNoBPJSTK' name='addNoBPJSTK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="erroraddNoBPJSTK text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noBPJSKES">No. BPJS Kesehatan</label>
-                                                                 <input id='noBPJSKES' name='noBPJSKES' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoBPJSKES text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoBPJSKES">No. BPJS Kesehatan</label>
+                                                                 <input id='addNoBPJSKES' name='addNoBPJSKES' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="erroraddNoBPJSKES text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noBPJSPensiun">No. BPJS Pensiun</label>
-                                                                 <input id='noBPJSPensiun' name='noBPJSPensiun' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoBPJSPensiun text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoBPJSPensiun">No. BPJS Pensiun</label>
+                                                                 <input id='addNoBPJSPensiun' name='addNoBPJSPensiun' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoBPJSPensiun text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="noEquity">No. Equity</label>
-                                                                 <input id='noEquity' name='noEquity' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorNoEquity text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoEquity">No. Equity</label>
+                                                                 <input id='addNoEquity' name='addNoEquity' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoEquity text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12 mb-2">
@@ -391,32 +391,32 @@
                                                        </div>
                                                        <div id="addFieldPermanen" class="col-lg-8 col-md-8 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="tglPermanen">Tanggal Permanen</label>
-                                                                 <input id="tglPermanen" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="addTglPermanen">Tanggal Permanen</label>
+                                                                 <input id="addTglPermanen" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div id="addFieldKontrakAwal" class="col-lg-4 col-md-4 col-sm-12 d-none">
                                                             <div class="form-group">
-                                                                 <label for="tglKontrakAwal">Tanggal Awal</label>
-                                                                 <input id="tglKontrakAwal" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="addTglKontrakAwal">Tanggal Awal</label>
+                                                                 <input id="addTglKontrakAwal" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div id="addFieldKontrakAkhir" class="col-lg-4 col-md-4 col-sm-12 d-none">
                                                             <div class="form-group">
-                                                                 <label for="tglKontrakAkhir">Tanggal Akhir</label>
-                                                                 <input id="tglKontrakAkhir" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="addTglKontrakAkhir">Tanggal Akhir</label>
+                                                                 <input id="addTglKontrakAkhir" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label for="tglDOH">Date of Hire</label>
-                                                                 <input id="tglDOH" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="addTglDOH">Date of Hire</label>
+                                                                 <input id="addTglDOH" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                                                             <div class="form-group">
-                                                                 <label for="tglAktif">Tanggal Aktif Bekerja</label>
-                                                                 <input id="tglAktif" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="addTglAktif">Tanggal Aktif Bekerja</label>
+                                                                 <input id="addTglAktif" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
@@ -485,8 +485,8 @@
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
                                                             <div class="form-group">
-                                                                 <label for="tglNonAktif">Tanggal Nonaktif</label>
-                                                                 <input id="tglNonAktif" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <label for="addTglNonAktif">Tanggal Nonaktif</label>
+                                                                 <input id="addTglNonAktif" type="date" class="form-control" value="" style="background-color:transparent;">
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-12 col-md-12 col-sm-12 pt-2">
