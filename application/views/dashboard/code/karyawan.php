@@ -6,10 +6,6 @@
             $("#logoutmdl").modal("show");
         });
 
-        $("#btnCollapsePersonal").click(() => {
-            $("#collapsePersonal").addClass("show");
-        });
-
         $(document).ready(function() {
             $("#addStatusKary").change(function() {
                 let currentStatusKary = $("#addStatusKary").val();
@@ -499,87 +495,175 @@
             });
         });
 
-        $("#btnTambahDtPersonal").click(function() {
-            var noKTP = $("#noKTP").val();
-            var namaLengkap = $("#namaLengkap").val();
-            var alamatEmail = $("#alamatEmail").val();
-            var noTelp = $("#noTelp").val();
-            var tempatLahir = $("#tempatLahir").val();
-            var tanggalLahir = $("#tanggalLahir").val();
-            var kewarganegaraan = $("#kewarganegaraan").val();
-            var agama = $("#agama").val();
+        $("#btnSimpanDataPersonal").click(() => {
+            let addNoKTP = $("#addNoKTP").val();
+            let addNamaLengkap = $("#addNamaLengkap").val();
+            let addAlamatEmail = $("#addAlamatEmail").val();
+            let addNoTelp = $("#addNoTelp").val();
+            let addTempatLahir = $("#addTempatLahir").val();
+            let addTanggalLahir = $("#addTanggalLahir").val();
+            let addStatPernikahan = $("#addStatPernikahan").val();
+            let addNoKK = $("#addNoKK").val();
+            let addNamaIbu = $("#addNamaIbu").val();
+            let addKewarganegaraan = $("#addKewarganegaraan").val();
+            let addAgama = $("#addAgama").val();
+            let addJenisKelamin = $("#addJenisKelamin").val();
+            let addKodeBank = $("#addKodeBank").val();
+            let addNoRek = $("#addNoRek").val();
+            let addNoNPWP = $("#addNoNPWP").val();
+            let addNoBPJSTK = $("#addNoBPJSTK").val();
+            let addNoBPJSKES = $("#addNoBPJSKES").val();
+            let addNoBPJSPensiun = $("#addNoBPJSPensiun").val();
+            let addNoEquity = $("#addNoEquity").val();
+            let addPendidikanTerakhir = $("#addPendidikanTerakhir").val();
+            let addInstansiPendidikan = $("#addInstansiPendidikan").val();
+            let addFakultas = $("#addFakultas").val();
+            let addJurusan = $("#addJurusan").val();
 
-            console.log(noKTP);
-            console.log(namaLengkap);
-            console.log(alamatEmail);
-            console.log(noTelp);
-            console.log(tempatLahir);
-            console.log(tanggalLahir);
-            console.log(kewarganegaraan);
-            console.log(agama);
+            // console.log(addNoKTP);
+            // console.log(addNamaLengkap);
+            // console.log(addAlamatEmail);
+            // console.log(addNoTelp);
+            // console.log(addTempatLahir);
+            // console.log(addTanggalLahir);
+            // console.log(addStatPernikahan);
+            // console.log(addNoKK);
+            // console.log(addNamaIbu);
+            // console.log(addKewarganegaraan);
+            // console.log(addAgama);
+            // console.log(addJenisKelamin);
+            // console.log(addKodeBank);
+            // console.log(addNoRek);
+            // console.log(addNoNPWP);
+            // console.log(addNoBPJSTK);
+            // console.log(addNoBPJSKES);
+            // console.log(addNoBPJSPensiun);
+            // console.log(addNoEquity);
+            // console.log(addPendidikanTerakhir);
+            // console.log(addInstansiPendidikan);
+            // console.log(addFakultas);
+            // console.log(addJurusan);
 
             $.ajax({
                 type: "POST",
                 url: "<?= base_url("karyawan/input_dtPersonal") ?>",
                 data: {
-                    noKTP: noKTP,
-                    namaLengkap: namaLengkap,
-                    alamatEmail: alamatEmail,
-                    noTelp: noTelp,
-                    tempatLahir: tempatLahir,
-                    tanggalLahir: tanggalLahir,
-                    kewarganegaraan: kewarganegaraan,
-                    agama: agama,
+                    addNoKTP: addNoKTP,
+                    addNamaLengkap: addNamaLengkap,
+                    addAlamatEmail: addAlamatEmail,
+                    addNoTelp: addNoTelp,
+                    addTempatLahir: addTempatLahir,
+                    addTanggalLahir: addTanggalLahir,
+                    addStatPernikahan: addStatPernikahan,
+                    addNoKK: addNoKK,
+                    addNamaIbu: addNamaIbu,
+                    addKewarganegaraan: addKewarganegaraan,
+                    addAgama: addAgama,
+                    addJenisKelamin: addJenisKelamin,
+                    addKodeBank: addKodeBank,
+                    addNoRek: addNoRek,
+                    addNoNPWP: addNoNPWP,
+                    addNoBPJSTK: addNoBPJSTK,
+                    addNoBPJSKES: addNoBPJSKES,
+                    addNoBPJSPensiun: addNoBPJSPensiun,
+                    addNoEquity: addNoEquity,
+                    addPendidikanTerakhir: addPendidikanTerakhir,
+                    addInstansiPendidikan: addInstansiPendidikan,
+                    addFakultas: addFakultas,
+                    addJurusan: addJurusan,
                 },
-                timeout: 20000,
-                success: function(data) {
+                timeout: 2000,
+                success: (response) => {
+                    var data = JSON.parse(response);
                     console.log(data);
-                    var data = JSON.parse(data);
-                    console.log(data);
-                    if (data.statusCode == 200) {
+                    if (data.statusCode == 201) {
                         $(".err_psn_dtPersonal").removeClass('d-none');
                         $(".err_psn_dtPersonal").removeClass('alert-danger');
                         $(".err_psn_dtPersonal").addClass('alert-info');
                         $(".err_psn_dtPersonal").html(data.pesan);
-                        $("#noTelp").val('');
-                        $("#namaLengkap").val('');
-                        $("#alamatEmail").val('');
-                        $("#noKTP").val('');
-                        $(".error1").html('');
-                        $(".error2").html('');
-                        $(".error3").html('');
+
+                        $(".errorAddNoKTP").html('');
+                        $(".errorAddNamaLengkap").html('');
+                        $(".errorAddAlamatEmail").html('');
+                        $(".errorAddNoTelp").html('');
+                        $(".errorAddTempatLahir").html('');
+                        $(".errorAddTanggalLahir").html('');
+                        $(".errorAddStatPernikahan").html('');
+                        $(".errorAddNoKK").html('');
+                        $(".errorAddNamaIbu").html('');
+                        $(".errorAddKewarganegaraan").html('');
+                        $(".errorAddAgama").html('');
+                        $(".errorAddJenisKelamin").html('');
+                        $(".errorAddKodeBank").html('');
+                        $(".errorAddNoRek").html('');
+                        $(".errorAddNoNPWP").html('');
+                        $(".errorAddNoBPJSTK").html('');
+                        $(".errorAddNoBPJSKES").html('');
+                        $(".errorAddNoBPJSPensiun").html('');
+                        $(".errorAddNoEquity").html('');
+                        $(".errorAddPendidikanTerakhir").html('');
+                        $(".errorAddInstansiPendidikan").html('');
+                        $(".errorAddFakultas").html('');
+                        $(".errorAddJurusan").html('');
+
+                        $("#addNoKTP").val('');
+                        $("#addNamaLengkap").val('');
+                        $("#addAlamatEmail").val('');
+                        $("#addNoTelp").val('');
+                        $("#addTempatLahir").val('');
+                        $("#addTanggalLahir").val('');
+                        $("#addStatPernikahan").val('');
+                        $("#addNoKK").val('');
+                        $("#addNamaIbu").val('');
+                        $("#addKewarganegaraan").val('');
+                        $("#addAgama").val('');
+                        $("#addJenisKelamin").val('');
+                        $("#addKodeBank").val('');
+                        $("#addNoRek").val('');
+                        $("#addNoNPWP").val('');
+                        $("#addNoBPJSTK").val('');
+                        $("#addNoBPJSKES").val('');
+                        $("#addNoBPJSPensiun").val('');
+                        $("#addNoEquity").val('');
+                        $("#addPendidikanTerakhir").val('');
+                        $("#addInstansiPendidikan").val('');
+                        $("#addFakultas").val('');
+                        $("#addJurusan").val('');
                     } else if (data.statusCode == 201) {
                         $(".err_psn_dtPersonal").removeClass('d-none');
-                        $(".err_psn_dtPersonal").removeClass('alert-info');
-                        $(".err_psn_dtPersonal").addClass('alert-danger');
+                        $(".err_psn_dtPersonal").removeClass('alert-danger');
+                        $(".err_psn_dtPersonal").addClass('alert-info');
                         $(".err_psn_dtPersonal").html(data.pesan);
-                    } else if (data.statusCode == 202) {
-                        $(".error1").html(data.prs);
-                        $(".error2").html(data.kode);
-                        $(".error3").html(data.depart);
+                    } else if (data.statusCode == 400) {
+                        $(".errorAddNoKTP").html(data.addNoKTP);
+                        $(".errorAddNamaLengkap").html(data.addNamaLengkap);
+                        $(".errorAddAlamatEmail").html(data.addAlamatEmail);
+                        $(".errorAddNoTelp").html(data.addNoTelp);
+                        $(".errorAddTempatLahir").html(data.addTempatLahir);
+                        $(".errorAddTanggalLahir").html(data.addTanggalLahir);
+                        $(".errorAddStatPernikahan").html(data.addStatPernikahan);
+                        $(".errorAddNoKK").html(data.addNoKK);
+                        $(".errorAddNamaIbu").html(data.addNamaIbu);
+                        $(".errorAddKewarganegaraan").html(data.addKewarganegaraan);
+                        $(".errorAddAgama").html(data.addAgama);
+                        $(".errorAddJenisKelamin").html(data.addJenisKelamin);
+                        $(".errorAddKodeBank").html(data.addKodeBank);
+                        $(".errorAddNoRek").html(data.addNoRek);
+                        $(".errorAddNoNPWP").html(data.addNoNPWP);
+                        $(".errorAddNoBPJSTK").html(data.addNoBPJSTK);
+                        $(".errorAddNoBPJSKES").html(data.addNoBPJSKES);
+                        $(".errorAddNoBPJSPensiun").html(data.addNoBPJSPensiun);
+                        $(".errorAddNoEquity").html(data.addNoEquity);
+                        $(".errorAddPendidikanTerakhir").html(data.addPendidikanTerakhir);
+                        $(".errorAddInstansiPendidikan").html(data.addInstansiPendidikan);
+                        $(".errorAddFakultas").html(data.addFakultas);
+                        $(".errorAddJurusan").html(data.addJurusan);
                     }
-
-                    $(".err_psn_dtPersonal").fadeTo(3000, 500).slideUp(500, function() {
-                        $(".err_psn_dtPersonal").slideUp(500);
-                    });
                 },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    $.LoadingOverlay("hide");
-                    $(".err_psn_dtPersonal").removeClass("alert-primary");
-                    $(".err_psn_dtPersonal").addClass("alert-danger");
-                    $(".err_psn_dtPersonal").css("display", "block");
-                    if (xhr.status == 404) {
-                        $(".err_psn_dtPersonal").html("Departemen gagal disimpan, Link data tidak ditemukan");
-                    } else if (xhr.status == 0) {
-                        $(".err_psn_dtPersonal").html("Departemen gagal disimpan, Waktu koneksi habis");
-                    } else {
-                        $(".err_psn_dtPersonal").html("Terjadi kesalahan saat menghapus data, hubungi administrator");
-                    }
+                error: () => {
 
-                    $(".err_psn_dtPersonal ").fadeTo(3000, 500).slideUp(500, function() {
-                        $(".err_psn_dtPersonal ").slideUp(500);
-                    });
-                }
+                },
+
             })
         });
 
