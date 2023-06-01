@@ -59,7 +59,7 @@
                                         <a href="<?= base_url('karyawan'); ?>" class="btn btn-sm btn-danger font-weight-bold">Batal</a>
                                         <a id="addbtn" href="<?= base_url('karyawan/new'); ?>" class="btn btn-sm btn-warning font-weight-bold">Reset Data</a>
                                    </div>
-                                   <div class="alert alert-danger err_psn_depart animate__animated animate__bounce d-none"></div>
+                                   <div class="alert alert-danger err_psn_dtPersonal animate__animated animate__bounce d-none"></div>
                               </div>
                               <div class="accordion mt-3" id="accordionExample">
                                    <div id="divDataPersonal" class="card mb-0">
@@ -72,15 +72,15 @@
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoKTP">No. KTP</label>
-                                                                 <input id='addNoKTP' name='addNoKTP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <input id='addNoKTP' name='addNoKTP' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddNoKTP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for=addNamaLengkap">Nama Lengkap</label>
-                                                                 <input id=addNamaLengkap' name=addNamaLengkap' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="erroAddNamaLengkap text-danger font-italic font-weight-bold"></small><br>
+                                                                 <input id="addNamaLengkap" name="addNamaLengkap" type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNamaLengkap text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
@@ -127,7 +127,7 @@
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoKK">No. Kartu Keluarga</label>
-                                                                 <input id='addNoKK' name='addNoKK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <input id='addNoKK' name='addNoKK' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddNoKK text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
@@ -194,35 +194,35 @@
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoNPWP">No. NPWP</label>
-                                                                 <input id='addNoNPWP' name='addNoNPWP' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <input id='addNoNPWP' name='addNoNPWP' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddNoNPWP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoBPJSTK">No. BPJS Tenaga Kerja</label>
-                                                                 <input id='addNoBPJSTK' name='addNoBPJSTK' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="erroraddNoBPJSTK text-danger font-italic font-weight-bold"></small><br>
+                                                                 <input id='addNoBPJSTK' name='addNoBPJSTK' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoBPJSTK text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoBPJSKES">No. BPJS Kesehatan</label>
-                                                                 <input id='addNoBPJSKES' name='addNoBPJSKES' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="erroraddNoBPJSKES text-danger font-italic font-weight-bold"></small><br>
+                                                                 <input id='addNoBPJSKES' name='addNoBPJSKES' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoBPJSKES text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoBPJSPensiun">No. BPJS Pensiun</label>
-                                                                 <input id='addNoBPJSPensiun' name='addNoBPJSPensiun' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <input id='addNoBPJSPensiun' name='addNoBPJSPensiun' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddNoBPJSPensiun text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-3 col-md-3 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoEquity">No. Equity</label>
-                                                                 <input id='addNoEquity' name='addNoEquity' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <input id='addNoEquity' name='addNoEquity' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddNoEquity text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
@@ -236,7 +236,6 @@
                                                                       <option value="SMK">SMK</option>
                                                                       <option value="D3">D3</option>
                                                                       <option value="D4">D4</option>
-                                                                      <option value="S1">S1</option>
                                                                       <option value="S1">S1</option>
                                                                       <option value="S2">S2</option>
                                                                       <option value="S3">S3</option>
