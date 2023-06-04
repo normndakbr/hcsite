@@ -132,7 +132,6 @@ class Perusahaan_model extends CI_Model
                     foreach ($cek_id->result() as $list) {
                          $id_perusahaan = $list->id_perusahaan;
                     }
-
                     $this->db->delete('tb_perusahaan', ['id_perusahaan' => $id_perusahaan]);
                     if ($this->db->affected_rows() > 0) {
                          return 200;
@@ -222,12 +221,54 @@ class Perusahaan_model extends CI_Model
           return $this->db->get('vw_perusahaan')->result();
      }
 
+     public function get_m_all()
+     {
+          $this->db->distinct();
+          return $this->db->get('vw_m_per')->result();
+     }
+
      public function get_by_auth($auth_perusahaan)
      {
           $query = $this->db->get_where('vw_perusahaan', ['auth_perusahaan' => $auth_perusahaan]);
           if (!empty($query->result())) {
                foreach ($query->result() as $list) {
                     return $list->id_perusahaan;
+               }
+          } else {
+               return 0;
+          }
+     }
+
+     public function get_m_by_auth($auth_m_per)
+     {
+          $query = $this->db->get_where('vw_m_per', ['auth_m_perusahaan' => $auth_m_per]);
+          if (!empty($query->result())) {
+               foreach ($query->result() as $list) {
+                    return $list->id_m_perusahaan;
+               }
+          } else {
+               return 0;
+          }
+     }
+
+     public function get_parent_by_auth($auth_m_per)
+     {
+          $query = $this->db->get_where('vw_m_per', ['auth_m_perusahaan' => $auth_m_per]);
+          if (!empty($query->result())) {
+               foreach ($query->result() as $list) {
+                    return $list->id_parent;
+               }
+          } else {
+               return 0;
+          }
+     }
+
+     public function get_p_by_auth($auth_m_per)
+     {
+          $query = $this->db->get_where('vw_m_per', ['auth_m_perusahaan' => $auth_m_per]);
+          if (!empty($query->result())) {
+               foreach ($query->result() as $list) {
+                    return $list->auth_parent;
                }
           } else {
                return 0;
@@ -242,11 +283,10 @@ class Perusahaan_model extends CI_Model
 
                $this->db->select('*');
                $this->db->like("nama_perusahaan", $postData['search']);
-
+               $this->db->or_like("kode_perusahaan", $postData['search']);
                $records = $this->db->get('vw_perusahaan')->result();
-
                foreach ($records as $row) {
-                    $response[] = array("value" => $row->auth_perusahaan, "label" => $row->nama_perusahaan);
+                    $response[] = array("value" => $row->auth_perusahaan, "kode" => $row->kode_perusahaan, "label" => $row->nama_perusahaan);
                }
           }
           return $response;

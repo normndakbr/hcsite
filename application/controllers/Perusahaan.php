@@ -515,12 +515,25 @@ class Perusahaan extends My_Controller
           }
      }
 
+     public function get_m_all()
+     {
+          $query = $this->prs->get_m_all();
+          $output = "<option value=''>-- Pilih Perusahaan --</option>";
+          if (!empty($query)) {
+               foreach ($query as $list) {
+                    $output = $output . "<option value='" . $list->auth_m_perusahaan . "'>" . $list->nama_perusahaan . "</option>";
+               }
+               echo json_encode(array("statusCode" => 200, "prs" => $output));
+          } else {
+               $output = "<option value=''>-- Perusahaan Tidak Ditemukan --</option>";
+               echo json_encode(array("statusCode" => 201, "prs" => $output));
+          }
+     }
+
      public function getPerusahaan()
      {
           // POST data
           $data = $this->input->post();
-
-          // Get data
           $list = $this->prs->getPerusahaan($data);
 
           echo json_encode($list);

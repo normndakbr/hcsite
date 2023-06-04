@@ -97,18 +97,17 @@
                                         <label for="provPerusahaan">Provinsi :</label><br>
                                         <div class="input-group">
                                              <select id='provPerusahaan' name='provPerusahaan' class="form-control" required>
-                                                  <option value="">-- PILIH PROVINSI --</option>
+                                                  <option value="00">-- WAJIB DIPILIH --</option>
                                              </select>
                                              <button class="btn btn-primary btn-sm feather icon-refresh-ccw refprov" title="Reload Provinsi"></button>
                                         </div>
-
                                         <small class="error5 text-danger font-italic font-weight-bold"></small>
                                    </div>
                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <label for="kabPerusahaan">Kabupaten/Kota :</label><br>
                                         <div class="input-group">
                                              <select id='kabPerusahaan' name='kabPerusahaan' class="form-control" required>
-                                                  <option value="">-- KABUPATEN TIDAK DITEMUKAN --</option>
+                                                  <option value="0000">-- WAJIB DIPILIH --</option>
                                              </select>
                                              <button class="btn btn-primary btn-sm feather icon-refresh-ccw refkab" title="Reload Kabupaten"></button>
                                         </div>
@@ -118,7 +117,7 @@
                                         <label for="kecPerusahaan">Kecamatan :</label><br>
                                         <div class="input-group">
                                              <select id='kecPerusahaan' name='kecPerusahaan' class="form-control" required>
-                                                  <option value="">-- KECAMATAN TIDAK DITEMUKAN --</option>
+                                                  <option value="000000">-- WAJIB DIPILIH --</option>
                                              </select>
                                              <button class="btn btn-primary btn-sm feather icon-refresh-ccw refkec" title="Reload Kecamatan"></button>
                                         </div>
@@ -128,7 +127,7 @@
                                         <label for="kelPerusahaan">Kelurahan :</label><br>
                                         <div class="input-group">
                                              <select id='kelPerusahaan' name='kelPerusahaan' class="form-control" required>
-                                                  <option value="">-- KELURAHAN TIDAK DITEMUKAN --</option>
+                                                  <option value="00000000">-- WAJIB DIPILIH --</option>
                                              </select>
                                              <button class="btn btn-primary btn-sm feather icon-refresh-ccw refkel" title="Reload Kelurahan"></button>
                                         </div>
@@ -167,7 +166,7 @@
                                         <textarea id='kegPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user"></textarea>
                                         <small class="error13 text-danger font-italic font-weight-bold"></small>
                                    </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12">
+                                   <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
                                         <label for="ketPerusahaan">Keterangan :</label><br>
                                         <textarea id='ketPerusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user"></textarea>
                                         <small class="error14 text-danger font-italic font-weight-bold"></small>

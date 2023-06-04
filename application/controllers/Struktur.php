@@ -73,72 +73,122 @@ class Struktur extends My_Controller
 
      public function input_struktur()
      {
-
-          $this->form_validation->set_rules("prs", "prs", "required|trim", [
+          $this->form_validation->set_rules("jkau092321", "jkau092321", "required|trim", [
                'required' => 'Perusahaan wajib dipilih'
           ]);
-          $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
-               'required' => 'Kode wajib diisi',
-               'max_length' => 'Kode maksimal 8 karakter'
+          $this->form_validation->set_rules("jlasd1233", "jlasd1233", "required|trim", [
+               'required' => 'Perusahaan wajib diisi'
           ]);
-          $this->form_validation->set_rules("struktur", "struktur", "required|trim|max_length[100]", [
-               'required' => 'struktur wajib diisi',
-               'max_length' => 'struktur maksimal 100 karakter'
+          $this->form_validation->set_rules("jenisPerusahaan", "jenisPerusahaan", "required|trim", [
+               'required' => 'Jenis perusahaan wajib dipilih'
           ]);
-          $this->form_validation->set_rules("ket", "ket", "trim|max_length[1000],[
-               'max_length' => 'Keterangan maksimal 1000 karakter'
-          ]");
-
           if ($this->form_validation->run() == false) {
                $error = [
                     'statusCode' => 202,
-                    'prs' => form_error("prs"),
-                    'kode' => form_error("kode"),
-                    'struktur' => form_error("struktur")
+                    'jenis_per' => form_error("jkau092321"),
+                    'per_jenis' => form_error("jlasd1233"),
+                    'jenisper' => form_error("jenisPerusahaan")
                ];
-
-               echo json_encode($error);
-               return;
+               $data['nama'] = $this->session->userdata("nama");
+               $data['email'] = $this->session->userdata("email");
+               $data['menu'] = $this->session->userdata("id_menu");
+               $this->load->view('dashboard/template/header', $data);
+               $this->load->view('dashboard/struktur/struktur_add');
+               $this->load->view('dashboard/modal/mdlform');
+               $this->load->view('dashboard/template/footer', $data);
+               $this->load->view('dashboard/code/struktur');
           } else {
-               $auth_perusahaan = htmlspecialchars($this->input->post("prs", true));
-               $kd_struktur = htmlspecialchars($this->input->post("kode", true));
-               $struktur = htmlspecialchars($this->input->post("struktur", true));
-               $ket_struktur = htmlspecialchars($this->input->post("ket"));
-               $id_perusahaan = $this->prs->get_by_auth($auth_perusahaan);
+               $auth_m_perusahaan = htmlspecialchars($this->input->post("jkau092321", true));
+               $auth_per = htmlspecialchars($this->input->post("jlasd1233", true));
+               $jenis_per = htmlspecialchars($this->input->post("jenisPerusahaan", true));
+               $id_p_per = $this->prs->get_m_by_auth($auth_m_perusahaan);
+               $id_parent = $this->prs->get_parent_by_auth($auth_m_perusahaan);
+               $auth_parent = $this->prs->get_p_by_auth($auth_m_perusahaan);
+               $id_per = $this->prs->get_by_auth($auth_per);
 
-               if ($id_perusahaan == 0) {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "Perusahaan tidak terdaftar"));
+               if ($id_p_per === "0") {
+                    $this->session->set_flashdata('msg', '<div class="err_psn_prs_str alert alert-danger animate__animated animate__bounce"> Perusahaan tidak terdaftar </div>');
+                    $data['nama'] = $this->session->userdata("nama");
+                    $data['email'] = $this->session->userdata("email");
+                    $data['menu'] = $this->session->userdata("id_menu");
+                    $this->load->view('dashboard/template/header', $data);
+                    $this->load->view('dashboard/struktur/struktur_add');
+                    $this->load->view('dashboard/modal/mdlform');
+                    $this->load->view('dashboard/template/footer', $data);
+                    $this->load->view('dashboard/code/struktur');
+                    return;
+               }
+               if ($id_per === "0") {
+                    $this->session->set_flashdata('msg', '<div class="err_psn_prs_str alert alert-danger animate__animated animate__bounce"> Perusahaan tidak terdaftar </div>');
+                    $data['nama'] = $this->session->userdata("nama");
+                    $data['email'] = $this->session->userdata("email");
+                    $data['menu'] = $this->session->userdata("id_menu");
+                    $this->load->view('dashboard/template/header', $data);
+                    $this->load->view('dashboard/struktur/struktur_add');
+                    $this->load->view('dashboard/modal/mdlform');
+                    $this->load->view('dashboard/template/footer', $data);
+                    $this->load->view('dashboard/code/struktur');
                     return;
                }
 
-               $cekkode = $this->str->cek_kode($id_perusahaan, $kd_struktur);
-               if ($cekkode) {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "Kode sudah digunakan"));
+               if ($auth_per == $auth_parent) {
+                    $this->session->set_flashdata('msg', '<div class="err_psn_prs_str alert alert-danger animate__animated animate__bounce"> Perusahaan tidak boleh sama </div>');
+                    $data['nama'] = $this->session->userdata("nama");
+                    $data['email'] = $this->session->userdata("email");
+                    $data['menu'] = $this->session->userdata("id_menu");
+                    $this->load->view('dashboard/template/header', $data);
+                    $this->load->view('dashboard/struktur/struktur_add');
+                    $this->load->view('dashboard/modal/mdlform');
+                    $this->load->view('dashboard/template/footer', $data);
+                    $this->load->view('dashboard/code/struktur');
                     return;
                }
 
-               $cekstruktur = $this->str->cek_struktur($id_perusahaan, $struktur);
-               if ($cekstruktur) {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "struktur sudah digunakan"));
+
+               $cek_str_per = $this->str->cek_str_per($id_parent, $id_per);
+               if ($cek_str_per) {
+                    $this->session->set_flashdata('msg', '<div class="err_psn_prs_str alert alert-danger animate__animated animate__bounce"> Struktur perusahaan sudah ada </div>');
+                    $data['nama'] = $this->session->userdata("nama");
+                    $data['email'] = $this->session->userdata("email");
+                    $data['menu'] = $this->session->userdata("id_menu");
+                    $this->load->view('dashboard/template/header', $data);
+                    $this->load->view('dashboard/struktur/struktur_add');
+                    $this->load->view('dashboard/modal/mdlform');
+                    $this->load->view('dashboard/template/footer', $data);
+                    $this->load->view('dashboard/code/struktur');
                     return;
                }
-
                $data = [
-                    'kd_struktur' => $kd_struktur,
-                    'struktur' => $struktur,
-                    'ket_struktur' => $ket_struktur,
-                    'stat_struktur' => 'T',
+                    'id_parent' => $id_p_per,
+                    'id_perusahaan' => $id_per,
+                    'id_jenis_perusahaan' => $jenis_per,
+                    'stat_m_perusahaan' => 'T',
                     'tgl_buat' => date('Y-m-d H:i:s'),
                     'tgl_edit' => date('Y-m-d H:i:s'),
-                    'id_user' => $this->session->userdata('id_user'),
-                    'id_perusahaan' => $id_perusahaan
+                    'id_user' => $this->session->userdata('id_user')
                ];
 
                $struktur = $this->str->input_struktur($data);
                if ($struktur) {
-                    echo json_encode(array("statusCode" => 200, "pesan" => "struktur berhasil disimpan"));
+                    $this->session->set_flashdata('msg', '<div class="err_psn_prs_str alert alert-primary animate__animated animate__bounce"> Struktur perusahaan berhasil disimpan </div>');
+                    $data['nama'] = $this->session->userdata("nama");
+                    $data['email'] = $this->session->userdata("email");
+                    $data['menu'] = $this->session->userdata("id_menu");
+                    $this->load->view('dashboard/template/header', $data);
+                    $this->load->view('dashboard/struktur/struktur_add');
+                    $this->load->view('dashboard/modal/mdlform');
+                    $this->load->view('dashboard/template/footer', $data);
+                    $this->load->view('dashboard/code/struktur');
                } else {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "struktur gagal disimpan"));
+                    $this->session->set_flashdata('msg', '<div class="err_psn_prs_str alert alert-primary animate__animated animate__bounce"> Struktur perusahaan gagal disimpan </div>');
+                    $data['nama'] = $this->session->userdata("nama");
+                    $data['email'] = $this->session->userdata("email");
+                    $data['menu'] = $this->session->userdata("id_menu");
+                    $this->load->view('dashboard/template/header', $data);
+                    $this->load->view('dashboard/struktur/struktur_add');
+                    $this->load->view('dashboard/modal/mdlform');
+                    $this->load->view('dashboard/template/footer', $data);
+                    $this->load->view('dashboard/code/struktur');
                }
           }
      }
@@ -148,13 +198,13 @@ class Struktur extends My_Controller
           $auth_struktur = htmlspecialchars(trim($this->input->post('authstruktur')));
           $query = $this->str->hapus_struktur($auth_struktur);
           if ($query == 200) {
-               echo json_encode(array("statusCode" => 200, "pesan" => "struktur berhasil dihapus"));
+               echo json_encode(array("statusCode" => 200, "pesan" => "Struktur perusahaan berhasil dihapus"));
                return;
           } else if ($query == 201) {
-               echo json_encode(array("statusCode" => 201, "pesan" => "struktur gagal dihapus"));
+               echo json_encode(array("statusCode" => 201, "pesan" => "Struktur perusahaan gagal dihapus"));
                return;
           } else {
-               echo json_encode(array("statusCode" => 202, "pesan" => "struktur tidak ditemukan"));
+               echo json_encode(array("statusCode" => 202, "pesan" => "Struktur perusahaan tidak ditemukan"));
                return;
           }
      }
@@ -269,7 +319,6 @@ class Struktur extends My_Controller
      public function get_by_authper()
      {
           $auth_per = $this->input->post('auth_per');
-
           $query = $this->str->get_by_authper($auth_per);
           $output = "<option value=''>-- Pilih struktur --</option>";
           if (!empty($query)) {
@@ -290,7 +339,7 @@ class Struktur extends My_Controller
           if (!empty($query)) {
                $output = "<option value=''>-- PILIH PERUSAHAAN --</option> ";
                foreach ($query as $list) {
-                    $output = $output . " <option value='" . $list->auth_perusahaan . "'>" . $list->nama_perusahaan . "</option> ";
+                    $output = $output . " <option value='" . $list->auth_m_perusahaan . "'>" . $list->nama_perusahaan . "</option> ";
                }
           } else {
                $output = "<option value=''>-- PERUSAHAAN TIDAK DITEMUKAN --</option> ";

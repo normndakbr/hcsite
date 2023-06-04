@@ -1,12 +1,13 @@
 <script>
     //========================================== Level ========================================================
     $(document).ready(function() {
+        $(".err_psn_prs_str ").fadeTo(3000, 500).slideUp(500, function() {
+            $(".err_psn_prs_str ").slideUp(500);
+            $(".err_psn_prs_str ").addClass("d-none");
+        });
 
-        // Initialize 
         $("#cariMPerusahaan").autocomplete({
             source: function(request, response) {
-
-                // Fetch data
                 $.ajax({
                     url: "<?= base_url('perusahaan/getPerusahaan') ?>",
                     type: 'post',
@@ -15,105 +16,25 @@
                         search: request.term
                     },
                     success: function(data) {
-                        response(data);
+                        var jenisper = $("#jenisPerusahaan").val();
+                        var perjenis = $("#perJenis").val();
+
+                        if (jenisper !== "" && perjenis !== "") {
+                            response(data);
+                        }
                     }
                 });
             },
             select: function(event, ui) {
-                $('#namaMperusahaan').val(ui.item.label); // display the selected text
-                $('#jlasd1233').val(ui.item.value); // save selected id to input
+                $('#namaMperusahaan').val(ui.item.label);
+                $('#kodeMperusahaan').val(ui.item.kode);
+                $('#jlasd1233').val(ui.item.value);
                 $("#cariMPerusahaan").val('');
                 return false;
             }
         });
 
-        $('#btnupdateLevel').click(function() {
-            let kode = $('#editLevelKode').val();
-            let level = $('#editLevel').val();
-            let status = $('#editLevelStatus').val();
-            let ket = $('#editLevelKet').val();
-
-            $.ajax({
-                type: "POST",
-                url: "<?= base_url('Level/edit_Level'); ?>",
-                data: {
-                    kode: kode,
-                    level: level,
-                    status: status,
-                    ket: ket
-                },
-                success: function(data) {
-                    var data = JSON.parse(data);
-                    if (data.statusCode == 200) {
-                        tbmLevel.draw();
-                        $("#editLevelmdl").modal("hide");
-                        $(".err_psn_level").removeClass('d-none');
-                        $(".err_psn_level").removeClass('alert-danger');
-                        $(".err_psn_level").addClass('alert-info');
-                        $(".err_psn_level").html(data.pesan);
-                        $("#editLevelKode").val('');
-                        $("#editLevel").val('');
-                        $("#editLevelKet").val('');
-                        $("#editLevelStatus").val('');
-                        $("#error1el").html('');
-                        $("#error2el").html('');
-                        $("#error3el").html('');
-                        $("#error4el").html('');
-                        $(".err_psn_level").fadeTo(3000, 500).slideUp(500, function() {
-                            $(".err_psn_level").slideUp(500);
-                        });
-                    } else if (data.statusCode == 201 || data.statusCode == 203 || data.statusCode == 204 || data.statusCode == 205) {
-                        $(".err_psn_edit_Level").removeClass('d-none');
-                        $(".err_psn_edit_Level").removeClass('alert-info');
-                        $(".err_psn_edit_Level").addClass('alert-danger');
-                        $(".err_psn_edit_Level").html(data.pesan);
-                        $(".err_psn_edit_Level").fadeTo(3000, 500).slideUp(500, function() {
-                            $(".err_psn_edit_Level").slideUp(500);
-                        });
-                        $("#error1el").html('');
-                        $("#error2el").html('');
-                        $("#error3el").html('');
-                        $("#error4el").html('');
-                    } else if (data.statusCode == 202) {
-                        $("#error1el").html(data.kode);
-                        $("#error2el").html(data.level);
-                        $("#error3el").html(data.status);
-                        $("#error4el").html(data.ket);
-                    }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    $.LoadingOverlay("hide");
-                    $(".err_psn_level").removeClass("alert-primary");
-                    $(".err_psn_level").addClass("alert-danger");
-                    $(".err_psn_level").css("display", "block");
-                    if (xhr.status == 404) {
-                        $(".err_psn_level").html("Level gagal diupdate, Link data tidak ditemukan");
-                    } else if (xhr.status == 0) {
-                        $(".err_psn_level").html("Level gagal diupdate, Waktu koneksi habis");
-                    } else {
-                        $(".err_psn_level").html("Terjadi kesalahan saat meng-update data, hubungi administrator");
-                    }
-                    $("#editLevelmdl").modal("hide");
-                    $(".err_psn_level ").fadeTo(3000, 500).slideUp(500, function() {
-                        $(".err_psn_level ").slideUp(500);
-                    });
-                }
-            })
-        });
-
         $.LoadingOverlay("hide");
-
-        $("#btnBatalLevel").click(function() {
-            $("#perLevel").val('').trigger('change');
-            $("#kodeLevel").val('');
-            $("#Level").val('');
-            $("#ketLevel").val('');
-            $(".error1").html('');
-            $(".error2").html('');
-            $(".error3").html('');
-            $(".error4").html('');
-            $(".error5").html('');
-        });
 
         $('#jenisPerusahaan').select2({
             theme: 'bootstrap4'
@@ -123,9 +44,19 @@
             theme: 'bootstrap4'
         });
 
+        $('#perJenis').change(function() {
+            let auth_per = $('#perJenis').val();
+
+            if (auth_per === "") {
+                $('#jkau092321').val('');
+            } else {
+                $('#jkau092321').val(auth_per);
+            }
+        });
+
         $.ajax({
             type: "POST",
-            url: "<?= base_url("perusahaan/get_all") ?>",
+            url: "<?= base_url("perusahaan/get_m_all") ?>",
             data: {},
             success: function(data) {
                 var data = JSON.parse(data);
@@ -142,9 +73,10 @@
                 }
             }
         })
+
         $('#jenisPerusahaan').change(function() {
             let id_jenis = $("#jenisPerusahaan").val();
-
+            $('#jkau092321').val('');
             $.ajax({
                 type: "POST",
                 url: "<?= base_url("struktur/get_by_idjenis") ?>",
@@ -154,72 +86,6 @@
                 success: function(data) {
                     var data = JSON.parse(data);
                     $("#perJenis").html(data.per);
-                }
-            })
-        });
-        $("#btnTambahLevel").click(function() {
-            var prs = $("#perLevel").val();
-            var kode = $("#kodeLevel").val();
-            var level = $("#Level").val();
-            var ket = $("#ketLevel").val();
-
-            $.ajax({
-                type: "POST",
-                url: "<?= base_url("Level/input_Level") ?>",
-                data: {
-                    prs: prs,
-                    kode: kode,
-                    level: level,
-                    ket: ket
-                },
-                timeout: 20000,
-                success: function(data) {
-                    var data = JSON.parse(data);
-                    if (data.statusCode == 200) {
-                        $(".err_psn_level").removeClass('d-none');
-                        $(".err_psn_level").removeClass('alert-danger');
-                        $(".err_psn_level").addClass('alert-info');
-                        $(".err_psn_level").html(data.pesan);
-                        $("#perLevel").val('').trigger('change');
-                        $("#kodeLevel").val('');
-                        $("#Level").val('');
-                        $("#ketLevel").val('');
-                        $(".error1").html('');
-                        $(".error2").html('');
-                        $(".error3").html('');
-                        $(".error4").html('');
-                    } else if (data.statusCode == 201) {
-                        $(".err_psn_level").removeClass('d-none');
-                        $(".err_psn_level").removeClass('alert-info');
-                        $(".err_psn_level").addClass('alert-danger');
-                        $(".err_psn_level").html(data.pesan);
-                    } else if (data.statusCode == 202) {
-                        $(".error1").html(data.prs);
-                        $(".error2").html(data.kode);
-                        $(".error3").html(data.level);
-                        $(".error4").html(data.ket);
-                    }
-
-                    $(".err_psn_level").fadeTo(3000, 500).slideUp(500, function() {
-                        $(".err_psn_level").slideUp(500);
-                    });
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    $.LoadingOverlay("hide");
-                    $(".err_psn_level").removeClass("alert-primary");
-                    $(".err_psn_level").addClass("alert-danger");
-                    $(".err_psn_level").css("display", "block");
-                    if (xhr.status == 404) {
-                        $(".err_psn_level").html("Level gagal disimpan, Link data tidak ditemukan");
-                    } else if (xhr.status == 0) {
-                        $(".err_psn_level").html("Level gagal disimpan, Waktu koneksi habis");
-                    } else {
-                        $(".err_psn_level").html("Terjadi kesalahan saat menghapus data, hubungi administrator");
-                    }
-
-                    $(".err_psn_level ").fadeTo(3000, 500).slideUp(500, function() {
-                        $(".err_psn_level ").slideUp(500);
-                    });
                 }
             })
         });
