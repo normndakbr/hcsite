@@ -16,7 +16,7 @@ class Daerah extends My_Controller
      public function get_prov()
      {
           $query = $this->drh->get_prov();
-          $output = "<option value=''> -- PILIH PROVINSI --</option>";
+          $output = "<option value='00'> -- WAJIB DIPILIH -- </option>";
           if (!empty($query)) {
                foreach ($query as $list) {
                     $output = $output . "<option value='" . $list->id . "'>" . $list->name . "</option>";
@@ -29,7 +29,7 @@ class Daerah extends My_Controller
 
                echo json_encode($data);
           } else {
-               $output = "<option value=''> -- PROVINSI TIDAK DITEMUKAN --</option>";
+               $output = "<option value='0000'> -- WAJIB DIPILIH -- </option>";
                $data = [
                     "statusCode" => 201,
                     "prov" => $output
@@ -43,7 +43,7 @@ class Daerah extends My_Controller
      {
           $id_prov = htmlspecialchars(trim($this->input->post('id_prov')));
           $query = $this->drh->get_kab($id_prov);
-          $output = "<option value=''> -- PILIH KABUPATEN --</option>";
+          $output = "<option value='0000'> -- WAJIB DIPILIH -- </option>";
           if (!empty($query)) {
                foreach ($query as $list) {
                     $output = $output . "<option value='" . $list->id . "'>" . $list->name . "</option>";
@@ -54,7 +54,7 @@ class Daerah extends My_Controller
                ];
                echo json_encode($data);
           } else {
-               $output = "<option value=''> -- KABUPATEN TIDAK DITEMUKAN --</option>";
+               $output = "<option value='0000'> -- WAJIB DIPILIH -- </option>";
                $data = [
                     "statusCode" => 201,
                     "kab" => $output
@@ -67,7 +67,7 @@ class Daerah extends My_Controller
      {
           $id_kab = htmlspecialchars(trim($this->input->post('id_kab')));
           $query = $this->drh->get_kec($id_kab);
-          $output = "<option value=''> -- PILIH KECAMATAN --</option>";
+          $output = "<option value='000000'>-- WAJIB DIPILIH --</option>";
           if (!empty($query)) {
                foreach ($query as $list) {
                     $output = $output . "<option value='" . $list->id . "'>" . $list->name . "</option>";
@@ -78,7 +78,7 @@ class Daerah extends My_Controller
                ];
                echo json_encode($data);
           } else {
-               $output = "<option value=''> -- KECAMATAN TIDAK DITEMUKAN --</option>";
+               $output = "<option value='000000'>-- WAJIB DIPILIH --</option>";
                $data = [
                     "statusCode" => 201,
                     "kec" => $output
@@ -91,7 +91,7 @@ class Daerah extends My_Controller
      {
           $id_kec = htmlspecialchars(trim($this->input->post('id_kec')));
           $query = $this->drh->get_kel($id_kec);
-          $output = "<option value=''> -- PILIH KELURAHAN --</option>";
+          $output = "<option value='00000000'>-- WAJIB DIPILIH --</option>";
           if (!empty($query)) {
                foreach ($query as $list) {
                     $output = $output . "<option value='" . $list->id . "'>" . $list->name . "</option>";
@@ -102,7 +102,7 @@ class Daerah extends My_Controller
                ];
                echo json_encode($data);
           } else {
-               $output = "<option value=''> -- KELURAHAN TIDAK DITEMUKAN --</option>";
+               $output = "<option value='00000000'>-- WAJIB DIPILIH --</option>";
                $data = [
                     "statusCode" => 201,
                     "kel" => $output

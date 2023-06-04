@@ -19,6 +19,7 @@
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@x.x.x/dist/select2-bootstrap4.min.css">
      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
      <link rel='stylesheet' href='<?= base_url(); ?>assets/assets/css/sweetalert2.min.css'>
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
      <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/style.css" />
      <style>
           .swal2-container {

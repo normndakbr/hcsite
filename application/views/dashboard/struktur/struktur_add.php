@@ -59,139 +59,195 @@
                                         <a href="<?= base_url('struktur'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
                                         <a href="<?= base_url('struktur/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
                                    </div>
-                                   <div class="alert alert-danger err_psn_level animate__animated animate__bounce d-none"></div>
+                                   <?= $this->session->flashdata('msg'); ?>
                               </div>
-                              <div class="row ">
-                                   <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <label for="jenisPerusahaan">Jenis Perusahaan :</label><br>
-                                        <select id='jenisPerusahaan' name='jenisPerusahaan' class="form-control form-control-user">
-                                             <option value="">-- PILIH JENIS PERUSAHAAN --</option>
-                                             <option value="1">OWNER</option>
-                                             <option value="2">CONTRACTOR</option>
-                                             <option value="3">SUBCONTRACTOR</option>
-                                        </select>
-                                        <small class="error1 text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-6 col-md-6 col-sm-12">
-                                        <label for="perJenis">Perusahaan :</label><br>
-                                        <select id='perJenis' name='perJenis' class="form-control form-control-user">
-                                             <option value="">-- PERUSAHAAN TIDAK DITEMUKAN --</option>
-                                        </select>
-                                        <small class="error1 text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <hr>
-                                   </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <label for="cariMPerusahaan">Cari Perusahaan :</label>
-                                        <input id='cariMPerusahaan' name='cariMPerusahaan' placeholder="Ketikkan Kode Perusahaan / Nama Perusahaan" type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                        <small class="error2 text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <label for="namaMperusahaan">Nama Perusahaan :</label>
-                                        <input id='namaMperusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user bg-white" value="" readonly>
-                                        <input type="hidden" id="jlasd1233">
-                                        <small class="error3 text-danger font-italic font-weight-bold"></small><br>
-                                   </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                        <a class="btn btn-primary w-100" data-toggle="collapse" href="#btniujb" role="button" aria-expanded="false" aria-controls="btniujb">
-                                             Izin Usaha Jasa Penambangan (IUJB)
-                                        </a>
-                                        <div class="collapse" id="btniujb">
-                                             <div class="card card-body mt-2">
-                                                  <div class="row">
-                                                       <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                                            <label for="noIUJB">No. IUJB :</label>
-                                                            <input id='noIUJB' name='noIUJB' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error2 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="alamatMperusahaan">Tanggal Aktif :</label>
-                                                            <input id='alamatMperusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error3 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="alamatMperusahaan">Tanggal Akhir :</label>
-                                                            <input id='alamatMperusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error3 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                                            <label for="ketIujb">Keterangan :</label>
-                                                            <textarea id='ketIujb' name='ketIujb' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value=""></textarea>
-                                                            <small class="error2 text-danger font-italic font-weight-bold"></small><br>
+                              <form action="<?= base_url('struktur/input_struktur'); ?>" method="post">
+                                   <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                             <label for="jenisPerusahaan">Jenis Perusahaan :</label><br>
+                                             <select id='jenisPerusahaan' name='jenisPerusahaan' class="form-control form-control-user">
+                                                  <option value="">-- PILIH JENIS PERUSAHAAN --</option>
+                                                  <option value="1">OWNER</option>
+                                                  <option value="2">CONTRACTOR</option>
+                                                  <option value="3">SUBCONTRACTOR</option>
+                                             </select>
+                                             <small class="error1str text-danger font-italic font-weight-bold"></small><br>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
+                                             <label for="perJenis">Perusahaan :</label><br>
+                                             <select id='perJenis' name='perJenis' class="form-control form-control-user">
+                                                  <option value="">-- PERUSAHAAN TIDAK DITEMUKAN --</option>
+                                             </select>
+                                             <input type="hidden" id="jkau092321" name="jkau092321">
+                                             <small class="error2str text-danger font-italic font-weight-bold"></small><br>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                             <hr>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                             <label for="cariMPerusahaan">Cari Perusahaan :</label>
+                                             <input id='cariMPerusahaan' name='cariMPerusahaan' placeholder="Ketikkan Kode Perusahaan / Nama Perusahaan" type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                             <small class="error3str text-danger font-italic font-weight-bold"></small><br>
+                                        </div>
+                                        <div class="col-lg-3 col-md-12 col-sm-12">
+                                             <label for="kodeMperusahaan">Kode Perusahaan :</label>
+                                             <input id='kodeMperusahaan' name='kodeMperusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user bg-white" value="" readonly>
+                                             <input type="hidden" id="jlasd1233" name="jlasd1233">
+                                             <small class="error4str text-danger font-italic font-weight-bold"></small><br>
+                                        </div>
+                                        <div class="col-lg-9 col-md-12 col-sm-12">
+                                             <label for="namaMperusahaan">Nama Perusahaan :</label>
+                                             <input id='namaMperusahaan' name='namaMperusahaan' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user bg-white" value="" readonly>
+                                             <small class="error5str text-danger font-italic font-weight-bold"></small><br>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                             <a class="btn btn-primary w-100" data-toggle="collapse" href="#btniujb" role="button" aria-expanded="false" aria-controls="btniujb">
+                                                  Izin Usaha Jasa Penambangan (IUJP)
+                                             </a>
+                                             <div class="collapse" id="btniujb">
+                                                  <div class="card card-body mt-2">
+                                                       <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
+                                                                 <label for="noiujp">No. IUJP :</label>
+                                                                 <input id='noiujp' name='noiujp' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error2iujp text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                                                 <label for="tglAktifiujp">Tanggal Aktif :</label>
+                                                                 <input id='tglAktifiujp' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error3iujp text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                                                 <label for="tglakhiriujp">Tanggal Akhir :</label>
+                                                                 <input id='tglakhiriujp' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error4iujp text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                                                 <label for="ketiujp">Keterangan :</label>
+                                                                 <textarea id='ketiujp' name='ketiujp' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value=""></textarea>
+                                                                 <small class="error5iujp text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
                                                        </div>
                                                   </div>
                                              </div>
                                         </div>
-                                   </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                        <a class="btn btn-primary w-100" data-toggle="collapse" href="#btnsio" role="button" aria-expanded="false" aria-controls="btnsio">
-                                             Surat Izin Operasi (SIO)
-                                        </a>
-                                        <div class="collapse" id="btnsio">
-                                             <div class="card card-body mt-2">
-                                                  <div class="row">
-                                                       <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                                            <label for="noSio">No. SIO :</label>
-                                                            <input id='noSio' name='noSio' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error2 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="alamatMperusahaan">Tanggal Aktif :</label>
-                                                            <input id='alamatMperusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error3 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="alamatMperusahaan">Tanggal Akhir :</label>
-                                                            <input id='alamatMperusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error3 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                                            <label for="ketSio">Keterangan :</label>
-                                                            <textarea id='ketSio' name='ketSio' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value=""></textarea>
-                                                            <small class="error2 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                  </div>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                        <a class="btn btn-primary w-100" data-toggle="collapse" href="#btnkontrak" role="button" aria-expanded="false" aria-controls="btnkontrak">
-                                             Kontrak
-                                        </a>
-                                        <div class="collapse" id="btnkontrak">
-                                             <div class="card card-body mt-2">
-                                                  <div class="row">
-                                                       <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                                            <label for="noKontrak">No. Kontrak :</label>
-                                                            <input id='noKontrak' name='noKontrak' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error2 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="alamatMperusahaan">Tanggal Aktif :</label>
-                                                            <input id='alamatMperusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error3 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <label for="alamatMperusahaan">Tanggal Akhir :</label>
-                                                            <input id='alamatMperusahaan' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
-                                                            <small class="error3 text-danger font-italic font-weight-bold"></small><br>
-                                                       </div>
-                                                       <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                                            <label for="ketKontrak">Keterangan :</label>
-                                                            <textarea id='ketKontrak' name='ketKontrak' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value=""></textarea>
-                                                            <small class="error2 text-danger font-italic font-weight-bold"></small><br>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                             <a class="btn btn-primary w-100" data-toggle="collapse" href="#btnsio" role="button" aria-expanded="false" aria-controls="btnsio">
+                                                  Surat Izin Operasi (SIO)
+                                             </a>
+                                             <div class="collapse" id="btnsio">
+                                                  <div class="card card-body mt-2">
+                                                       <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
+                                                                 <label for="nosio">No. SIO :</label>
+                                                                 <input id='nosio' name='nosio' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error2sio text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                                                 <label for="tglaktifsio">Tanggal Aktif :</label>
+                                                                 <input id='tglaktifsio' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error3sio text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                                                 <label for="tglakhirsio">Tanggal Akhir :</label>
+                                                                 <input id='tglakhirsio' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error4sio text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                                                 <label for="ketsio">Keterangan :</label>
+                                                                 <textarea id='ketsio' name='ketsio' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value=""></textarea>
+                                                                 <small class="error5sio text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
                                                        </div>
                                                   </div>
                                              </div>
                                         </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                             <a class="btn btn-primary w-100" data-toggle="collapse" href="#btnkontrak" role="button" aria-expanded="false" aria-controls="btnkontrak">
+                                                  Kontrak
+                                             </a>
+                                             <div class="collapse" id="btnkontrak">
+                                                  <div class="card card-body mt-2">
+                                                       <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
+                                                                 <label for="nokontrak">No. Kontrak :</label>
+                                                                 <input id='nokontrak' name='nokontrak' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error2kontrak text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                                                 <label for="tglaktifkontrak">Tanggal Aktif :</label>
+                                                                 <input id='tglaktifkontrak' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error3kontrak text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                                                 <label for="tglakhirkontrak">Tanggal Akhir :</label>
+                                                                 <input id='tglakhirkontrak' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error4kontrak text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                                                 <label for="ketkontrak">Keterangan :</label>
+                                                                 <textarea id='ketkontrak' name='ketkontrak' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value=""></textarea>
+                                                                 <small class="error5kontrak text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                             <a class="btn btn-primary w-100" data-toggle="collapse" href="#btnpjo" role="button" aria-expanded="false" aria-controls="btnpjo">
+                                                  Penanggung Jawab Operasional (PJO)
+                                             </a>
+                                             <div class="collapse" id="btnpjo">
+                                                  <div class="card card-body mt-2">
+                                                       <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 mt-2">
+                                                                 <label for="namapjo">Nama PJO :</label>
+                                                                 <input id='namapjo' name='namapjo' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error2pjo text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                                                 <label for="tglaktifpjo">Tanggal Aktif :</label>
+                                                                 <input id='tglaktifpjo' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error3pjo text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-12 mt-2">
+                                                                 <label for="tglakhirpjo">Tanggal Akhir :</label>
+                                                                 <input id='tglakhirpjo' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                                 <small class="error4pjo text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
+                                                                 <label for="ketpjo">Keterangan :</label>
+                                                                 <textarea id='ketpjo' name='ketIujb' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value=""></textarea>
+                                                                 <small class="error5pjo text-danger font-italic font-weight-bold"></small><br>
+                                                            </div>
+                                                       </div>
+                                                       <div class="row">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                                 <table class="table table-striped table-bordered table-hover text-black" style="width:100%;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                                                                      <thead>
+                                                                           <tr>
+                                                                                <td>No.</td>
+                                                                                <td>Nama PJO</td>
+                                                                                <td>Tgl. Aktif</td>
+                                                                                <td>Tgl. Akhir</td>
+                                                                                <td>Proses</td>
+                                                                           </tr>
+                                                                      </thead>
+                                                                      <tbody>
+                                                                      </tbody>
+                                                                 </table>
+                                                            </div>
+                                                       </div>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                             <hr class="mb-2">
+                                             <input type="submit" name="btnSimpanStruk" id="btnSimpanStruk" class="btn font-weight-bold btn-primary" value="Buat Struktur Perusahaan">
+                                             <a type="button" href="<?= base_url('struktur/new'); ?>" class="btn font-weight-bold btn-danger">Batal</a>
+                                        </div>
                                    </div>
-                                   <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <hr class="mb-2">
-                                        <button type="button" name="btnTambahLevel" id="btnTambahLevel" class="btn font-weight-bold btn-primary">Simpan</button>
-                                        <button type="button" name="btnBatalLevel" id="btnBatalLevel" class="btn font-weight-bold btn-danger">Batal</button>
-                                   </div>
-                              </div>
+                              </form>
                          </div>
                     </div>
                </div>

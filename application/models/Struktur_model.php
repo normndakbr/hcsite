@@ -104,8 +104,25 @@ class Struktur_model extends CI_Model
 
      public function get_by_idjenis($idjenis)
      {
-          $query = $this->db->query("SELECT DISTINCT id_perusahaan, nama_perusahaan, auth_perusahaan " .
+          $query = $this->db->query("SELECT DISTINCT id_perusahaan, nama_perusahaan, auth_m_perusahaan " .
                " FROM vw_m_perusahaan WHERE id_jenis_perusahaan=" . $idjenis);
           return $query->result();
+     }
+
+     public function cek_str_per($id_parent, $id_per)
+     {
+          $query = $this->db->query("SELECT * FROM vw_m_perusahaan WHERE id_parent = " . $id_parent .
+               " AND id_perusahaan = " . $id_per);
+          return $query->result();
+     }
+
+     public function input_struktur($data)
+     {
+          $this->db->insert('tb_m_perusahaan', $data);
+          if ($this->db->affected_rows() > 0) {
+               return true;
+          } else {
+               return false;
+          }
      }
 }

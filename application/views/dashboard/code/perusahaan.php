@@ -65,8 +65,8 @@
                     success: function(data) {
                          var data = JSON.parse(data);
                          $("#kabPerusahaan").html(data.kab);
-                         $("#kecPerusahaan").html("<option value=''>-- KECAMATAN TIDAK DITEMUKAN --</option>");
-                         $("#kelPerusahaan").html("<option value=''>-- KELURAHAN TIDAK DITEMUKAN --</option>");
+                         $("#kecPerusahaan").html("<option value='000000'>-- WAJIB DIPILIH --</option>");
+                         $("#kelPerusahaan").html("<option value='00000000'>-- WAJIB DIPILIH --</option>");
                     },
                     error: function(xhr, ajaxOptions, thrownError) {
                          $.LoadingOverlay("hide");
@@ -91,7 +91,7 @@
                     success: function(data) {
                          var data = JSON.parse(data);
                          $("#kecPerusahaan").html(data.kec);
-                         $("#kelPerusahaan").html("<option value=''>-- KELURAHAN TIDAK DITEMUKAN --</option>");
+                         $("#kelPerusahaan").html("<option value='00000000'>-- WAJIB DIPILIH --</option>");
                     },
                     error: function(xhr, ajaxOptions, thrownError) {
                          $.LoadingOverlay("hide");
@@ -200,6 +200,113 @@
                          if (thrownError != "") {
                               $(".err_psn_perusahaan").html("Terjadi kesalahan saat load data kelurahan, hubungi administrator");
                               $("#btnupdatePerusahaan").remove();
+                         }
+                    }
+               });
+          });
+          $(".refprov").click(function() {
+               $("#provPerusahaan").LoadingOverlay("show");
+               $.ajax({
+                    type: "post",
+                    url: "<?= base_url('daerah/get_prov'); ?>",
+                    success: function(data) {
+                         var data = JSON.parse(data);
+                         $("#provPerusahaan").html(data.prov);
+                         $("#provPerusahaan").LoadingOverlay("hide");
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                         $.LoadingOverlay("hide");
+                         $(".err_psn_perusahaan").removeClass('d-none');
+                         $(".err_psn_perusahaan").removeClass('alert-info');
+                         $(".err_psn_perusahaan").addClass('alert-danger');
+                         $("#provPerusahaan").attr("disabled", true);
+                         if (thrownError != "") {
+                              $(".err_psn_perusahaan").html("Terjadi kesalahan saat load data provinsi, hubungi administrator");
+                              $("#btnTambahPerusahaan").remove();
+                         }
+                    }
+               });
+          });
+          $(".refkab").click(function() {
+               $("#kabPerusahaan").LoadingOverlay("show");
+               let id_prov = $("#provPerusahaan").val();
+               $.ajax({
+                    type: "post",
+                    url: "<?= base_url('daerah/get_kab'); ?>",
+                    data: {
+                         id_prov: id_prov
+                    },
+                    success: function(data) {
+                         var data = JSON.parse(data);
+                         $("#kabPerusahaan").html(data.kab);
+                         $("#kecPerusahaan").html("<option value='000000'>-- WAJIB DIPILIH --</option>");
+                         $("#kelPerusahaan").html("<option value='00000000'>-- WAJIB DIPILIH --</option>");
+                         $("#kabPerusahaan").LoadingOverlay("hide");
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                         $.LoadingOverlay("hide");
+                         $(".err_psn_perusahaan").removeClass('d-none');
+                         $(".err_psn_perusahaan").removeClass('alert-info');
+                         $(".err_psn_perusahaan").addClass('alert-danger');
+                         $("#kabPerusahaan").LoadingOverlay("hide");
+                         if (thrownError != "") {
+                              $(".err_psn_perusahaan").html("Terjadi kesalahan saat load data kabupaten, hubungi administrator");
+                              $("#btnTambahPerusahaan").remove();
+                         }
+                    }
+               });
+          });
+          $(".refkec").click(function() {
+               $("#kecPerusahaan").LoadingOverlay("show");
+               let id_kab = $("#kabPerusahaan").val();
+               $.ajax({
+                    type: "post",
+                    url: "<?= base_url('daerah/get_kec'); ?>",
+                    data: {
+                         id_kab: id_kab
+                    },
+                    success: function(data) {
+                         var data = JSON.parse(data);
+                         $("#kecPerusahaan").html(data.kec);
+                         $("#kelPerusahaan").html("<option value='00000000'>-- WAJIB DIPILIH --</option>");
+                         $("#kecPerusahaan").LoadingOverlay("hide");
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                         $.LoadingOverlay("hide");
+                         $(".err_psn_perusahaan").removeClass('d-none');
+                         $(".err_psn_perusahaan").removeClass('alert-info');
+                         $(".err_psn_perusahaan").addClass('alert-danger');
+                         $("#kecPerusahaan").LoadingOverlay("hide");
+                         if (thrownError != "") {
+                              $(".err_psn_perusahaan").html("Terjadi kesalahan saat load data kecamatan, hubungi administrator");
+                              $("#btnTambahPerusahaan").remove();
+                         }
+                    }
+               });
+          });
+          $(".refkel").click(function() {
+               $("#kelPerusahaan").LoadingOverlay("show");
+               let id_kec = $("#kecPerusahaan").val();
+               $.ajax({
+                    type: "post",
+                    url: "<?= base_url('daerah/get_kel'); ?>",
+                    data: {
+                         id_kec: id_kec
+                    },
+                    success: function(data) {
+                         var data = JSON.parse(data);
+                         $("#kelPerusahaan").html(data.kel);
+                         $("#kelPerusahaan").LoadingOverlay("hide");
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                         $.LoadingOverlay("hide");
+                         $(".err_psn_perusahaan").removeClass('d-none');
+                         $(".err_psn_perusahaan").removeClass('alert-info');
+                         $(".err_psn_perusahaan").addClass('alert-danger');
+                         $("#kelPerusahaan").LoadingOverlay("hide");
+                         if (thrownError != "") {
+                              $(".err_psn_perusahaan").html("Terjadi kesalahan saat load data kelurahan, hubungi administrator");
+                              $("#btnTambahPerusahaan").remove();
                          }
                     }
                });

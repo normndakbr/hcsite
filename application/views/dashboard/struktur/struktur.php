@@ -70,7 +70,7 @@
                                                             <th style="text-align:center;width:1%;">No.</th>
                                                             <th>Perusahaan</th>
                                                             <th>Jenis Perusahaan</th>
-                                                            <th style="text-align:center;">Kode. ACR</th>
+                                                            <th style="text-align:center;">Kode. ARC</th>
                                                             <th>No. Izin</th>
                                                             <th>No. SIO</th>
                                                             <th style="text-align:center;">Kode</th>
