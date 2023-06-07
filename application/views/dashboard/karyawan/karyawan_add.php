@@ -57,7 +57,7 @@
                               <div class="mt-3">
                                    <div class="mb-2">
                                         <a href="<?= base_url('karyawan'); ?>" class="btn btn-sm btn-danger font-weight-bold">Batal</a>
-                                        <a id="addbtn" href="<?= base_url('karyawan/new'); ?>" class="btn btn-sm btn-warning font-weight-bold">Reset Data</a>
+                                        <a id="resetBtn" href="<?= base_url('karyawan/new'); ?>" class="btn btn-sm btn-warning font-weight-bold">Reset Data</a>
                                    </div>
                                    <div class="alert alert-danger err_psn_dtPersonal animate__animated animate__bounce d-none"></div>
                               </div>
@@ -194,7 +194,7 @@
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoNPWP">No. NPWP</label>
-                                                                 <input id='addNoNPWP' name='addNoNPWP' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <input id='addNoNPWP' name='addNoNPWP' autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddNoNPWP text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
