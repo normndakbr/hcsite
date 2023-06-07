@@ -101,10 +101,18 @@ class Karyawan_model extends CI_Model
     {
         $this->db->insert('tb_personal', $data);
         if ($this->db->affected_rows() > 0) {
-            echo true;
             return true;
         } else {
-            echo false;
+            return false;
+        }
+    }
+
+    public function input_dtKaryawan($data)
+    {
+        $this->db->insert('tb_karyawan', $data);
+        if ($this->db->affected_rows() > 0) {
+            return true;
+        } else {
             return false;
         }
     }

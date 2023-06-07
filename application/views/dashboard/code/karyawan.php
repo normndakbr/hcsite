@@ -1,12 +1,30 @@
 <script>
-    //========================================== depart ========================================================
+    //========================================== karyawan ========================================================
     $(document).ready(function() {
-
-        $("#logout").click(function() {
-            $("#logoutmdl").modal("show");
-        });
-
         $(document).ready(function() {
+            $("#logout").click(function() {
+                $("#logoutmdl").modal("show");
+            });
+
+            $('#addNoNPWP').inputmask("99.999.999.9-999.999");
+
+            $('#addNoNPWP').keyup(function(e) {
+                let nonpwp = $('#addNoNPWP').val().trim();
+
+                if (nonpwp != "") {
+                    jmlnpwp = nonpwp.replace(/['.'|_|-]/g, '');
+                    jml = jmlnpwp.length;
+
+                    if (jml < 15) {
+                        $('.errorAddNoNPWP').html('<p>No. NPWP minimal 15 karakter</p>');
+                    } else {
+                        $('.errorAddNoNPWP').html('');
+                    }
+                } else {
+                    $('.errorAddNoNPWP').html('');
+                }
+            });
+
             $("#addStatusKary").change(function() {
                 let currentStatusKary = $("#addStatusKary").val();
 
@@ -520,30 +538,6 @@
             let addFakultas = $("#addFakultas").val();
             let addJurusan = $("#addJurusan").val();
 
-            // console.log(addNoKTP);
-            // console.log(addNamaLengkap);
-            // console.log(addAlamatEmail);
-            // console.log(addNoTelp);
-            // console.log(addTempatLahir);
-            // console.log(addTanggalLahir);
-            // console.log(addStatPernikahan);
-            // console.log(addNoKK);
-            // console.log(addNamaIbu);
-            // console.log(addKewarganegaraan);
-            // console.log(addAgama);
-            // console.log(addJenisKelamin);
-            // console.log(addKodeBank);
-            // console.log(addNoRek);
-            // console.log(addNoNPWP);
-            // console.log(addNoBPJSTK);
-            // console.log(addNoBPJSKES);
-            // console.log(addNoBPJSPensiun);
-            // console.log(addNoEquity);
-            // console.log(addPendidikanTerakhir);
-            // console.log(addInstansiPendidikan);
-            // console.log(addFakultas);
-            // console.log(addJurusan);
-
             $.ajax({
                 type: "POST",
                 url: "<?= base_url("karyawan/input_dtPersonal") ?>",
@@ -574,14 +568,15 @@
                 },
                 timeout: 2000,
                 success: (response) => {
+                    // console.log(response)
                     var data = JSON.parse(response);
-                    console.log(data);
+                    // console.log(data);
                     if (data.statusCode == 201) {
+                        swal('Berhasil', data.pesan, 'success');
                         $(".err_psn_dtPersonal").removeClass('d-none');
                         $(".err_psn_dtPersonal").removeClass('alert-danger');
                         $(".err_psn_dtPersonal").addClass('alert-info');
                         $(".err_psn_dtPersonal").html(data.pesan);
-
                         $(".errorAddNoKTP").html('');
                         $(".errorAddNamaLengkap").html('');
                         $(".errorAddAlamatEmail").html('');
@@ -605,7 +600,6 @@
                         $(".errorAddInstansiPendidikan").html('');
                         $(".errorAddFakultas").html('');
                         $(".errorAddJurusan").html('');
-
                         $("#addNoKTP").val('');
                         $("#addNamaLengkap").val('');
                         $("#addAlamatEmail").val('');
@@ -629,12 +623,13 @@
                         $("#addInstansiPendidikan").val('');
                         $("#addFakultas").val('');
                         $("#addJurusan").val('');
-                    } else if (data.statusCode == 201) {
+                    } else if (data.statusCode == 406) {
                         $(".err_psn_dtPersonal").removeClass('d-none');
                         $(".err_psn_dtPersonal").removeClass('alert-danger');
                         $(".err_psn_dtPersonal").addClass('alert-info');
                         $(".err_psn_dtPersonal").html(data.pesan);
                     } else if (data.statusCode == 400) {
+                        swal('Perhatian', data.pesan, 'warning');
                         $(".errorAddNoKTP").html(data.addNoKTP);
                         $(".errorAddNamaLengkap").html(data.addNamaLengkap);
                         $(".errorAddAlamatEmail").html(data.addAlamatEmail);
@@ -659,9 +654,25 @@
                         $(".errorAddFakultas").html(data.addFakultas);
                         $(".errorAddJurusan").html(data.addJurusan);
                     }
+                    $(".err_psn_dtPersonal").fadeTo(3000, 500).slideUp(500, function() {
+                        $(".err_psn_dtPersonal").slideUp(500);
+                    });
                 },
-                error: () => {
-
+                error: (xhr, ajaxOptions, thrownError) => {
+                    $.LoadingOverlay("hide");
+                    $(".err_psn_depart").removeClass("alert-primary");
+                    $(".err_psn_depart").addClass("alert-danger");
+                    $(".err_psn_depart").css("display", "block");
+                    if (xhr.status == 404) {
+                        $(".err_psn_depart").html("Data personal karyawan gagal disimpan.");
+                    } else if (xhr.status == 0) {
+                        $(".err_psn_depart").html("Data personal karyawan gagal disimpan, Waktu koneksi habis");
+                    } else {
+                        $(".err_psn_depart").html("Terjadi kesalahan saat menghapus data, hubungi administrator");
+                    }
+                    $(".err_psn_depart ").fadeTo(3000, 500).slideUp(500, function() {
+                        $(".err_psn_depart ").slideUp(500);
+                    });
                 },
 
             })
