@@ -69,48 +69,48 @@
                                         <div id="colDataPersonal" class="collapse mt-3" aria-labelledby="headingOne">
                                              <div class="card-body mt-3">
                                                   <div class="card-body row">
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addNoKTP">No. KTP</label>
+                                                                 <label class="floating-label" for="addNoKTP">No. Kartu Tanda Penduduk (KTP)</label>
                                                                  <input id='addNoKTP' name='addNoKTP' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoKTP text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddNoKTP text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for=addNamaLengkap">Nama Lengkap</label>
-                                                                 <input id="addNamaLengkap" name="addNamaLengkap" type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNamaLengkap text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoKK">No. Kartu Keluarga (KK)</label>
+                                                                 <input id='addNoKK' name='addNoKK' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoKK text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addNamaLengkap">Nama Lengkap</label>
+                                                                 <input id="addNamaLengkap" name="addNamaLengkap" type="text" style="text-transform:uppercase" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNamaLengkap text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addAlamatEmail">Alamat Email Pribadi</label>
-                                                                 <input id='addAlamatEmail' name='addAlamatEmail' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddAlamatEmail text-danger font-italic font-weight-bold"></small><br>
+                                                                 <input id='addAlamatEmail' name='addAlamatEmail' type="text" style="text-transform:lowercase" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddAlamatEmail text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
-                                                            <div class="form-group">
-                                                                 <label class="floating-label" for="addNoTelp">No. Telp</label>
-                                                                 <input id='addNoTelp' name='addNoTelp' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoTelp text-danger font-italic font-weight-bold"></small><br>
-                                                            </div>
-                                                       </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addTempatLahir">Tempat & Tanggal Lahir</label>
-                                                                 <input id='addTempatLahir' name='addTempatLahir' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddTempatLahir text-danger font-italic font-weight-bold"></small><br>
+                                                                 <input id='addTempatLahir' name='addTempatLahir' type="text" style="text-transform:uppercase" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddTempatLahir text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <input id='addTanggalLahir' name='addTanggalLahir' type="date" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddTanggalLahir text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddTanggalLahir text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addStatPernikahan">Status Pernikahan</label>
                                                                  <select id="addStatPernikahan" class="mb-3 form-control">
@@ -121,34 +121,61 @@
                                                                       <option value="K3">K3</option>
                                                                       <option value="K4">K4</option>
                                                                  </select>
-                                                                 <small class="errorAddStatPernikahan text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddStatPernikahan text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addNoKK">No. Kartu Keluarga</label>
-                                                                 <input id='addNoKK' name='addNoKK' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoKK text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNoTelp">No. Telp</label>
+                                                                 <input id='addNoTelp' name='addNoTelp' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNoTelp text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addNamaIbu">Nama Gadis Ibu Kandung</label>
-                                                                 <input id='addNamaIbu' name='addNamaIbu' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNamaIbu text-danger font-italic font-weight-bold"></small><br>
+                                                                 <label class="floating-label" for="addNamaIbu">Nama Gadis Ibu</label>
+                                                                 <input id='addNamaIbu' name='addNamaIbu' type="text" style="text-transform:uppercase" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNamaIbu text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addStatusIbu">Status Ibu</label>
+                                                                 <select id="addStatusIbu" class="mb-3 form-control">
+                                                                      <option value="Ada" selected>Ada</option>
+                                                                      <option value="Alm">Meninggal</option>
+                                                                 </select>
+                                                                 <small class="errorAddStatusIbu text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addNamaAyah">Nama Ayah</label>
+                                                                 <input id='addNamaAyah' name='addNamaAyah' type="text" style="text-transform:uppercase" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddNamaAyah text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
+                                                            <div class="form-group">
+                                                                 <label class="floating-label" for="addNamaAyah">Status Ayah</label>
+                                                                 <select id="addStatusAyah" class="mb-3 form-control">
+                                                                      <option value="Ada" selected>Ada</option>
+                                                                      <option value="Alm">Meninggal</option>
+                                                                 </select>
+                                                                 <small class="errorAddNamaAyah text-danger font-italic font-weight-bold"></small>
+                                                            </div>
+                                                       </div>
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addKewarganegaraan">Kewarganegaraan</label>
                                                                  <select id="addKewarganegaraan" class="mb-3 form-control">
                                                                       <option value="WNI" selected>WNI</option>
                                                                       <option value="WNA">WNA</option>
                                                                  </select>
-                                                                 <small class="erroraddKewarganegaraan text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="erroraddKewarganegaraan text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addAgama">Agama</label>
                                                                  <select id="addAgama" class="mb-3 form-control">
@@ -159,20 +186,20 @@
                                                                       <option value="budha">Budha</option>
                                                                       <option value="konghucu">Konghucu</option>
                                                                  </select>
-                                                                 <small class="erroraddAgama text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="erroraddAgama text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addJenisKelamin">Jenis Kelamin</label>
                                                                  <select id="addJenisKelamin" class="mb-3 form-control">
                                                                       <option value="LK" selected>Laki - Laki</option>
                                                                       <option value="P">Perempuan</option>
                                                                  </select>
-                                                                 <small class="errorAddJenisKelamin text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddJenisKelamin text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addKodeBank">Kode Bank</label>
                                                                  <select id="addKodeBank" class="mb-3 form-control">
@@ -181,52 +208,52 @@
                                                                       <option value="BCA">BCA</option>
                                                                       <option value="Mandiri">Mandiri</option>
                                                                  </select>
-                                                                 <small class="errorAddKodeBank text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddKodeBank text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoRek">No. Rekening</label>
                                                                  <input id='addNoRek' name='addNoRek' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoRek text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddNoRek text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-4 col-md-4 col-sm-12">
+                                                       <div class="col-lg-4 col-md-4 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoNPWP">No. NPWP</label>
                                                                  <input id='addNoNPWP' name='addNoNPWP' autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoNPWP text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddNoNPWP text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoBPJSTK">No. BPJS Tenaga Kerja</label>
                                                                  <input id='addNoBPJSTK' name='addNoBPJSTK' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoBPJSTK text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddNoBPJSTK text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoBPJSKES">No. BPJS Kesehatan</label>
                                                                  <input id='addNoBPJSKES' name='addNoBPJSKES' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoBPJSKES text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddNoBPJSKES text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoBPJSPensiun">No. BPJS Pensiun</label>
                                                                  <input id='addNoBPJSPensiun' name='addNoBPJSPensiun' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoBPJSPensiun text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddNoBPJSPensiun text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNoEquity">No. Equity</label>
                                                                  <input id='addNoEquity' name='addNoEquity' type="number" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddNoEquity text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddNoEquity text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-2">
+                                                       <div class="col-lg-3 col-md-3 col-sm-12 mb-3 mb-2">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addPendidikanTerakhir">Pendidikan Terakhir</label>
                                                                  <select id="addPendidikanTerakhir" class="mb-3 form-control">
@@ -243,28 +270,32 @@
                                                                  <small class="errorAddPendidikanTerakhir text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-9 col-md-9 col-sm-12 mb-2">
+                                                       <div class="col-lg-9 col-md-9 col-sm-12 mb-3 mb-2">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addInstansiPendidikan">Instansi Pendidikan</label>
-                                                                 <input id='addInstansiPendidikan' name='addInstansiPendidikan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <input id='addInstansiPendidikan' name='addInstansiPendidikan' type="text" style="text-transform:uppercase" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddInstansiPendidikan text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addFakultas">Fakultas</label>
-                                                                 <input id='addFakultas' name='addFakultas' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddFakultas text-danger font-italic font-weight-bold"></small><br>
+                                                                 <input id='addFakultas' name='addFakultas' type="text" style="text-transform:uppercase" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddFakultas text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <div class="col-lg-6 col-md-6 col-sm-12">
+                                                       <div class="col-lg-6 col-md-6 col-sm-12 mb-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addJurusan">Jurusan</label>
-                                                                 <input id='addJurusan' name='addJurusan' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="errorAddJurusan text-danger font-italic font-weight-bold"></small><br>
+                                                                 <input id='addJurusan' name='addJurusan' type="text" style="text-transform:uppercase" autocomplete="off" spellcheck="false" class="form-control" value="" required>
+                                                                 <small class="errorAddJurusan text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <button type="button" id="btnSimpanDataPersonal" class="btn btn-primary">Lanjutkan</button>
+                                                       <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <div class="float-right">
+                                                                 <button type="button" id="btnSimpanDataPersonal" class="btn btn-primary">Lanjutkan</button>
+                                                            </div>
+                                                       </div>
                                                   </div>
                                              </div>
                                         </div>
@@ -321,33 +352,19 @@
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addNIKKary">NIK Karyawan</label>
                                                                  <input id='addNIKKary' name='addNIKKary' type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
-                                                                 <small class="erroraddNIKKary text-danger font-italic font-weight-bold"></small>
+                                                                 <small class="errorAddNIKKary text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-3">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for="addJenisKary">Jenis Karyawan</label>
+                                                                 <label class="floating-label" for="addJenisKary">Golongan Karyawan</label>
                                                                  <select id='addJenisKary' name='addJenisKary' class="form-control form-control-user">
                                                                       <option value="Staff">Staff</option>
                                                                       <option value="Non Staff">Non Staff</option>
                                                                  </select>
-                                                                 <small class="erroraddJenisKary text-danger font-italic font-weight-bold"></small>
+                                                                 <small class="errorAddJenisKary text-danger font-italic font-weight-bold"></small>
                                                             </div>
                                                        </div>
-                                                       <!-- I've never been into the silent place before but my life now is totally in that place. -->
-                                                       <!-- My brother passed away recently from suicide. It has been a really tough pill to swallow, we were very very close. It feels like he was a part of me that has now died. There was no note, or any explanation. He just wanted a way out and took it. When I first found this song I started bawling my eyes out, as it brought a lot of memories up. Rest in peace, William 2002-2021. Please, if you are having suicidal thoughts call someone, if you don't have anyone to talk to, call a hotline! Your life doesn't have to end now, even if things are really bad now doesn't mean it's going to be like this forever. -->
-                                                       <!-- “Just because I’m breathing doesn’t mean I’m living ...” -->
-                                                       <!-- I live a life of joy and happiness. Just in my imagination. -->
-                                                       <!-- The saddest feeling is when u have a lot to talk about but you just can't. Only tears falling down and you cried so loud but no voice... -->
-                                                       <!-- you still there ? -->
-                                                       <!-- You are used to being sad so when you are felling happy you feel weird. -->
-                                                       <!-- You cant feel anything  -->
-                                                       <!-- You want to do something but you are stuck... -->
-                                                       <!-- You dont socialize enough and when youre old people dont even notice you. and even if they do they think you want to be alone. -->
-                                                       <!-- You want to be alone, you wanto feel sad, its like somethings pulling you down... An anchor.. -->
-                                                       <!-- Well.. some people really have no one who will remember them even of they die. No one. -->
-                                                       <!-- I totally understand.  Everything about me is unneeded - I love but no one wants it from me. Sad to know my death will be alone and even no one to even attend my funeral -->
-                                                       <!-- People WILL miss and cry in your absence, thing is that they'll eventually start to smile again and brighter without you. It's how it's always been and will continue to be like this -->
                                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addStatusKary">Status Karyawan</label>
@@ -355,7 +372,7 @@
                                                                       <option value="Permanen" default>Permanen</option>
                                                                       <option value="Kontrak">Kontrak</option>
                                                                  </select>
-                                                                 <small class="erroraddStatusKary text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddStatusKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-3">
@@ -365,20 +382,9 @@
                                                                       <option value="1" default>6 - 2 Week</option>
                                                                       <option value="2">10 - 2 Week</option>
                                                                  </select>
-                                                                 <small class="erroraddTipeRoster text-danger font-italic font-weight-bold"></small><br>
+                                                                 <small class="errorAddTipeRoster text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
-                                                       <!-- Tips Produktif -->
-                                                       <!-- 1. Gunakan to do list apa aja yang harus dikerjakan hari itu, coba pake google keep -->
-                                                       <!-- 2. Lo kerjain yang kecil kecil aja dulu. Breakdown task lo jadi task yang kecil kecil -->
-                                                       <!-- 3. Bikin banyak project secara bersamaan tapi kerjainnya sepenggal sepenggal. Biar gak bosen mungkin? -->
-                                                       <!-- 4. Jangan lupa bersenang - senang. Kombinasikan main game dan kerja. -->
-                                                       <!-- 5. Punya jam yang spesifik. Lu punya satu waktu dimana dipake buat bener bener kerja -->
-                                                       <!-- 6. Kurangin meeting yang buat ga produktif, kurangin meeting, kerjain project aja -->
-                                                       <!-- 7. Olahraga sambil melamun. Kadang kalo badan gerak sambil ngelamunin hal hal yang kita kerjain, banyak ide ide yang timbul ketika lagi olahraga -->
-                                                       <!-- 8. Kurangin hal - hal yang ga penting. Gimana caranya di sekeliling itu ga usah banyak distraksi -->
-                                                       <!-- 9. Biasakan mencatat apapun. Semua yang dipikirin di hari itu gua catet. Lagi ngelamun dan dapet ide dicatet, semua ide dicatet -->
-                                                       <!-- 10. Delegasi, menyerahkan semua tugas ke orang lain. Biar lo bisa fokus ngerjain hal - hal lain yang lebih bisa lo kerjain (concern) -->
                                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-3">
                                                             <div class="form-group">
                                                                  <label class="floating-label" for="addStatusResidence">Status Residence</label>
@@ -386,36 +392,42 @@
                                                                       <option value="R" default>Residence</option>
                                                                       <option value="NR">Non Residence</option>
                                                                  </select>
+                                                                 <small class="errorAddStatusResidence text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div id="addFieldPermanen" class="col-lg-8 col-md-8 col-sm-12">
                                                             <div class="form-group">
                                                                  <label for="addTglPermanen">Tanggal Permanen</label>
                                                                  <input id="addTglPermanen" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <small class="errorAddTglPermanen text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div id="addFieldKontrakAwal" class="col-lg-4 col-md-4 col-sm-12 d-none">
                                                             <div class="form-group">
-                                                                 <label for="addTglKontrakAwal">Tanggal Awal</label>
+                                                                 <label for="addTglKontrakAwal">Tanggal Mulai Kontrak</label>
                                                                  <input id="addTglKontrakAwal" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <small class="errorAddTglKontrakAwal text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div id="addFieldKontrakAkhir" class="col-lg-4 col-md-4 col-sm-12 d-none">
                                                             <div class="form-group">
-                                                                 <label for="addTglKontrakAkhir">Tanggal Akhir</label>
+                                                                 <label for="addTglKontrakAkhir">Tanggal Berakhir Kontrak</label>
                                                                  <input id="addTglKontrakAkhir" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <small class="errorAddTglKontrakAkhir text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                                             <div class="form-group">
                                                                  <label for="addTglDOH">Date of Hire</label>
                                                                  <input id="addTglDOH" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <small class="errorAddTglDOH text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 mt-2">
                                                             <div class="form-group">
                                                                  <label for="addTglAktif">Tanggal Aktif Bekerja</label>
                                                                  <input id="addTglAktif" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <small class="errorAddTglAktif text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
@@ -424,6 +436,7 @@
                                                                  <select id='addLevelKary' name='addLevelKary' class="form-control form-control-user" disabled>
                                                                       <option value="">-- Pilih level karyawan --</option>
                                                                  </select>
+                                                                 <small class="errorAddLevelKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
@@ -432,6 +445,7 @@
                                                                  <select id='addGradeKary' name='addGradeKary' class="form-control form-control-user" disabled>
                                                                       <option value="">-- Pilih grade karyawan --</option>
                                                                  </select>
+                                                                 <small class="errorAddGradeKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12">
@@ -440,6 +454,7 @@
                                                                  <select id='addLokterima' name='addLokterima' class="form-control form-control-user" disabled>
                                                                       <option value="">-- Pilih lokasi penerimaan --</option>
                                                                  </select>
+                                                                 <small class="errorAddLokterima text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
@@ -448,6 +463,7 @@
                                                                  <select id='addPOHKary' name='addPOHKary' class="form-control form-control-user">
                                                                       <option value="">-- Pilih lokasi POH --</option>
                                                                  </select>
+                                                                 <small class="errorAddPOHKary text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
@@ -464,6 +480,7 @@
                                                                       <option value="">Office Blok Utara</option>
                                                                       <option value="">Office Blok 7</option>
                                                                  </select>
+                                                                 <small class="errorAddLokasiKerja text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
@@ -472,6 +489,7 @@
                                                                  <select id='addKlasifikasi' name='addKlasifikasi' class="form-control form-control-user">
                                                                       <option value="">-- Pilih Klasifikasi --</option>
                                                                  </select>
+                                                                 <small class="errorAddKlasifikasi text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
@@ -480,12 +498,14 @@
                                                                  <select id='addStatusPajak' name='addStatusPajak' class="form-control form-control-user">
                                                                       <option value="">-- Pilih Status Pajak --</option>
                                                                  </select>
+                                                                 <small class="errorAddStatusPajak text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-4 col-md-4 col-sm-12 pt-2">
                                                             <div class="form-group">
                                                                  <label for="addTglNonAktif">Tanggal Nonaktif</label>
                                                                  <input id="addTglNonAktif" type="date" class="form-control" value="" style="background-color:transparent;">
+                                                                 <small class="errorAddTglNonAktif text-danger font-italic font-weight-bold"></small><br>
                                                             </div>
                                                        </div>
                                                        <div class="col-lg-12 col-md-12 col-sm-12 pt-2">
