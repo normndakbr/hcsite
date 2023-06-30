@@ -20,7 +20,6 @@ class Karyawan extends My_Controller
           $this->load->view('dashboard/modal/mdlform');
           $this->load->view('dashboard/template/footer', $data);
           $this->load->view('dashboard/code/karyawan');
-          $this->load->view('dashboard/code/karyawan_add');
      }
 
      public function new()
@@ -82,7 +81,7 @@ class Karyawan extends My_Controller
                'max_length' => 'Digit maksumal no. telp adalah 11 digit',
           ]);
           $this->form_validation->set_rules("addTempatLahir", "addTempatLahir", "required|trim", [
-               'required' => 'Tempat lahir wajib dipilih',
+               'required' => 'Tempat lahir wajib diisi',
           ]);
           $this->form_validation->set_rules("addTanggalLahir", "addTanggalLahir", "required|trim", [
                'required' => 'Tanggal lahir wajib diisi',
@@ -243,6 +242,86 @@ class Karyawan extends My_Controller
                } else {
                     echo json_encode(array("statusCode" => 406, "pesan" => "Terjadi kesalahan, data personal gagal disimpan"));
                }
+          }
+     }
+
+     public function input_dtKaryawan()
+     {
+          $id_personal = 9999;
+          $id_pekerjaan = form_error("");
+          $no_acr = form_error("");
+          $no_nik = form_error("");
+          $doh = form_error("");
+          $tgl_aktif = form_error("");
+          $id_lokker = form_error("");
+          $id_lokterima = form_error("");
+          $id_poh = form_error("");
+          $id_roster = form_error("");
+          $klasifikasi = form_error("");
+          $paybase = form_error("");
+          $statpajak = form_error("");
+          $id_tipe = form_error("");
+          $stat_tinggal = form_error("");
+          $stat_kerja = form_error("");
+          $tgl_permanen = form_error("");
+          $stat_karyawan = form_error("");
+          $tgl_nonaktif = form_error("");
+          $alasan_nonaktif = form_error("");
+
+          if ($this->form_validation->run() == false) {
+               $error = [
+                    'id_personal' => '',
+                    'id_pekerjaan' => '',
+                    'no_acr' => '',
+                    'no_nik' => '',
+                    'doh' => '',
+                    'tgl_aktif' => '',
+                    'id_lokker' => '',
+                    'id_lokterima' => '',
+                    'id_poh' => '',
+                    'id_roster' => '',
+                    'klasifikasi' => '',
+                    'paybase' => '',
+                    'statpajak' => '',
+                    'id_tipe' => '',
+                    'stat_tinggal' => '',
+                    'stat_kerja' => '',
+                    'tgl_permanen' => '',
+                    'stat_karyawan' => '',
+                    'tgl_nonaktif' => '',
+                    'alasan_nonaktif' => '',
+                    'tgl_buat' => date('Y-m-d H:i:s'),
+                    'tgl_edit' => date('Y-m-d H:i:s'),
+                    'id_user' => $this->session->userdata('id_user'),
+                    'id_m_perusahaan' => '',
+               ];
+          } else {
+               $data = [
+                    'id_personal' => '',
+                    'id_pekerjaan' => '',
+                    'no_acr' => '',
+                    'no_nik' => '',
+                    'doh' => '',
+                    'tgl_aktif' => '',
+                    'id_lokker' => '',
+                    'id_lokterima' => '',
+                    'id_poh' => '',
+                    'id_roster' => '',
+                    'klasifikasi' => '',
+                    'paybase' => '',
+                    'statpajak' => '',
+                    'id_tipe' => '',
+                    'stat_tinggal' => '',
+                    'stat_kerja' => '',
+                    'tgl_permanen' => '',
+                    'stat_karyawan' => '',
+                    'tgl_nonaktif' => '',
+                    'alasan_nonaktif' => '',
+                    'tgl_buat' => date('Y-m-d H:i:s'),
+                    'tgl_edit' => date('Y-m-d H:i:s'),
+                    'id_user' => $this->session->userdata('id_user'),
+                    'id_m_perusahaan' => '',
+               ];
           }
      }
 
