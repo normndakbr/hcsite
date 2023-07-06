@@ -13,9 +13,9 @@ class Dash extends My_Controller
      {
           $jml_karyawan = $this->dsmod->count_all_karyawan();
           $jml_user = $this->dsmod->count_all_user();
-          $data['nama'] = $this->session->userdata("nama");
-          $data['email'] = $this->session->userdata("email");
-          $data['menu'] = $this->session->userdata("id_menu");
+          $data['nama'] = $this->session->userdata("nama_main");
+          $data['email'] = $this->session->userdata("email_main");
+          $data['menu'] = $this->session->userdata("id_menu_main");
           $data['jml_karyawan'] = $jml_karyawan;
           $data['jml_user'] = $jml_user;
           $this->load->view('dashboard/template/header', $data);
@@ -32,11 +32,11 @@ class Dash extends My_Controller
 
      public function logout()
      {
-          $this->session->unset_userdata('id_user');
-          $this->session->unset_userdata('nama');
-          $this->session->unset_userdata('email');
-          $this->session->unset_userdata('auth_user');
-          $this->session->unset_userdata('id_menu');
+          $this->session->unset_userdata('id_user_main');
+          $this->session->unset_userdata('nama_main');
+          $this->session->unset_userdata('email_main');
+          $this->session->unset_userdata('auth_user_main');
+          $this->session->unset_userdata('id_menu_main');
           redirect("login");
      }
 
@@ -84,6 +84,36 @@ class Dash extends My_Controller
      public function gt_data()
      {
           $query = $this->dsmod->get_data_grafik();
+
+          echo $query;
+     }
+     public function gt_gender()
+     {
+          $query = $this->dsmod->get_gender_grafik();
+
+          echo $query;
+     }
+     public function gt_jlok()
+     {
+          $query = $this->dsmod->get_lokasi_grafik();
+
+          echo $query;
+     }
+     public function gt_kls()
+     {
+          $query = $this->dsmod->get_klasifikasi_grafik();
+
+          echo $query;
+     }
+     public function gt_didik()
+     {
+          $query = $this->dsmod->get_pendidikan_grafik();
+
+          echo $query;
+     }
+     public function gt_stt_tinggal()
+     {
+          $query = $this->dsmod->get_residence_grafik();
 
           echo $query;
      }

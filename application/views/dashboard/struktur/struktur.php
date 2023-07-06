@@ -85,7 +85,7 @@
                                                             $servername = "localhost";
                                                             $username = "root";
                                                             $password = "";
-                                                            $dbname = "db_hc";
+                                                            $dbname = "db_kary";
 
                                                             static $space;
                                                             $conn = mysqli_connect($servername, $username, $password, $dbname);

@@ -5,9 +5,9 @@ class User extends My_Controller
 {
      public function index()
      {
-          $data['nama'] = $this->session->userdata("nama");
-          $data['email'] = $this->session->userdata("email");
-          $data['menu'] = $this->session->userdata("id_menu");
+          $data['nama'] = $this->session->userdata("nama_main");
+          $data['email'] = $this->session->userdata("email_main");
+          $data['menu'] = $this->session->userdata("id_menu_main");
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/user/user');
           $this->load->view('dashboard/modal/user');
@@ -17,9 +17,9 @@ class User extends My_Controller
 
      public function new()
      {
-          $data['nama'] = $this->session->userdata("nama");
-          $data['email'] = $this->session->userdata("email");
-          $data['menu'] = $this->session->userdata("id_menu");
+          $data['nama'] = $this->session->userdata("nama_main");
+          $data['email'] = $this->session->userdata("email_main");
+          $data['menu'] = $this->session->userdata("id_menu_main");
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/user/user_add');
           $this->load->view('dashboard/modal/user');
@@ -111,9 +111,9 @@ class User extends My_Controller
                ]
           );
           if ($this->form_validation->run() == false) {
-               $data['nama'] = $this->session->userdata("nama");
-               $data['email'] = $this->session->userdata("email");
-               $data['menu'] = $this->session->userdata("id_menu");
+               $data['nama'] = $this->session->userdata("nama_main");
+               $data['email'] = $this->session->userdata("email_main");
+               $data['menu'] = $this->session->userdata("id_menu_main");
                $this->load->view('dashboard/template/header', $data);
                $this->load->view('dashboard/user/user_add');
                $this->load->view('dashboard/modal/user');
@@ -129,9 +129,9 @@ class User extends My_Controller
                $query = $this->usr->cek_email($emailUser);
                if ($query == 201) {
                     $this->session->set_flashdata('msg', '<div class="err_psn_sandi alert alert-danger animate__animated animate__bounce"> Email sudah digunakan </div>');
-                    $data['nama'] = $this->session->userdata("nama");
-                    $data['email'] = $this->session->userdata("email");
-                    $data['menu'] = $this->session->userdata("id_menu");
+                    $data['nama'] = $this->session->userdata("nama_main");
+                    $data['email'] = $this->session->userdata("email_main");
+                    $data['menu'] = $this->session->userdata("id_menu_main");
                     $this->load->view('dashboard/template/header', $data);
                     $this->load->view('dashboard/user/user_add');
                     $this->load->view('dashboard/modal/user');
@@ -144,20 +144,21 @@ class User extends My_Controller
                          'tgl_aktif' => $tglAktif . ' 00:00:00',
                          'tgl_exp' => $tglExpired . ' 23:59:59',
                          'sesi' => '',
+                         'token' => '',
                          'id_menu' => $aksesUser,
                          'stat_user' => 'F',
                          'pic_user' => '',
                          'tgl_buat' => date('Y-m-d H:i:s'),
                          'tgl_edit' => date('Y-m-d H:i:s'),
-                         'id_buat' => $this->session->userdata('id_user')
+                         'id_buat' => $this->session->userdata('id_user_main')
                     ];
 
                     $query = $this->usr->buat_user($data);
                     if ($query) {
                          $this->session->set_flashdata('msg', '<div class="err_psn_user alert alert-info animate__animated animate__bounce"> User berhasil dibuat </div>');
-                         $data['nama'] = $this->session->userdata("nama");
-                         $data['email'] = $this->session->userdata("email");
-                         $data['menu'] = $this->session->userdata("id_menu");
+                         $data['nama'] = $this->session->userdata("nama_main");
+                         $data['email'] = $this->session->userdata("email_main");
+                         $data['menu'] = $this->session->userdata("id_menu_main");
                          $this->load->view('dashboard/template/header', $data);
                          $this->load->view('dashboard/user/user_add');
                          $this->load->view('dashboard/modal/user');
@@ -165,9 +166,9 @@ class User extends My_Controller
                          $this->load->view('dashboard/code/user');
                     } else {
                          $this->session->set_flashdata('msg', '<div class="err_psn_user alert alert-danger animate__animated animate__bounce"> User gagal dibuat </div>');
-                         $data['nama'] = $this->session->userdata("nama");
-                         $data['email'] = $this->session->userdata("email");
-                         $data['menu'] = $this->session->userdata("id_menu");
+                         $data['nama'] = $this->session->userdata("nama_main");
+                         $data['email'] = $this->session->userdata("email_main");
+                         $data['menu'] = $this->session->userdata("id_menu_main");
                          $this->load->view('dashboard/template/header', $data);
                          $this->load->view('dashboard/user/user_add');
                          $this->load->view('dashboard/modal/user');
@@ -203,7 +204,7 @@ class User extends My_Controller
 
      public function ganti_sandi()
      {
-          $auth_user = $this->session->userdata('auth_user');
+          $auth_user = $this->session->userdata('auth_user_main');
           $sesi = md5($this->input->post('sesi'));
           $query = $this->usr->ganti_sandi($auth_user, $sesi);
 
@@ -216,7 +217,7 @@ class User extends My_Controller
 
      public function cek_sandi()
      {
-          $auth_user = $this->session->userdata('auth_user');
+          $auth_user = $this->session->userdata('auth_user_main');
           $sesi = md5($this->input->post('sesi'));
           $query = $this->usr->cek_sandi($auth_user, $sesi);
 
@@ -310,7 +311,7 @@ class User extends My_Controller
                echo json_encode($error);
                die;
           } else {
-               if ($this->session->userdata('id_user_usr') == "") {
+               if ($this->session->userdata('id_user_main') == "") {
                     echo json_encode(array("statusCode" => 201, "pesan" => "User tidak ditemukan"));
                     return;
                }

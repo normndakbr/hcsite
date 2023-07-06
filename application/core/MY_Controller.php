@@ -34,14 +34,14 @@ class My_Controller extends CI_Controller
 
      public function is_logout()
      {
-          if ($this->session->userdata("email") == "") {
+          if ($this->session->userdata("email_main") == "") {
                header("location: http://localhost:8080/hcsite");
           }
      }
 
      public function is_login()
      {
-          if ($this->session->userdata("email") != "") {
+          if ($this->session->userdata("email_main") != "") {
                header("location: http://localhost:8080/hcsite/dash");
           }
      }
