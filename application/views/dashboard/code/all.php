@@ -351,6 +351,64 @@
      });
 </script>
 <script>
+     $(function() {
+          var options = {
+               chart: {
+                    height: 300,
+                    type: 'bar',
+               },
+               plotOptions: {
+                    bar: {
+                         dataLabels: {
+                              position: 'top',
+                         },
+                    },
+               },
+               dataLabels: {
+                    enabled: true
+               },
+               stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+               },
+               series: [],
+               noData: {
+                    text: 'Loading...'
+               },
+               yaxis: {
+                    title: {
+                         text: 'Sertifikasi'
+                    }
+               },
+               fill: {
+                    opacity: 1
+
+               },
+               tooltip: {
+                    y: {
+                         formatter: function(val) {
+                              return val + " Orang"
+                         }
+                    }
+               }
+          }
+          var chart = new ApexCharts(
+               document.querySelector("#bar-chart-7"),
+               options
+          );
+          chart.render();
+
+          var url = '<?= base_url('dash/gt_srt_tinggal'); ?>';
+          $.getJSON(url, function(response) {
+               chart.updateSeries([{
+                    name: 'Jml Karyawan : ',
+                    data: response
+               }])
+          });
+     });
+</script>
+<script>
      //========================================== StatJanji ========================================================
      $(document).ready(function() {
 
