@@ -68,23 +68,33 @@
                                              <input id='namaUser' name='namaUser' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('namaUser'); ?>">
                                              <?= form_error('namaUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
-                                        <div class="col-lg-6 col-md-4 col-sm-12">
+                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                              <label for="emailUser">Email User :</label>
                                              <input id='emailUser' name='emailUser' type="text" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('emailUser'); ?>">
                                              <?= form_error('emailUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                             <label for="emailUser">Sandi :</label>
+                                             <input id='emailUser' name='emailUser' type="password" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('emailUser'); ?>">
+                                             <?= form_error('emailUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                             <label for="emailUser">Ulang Sandi :</label>
+                                             <input id='emailUser' name='emailUser' type="password" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('emailUser'); ?>">
+                                             <?= form_error('emailUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 col-sm-12">
                                              <label for="tglAktif">Tanggal Aktif :</label>
                                              <input id='tglAktif' name='tglAktif' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('tglAktif'); ?>">
                                              <?= form_error('tglAktif', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="col-lg-3 col-md-4 col-sm-12">
                                              <label for="tglExpired">Tanggal Expired :</label>
                                              <input id='tglExpired' name='tglExpired' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('tglExpired'); ?>">
                                              <?= form_error('tglExpired', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-12">
-                                             <label for="aksesUser">Akses Menu :</label>
+                                        <div class="col-lg-3 col-md-4 col-sm-12">
+                                             <label for="aksesUser" class="mb-3">Akses Menu :</label>
                                              <select id='aksesUser' name='aksesUser' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
                                                   <option value="">-- Pilih Akses Menu --</option>
                                                   <option value="0">Admin</option>

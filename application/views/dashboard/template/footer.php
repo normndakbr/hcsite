@@ -19,3 +19,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script type='text/javascript' src="<?= base_url(); ?>assets/assets/js/jquery.inputmask.bundle.js"></script>
 <script src="<?= base_url(); ?>assets/assets/js/pages/dashboard-main.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.min.js"></script>
+<script type='text/javascript' src="<?= base_url(); ?>assets/assets/js/jquery.inputmask.bundle.js"></script>
+<script>
+     let site_url = "http://localhost:8080/hcsite/";
+</script>

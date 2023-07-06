@@ -35,11 +35,13 @@ class Login extends My_Controller
                     $data = json_decode($cek);
                     if ($data->{'statusCode'} == 200) {
                          $session_data = array(
-                              'id_user'   => $data->{'id_user'},
-                              'email'  => $data->{'email_user'},
-                              'nama'  => $data->{'nama_user'},
-                              'auth_user' => $data->{'auth_user'},
-                              'id_menu' => $data->{'id_menu'}
+                              'id_user_main'   => $data->{'id_user'},
+                              'email_main'  => $data->{'email_user'},
+                              'nama_main'  => $data->{'nama_user'},
+                              'auth_user_main' => $data->{'auth_user'},
+                              'id_menu_main' => $data->{'id_menu'},
+                              'id_perusahaan' => $data->{'id_perusahaan'},
+                              'id_m_perusahaan' => $data->{'id_m_perusahaan'}
                          );
 
                          $this->session->set_userdata($session_data);

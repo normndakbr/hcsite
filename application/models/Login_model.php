@@ -34,7 +34,9 @@ class Login_model extends CI_Model
                                    "email_user" => $user->email_user,
                                    "nama_user" => $user->nama_user,
                                    "auth_user" => md5($user->id_user . date('Y-m-d')),
-                                   "id_menu" => $user->id_menu
+                                   "id_menu" => $user->id_menu,
+                                   "id_perusahaan" => $user->id_perusahaan,
+                                   "id_m_perusahaan" => $user->id_m_perusahaan
                               ));
                          } else {
                               return json_encode(array("statusCode" => 201, "pesan" => "Sandi anda salah"));
