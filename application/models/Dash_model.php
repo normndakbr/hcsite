@@ -11,7 +11,7 @@ class Dash_model extends CI_Model
 
      public function count_all_karyawan()
      {
-          return $this->db->count_all_results('vw_karyawan');
+          return $this->db->get_where('vw_karyawan', ['tgl_nonaktif' => '1970-01-01'])->num_rows();
      }
 
      public function data_grafik_1()
@@ -38,7 +38,7 @@ class Dash_model extends CI_Model
           if (!empty($query)) {
                foreach ($query as $prs) {
                     $kode_perusahaan = $prs->kode_perusahaan;
-                    $sql = "SELECT COUNT(tahun_doh) as bulan_now, id_perusahaan FROM vw_jml_karyawan WHERE kode_perusahaan = '" . $kode_perusahaan . "'";
+                    $sql = "SELECT COUNT(tahun_doh) as bulan_now, id_perusahaan FROM vw_jml_karyawan WHERE kode_perusahaan = '" . $kode_perusahaan . "' AND tgl_nonaktif='1970-01-01'";
                     $query1 = $this->db->query($sql)->result();
                     foreach ($query1 as $list) {
                          $jml = $list->bulan_now;
@@ -52,7 +52,6 @@ class Dash_model extends CI_Model
 
      public function get_gender_grafik()
      {
-          $id_m_perusahaan = $this->session->userdata('id_m_perusahaan');
           $sql = "SELECT DISTINCT jk FROM tb_personal";
           $query = $this->db->query($sql)->result();
 
@@ -79,7 +78,6 @@ class Dash_model extends CI_Model
 
      public function get_lokasi_grafik()
      {
-          $id_m_perusahaan = $this->session->userdata('id_m_perusahaan');
           $sql = "SELECT DISTINCT jenis_lokasi FROM tb_lokterima";
           $query = $this->db->query($sql)->result();
 
@@ -101,7 +99,6 @@ class Dash_model extends CI_Model
 
      public function get_klasifikasi_grafik()
      {
-          $id_m_perusahaan = $this->session->userdata('id_m_perusahaan');
           $sql = "SELECT DISTINCT klasifikasi FROM tb_klasifikasi";
           $query = $this->db->query($sql)->result();
 
@@ -120,9 +117,9 @@ class Dash_model extends CI_Model
                return json_encode($data);
           }
      }
+
      public function get_pendidikan_grafik()
      {
-          $id_m_perusahaan = $this->session->userdata('id_m_perusahaan');
           $sql = "SELECT DISTINCT pendidikan FROM tb_pendidikan";
           $query = $this->db->query($sql)->result();
 
@@ -141,9 +138,9 @@ class Dash_model extends CI_Model
                return json_encode($data);
           }
      }
+
      public function get_residence_grafik()
      {
-          $id_m_perusahaan = $this->session->userdata('id_m_perusahaan');
           $sql = "SELECT DISTINCT stat_tinggal FROM tb_stat_tinggal";
           $query = $this->db->query($sql)->result();
 
@@ -156,6 +153,27 @@ class Dash_model extends CI_Model
                     foreach ($query1 as $list) {
                          $jml = $list->jml_sttinggal;
                          $data[] = array("x" => $sttgl, "y" => $jml);
+                    }
+               }
+
+               return json_encode($data);
+          }
+     }
+
+     public function get_sertifikasi_grafik()
+     {
+          $sql = "SELECT DISTINCT kode_jenis_sertifikasi FROM tb_jenis_sertifikasi";
+          $query = $this->db->query($sql)->result();
+
+          if (!empty($query)) {
+               foreach ($query as $prs) {
+                    $jsrt = $prs->kode_jenis_sertifikasi;
+                    $sql = "SELECT COUNT(kode_jenis_sertifikasi) as jmlsrt FROM vw_sertifikasi WHERE kode_jenis_sertifikasi='" . $jsrt .
+                         "' AND tgl_nonaktif='1970-01-01'";
+                    $query1 = $this->db->query($sql)->result();
+                    foreach ($query1 as $list) {
+                         $jml = $list->jmlsrt;
+                         $data[] = array("x" => $jsrt, "y" => $jml);
                     }
                }
 

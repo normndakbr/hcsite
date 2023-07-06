@@ -3,14 +3,14 @@
 
 <head>
 
-     <title>ESS - Login</title>
+     <title>ARC - Main</title>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
      <meta name="description" content="" />
      <meta name="keywords" content="">
      <meta name="author" content="Phoenixcoded" />
-     <link rel="icon" href="<?= base_url(); ?>assets/assets/images/favicon.ico" type="image/x-icon">
+     <link rel="icon" href="<?= base_url(); ?>assets/assets/images/favicon.ico" type="image/x-icon" />
      <link rel="stylesheet" href="<?= base_url(); ?>assets/assets/css/style.css">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -27,7 +27,7 @@
      <div class="auth-content" style="width:450px">
           <div class="row">
                <div class="col-lg-12 text-center">
-                    <h3 class="mb-3 f-w-400 text-white font-weight-bold">eEmployee Safety System</h3>
+                    <h3 class="mb-3 f-w-400 text-white font-weight-bold">Access Role Control</h3>
                     <h4 class="mb-3 f-w-400 text-white font-weight-bold" style="margin-top: -10px;">Main System</h4>
                </div>
           </div>
@@ -56,6 +56,9 @@
                          </div>
                     </div>
                </form>
+          </div>
+          <div class="text-center mt-2">
+               <small class=" font-weight-bold text-white">© 2009-2023 PT Indexim Coalindo. All rights reserved.</small>
           </div>
      </div>
 </div>

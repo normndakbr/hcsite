@@ -117,4 +117,10 @@ class Dash extends My_Controller
 
           echo $query;
      }
+     public function gt_srt_tinggal()
+     {
+          $query = $this->dsmod->get_sertifikasi_grafik();
+
+          echo $query;
+     }
 }
