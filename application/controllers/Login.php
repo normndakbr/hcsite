@@ -6,7 +6,7 @@ class Login extends My_Controller
      public function __construct()
      {
           parent::__construct();
-          $this->is_login();
+          // $this->is_login();
      }
      public function index()
      {
@@ -40,8 +40,8 @@ class Login extends My_Controller
                               'nama_main'  => $data->{'nama_user'},
                               'auth_user_main' => $data->{'auth_user'},
                               'id_menu_main' => $data->{'id_menu'},
-                              'id_perusahaan' => $data->{'id_perusahaan'},
-                              'id_m_perusahaan' => $data->{'id_m_perusahaan'}
+                              'id_perusahaan_main' => $data->{'id_perusahaan'},
+                              'id_m_perusahaan_main' => $data->{'id_m_perusahaan'}
                          );
 
                          $this->session->set_userdata($session_data);

@@ -37,6 +37,8 @@ class Dash extends My_Controller
           $this->session->unset_userdata('email_main');
           $this->session->unset_userdata('auth_user_main');
           $this->session->unset_userdata('id_menu_main');
+          $this->session->unset_userdata('id_perusahaan_main');
+          $this->session->unset_userdata('id_m_perusahaan_main');
           redirect("login");
      }
 
