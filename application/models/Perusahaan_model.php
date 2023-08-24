@@ -332,6 +332,27 @@ class Perusahaan_model extends CI_Model
           }
      }
 
+     public function get_kode_per_by_m_per($id_m_per)
+     {
+          $query = $this->db->get_where('tb_m_perusahaan', ['id_m_perusahaan' => $id_m_per]);
+          if (!empty($query->result())) {
+               foreach ($query->result() as $lst) {
+                    $id_parent = $lst->id_parent;
+               }
+
+               $query = $this->db->get_where('tb_perusahaan', ['id_perusahaan' => $id_parent]);
+               if (!empty($query->result())) {
+                    foreach ($query->result() as $list) {
+                         return $list->kode_perusahaan;
+                    }
+               } else {
+                    return;
+               }
+          } else {
+               return;
+          }
+     }
+
      public function get_rk3l_by_auth_m($auth_m_per)
      {
           $query = $this->db->get_where('vw_m_perusahaan', ['auth_m_perusahaan' => $auth_m_per]);

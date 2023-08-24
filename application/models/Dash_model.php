@@ -11,7 +11,15 @@ class Dash_model extends CI_Model
 
      public function count_all_karyawan()
      {
-          return $this->db->get_where('vw_karyawan', ['tgl_nonaktif' => '1970-01-01'])->num_rows();
+          return $this->db->get_where('vw_karyawan', ['tgl_nonaktif' => null])->num_rows();
+     }
+
+     public function new_emp()
+     {
+          $tglnowstart = date('Y-m-d 00:00:00');
+          $tglnowend = date('Y-m-d 23:59:59');
+
+          return $this->db->query("SELECT auth_karyawan FROM vw_karyawan WHERE tgl_nonaktif is null AND (tgl_buat >= '" . $tglnowstart . "' AND tgl_buat <= '" . $tglnowend . "')")->num_rows();
      }
 
      public function data_grafik_1()
@@ -32,13 +40,21 @@ class Dash_model extends CI_Model
      public function get_data_grafik()
      {
 
-          $sql = "SELECT DISTINCT kode_perusahaan FROM vw_m_perusahaan WHERE stat_m_perusahaan = 'T' ORDER BY id_perusahaan ASC";
+          $sql = "SELECT kode_perusahaan, id_parent, id_m_perusahaan FROM vw_m_prs WHERE stat_m_perusahaan = 'T' AND  id_parent = 0 OR id_parent =1 ORDER BY id_m_perusahaan ASC";
           $query = $this->db->query($sql)->result();
 
           if (!empty($query)) {
                foreach ($query as $prs) {
+                    $id_parent = $prs->id_parent;
+                    $id_m_perusahaan = $prs->id_m_perusahaan;
                     $kode_perusahaan = $prs->kode_perusahaan;
-                    $sql = "SELECT COUNT(tahun_doh) as bulan_now, id_perusahaan FROM vw_jml_karyawan WHERE kode_perusahaan = '" . $kode_perusahaan . "' AND tgl_nonaktif='1970-01-01'";
+
+                    if ($id_parent == 0) {
+                         $sql = "SELECT COUNT(tahun_doh) as bulan_now, id_perusahaan FROM vw_jml_karyawan WHERE id_parent = 0 AND tgl_nonaktif is null";
+                    } else {
+                         $sql = "SELECT COUNT(tahun_doh) as bulan_now, id_perusahaan FROM vw_jml_karyawan WHERE (id_m_perusahaan = " . $id_m_perusahaan . " OR id_parent = " . $id_m_perusahaan . ") AND tgl_nonaktif is null";
+                    }
+
                     $query1 = $this->db->query($sql)->result();
                     foreach ($query1 as $list) {
                          $jml = $list->bulan_now;
@@ -64,7 +80,7 @@ class Dash_model extends CI_Model
                          $jkk = "PEREMPUAN";
                     }
                     $sql = "SELECT COUNT(jk) as jenis_kelamin FROM vw_karyawan WHERE jk='" . $jk .
-                         "' AND tgl_nonaktif='1970-01-01'";
+                         "' AND tgl_nonaktif is null";
                     $query1 = $this->db->query($sql)->result();
                     foreach ($query1 as $list) {
                          $jml = $list->jenis_kelamin;
@@ -85,7 +101,7 @@ class Dash_model extends CI_Model
                foreach ($query as $prs) {
                     $jlok = $prs->jenis_lokasi;
                     $sql = "SELECT COUNT(jenis_lokasi) as jml_jlok FROM vw_karyawan WHERE jenis_lokasi='" . $jlok .
-                         "' AND tgl_nonaktif='1970-01-01'";
+                         "' AND tgl_nonaktif is null";
                     $query1 = $this->db->query($sql)->result();
                     foreach ($query1 as $list) {
                          $jml = $list->jml_jlok;
@@ -106,7 +122,7 @@ class Dash_model extends CI_Model
                foreach ($query as $prs) {
                     $kls = $prs->klasifikasi;
                     $sql = "SELECT COUNT(klasifikasi) as jml_kls FROM vw_karyawan WHERE klasifikasi='" . $kls .
-                         "' AND tgl_nonaktif='1970-01-01'";
+                         "' AND  tgl_nonaktif is null";
                     $query1 = $this->db->query($sql)->result();
                     foreach ($query1 as $list) {
                          $jml = $list->jml_kls;
@@ -120,14 +136,15 @@ class Dash_model extends CI_Model
 
      public function get_pendidikan_grafik()
      {
-          $sql = "SELECT DISTINCT pendidikan FROM tb_pendidikan";
+          $sql = "SELECT DISTINCT id_pendidikan, pendidikan FROM tb_pendidikan";
           $query = $this->db->query($sql)->result();
 
           if (!empty($query)) {
                foreach ($query as $prs) {
+                    $id_pendidikan = $prs->id_pendidikan;
                     $didik = $prs->pendidikan;
-                    $sql = "SELECT COUNT(pendidikan) as jml_didik FROM vw_karyawan WHERE pendidikan='" . $didik .
-                         "' AND tgl_nonaktif='1970-01-01'";
+                    $sql = "SELECT COUNT(id_pendidikan) as jml_didik FROM vw_karyawan WHERE id_pendidikan=" . $id_pendidikan .
+                         " AND tgl_nonaktif is null";
                     $query1 = $this->db->query($sql)->result();
                     foreach ($query1 as $list) {
                          $jml = $list->jml_didik;
@@ -147,8 +164,8 @@ class Dash_model extends CI_Model
           if (!empty($query)) {
                foreach ($query as $prs) {
                     $sttgl = $prs->stat_tinggal;
-                    $sql = "SELECT COUNT(stt_tinggal) as jml_sttinggal FROM vw_karyawan WHERE stt_tinggal='" . $sttgl .
-                         "' AND tgl_nonaktif='1970-01-01'";
+                    $sql = "SELECT COUNT(stat_tinggal) as jml_sttinggal FROM vw_karyawan WHERE stat_tinggal='" . $sttgl .
+                         "' AND tgl_nonaktif is null";
                     $query1 = $this->db->query($sql)->result();
                     foreach ($query1 as $list) {
                          $jml = $list->jml_sttinggal;
@@ -162,14 +179,13 @@ class Dash_model extends CI_Model
 
      public function get_sertifikasi_grafik()
      {
-          $sql = "SELECT DISTINCT kode_jenis_sertifikasi FROM tb_jenis_sertifikasi";
+          $sql = "SELECT DISTINCT kode_jenis_sertifikasi FROM tb_jenis_sertifikasi WHERE beranda = 'T' order by id_jenis_sertifikasi asc";
           $query = $this->db->query($sql)->result();
 
           if (!empty($query)) {
                foreach ($query as $prs) {
                     $jsrt = $prs->kode_jenis_sertifikasi;
-                    $sql = "SELECT COUNT(kode_jenis_sertifikasi) as jmlsrt FROM vw_sertifikasi WHERE kode_jenis_sertifikasi='" . $jsrt .
-                         "' AND tgl_nonaktif='1970-01-01'";
+                    $sql = "SELECT COUNT(kode_jenis_sertifikasi) as jmlsrt FROM vw_karyawan_sertifikasi WHERE kode_jenis_sertifikasi='" . $jsrt . "'";
                     $query1 = $this->db->query($sql)->result();
                     foreach ($query1 as $list) {
                          $jml = $list->jmlsrt;

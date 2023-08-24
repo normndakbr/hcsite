@@ -7,7 +7,7 @@ class User_model extends CI_Model
      var $table = 'vw_user';
      var $column_order = array(null, 'nama_user', 'email_user', 'tgl_exp', 'id_menu', 'stat_user', 'tgl_buat', null); //set column field database for datatable orderable
      var $column_search = array('nama_user', 'email_user', 'tgl_exp', 'id_menu', 'stat_user', 'tgl_buat'); //set column field database for datatable searchable just firstname , lastname , address are searchable
-     var $order = array('nama_user' => 'asc'); // default order 
+     var $order = array('tgl_buat' => 'desc'); // default order 
 
      public function __construct()
      {

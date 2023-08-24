@@ -8,6 +8,7 @@ class User extends My_Controller
           $data['nama'] = $this->session->userdata("nama_main");
           $data['email'] = $this->session->userdata("email_main");
           $data['menu'] = $this->session->userdata("id_menu_main");
+          $data['data_menu'] = $this->mnu->get_all();
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/user/user');
           $this->load->view('dashboard/modal/user');
@@ -17,9 +18,24 @@ class User extends My_Controller
 
      public function new()
      {
+          if ($this->session->has_userdata('id_m_perusahaan_main')) {
+               $idmper = $this->session->userdata('id_m_perusahaan_main');
+               if ($idmper != "") {
+                    $data['permst'] = $this->str->getMaster($idmper, "");
+                    $data['perstr'] = $this->str->getMenu($idmper, "");
+               } else {
+                    $data['permst'] = "";
+                    $data['perstr'] = "";
+               }
+          } else {
+               $idmper = "";
+               $data['permst'] = "";
+               $data['perstr'] = "";
+          }
           $data['nama'] = $this->session->userdata("nama_main");
           $data['email'] = $this->session->userdata("email_main");
           $data['menu'] = $this->session->userdata("id_menu_main");
+          $data['data_menu'] = $this->mnu->get_all();
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/user/user_add');
           $this->load->view('dashboard/modal/user');
@@ -39,12 +55,13 @@ class User extends My_Controller
                $row['auth_user'] = $usr->auth_user;
                $row['nama_user'] = $usr->nama_user;
                $row['email_user'] = $usr->email_user;
-               $row['id_menu'] = $usr->id_menu;
+               $row['NamaMenu'] = $usr->NamaMenu;
                if ($usr->stat_user == "T") {
                     $row['stat_user'] = '<span class="btn btn-success btn-sm" style="cursor:text;">AKTIF</span>';
                } else {
                     $row['stat_user'] = '<span class="btn btn-danger btn-sm" style="cursor:text;">NONAKTIF</span>';
                }
+               $row['kode_perusahaan'] = $usr->kode_perusahaan;
                $row['tgl_aktif'] = date('d-M-Y', strtotime($usr->tgl_aktif));
                $row['tgl_exp'] = date('d-M-Y', strtotime($usr->tgl_exp));
                $row['tgl_buat'] = date('d-M-Y', strtotime($usr->tgl_buat));
@@ -87,6 +104,24 @@ class User extends My_Controller
                ]
           );
           $this->form_validation->set_rules(
+               'sandiUser',
+               'sandiUser',
+               'required|trim|min_length[6]',
+               [
+                    'required' => 'Sandi wajib diisi',
+                    'min_length' => 'Sandi minimal 6 karakter'
+               ]
+          );
+          $this->form_validation->set_rules(
+               'ulangSandi',
+               'ulangSandi',
+               'required|trim|min_length[6]',
+               [
+                    'required' => 'Konfirmasi ulang sandi wajib diisi',
+                    'min_length' => 'Konfirmasi ulang sandi minimal 6 karakter'
+               ]
+          );
+          $this->form_validation->set_rules(
                'tglAktif',
                'tglAktif',
                'required|trim',
@@ -110,10 +145,34 @@ class User extends My_Controller
                     'required' => 'Akses user wajib dipilih'
                ]
           );
+          $this->form_validation->set_rules(
+               'perusahaanUser',
+               'perusahaanUser',
+               'required|trim',
+               [
+                    'required' => 'Perusahaan user wajib dipilih'
+               ]
+          );
+
           if ($this->form_validation->run() == false) {
+               if ($this->session->has_userdata('id_m_perusahaan_main')) {
+                    $idmper = $this->session->userdata('id_m_perusahaan_main');
+                    if ($idmper != "") {
+                         $data['permst'] = $this->str->getMaster($idmper, "");
+                         $data['perstr'] = $this->str->getMenu($idmper, "");
+                    } else {
+                         $data['permst'] = "";
+                         $data['perstr'] = "";
+                    }
+               } else {
+                    $idmper = "";
+                    $data['permst'] = "";
+                    $data['perstr'] = "";
+               }
                $data['nama'] = $this->session->userdata("nama_main");
                $data['email'] = $this->session->userdata("email_main");
                $data['menu'] = $this->session->userdata("id_menu_main");
+               $data['data_menu'] = $this->mnu->get_all();
                $this->load->view('dashboard/template/header', $data);
                $this->load->view('dashboard/user/user_add');
                $this->load->view('dashboard/modal/user');
@@ -122,43 +181,98 @@ class User extends My_Controller
           } else {
                $namaUser = htmlentities(trim($this->input->post('namaUser', true)));
                $emailUser = htmlentities(trim($this->input->post('emailUser', true)));
+               $sandiUser = htmlentities(trim($this->input->post('sandiUser', true)));
+               $ulangSandi = htmlentities(trim($this->input->post('ulangSandi', true)));
                $tglAktif = htmlentities(trim($this->input->post('tglAktif', true)));
                $tglExpired = htmlentities(trim($this->input->post('tglExpired', true)));
                $aksesUser = htmlentities(trim($this->input->post('aksesUser', true)));
+               $perusahaanUser = htmlentities(trim($this->input->post('perusahaanUser', true)));
 
                $query = $this->usr->cek_email($emailUser);
                if ($query == 201) {
                     $this->session->set_flashdata('msg', '<div class="err_psn_sandi alert alert-danger animate__animated animate__bounce"> Email sudah digunakan </div>');
+                    if ($this->session->has_userdata('id_m_perusahaan_main')) {
+                         $idmper = $this->session->userdata('id_m_perusahaan_main');
+                         if ($idmper != "") {
+                              $data['permst'] = $this->str->getMaster($idmper, "");
+                              $data['perstr'] = $this->str->getMenu($idmper, "");
+                         } else {
+                              $data['permst'] = "";
+                              $data['perstr'] = "";
+                         }
+                    } else {
+                         $idmper = "";
+                         $data['permst'] = "";
+                         $data['perstr'] = "";
+                    }
                     $data['nama'] = $this->session->userdata("nama_main");
                     $data['email'] = $this->session->userdata("email_main");
                     $data['menu'] = $this->session->userdata("id_menu_main");
+                    $data['data_menu'] = $this->mnu->get_all();
                     $this->load->view('dashboard/template/header', $data);
                     $this->load->view('dashboard/user/user_add');
                     $this->load->view('dashboard/modal/user');
                     $this->load->view('dashboard/template/footer', $data);
                     $this->load->view('dashboard/code/user');
                } else {
+                    $datamenu = $this->mnu->get_by_auth_menu($aksesUser);
+                    if (!empty($datamenu)) {
+                         foreach ($datamenu as $mnl) {
+                              $id_akses_menu = $mnl->IdMenu;
+                         }
+                    } else {
+                         $id_akses_menu = 0;
+                    }
+
+                    $dtper = $this->str->get_detail_m_per($perusahaanUser);
+                    if (!empty($dtper)) {
+                         foreach ($dtper as $mnl) {
+                              $id_m_per = $mnl->id_m_perusahaan;
+                         }
+                    } else {
+                         $id_m_per = 0;
+                    }
+
+                    $sesi = md5($sandiUser);
+
                     $data = [
                          'nama_user' => $namaUser,
                          'email_user' => $emailUser,
                          'tgl_aktif' => $tglAktif . ' 00:00:00',
                          'tgl_exp' => $tglExpired . ' 23:59:59',
-                         'sesi' => '',
+                         'sesi' => $sesi,
                          'token' => '',
-                         'id_menu' => $aksesUser,
-                         'stat_user' => 'F',
+                         'id_menu' => $id_akses_menu,
+                         'stat_user' => 'T',
+                         'akses_apps' => 'TEMP',
                          'pic_user' => '',
                          'tgl_buat' => date('Y-m-d H:i:s'),
                          'tgl_edit' => date('Y-m-d H:i:s'),
-                         'id_buat' => $this->session->userdata('id_user_main')
+                         'id_buat' => $this->session->userdata('id_user_main'),
+                         'id_m_perusahaan' => $id_m_per,
                     ];
 
                     $query = $this->usr->buat_user($data);
                     if ($query) {
                          $this->session->set_flashdata('msg', '<div class="err_psn_user alert alert-info animate__animated animate__bounce"> User berhasil dibuat </div>');
+                         if ($this->session->has_userdata('id_m_perusahaan_main')) {
+                              $idmper = $this->session->userdata('id_m_perusahaan_main');
+                              if ($idmper != "") {
+                                   $data['permst'] = $this->str->getMaster($idmper, "");
+                                   $data['perstr'] = $this->str->getMenu($idmper, "");
+                              } else {
+                                   $data['permst'] = "";
+                                   $data['perstr'] = "";
+                              }
+                         } else {
+                              $idmper = "";
+                              $data['permst'] = "";
+                              $data['perstr'] = "";
+                         }
                          $data['nama'] = $this->session->userdata("nama_main");
                          $data['email'] = $this->session->userdata("email_main");
                          $data['menu'] = $this->session->userdata("id_menu_main");
+                         $data['data_menu'] = $this->mnu->get_all();
                          $this->load->view('dashboard/template/header', $data);
                          $this->load->view('dashboard/user/user_add');
                          $this->load->view('dashboard/modal/user');
@@ -166,9 +280,24 @@ class User extends My_Controller
                          $this->load->view('dashboard/code/user');
                     } else {
                          $this->session->set_flashdata('msg', '<div class="err_psn_user alert alert-danger animate__animated animate__bounce"> User gagal dibuat </div>');
+                         if ($this->session->has_userdata('id_m_perusahaan_main')) {
+                              $idmper = $this->session->userdata('id_m_perusahaan_main');
+                              if ($idmper != "") {
+                                   $data['permst'] = $this->str->getMaster($idmper, "");
+                                   $data['perstr'] = $this->str->getMenu($idmper, "");
+                              } else {
+                                   $data['permst'] = "";
+                                   $data['perstr'] = "";
+                              }
+                         } else {
+                              $idmper = "";
+                              $data['permst'] = "";
+                              $data['perstr'] = "";
+                         }
                          $data['nama'] = $this->session->userdata("nama_main");
                          $data['email'] = $this->session->userdata("email_main");
                          $data['menu'] = $this->session->userdata("id_menu_main");
+                         $data['data_menu'] = $this->mnu->get_all();
                          $this->load->view('dashboard/template/header', $data);
                          $this->load->view('dashboard/user/user_add');
                          $this->load->view('dashboard/modal/user');
@@ -176,6 +305,35 @@ class User extends My_Controller
                          $this->load->view('dashboard/code/user');
                     }
                }
+
+               // if ($sandiUser !== $ulangSandi) {
+               //      $this->session->set_flashdata('msg', '<div class="err_psn_user alert alert-danger animate__animated animate__bounce"> Sandi tidak sama dengan ulang sandi </div>');
+               //      if ($this->session->has_userdata('id_m_perusahaan_main')) {
+               //           $idmper = $this->session->userdata('id_m_perusahaan_main');
+               //           if ($idmper != "") {
+               //                $data['permst'] = $this->str->getMaster($idmper, "");
+               //                $data['perstr'] = $this->str->getMenu($idmper, "");
+               //           } else {
+               //                $data['permst'] = "";
+               //                $data['perstr'] = "";
+               //           }
+               //      } else {
+               //           $idmper = "";
+               //           $data['permst'] = "";
+               //           $data['perstr'] = "";
+               //      }
+               //      $data['nama'] = $this->session->userdata("nama_main");
+               //      $data['email'] = $this->session->userdata("email_main");
+               //      $data['menu'] = $this->session->userdata("id_menu_main");
+               //      $data['data_menu'] = $this->mnu->get_all();
+               //      $this->load->view('dashboard/template/header', $data);
+               //      $this->load->view('dashboard/user/user_add');
+               //      $this->load->view('dashboard/modal/user');
+               //      $this->load->view('dashboard/template/footer', $data);
+               //      $this->load->view('dashboard/code/user');
+               // } else {
+
+               // }
           }
      }
 

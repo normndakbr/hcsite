@@ -87,7 +87,7 @@
                                    <div class="card-body">
                                         <div class="row align-items-center">
                                              <div class="col-8">
-                                                  <h4 class="text-c-blue">4</h4>
+                                                  <h4 class="text-c-blue">0</h4>
                                                   <h6 class="text-muted m-b-0">Pengajuan SIMPER/MP</h6>
                                              </div>
                                              <div class="col-4 text-right">
@@ -105,78 +105,12 @@
                                    </div>
                               </div>
                          </div>
-                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                              <div class="card">
-                                   <div class="card-body">
-                                        <div class="row align-items-center">
-                                             <div class="col-8">
-                                                  <h4 class="text-c-blue">4</h4>
-                                                  <h6 class="text-muted m-b-0">Data Terbaru</h6>
-                                             </div>
-                                             <div class="col-4 text-right">
-                                                  <i class="feather icon-file-plus f-28"></i>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   <div class="card-footer bg-c-blue">
-                                        <div class="row align-items-center">
-                                             <div class="col-9">
-                                                  <a href="#" class="text-white m-b-0">Detail</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                              <div class="card">
-                                   <div class="card-body">
-                                        <div class="row align-items-center">
-                                             <div class="col-8">
-                                                  <h4 class="text-c-blue">4</h4>
-                                                  <h6 class="text-muted m-b-0">Data Terbaru</h6>
-                                             </div>
-                                             <div class="col-4 text-right">
-                                                  <i class="feather icon-file-plus f-28"></i>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   <div class="card-footer bg-c-blue">
-                                        <div class="row align-items-center">
-                                             <div class="col-9">
-                                                  <a href="#" class="text-white m-b-0">Detail</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                              <div class="card">
-                                   <div class="card-body">
-                                        <div class="row align-items-center">
-                                             <div class="col-8">
-                                                  <h4 class="text-c-blue">4</h4>
-                                                  <h6 class="text-muted m-b-0">Data Terbaru</h6>
-                                             </div>
-                                             <div class="col-4 text-right">
-                                                  <i class="feather icon-file-plus f-28"></i>
-                                             </div>
-                                        </div>
-                                   </div>
-                                   <div class="card-footer bg-c-blue">
-                                        <div class="row align-items-center">
-                                             <div class="col-9">
-                                                  <a href="#" class="text-white m-b-0">Detail</a>
-                                             </div>
-                                        </div>
-                                   </div>
-                              </div>
-                         </div>
                     </div>
                </div>
                <div class="col-xl-8 col-lg-8 col-md-12">
                     <div class="card latest-update-card">
                          <div class="card-header">
-                              <h5>Jumlah Karyawan Tanggal : <?= date("d-M-Y"); ?></h5>
+                              <h5>Jumlah Karyawan Tanggal (Contractor + Sub Contractor): <?= date("d-M-Y"); ?></h5>
                               <div class="card-header-right">
                                    <div class="btn-group card-option">
                                         <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -204,6 +138,28 @@
                </div>
                <div class="col-xl-4 col-lg-4 col-md-12">
                     <div class="row">
+                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                              <div class="card">
+                                   <div class="card-body">
+                                        <div class="row align-items-center">
+                                             <div class="col-8">
+                                                  <h4 class="text-c-blue"><?= $new_kry ?></h4>
+                                                  <h6 class="text-muted m-b-0">Data Terbaru</h6>
+                                             </div>
+                                             <div class="col-4 text-right">
+                                                  <i class="feather icon-file-plus f-28"></i>
+                                             </div>
+                                        </div>
+                                   </div>
+                                   <div class="card-footer bg-c-blue">
+                                        <div class="row align-items-center">
+                                             <div class="col-9">
+                                                  <a href="<?= base_url('dataterbaru'); ?>" target="_blank" class="text-white m-b-0">Detail</a>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
                          <div class="col-xl-12 col-lg-12 col-md-12">
                               <div class="card latest-update-card">
                                    <div class="card-header">

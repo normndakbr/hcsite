@@ -12,12 +12,14 @@ class Dash extends My_Controller
      public function index()
      {
           $jml_karyawan = $this->dsmod->count_all_karyawan();
+          $new_kry = $this->dsmod->new_emp();
           $jml_user = $this->dsmod->count_all_user();
           $data['nama'] = $this->session->userdata("nama_main");
           $data['email'] = $this->session->userdata("email_main");
           $data['menu'] = $this->session->userdata("id_menu_main");
           $data['jml_karyawan'] = $jml_karyawan;
           $data['jml_user'] = $jml_user;
+          $data['new_kry'] = $new_kry;
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/beranda', $data);
           $this->load->view('dashboard/modal/mdlform');
@@ -32,12 +34,8 @@ class Dash extends My_Controller
 
      public function logout()
      {
-          $this->session->unset_userdata('id_user_main');
-          $this->session->unset_userdata('nama_main');
-          $this->session->unset_userdata('email_main');
-          $this->session->unset_userdata('auth_user_main');
-          $this->session->unset_userdata('id_menu_main');
-          redirect("login");
+          $this->session->sess_destroy();
+          header("location: http://localhost:8080/hcsite");
      }
 
      public function data_grafik()
@@ -117,7 +115,7 @@ class Dash extends My_Controller
 
           echo $query;
      }
-     public function gt_srt_tinggal()
+     public function gt_srt()
      {
           $query = $this->dsmod->get_sertifikasi_grafik();
 
