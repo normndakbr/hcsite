@@ -12,6 +12,7 @@ class Karyawan extends My_Controller
 
      public function index()
      {
+
           $data['nama'] = $this->session->userdata("nama");
           $data['email'] = $this->session->userdata("email");
           $data['menu'] = $this->session->userdata("id_menu");
@@ -25,6 +26,7 @@ class Karyawan extends My_Controller
 
      public function new()
      {
+
           $data['nama'] = $this->session->userdata("nama");
           $data['email'] = $this->session->userdata("email");
           $data['menu'] = $this->session->userdata("id_menu");

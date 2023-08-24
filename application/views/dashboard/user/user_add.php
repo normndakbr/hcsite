@@ -74,14 +74,14 @@
                                              <?= form_error('emailUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
-                                             <label for="emailUser">Sandi :</label>
-                                             <input id='emailUser' name='emailUser' type="password" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('emailUser'); ?>">
-                                             <?= form_error('emailUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
+                                             <label for="sandiUser">Sandi :</label>
+                                             <input id='sandiUser' name='sandiUser' type="password" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('sandiUser'); ?>">
+                                             <?= form_error('sandiUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
                                         <div class="col-lg-3 col-md-6 col-sm-12">
-                                             <label for="emailUser">Ulang Sandi :</label>
-                                             <input id='emailUser' name='emailUser' type="password" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('emailUser'); ?>">
-                                             <?= form_error('emailUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
+                                             <label for="ulangSandi">Konfirmasi Ulang Sandi :</label>
+                                             <input id='ulangSandi' name='ulangSandi' type="password" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('ulangSandi'); ?>">
+                                             <?= form_error('ulangSandi', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
                                         <div class="col-lg-3 col-md-4 col-sm-12">
                                              <label for="tglAktif">Tanggal Aktif :</label>
@@ -93,13 +93,28 @@
                                              <input id='tglExpired' name='tglExpired' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="<?= set_value('tglExpired'); ?>">
                                              <?= form_error('tglExpired', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
-                                        <div class="col-lg-3 col-md-4 col-sm-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
                                              <label for="aksesUser" class="mb-3">Akses Menu :</label>
                                              <select id='aksesUser' name='aksesUser' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
                                                   <option value="">-- Pilih Akses Menu --</option>
-                                                  <option value="0">Admin</option>
+                                                  <?php
+
+                                                  foreach ($data_menu as $lst) {
+                                                       echo "<option value='" . $lst->auth_menu . "'>" . $lst->NamaMenu . "</option>";
+                                                  }
+
+                                                  ?>
                                              </select>
                                              <?= form_error('aksesUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                             <label for="perusahaanUser" class="mb-3">Perusahaan :</label>
+                                             <select id='perusahaanUser' name='perusahaanUser' type="date" autocomplete="off" spellcheck="false" class="form-control form-control-user" value="">
+                                                  <option value="">-- Pilih Perusahaan --</option>
+                                                  <?= $permst . $perstr; ?>
+
+                                             </select>
+                                             <?= form_error('perusahaanUser', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                              <hr class="mb-2">

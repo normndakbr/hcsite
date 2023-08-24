@@ -2,7 +2,7 @@
      $(function() {
           var options = {
                chart: {
-                    height: 635,
+                    height: 764,
                     type: 'bar',
                },
                plotOptions: {
@@ -62,7 +62,7 @@
      $(function() {
           var options = {
                chart: {
-                    height: 250,
+                    height: 230,
                     type: 'bar',
                },
                plotOptions: {
@@ -120,7 +120,7 @@
      $(function() {
           var options = {
                chart: {
-                    height: 250,
+                    height: 230,
                     type: 'bar',
                },
                plotOptions: {
@@ -399,7 +399,7 @@
           );
           chart.render();
 
-          var url = '<?= base_url('dash/gt_srt_tinggal'); ?>';
+          var url = '<?= base_url('dash/gt_srt'); ?>';
           $.getJSON(url, function(response) {
                chart.updateSeries([{
                     name: 'Jml Karyawan : ',

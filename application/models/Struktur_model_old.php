@@ -109,6 +109,8 @@ class Struktur_model extends CI_Model
           return $query->result();
      }
 
+
+
      public function cek_str_per($id_parent, $id_per)
      {
           $query = $this->db->query("SELECT * FROM vw_m_perusahaan WHERE id_parent = " . $id_parent .

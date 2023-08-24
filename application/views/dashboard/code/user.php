@@ -1,6 +1,10 @@
 <script>
     //========================================== User ========================================================
     $(document).ready(function() {
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, '<?= base_url('user/new'); ?>');
+        }
+
         $(".err_psn_user").fadeTo(2000, 500).slideUp(500, function() {
             $(".err_psn_user").slideUp(500);
             " <?= $this->session->set_flashdata('msg', ''); ?>";
@@ -19,25 +23,9 @@
             theme: 'bootstrap4'
         });
 
-        // $.ajax({
-        //     type: "POST",
-        //     url: "<?php base_url("perusahaan/get_all") ?>",
-        //     data: {},
-        //     success: function(data) {
-        //         var data = JSON.parse(data);
-        //         $("#perUser").html(data.prs);
-        //     },
-        //     error: function(xhr, ajaxOptions, thrownError) {
-        //         $.LoadingOverlay("hide");
-        //         $(".err_psn_user").removeClass('d-none');
-        //         $(".err_psn_user").removeClass('alert-info');
-        //         $(".err_psn_user").addClass('alert-danger');
-        //         if (thrownError != "") {
-        //             $(".err_psn_user").html("Terjadi kesalahan saat load data perusahaan, hubungi administrator");
-        //             $("#btnTambahUser").attr("disabled", true);
-        //         }
-        //     }
-        // })
+        $('#perusahaanUser').select2({
+            theme: 'bootstrap4'
+        });
 
         function resetedituser() {
             $("#editUserNama").val('');
@@ -350,7 +338,7 @@
             "serverSide": true,
             "ordering": true,
             "order": [
-                [1, 'asc'],
+                [1, 'desc'],
             ],
             "ajax": {
                 "url": "<?= base_url('user/ajax_list'); ?>",
@@ -393,12 +381,17 @@
                     "width": "1%"
                 },
                 {
-                    "data": 'id_menu',
+                    "data": 'NamaMenu',
                     "className": "text-nowrap align-middle",
                     "width": "10%"
                 },
                 {
                     "data": 'stat_user',
+                    "className": "text-center align-middle",
+                    "width": "1%"
+                },
+                {
+                    "data": 'kode_perusahaan',
                     "className": "text-center align-middle",
                     "width": "1%"
                 },

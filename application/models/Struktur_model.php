@@ -604,7 +604,7 @@ class Struktur_model extends CI_Model
      {
 
           if ($parent !== 0) {
-               $n = $this->db->query("SELECT * from vw_m_perusahaan where id_m_perusahaan=" . $parent);
+               $n = $this->db->query("SELECT * from vw_m_perusahaan where id_m_perusahaan=" . $parent . " order by id_m_perusahaan asc");
                foreach ($n->result() as $h) {
                     if ($h->id_parent == 0) {
                          $nm_per = "";
@@ -616,7 +616,7 @@ class Struktur_model extends CI_Model
                $nm_per = "";
           }
 
-          $w = $this->db->query("SELECT * from vw_m_perusahaan where id_m_perusahaan=" . $parent);
+          $w = $this->db->query("SELECT * from vw_m_perusahaan where id_m_perusahaan=" . $parent . " order by id_m_perusahaan asc");
 
           foreach ($w->result() as $h) {
                $hasil .= "<option value='" . $h->auth_m_perusahaan . "'>" . $h->nama_m_perusahaan . $nm_per . "</option>";
@@ -630,7 +630,7 @@ class Struktur_model extends CI_Model
 
           static $space;
 
-          $w = $this->db->query("SELECT * from vw_m_perusahaan where id_parent='" . $parent . "'");
+          $w = $this->db->query("SELECT * from vw_m_perusahaan where id_parent=" . $parent . " order by id_m_perusahaan asc");
           if (($w->num_rows()) > 0) {
                $space .= "&roarr;";
           }
@@ -640,7 +640,7 @@ class Struktur_model extends CI_Model
                if ($h->id_parent == 0) {
                     $hasil .= "<option value='" . $h->auth_m_perusahaan . "'>" . $h->nama_m_perusahaan . "</option>";
                } else {
-                    $n = $this->db->query("SELECT * from vw_m_perusahaan where id_m_perusahaan=" . $h->id_parent);
+                    $n = $this->db->query("SELECT * from vw_m_perusahaan where id_m_perusahaan=" . $h->id_parent . " order by id_m_perusahaan asc");
                     if (!empty($n->result())) {
                          foreach ($n->result() as $n) {
                               $nm_per = " | " . $n->kode_perusahaan;

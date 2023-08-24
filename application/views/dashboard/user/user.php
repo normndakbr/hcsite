@@ -73,6 +73,7 @@
                                                             <th>Tgl. Expired</th>
                                                             <th>Akses Menu</th>
                                                             <th style="text-align:center;">Status</th>
+                                                            <th style="text-align:center;">Perusahaan</th>
                                                             <th style="text-align:center;">Tgl. Dibuat</th>
                                                             <th style="text-align:center;">Proses</th>
                                                        </tr>
