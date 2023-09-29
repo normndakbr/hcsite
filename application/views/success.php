@@ -51,7 +51,7 @@
           </div>
           <h1>Success</h1>
           <p>Ip Address anda telah terverifikasi;<br /> klik tombol dibawah untuk login</p>
-          <a href="<?= base_url('login'); ?>" class="btn btn-primary font-weight-bold mt-4"> Login </a>
+          <a href="<?= base_url('login_view'); ?>" class="btn btn-primary font-weight-bold mt-4"> Login </a>
 
      </div>
 

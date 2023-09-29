@@ -24,7 +24,7 @@
                <div class="notfound-404">
                     <h1>401</h1>
                </div>
-               <h2>uups! Akses tidak diperbolehkan</h2>
+               <h2>Ups! Akses tidak diperbolehkan</h2>
                <p>Mohon Maaf, ip address anda telah diblokir semetara waktu, silahkan coba login kembali pada pukul : </p>
                <p style="font-size:50px;margin-top:-10px"><strong><?= date('H:i:s', strtotime($waktu)); ?></strong></p>
           </div>

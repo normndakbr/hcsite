@@ -36,14 +36,14 @@ class My_Controller extends CI_Controller
      public function is_logout()
      {
           if ($this->session->userdata("email_main") == "") {
-               header("location: http://localhost:8080/hcsite");
+               redirect('login_view');
           }
      }
 
      public function is_login()
      {
           if ($this->session->userdata("email_main") != "") {
-               header("location: http://localhost:8080/hcsite/dash");
+               redirect('dashboard');
           }
      }
 
@@ -83,8 +83,7 @@ class My_Controller extends CI_Controller
           }
 
           if (in_array($agent2, $OSblock)) {
-               redirect(base_url('errauth'));
-               die;
+               redirect('errauth');
           }
      }
 }
