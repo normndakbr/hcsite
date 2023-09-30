@@ -49,8 +49,33 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'login';
+$route['default_controller'] = 'Dash';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Misc (Unknown)
 $route['karyawan/detail_karyawan/(:any)'] = 'karyawan/detail_karyawan/$1';
+
+// Authentication
+$route['login_view'] = "Login";
+$route['login_process'] = "Login/auth";
+$route['logout'] = "Dash/logout";
+
+// Block
+$route['blokir'] = "Blokir";
+
+// Custom Error
+$route['errauth'] = "ErrAuth";
+
+// Dashboard
+$route['dashboard'] = "Dash";
+
+// Perusahaan
+$route['perusahaan'] = "Perusahaan";
+$route['view_create_perusahaan'] = "Perusahaan/new";
+
+// Karyawan
+$route['karyawan'] = 'Karyawan';
+$route['detail_karyawan/(:any)'] = 'Karyawan/detail_karyawan/$1';
+$route['view_create_karyawan'] = 'Karyawan/tambah_karyawan';
+$route['view_update_karyawan/(:any)'] = 'Karyawan/edit_karyawan/$1';

@@ -78,7 +78,7 @@
                                                        </div>
                                                        <div class="col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
-                                                                 <label class="floating-label" for=addNamaLengkap">Nama Lengkap</label>
+                                                                 <label class="floating-label" for="addNamaLengkap">Nama Lengkap</label>
                                                                  <input id="addNamaLengkap" name="addNamaLengkap" type="text" autocomplete="off" spellcheck="false" class="form-control" value="" required>
                                                                  <small class="errorAddNamaLengkap text-danger font-italic font-weight-bold"></small><br>
                                                             </div>

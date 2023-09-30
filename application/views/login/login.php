@@ -32,7 +32,7 @@
                </div>
           </div>
           <div class="card" style="border-radius: 2%;">
-               <form action="<?= base_url('login/auth'); ?>" method="post">
+               <form action="<?= base_url('login_process'); ?>" method="post">
                     <div class="row">
                          <div class="col-md-12">
                               <div class="card-body">

@@ -20,11 +20,7 @@ class Dash extends My_Controller
           $data['jml_karyawan'] = $jml_karyawan;
           $data['jml_user'] = $jml_user;
           $data['new_kry'] = $new_kry;
-          $this->load->view('dashboard/template/header', $data);
-          $this->load->view('dashboard/beranda', $data);
-          $this->load->view('dashboard/modal/mdlform');
-          $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/all');
+          $this->load->view('dashboard', $data);
      }
 
      public function form_modal()
@@ -35,7 +31,7 @@ class Dash extends My_Controller
      public function logout()
      {
           $this->session->sess_destroy();
-          header("location: http://localhost:8080/hcsite");
+          redirect('login_view');
      }
 
      public function data_grafik()

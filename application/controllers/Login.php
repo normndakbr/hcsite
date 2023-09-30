@@ -6,6 +6,7 @@ class Login extends My_Controller
      public function __construct()
      {
           parent::__construct();
+          $this->cek_device();
           $this->is_login();
      }
 
@@ -37,16 +38,6 @@ class Login extends My_Controller
 
                $this->load->view('login/login', $dtcap);
           }
-     }
-
-     public function reset()
-     {
-          $this->load->view('login/resetlogin');
-     }
-
-     function sukses()
-     {
-          $this->load->view('login/sukseskirim');
      }
 
      function create_captcha()
@@ -115,7 +106,7 @@ class Login extends My_Controller
           }
      }
 
-     public function log_user()
+     function log_user()
      {
           $this->form_validation->set_rules('captcha', 'captcha', 'trim|required', [
                'required' => "Kode wajib diisi",
@@ -173,10 +164,11 @@ class Login extends My_Controller
                                         'id_m_perusahaan_main' => $data->{'id_m_perusahaan'},
                                         'id_perusahaan_main' => $data->{'id_perusahaan'},
                                         'csrf_token_main' => bin2hex(random_bytes(32)),
-                                        'ip_address_main' => $_SERVER['REMOTE_ADDR'],
+                                        'ip_address' => $_SERVER['REMOTE_ADDR'],
                                    );
 
                                    $this->session->set_userdata($session_data);
+
                                    redirect('dash');
                               } else if ($data->{'statusCode'} == 201) {
                                    $dtcap = array(
@@ -209,6 +201,20 @@ class Login extends My_Controller
                                    redirect(base_url('blokir'));
                               }
                          } else {
+                              $dtcap = array(
+                                   'captcha' => $this->create_captcha(),
+                              );
+
+                              $data_err = [
+                                   'email_error' => $email,
+                                   'ip_error' => $_SERVER['REMOTE_ADDR'],
+                                   'ip_akses' => $_SERVER['REMOTE_ADDR'],
+                                   'msg_error' => 'Email tidak ditemukan',
+                                   'tgl_buat' => date('Y-m-d H:i:s'),
+                              ];
+
+                              $err = $this->lgn->get_err_log($data_err);
+
                               $this->session->set_flashdata('pesan', '<div class="pesan alert alert-danger animate__animated animate__bounce" role="alert"> Email tidak ditemukan</div>');
                               $this->load->view('login/login', $dtcap);
                          }

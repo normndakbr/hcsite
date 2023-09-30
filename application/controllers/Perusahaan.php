@@ -14,11 +14,7 @@ class Perusahaan extends My_Controller
           $data['nama'] = $this->session->userdata("nama");
           $data['email'] = $this->session->userdata("email");
           $data['menu'] = $this->session->userdata("id_menu");
-          $this->load->view('dashboard/template/header', $data);
-          $this->load->view('dashboard/perusahaan/perusahaan');
-          $this->load->view('dashboard/modal/perusahaan');
-          $this->load->view('dashboard/template/footer', $data);
-          $this->load->view('dashboard/code/perusahaan');
+          $this->load->view('perusahaan/view', $data);
      }
 
      public function new()
@@ -26,6 +22,7 @@ class Perusahaan extends My_Controller
           $data['nama'] = $this->session->userdata("nama");
           $data['email'] = $this->session->userdata("email");
           $data['menu'] = $this->session->userdata("id_menu");
+          // $this->load->view('perusahaan/create', $data);
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/perusahaan/perusahaan_add');
           $this->load->view('dashboard/template/footer', $data);

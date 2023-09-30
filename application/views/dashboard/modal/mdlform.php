@@ -13,7 +13,7 @@
                </div>
                <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                    <a href="<?= base_url(); ?>dash/logout" type="button" class="btn btn-primary">Keluar</a>
+                    <a href="<?= base_url('logout'); ?>" type="button" class="btn btn-primary">Keluar</a>
                </div>
           </div>
      </div>
