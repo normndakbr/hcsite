@@ -56,12 +56,38 @@
                          <div class="card-body">
                               <div class="mt-3">
                                    <div class="mb-2">
-                                        <a href="<?= base_url('karyawan'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
-                                        <a id="addbtn" href="<?= base_url('karyawan/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
+                                        <a href="<?= base_url('karyawan'); ?>" class="btn btn-warning font-weight-bold"><i class="fas fa-eraser"></i> Reset</a>
+                                        <a id="addRefreshKary" href="#!" class="btn btn-primary font-weight-bold"><i class="fas fa-sync-alt"></i> Refresh</a>
+                                        <a id="addTambahKary" href="<?= base_url('karyawan/new'); ?>" target="_blank" class=" btn btn-primary font-weight-bold"><i class="fas fa-plus"></i> Tambah Data</a>
+                                        <a id="addExportKary" href="<?= base_url('karyawan/new'); ?>" class=" btn btn-primary font-weight-bold"><i class="fas fa-sync-alt"></i> Export Data</a>
                                    </div>
                                    <div class="alert alert-danger err_psn_depart animate__animated animate__bounce d-none"></div>
                               </div>
                               <div class="row">
+
+                                   <?php
+
+                                   if (!$this->session->csrf_token) {
+                                        $this->session->csrf_token = hash("sha1", time());
+                                   }
+
+                                   ?>
+
+                                   <input type="hidden" id="token" name="token" value="<?= $this->session->csrf_token ?>">
+
+                                   <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="alert alert-danger errormsgper animate__animated animate__bounce d-none mb-3"></div>
+                                        <h6 class="mt-3">Pilih Perusahaan Utama<span class="text-danger">*</span></h6>
+                                        <select id='perJenisData' name='perJenisData' class="form-control form-control-user">
+                                             <option value="">-- PILIH PERUSAHAAN --</option>
+                                             <?= $permst . $perstr; ?>
+                                        </select>
+                                        <small class="error1str text-danger font-italic font-weight-bold"></small><br>
+                                   </div>
+                                   <div class="col-lg-6 col-md-8 col-sm-12 ml-4 mb-3">
+                                        <input type="checkbox" class="form-check-input" id="krycekNonaktif">
+                                        <label for="krycekNonaktif" class="form-check-label">Tampilkan karyawan nonaktif</label><br>
+                                   </div>
                                    <div class="col-lg-12">
                                         <div class="table-responsive">
                                              <table id="tbmKaryawan" class="table table-striped table-bordered table-hover text-black" style="width:100%;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
@@ -72,12 +98,10 @@
                                                             <th>Departemen</th>
                                                             <th>Posisi</th>
                                                             <th>Perusahaan</th>
-                                                            <!-- <th style="text-align:center;">Tgl. Dibuat</th> -->
                                                             <th style="text-align:center;">Proses</th>
                                                        </tr>
                                                   </thead>
-                                                  <tbody>
-                                                  </tbody>
+                                                  <tbody></tbody>
                                              </table>
                                         </div>
                                    </div>
