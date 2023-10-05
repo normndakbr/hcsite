@@ -1144,7 +1144,7 @@ class Karyawan_model extends CI_Model
         $result = $this->db->query($query);
         return $result->result_array();
     }
-    
+
     public function read_data_by_id($query)
     {
         $result = $this->db->query($query);

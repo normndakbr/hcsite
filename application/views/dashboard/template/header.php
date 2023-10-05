@@ -145,7 +145,7 @@
                               </ul>
                          </li>
                          <li class="nav-item pcoded-hasmenu">
-                              <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Planggaran</span></a>
+                              <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Pelanggaran</span></a>
                               <ul class="pcoded-submenu">
                                    <li><a href="#!" class="nav-link">Pelanggaran</a></li>
                               </ul>

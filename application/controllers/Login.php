@@ -241,16 +241,6 @@ class Login extends My_Controller
                          'captcha' => $this->create_captcha(),
                     );
 
-                    $data_err = [
-                         'email_error' => $email,
-                         'ip_error' => $_SERVER['REMOTE_ADDR'],
-                         'ip_akses' => $_SERVER['REMOTE_ADDR'],
-                         'msg_error' => 'Refresh Captcha Salah',
-                         'tgl_buat' => date('Y-m-d H:i:s'),
-                    ];
-
-                    $err = $this->lgn->get_err_log($data_err);
-
                     $this->session->set_flashdata('pesan', '<div class="pesan alert alert-danger animate__animated animate__bounce" role="alert">Refresh Kode</div>');
                     $this->load->view('login/login', $dtcap);
                }
