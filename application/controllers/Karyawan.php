@@ -275,4 +275,13 @@ class Karyawan extends My_Controller
                }
           }
      }
+
+     public function getKaryawan()
+     {
+          // POST data
+          $data = $this->input->post();
+          $list = $this->kry->getKaryawan($data);
+
+          echo json_encode($list);
+     }
 }

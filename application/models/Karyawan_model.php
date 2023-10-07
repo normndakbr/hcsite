@@ -434,7 +434,7 @@ class Karyawan_model extends CI_Model
         $auth_m_per = $postData['auth_m_per'];
         // $id_per = $this->prs->get_idp_by_auth($auth_m_per);
         if (isset($postData['search'])) {
-            $records = $this->db->query("SELECT auth_karyawan, auth_m_perusahaan, no_ktp, no_nik, nama_lengkap, depart FROM vw_karyawan WHERE auth_m_perusahaan = '" . $auth_m_per .
+            $records = $this->db->query("SELECT auth_karyawan, auth_m_perusahaan, no_ktp, no_nik, nama_lengkap, depart, posisi FROM vw_karyawan WHERE auth_m_perusahaan = '" . $auth_m_per .
                 "' AND tgl_nonaktif is null AND (no_ktp LIKE '%" . $postData['search'] .
                 "%' OR no_nik like '%" . $postData['search'] .
                 "%' OR nama_lengkap like '%" . $postData['search'] . "%') ORDER BY nama_lengkap ASC")->result();
@@ -445,7 +445,8 @@ class Karyawan_model extends CI_Model
                     "nik" => $row->no_nik,
                     "nama" => $row->nama_lengkap,
                     "depart" => $row->depart,
-                    "label" => $row->no_ktp . " | " . $row->nama_lengkap . " | " . $row->no_nik . " | " . $row->depart
+                    "posisi" => $row->posisi,
+                    "label" => $row->no_ktp . " | " . $row->no_nik . " | " . $row->nama_lengkap . " | " . $row->depart
                 );
             }
         }

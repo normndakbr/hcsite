@@ -59,20 +59,23 @@
                                         <a href="<?= base_url('Pelanggaran'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
                                         <a id="addbtn" href="<?= base_url('Pelanggaran/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
                                    </div>
-                                   <div class="alert alert-danger err_psn_depart animate__animated animate__bounce d-none"></div>
+                                   <?= $this->session->flashdata('msg'); ?>
+                                   <?= $this->session->unset_userdata('msg'); ?>
                               </div>
                               <div class="row">
                                    <div class="col-lg-12">
                                         <div class="table-responsive">
-                                             <table id="tbmdepart" class="table table-striped table-bordered table-hover text-black" style="width:100%;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+                                             <table id="tbmLanggar" class="table table-striped table-bordered table-hover text-black" style="width:100%;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
                                                   <thead>
                                                        <tr class="font-weight-boldtext-white">
                                                             <th style="text-align:center;width:1%;">No.</th>
-                                                            <th>Kode</th>
-                                                            <th>Pelanggaran</th>
-                                                            <th style="text-align:center;">Status</th>
+                                                            <th>NIK</th>
+                                                            <th>Nama Karyawan</th>
+                                                            <th>Departemen</th>
+                                                            <th>Punishment</th>
+                                                            <th>Tgl. Akhir Punish</th>
+                                                            <th>Status</th>
                                                             <th style="text-align:center;">Perusahaan</th>
-                                                            <th style="text-align:center;">Tgl. Dibuat</th>
                                                             <th style="text-align:center;">Proses</th>
                                                        </tr>
                                                   </thead>

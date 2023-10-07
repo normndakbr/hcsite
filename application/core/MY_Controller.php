@@ -29,6 +29,7 @@ class My_Controller extends CI_Controller
           $this->load->model('Vaksin_Nama_model', 'vnma');
           $this->load->model('Databaru_model', 'dtbaru');
           $this->load->model('Menu_model', 'mnu');
+          $this->load->model('Pelanggaran_model', 'lgr');
           $this->load->helper('url', 'form', 'captcha');
           $this->load->library('form_validation', 'session', 'user_agent');
      }
