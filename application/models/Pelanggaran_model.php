@@ -136,32 +136,28 @@ class Pelanggaran_model extends CI_Model
           return $query->result();
      }
 
-     public function edit_langgar($kd_langgar, $langgar, $ket_langgar, $status)
+     public function edit_langgar($authlgr, $namafile)
      {
-          $id_perusahaan = $this->session->userdata('id_perusahaan');
-          $id_langgar = $this->session->userdata('id_langgar');
-
-          $query = $this->db->query("SELECT * FROM tb_langgar WHERE kd_langgar='" . $kd_langgar . "' AND id_perusahaan=" . $id_perusahaan . " AND id_langgar <> " . $id_langgar);
-          if (!empty($query->result())) {
-               return 203;
-          }
-
-          $query = $this->db->query("SELECT * FROM tb_langgar WHERE langgar='" . $langgar . "' AND id_perusahaan=" . $id_perusahaan . " AND id_langgar <> " . $id_langgar);
-          if (!empty($query->result())) {
-               return 204;
-          }
-
-          $this->db->set('kd_langgar', $kd_langgar);
-          $this->db->set('langgar', $langgar);
-          $this->db->set('ket_langgar', $ket_langgar);
-          $this->db->set('stat_langgar', $status);
+          $id_langgar = $this->get_id_lgr_auth($authlgr);
+          $this->db->set('url_langgar', $namafile);
           $this->db->set('tgl_edit', date('Y-m-d H:i:s'));
           $this->db->where('id_langgar', $id_langgar);
           $this->db->update('tb_langgar');
           if ($this->db->affected_rows() > 0) {
-               return 200;
+               return true;
           } else {
-               return 201;
+               return false;
+          }
+     }
+
+     public function update_langgar($dt_lgr, $authlgr)
+     {
+          $id_langgar = $this->get_id_lgr_auth($authlgr);
+          $this->db->update('tb_langgar', $dt_lgr, array('id_langgar' => $id_langgar));
+          if ($this->db->affected_rows() > 0) {
+               return true;
+          } else {
+               return false;
           }
      }
 

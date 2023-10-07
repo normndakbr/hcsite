@@ -53,10 +53,12 @@
                                    </div>
                               </div>
                          </div>
-                         <form action="<?= base_url('pelanggaran/update') ?>">
+                         <form action="<?= base_url('pelanggaran/update') ?>" method="POST">
                               <div class="card-body">
                                    <div class="row">
                                         <div class="col-lg-12">
+                                             <?= $this->session->flashdata('msg'); ?>
+                                             <?= $this->session->unset_userdata('msg'); ?>
                                              <div class="row">
                                                   <?php
 
@@ -80,80 +82,77 @@
                                                        <input id='txtCariKaryLgrEdit' name='txtCariKaryLgrEdit' type="text" autocomplete="off" spellcheck="false" class="form-control" placeholder="Ketikkan No. KTP/ NIK / Nama Karyawan" value="">
                                                        <input type="hidden" id="authLgrEdit" name="authLgrEdit" value="<?= $langgar['auth_langgar']; ?>" readonly></small>
                                                        <input type="hidden" id="authkary" name="authkary" value="<?= $langgar['auth_kary']; ?>" readonly></small>
-                                                       <small class="error2 text-danger font-italic font-weight-bold"></small>
-                                                       <?= form_error('authKTPKaryLanggar', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
+                                                       <?= form_error('authkary', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-3 col-sm-12">
                                                        <label for="">No. KTP :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['no_nik']; ?>" readonly></small><br>
+                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['no_nik']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-3 col-sm-12">
                                                        <label for="">NIK :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['no_nik']; ?>" readonly></small><br>
+                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['no_nik']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-6 col-md-6 col-sm-12">
                                                        <label for="">Nama Karyawan :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['nama_lengkap']; ?>" readonly></small><br>
+                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['nama_lengkap']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-6 col-md-6 col-sm-12">
                                                        <label for="">Departemen :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['depart']; ?>" readonly></small><br>
+                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['depart']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-6 col-md-6 col-sm-12">
                                                        <label for="">Posisi :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['posisi']; ?>" readonly></small><br>
+                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['posisi']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-6 col-sm-12">
                                                        <label for="tglLgrEdit">Tgl Pelanggaran :</label><br>
-                                                       <input type="date" id="tglLgrEdit" name="tglLgrEdit" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['tgl_langgar']; ?>"><br>
+                                                       <input type="date" id="tglLgrEdit" name="tglLgrEdit" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['tgl_langgar']; ?>">
+                                                       <?= form_error('tglLgrEdit', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-6 col-sm-12">
                                                        <label for="tglPunishLgrEdit">Tgl. Punishment :</label><br>
-                                                       <input type="date" id="tglPunishLgrEdit" name="tglPunishLgrEdit" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['tgl_punishment']; ?>"><br>
+                                                       <input type="date" id="tglPunishLgrEdit" name="tglPunishLgrEdit" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['tgl_punishment']; ?>">
+                                                       <?= form_error('tglPunishLgrEdit', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-6 col-sm-12">
-                                                       <label for="jenisLgrEdit" style="margin-bottom:15px;">Punishment :</label><br>
+                                                       <label for="jenisLgrEdit" style="margin-bottom:15px;">Jenis Punishment :</label><br>
                                                        <select type="text" id="jenisLgrEdit" name="jenisLgrEdit" autocomplete="off" spellcheck="false" class="form-control" value="">
                                                             <?php
                                                             echo "<option value=''>-- PILIH PUNISHMENT --</option>";
 
                                                             if (!empty($langgar_jenis)) {
-                                                                 foreach ($langgar_jenis as $list) {
-                                                                      echo "<option value='" . $list->auth_langgar_jenis . "' " . set_select('jenisLgrEdit', $langgar['auth_langgar_jenis'], False) . ">" . $list->langgar_jenis . "</option>";
-                                                                 }
+                                                                 foreach ($langgar_jenis as $list) { ?>
+                                                                      <option value='<?= $list->auth_langgar_jenis; ?>' <?= $langgar['auth_langgar_jenis'] == $list->auth_langgar_jenis ? 'selected' : ''  ?>><?= $list->langgar_jenis; ?></option>";
+                                                            <?php }
                                                             } else {
                                                                  echo "<option value=''>-- PUNISHMENT TIDAK ADA --</option>";
                                                             }
 
                                                             ?>
-                                                       </select><br>
+                                                       </select>
+                                                       <?= form_error('jenisLgrEdit', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-6 col-sm-12">
                                                        <label for="tglAkhirPunishLgrEdit">Tgl. Akhir Punishment :</label><br>
-                                                       <input type="date" id="tglAkhirPunishLgrEdit" name="tglAkhirPunishLgrEdit" autocomplete="off" spellcheck="false" class="form-control bg-white" value="<?= $langgar['tgl_akhir_langgar']; ?>"><br>
+                                                       <input type="date" id="tglAkhirPunishLgrEdit" name="tglAkhirPunishLgrEdit" autocomplete="off" spellcheck="false" class="form-control bg-white" value="<?= $langgar['tgl_akhir_langgar']; ?>">
+                                                       <?= form_error('tglAkhirPunishLgrEdit', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                                   </div>
                                                   <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                                                        <label for="ketLgrEdit">Keterangan :</label><br>
                                                        <textarea id="ketLgrEdit" name="ketLgrEdit" autocomplete="off" spellcheck="false" class="form-control bg-white"><?= $langgar['ket_langgar']; ?></textarea>
+                                                       <?= form_error('ketLgrEdit', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                                   </div>
                                                   <div class="col-lg-12 col-md-12 col-sm-12">
-                                                       <label for=""><span class="text-danger font-weight-bold font-italic">* </span>Berkas Punishment <span class="text-danger font-weight-bold font-italic">(Berkas dengan format pdf, ukuran maksimal 100 kb)</span> :</label>
-                                                       <input id='berkasPunishEdit' name='berkasPunishEdit' type="file" class="form-control-file">
-                                                       <small id="error8" class="text-danger font-italic font-weight-bold"></small>
-                                                       <?= form_error('berkasPunishEdit', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?>
-                                                       <?php
-                                                       if (!empty($err_upl)) {
-                                                            echo "<small class='text-danger font-italic font-weight-bold'>" . $err_upl . "</small>";
-                                                       }
-                                                       ?><br>
+                                                       <a href="<?= $langgar['url_langgar'] ?>" target="_blank" id="btnBerkasTampil" name="btnBerkasTampil" type="button" class="btn font-weight-bold btn-primary">Berkas Punishment</a>
+                                                       <button id="btnGantiBerkas" name="btnGantiBerkas" type="button" class="btn font-weight-bold btn-success">Ganti Berkas Punishment</button>
                                                   </div>
                                              </div>
                                         </div>
                                    </div>
                               </div>
                               <div class="modal-footer d-flex justify-align-content-end p-2" style="margin-top:5px;">
-                                   <button type="submit" id="btnUpdate" type="button" class="btn font-weight-bold btn-success">Update</button>
-                                   <button id="btnSelesai" type="button" class="btn font-weight-bold btn-danger">Selesai</button>
+                                   <button type="submit" type="button" class="btn font-weight-bold btn-primary">Update</button>
+                                   <button id="btnSelesai" name="btnSelesai" type="button" class="btn font-weight-bold btn-danger">Selesai</button>
                               </div>
                          </form>
                     </div>
@@ -161,4 +160,48 @@
           </div>
      </div>
 </div>
+</div>
+<div class="modal fade" id="editBerkasPunishment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+     <div class="modal-dialog modal-dialog-centered" role="document" style="margin-left: auto; margin-right: auto;max-width:60%;">
+          <div class="modal-content">
+               <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-white" id="exampleModalLabel">Ganti Berkas Punishment</h5>
+               </div>
+               <div style="background-color:rgba(240,240,240,1);" class="modal-body">
+                    <div class="row">
+                         <div class="alert alert-danger err_psn_edit_berkas animate__animated animate__bounce d-none"></div>
+                         <input id='authlanggarberkas' name='authlanggarberkas' type="hidden" value="">
+                         <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                              <label for="">Perusahaan :</label><br>
+                              <input type="text" autocomplete="off" spellcheck="false" class="form-control bg-white" value="<?= $langgar['kode_perusahaan'] . " | " . $langgar['nama_perusahaan']; ?>" readonly></small><br>
+                         </div>
+                         <div class="col-lg-12 col-md-12 col-sm-12">
+                              <hr>
+                         </div>
+                         <div class="col-lg-3 col-md-3 col-sm-12">
+                              <label for="">No. KTP :</label><br>
+                              <input type="text" autocomplete="off" spellcheck="false" class="form-control bg-white" value="<?= $langgar['no_nik']; ?>" readonly></small><br>
+                              <small id="erroredit1" class="text-danger font-italic font-weight-bold"></small><br>
+                         </div>
+                         <div class="col-lg-3 col-md-3 col-sm-12">
+                              <label for="">NIK :</label><br>
+                              <input type="text" autocomplete="off" spellcheck="false" class="form-control bg-white" value="<?= $langgar['no_nik']; ?>" readonly></small><br>
+                         </div>
+                         <div class="col-lg-6 col-md-6 col-sm-12">
+                              <label for="">Nama Karyawan :</label><br>
+                              <input type="text" autocomplete="off" spellcheck="false" class="form-control bg-white" value="<?= $langgar['nama_lengkap']; ?>" readonly></small><br>
+                         </div>
+                         <div class="col-lg-12 col-md-12 col-sm-12">
+                              <label for=""><span class="text-danger font-weight-bold font-italic">* </span>Berkas Punishment <span class="text-danger font-weight-bold font-italic">(Berkas dengan format pdf, ukuran maksimal 100 kb)</span> :</label>
+                              <input id='berkasPunishEdit' name='berkasPunishEdit' type="file" class="form-control-file">
+                              <small id="erroredit2" class="text-danger font-italic font-weight-bold"></small><br>
+                         </div>
+                    </div>
+               </div>
+               <div class="modal-footer d-flex justify-content-end p-2" style="margin-top:10px;">
+                    <button type="button" id="btnUploadBerkas" id="btnUploadBerkas" class="btn font-weight-bold btn-primary">Upload Berkas</button>
+                    <button type="button" data-dismiss="modal" class="btn font-weight-bold btn-danger">Batal</button>
+               </div>
+          </div>
+     </div>
 </div>

@@ -216,7 +216,7 @@ class Pelanggaran extends My_Controller
                $id_kary = $this->kry->get_id_karyawan($authKTPKaryLanggar);
                $foldername = md5($id_kary);
                $now = date('YmdHis');
-               $nama_file = $now . "-PNS.pdf";
+               $nama_file = $now . "-LGR.pdf";
 
                $data = [
                     'id_kary' => $id_kary,
@@ -262,9 +262,9 @@ class Pelanggaran extends My_Controller
                     $this->load->view('dashboard/code/pelanggaran');
                }
 
-               // if (is_dir('./berkas/karyawan/' . $foldername) == false) {
-               //      mkdir('./berkas/karyawan/' . $foldername, 0775, TRUE);
-               // }
+               if (is_dir('./berkas/karyawan/' . $foldername) == false) {
+                    mkdir('./berkas/karyawan/' . $foldername, 0775, TRUE);
+               }
 
                // if (is_dir('./berkas/karyawan/' . $foldername)) {
                //      $config['upload_path'] = './berkas/karyawan/' . $foldername;
@@ -274,45 +274,45 @@ class Pelanggaran extends My_Controller
 
                //      $this->load->library('upload', $config);
 
-               //      if (!$this->upload->do_upload($_FILES['berkasPunish']['name'])) {
-               //           $err = $this->upload->display_errors();
-               //           if ($err == "<p>The file you are attempting to upload is larger than the permitted size.</p>") {
-               //                $error = "<p>Ukuran file maksimal 100 kb.</p>";
-               //           } else if ($err == "<p>The filetype you are attempting to upload is not allowed.</p>") {
-               //                $error = "<p>Format file nya dalam bentuk pdf</p>";
-               //           } else if ($err == "<p>You did not select a file to upload.</p>") {
-               //                $error = "<p>Tidak ada file yang dipilih</p>";
-               //           } else {
-               //                $error = $err;
-               //           }
+               // if (!$this->upload->do_upload($_FILES['berkasPunish']['name'])) {
+               //      $err = $this->upload->display_errors();
+               //      if ($err == "<p>The file you are attempting to upload is larger than the permitted size.</p>") {
+               //           $error = "<p>Ukuran file maksimal 100 kb.</p>";
+               //      } else if ($err == "<p>The filetype you are attempting to upload is not allowed.</p>") {
+               //           $error = "<p>Format file nya dalam bentuk pdf</p>";
+               //      } else if ($err == "<p>You did not select a file to upload.</p>") {
+               //           $error = "<p>Tidak ada file yang dipilih</p>";
+               //      } else {
+               //           $error = $err;
+               //      }
 
-               //           if ($this->session->has_userdata('id_m_perusahaan_main')) {
-               //                $idmper = $this->session->userdata('id_m_perusahaan_main');
-               //                if ($idmper != "") {
-               //                     $data['permst'] = $this->str->getMaster($idmper, "");
-               //                     $data['perstr'] = $this->str->getMenu($idmper, "");
-               //                } else {
-               //                     $data['permst'] = "";
-               //                     $data['perstr'] = "";
-               //                }
+               //      if ($this->session->has_userdata('id_m_perusahaan_main')) {
+               //           $idmper = $this->session->userdata('id_m_perusahaan_main');
+               //           if ($idmper != "") {
+               //                $data['permst'] = $this->str->getMaster($idmper, "");
+               //                $data['perstr'] = $this->str->getMenu($idmper, "");
                //           } else {
-               //                $idmper = "";
                //                $data['permst'] = "";
                //                $data['perstr'] = "";
                //           }
-               //           $data['nama'] = $this->session->userdata("nama");
-               //           $data['email'] = $this->session->userdata("email");
-               //           $data['menu'] = $this->session->userdata("id_menu");
-               //           $data['langgar_jenis'] = $this->lgr->get_data_punish();
-               //           $data['err_upl'] = $error;
-               //           $this->load->view('dashboard/template/header', $data);
-               //           $this->load->view('dashboard/pelanggaran/pelanggaran_add');
-               //           $this->load->view('dashboard/modal/mdlform');
-               //           $this->load->view('dashboard/template/footer', $data);
-               //           $this->load->view('dashboard/code/pelanggaran');
                //      } else {
-
+               //           $idmper = "";
+               //           $data['permst'] = "";
+               //           $data['perstr'] = "";
                //      }
+               //      $data['nama'] = $this->session->userdata("nama");
+               //      $data['email'] = $this->session->userdata("email");
+               //      $data['menu'] = $this->session->userdata("id_menu");
+               //      $data['langgar_jenis'] = $this->lgr->get_data_punish();
+               //      $data['err_upl'] = $error;
+               //      $this->load->view('dashboard/template/header', $data);
+               //      $this->load->view('dashboard/pelanggaran/pelanggaran_add');
+               //      $this->load->view('dashboard/modal/mdlform');
+               //      $this->load->view('dashboard/template/footer', $data);
+               //      $this->load->view('dashboard/code/pelanggaran');
+               // } else {
+
+               // }
                // }
           }
      }
@@ -388,12 +388,10 @@ class Pelanggaran extends My_Controller
 
                foreach ($query as $list) {
 
-                    $tglnow = date('Y-m-d');
-                    $tglakhir = date('Y-m-d', strtotime($list->tgl_akhir_langgar));
-                    if ($tglnow < $tglakhir) {
-                         $status = "AKTIF";
+                    if ($list->url_langgar == "") {
+                         $url_langgar = "";
                     } else {
-                         $status = "NONAKTIF";
+                         $url_langgar = base_url('pelanggaran/berkas/') . $list->auth_langgar;
                     }
 
                     $data_lgr = [
@@ -409,6 +407,7 @@ class Pelanggaran extends My_Controller
                          'nama_lengkap' => $list->nama_lengkap,
                          'depart' => $list->depart,
                          'posisi' => $list->posisi,
+                         'url_langgar' =>  $url_langgar,
                          'tgl_langgar' => date('Y-m-d', strtotime($list->tgl_langgar)),
                          'tgl_punishment' => date('Y-m-d', strtotime($list->tgl_punishment)),
                          'kode_langgar_jenis' => $list->kode_langgar_jenis,
@@ -417,9 +416,6 @@ class Pelanggaran extends My_Controller
                          'ket_langgar' => $list->ket_langgar,
                     ];
                }
-
-               // echo json_encode([$data_lgr]);
-               // return;
 
                $data['nama'] = $this->session->userdata("nama");
                $data['email'] = $this->session->userdata("email");
@@ -435,61 +431,162 @@ class Pelanggaran extends My_Controller
 
      public function update()
      {
-          $this->form_validation->set_rules("kode", "kode", "required|trim|max_length[8]", [
-               'required' => 'Kode wajib diisi',
-               'max_length' => 'Kode maksimal 8 karakter'
+          $this->form_validation->set_rules("authLgrEdit", "authLgrEdit", "required|trim", [
+               'required' => 'Data pelanggaran tidak ditemukan'
           ]);
-          $this->form_validation->set_rules("langgar", "langgar", "required|trim|max_length[100]", [
-               'required' => 'Pelanggaran wajib diisi',
-               'max_length' => 'Pelanggaran maksimal 100 karakter'
+          $this->form_validation->set_rules("authkary", "authkary", "required|trim", [
+               'required' => 'Karyawan wajib dipilih',
           ]);
-          $this->form_validation->set_rules("ket", "ket", "trim|max_length[1000],[
-               'max_length' => 'Keterangan maksimal 1000 karakter'
-          ]");
-          $this->form_validation->set_rules("status", "status", "required|trim", [
-               'required' => 'Status wajib dipilih'
+          $this->form_validation->set_rules("tglLgrEdit", "tglLgrEdit", "required|trim", [
+               'required' => 'Tanggal pelanggaran wajib diisi',
+          ]);
+          $this->form_validation->set_rules("tglPunishLgrEdit", "tglPunishLgrEdit", "required|trim", [
+               'required' => 'Tanggal punishment wajib diisi',
+          ]);
+          $this->form_validation->set_rules("jenisLgrEdit", "jenisLgrEdit", "required|trim", [
+               'required' => 'Jenis punishment wajib dipilih',
+          ]);
+          $this->form_validation->set_rules("tglAkhirPunishLgrEdit", "tglAkhirPunishLgrEdit", "required|trim", [
+               'required' => 'Tanggal akhir punisment wajib diisi',
+          ]);
+          $this->form_validation->set_rules("ketLgrEdit", "ketLgrEdit", "required|trim|max_length[2500]", [
+               'required' => 'Keterangan pelanggaran wajib diisi',
+               'max_length' => 'Keterangan maksimal 2500 karakter'
+          ]);
+
+          if ($this->form_validation->run() == false) {
+               $authLgrEdit = htmlspecialchars($this->input->post("authLgrEdit", true));
+               redirect(base_url('pelanggaran/edit/') . $authLgrEdit);
+          } else {
+               $authLgrEdit = htmlspecialchars($this->input->post("authLgrEdit", true));
+               $authkary = htmlspecialchars($this->input->post("authkary", true));
+               $tglLgrEdit = htmlspecialchars($this->input->post("tglLgrEdit", true));
+               $tglPunishLgrEdit = htmlspecialchars($this->input->post("tglPunishLgrEdit", true));
+               $jenisLgrEdit = htmlspecialchars($this->input->post("jenisLgrEdit", true));
+               $tglAkhirPunishLgrEdit = htmlspecialchars($this->input->post("tglAkhirPunishLgrEdit", true));
+               $ketLgrEdit = htmlspecialchars($this->input->post("ketLgrEdit", true));
+               $id_jenis = $this->lgr->get_id_by_auth($jenisLgrEdit);
+               $id_kary = $this->kry->get_id_karyawan($authkary);
+
+               $dt_lgr = [
+                    'id_kary' => $id_kary,
+                    'tgl_langgar' => $tglLgrEdit,
+                    'tgl_punishment' => $tglPunishLgrEdit,
+                    'id_langgar_jenis' => $id_jenis,
+                    'ket_langgar' => $ketLgrEdit,
+                    'url_langgar' => '',
+                    'tgl_akhir_langgar' => $tglAkhirPunishLgrEdit,
+                    'tgl_edit' => date('Y-m-d H:i:s'),
+               ];
+
+               $langgar = $this->lgr->update_langgar($dt_lgr,  $authLgrEdit);
+               if ($langgar) {
+                    $this->session->set_flashdata('msg', '<div class="err_psn_langgar_add alert alert-info animate__animated animate__bounce"> Data pelanggaran berhasil diupdate </div>');
+                    redirect('pelanggaran');
+               } else if ($langgar == 201) {
+                    $this->session->set_flashdata('msg', '<div class="err_psn_langgar_add alert alert-danger animate__animated animate__bounce"> Pelanggaran gagal diupdate </div>');
+                    redirect(base_url('pelanggaran/edit/') . $authLgrEdit);
+               }
+          }
+     }
+
+     public function uploadberkas()
+     {
+
+          $this->form_validation->set_rules("berkaslgr", "berkaslgr", "required|trim", [
+               'required' => 'Berkas punishment wajib diupload'
+          ]);
+          $this->form_validation->set_rules("authlgr", "authlgr", "required|trim", [
+               'required' => 'Karyawan tidak ditemukan'
           ]);
 
           if ($this->form_validation->run() == false) {
                $error = [
                     'statusCode' => 202,
-                    'kode' => form_error("kode"),
-                    'langgar' => form_error("langgar"),
-                    'status' => form_error("status")
+                    'berkaslgr' => form_error("berkaslgr"),
+                    'authlgr' => form_error("authlgr")
                ];
 
                echo json_encode($error);
                die;
           } else {
-               if ($this->session->userdata('id_perusahaan') == "") {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "Perusahaan tidak terdaftar"));
-                    return;
+               $authlgr = htmlspecialchars($this->input->post("authlgr", true));
+               $dtlanggar = $this->lgr->data_langgar($authlgr);
+
+               if (!empty($dtlanggar)) {
+                    foreach ($dtlanggar as $list) {
+                         $id_personal = $list->id_personal;
+                    }
+
+                    $foldername = md5($id_personal);
+                    if (is_dir("berkas/karyawan/" . $foldername)) {
+                         $namafile = date('YmdHis') . "-LGR.pdf";
+
+                         $config['upload_path'] = './berkas/karyawan/' . $foldername;
+                         $config['allowed_types'] = 'pdf';
+                         $config['max_size'] = 100;
+                         $config['file_name'] = $namafile;
+
+                         $this->load->library('upload', $config);
+                         if (!$this->upload->do_upload('berkasPunishEdit')) {
+                              $err = $this->upload->display_errors();
+                              if ($err == "<p>The file you are attempting to upload is larger than the permitted size.</p>") {
+                                   $error = "<p>Ukuran file maksimal 100 kb.</p>";
+                              } else if ($err == "<p>The filetype you are attempting to upload is not allowed.</p>") {
+                                   $error = "<p>Format file nya dalam bentuk pdf</p>";
+                              } else if ($err == "<p>You did not select a file to upload.</p>") {
+                                   $error = "<p>Tidak ada file yang dipilih</p>";
+                              } else {
+                                   $error = $err;
+                              }
+
+                              $error_msg = [
+                                   'statusCode' => 202,
+                                   'berkaslgr' => $error,
+                                   'authlgr' => "",
+                              ];
+
+                              echo json_encode($error_msg);
+                              die;
+                         } else {
+                              $langgar = $this->lgr->edit_langgar($authlgr, $namafile);
+                              if ($langgar) {
+                                   echo json_encode(array("statusCode" => 200, "pesan" => "Berkas punishment berhasil diganti", "brks" => base_url('pelanggaran/berkas/') . $authlgr));
+                                   return;
+                              } else {
+                                   echo json_encode(array("statusCode" => 201, "pesan" => "Berkas punishment gagal diganti"));
+                                   return;
+                              }
+                         }
+                    } else {
+                         echo json_encode(array("statusCode" => 201, "pesan" => "Folder tidak ditemukan"));
+                         return;
+                    }
+               }
+          }
+     }
+
+
+     function berkas($auth_langgar)
+     {
+          $dtlanggar = $this->lgr->data_langgar($auth_langgar);
+
+          if (!empty($dtlanggar)) {
+               foreach ($dtlanggar as $list) {
+                    $url_file = $list->url_langgar;
+                    $id_personal = $list->id_personal;
                }
 
-               if ($this->session->userdata('id_langgar') == "") {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "Pelanggaran tidak ditemukan"));
-                    return;
-               }
-
-               $kd_langgar = htmlspecialchars($this->input->post("kode", true));
-               $langgar = htmlspecialchars($this->input->post("langgar", true));
-               $ket_langgar = htmlspecialchars($this->input->post("ket", true));
-               if (htmlspecialchars($this->input->post("status", true)) == "AKTIF") {
-                    $status = "T";
+               $foldername = md5($id_personal);
+               if (is_file("berkas/karyawan/" . $foldername . "/" . $url_file)) {
+                    $tofile = realpath("berkas/karyawan/" . $foldername . "/" . $url_file);
+                    header('Content-Type: application/pdf');
+                    readfile($tofile);
                } else {
-                    $status = "F";
+                    redirect('karyawan/error404');
                }
-
-               $langgar = $this->lgr->edit_langgar($kd_langgar, $langgar, $ket_langgar, $status);
-               if ($langgar == 200) {
-                    echo json_encode(array("statusCode" => 200, "pesan" => "Pelanggaran berhasil diupdate"));
-               } else if ($langgar == 201) {
-                    echo json_encode(array("statusCode" => 201, "pesan" => "Pelanggaran gagal diupdate"));
-               } else if ($langgar == 203) {
-                    echo json_encode(array("statusCode" => 203, "pesan" => "Kode sudah digunakan"));
-               } else if ($langgar == 204) {
-                    echo json_encode(array("statusCode" => 205, "pesan" => "Pelanggaran sudah digunakan"));
-               }
+          } else {
+               redirect('karyawan/error404');
           }
      }
 
