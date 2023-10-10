@@ -14,11 +14,13 @@ class Dash extends My_Controller
           $jml_karyawan = $this->dsmod->count_all_karyawan();
           $new_kry = $this->dsmod->new_emp();
           $jml_user = $this->dsmod->count_all_user();
+          $jml_lgr_aktif = $this->dsmod->get_langgar_aktif();
           $data['nama'] = $this->session->userdata("nama_main");
           $data['email'] = $this->session->userdata("email_main");
           $data['menu'] = $this->session->userdata("id_menu_main");
           $data['jml_karyawan'] = $jml_karyawan;
           $data['jml_user'] = $jml_user;
+          $data['jml_lgr_aktif'] = $jml_lgr_aktif;
           $data['new_kry'] = $new_kry;
           $this->load->view('dashboard', $data);
      }

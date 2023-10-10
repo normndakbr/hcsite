@@ -19,6 +19,12 @@ class Dash_model extends CI_Model
           return $this->db->get_where('vw_karyawan', ['tgl_nonaktif' => null])->num_rows();
      }
 
+     public function get_langgar_aktif()
+     {
+          $now = date('Y-m-d');
+          return $this->db->get_where('vw_langgar', ['tgl_akhir_langgar >' => $now])->num_rows();
+     }
+
      public function new_emp()
      {
           $tglnowstart = date('Y-m-d 00:00:00');
