@@ -15,9 +15,17 @@ class Pelanggaran_model extends CI_Model
           $this->load->database();
      }
 
-     private function _get_datatables_query()
+     private function _get_datatables_query($auth_per)
      {
 
+          // $dtper = $this->str->get_id_per($auth_per);
+          // if (!empty($dtper)) {
+          //      $id_m_perusahaan = $dtper;
+          // } else {
+          //      $id_m_perusahaan = 0;
+          // }
+
+          $this->db->where(['auth_m_per' => $auth_per]);
           $this->db->from($this->table);
 
           $i = 0;
@@ -50,18 +58,18 @@ class Pelanggaran_model extends CI_Model
           }
      }
 
-     function get_datatables()
+     function get_datatables($auth_per)
      {
-          $this->_get_datatables_query();
+          $this->_get_datatables_query($auth_per);
           if ($_POST['length'] != -1)
                $this->db->limit($_POST['length'], $_POST['start']);
           $query = $this->db->get();
           return $query->result();
      }
 
-     function count_filtered()
+     function count_filtered($auth_per)
      {
-          $this->_get_datatables_query();
+          $this->_get_datatables_query($auth_per);
           $query = $this->db->get();
           return $query->num_rows();
      }
@@ -225,6 +233,46 @@ class Pelanggaran_model extends CI_Model
                return $id_langgar;
           } else {
                return;
+          }
+     }
+
+     public function cek_data($id_kary, $id_jenis)
+     {
+          $query = $this->db->get_where('vw_langgar', ['id_kary' => $id_kary, 'id_langgar_jenis' => $id_jenis]);
+          if (!empty($query->result())) {
+               foreach ($query->result() as $list) {
+                    $tglnow = date('Y-m-d');
+                    $tgl_akhir_langgar = $list->tgl_akhir_langgar;
+               }
+
+               if ($tgl_akhir_langgar >= $tglnow) {
+                    return true;
+               } else {
+                    return false;
+               }
+          } else {
+               return false;
+          }
+     }
+
+     public function cek_data_edit($id_kary, $id_jenis, $authLgr)
+     {
+          $this->db->query("SELECT * FROM vw_langgar WHERE id_kary=" . $id_kary . " AND id_langgar_jenis=" . $id_jenis . " AND auth_langgar <> '" . $authLgr . "'");
+          $this->db->from('vw_langgar');
+          $query = $this->db->get();
+          if (!empty($query->result())) {
+               foreach ($query->result() as $list) {
+                    $tglnow = date('Y-m-d');
+                    $tgl_akhir_langgar = $list->tgl_akhir_langgar;
+               }
+
+               if ($tgl_akhir_langgar >= $tglnow) {
+                    return true;
+               } else {
+                    return false;
+               }
+          } else {
+               return false;
           }
      }
 }

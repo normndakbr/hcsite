@@ -80,29 +80,30 @@
                                                   <div class="col-lg-12 col-md-12 col-sm-12">
                                                        <label for="txtCariKaryLgrEdit"><span class="text-danger font-weight-bold font-italic">* </span> Cari Karyawan (Ketikkan No. KTP/ NIK / Nama Karyawan) :</label>
                                                        <input id='txtCariKaryLgrEdit' name='txtCariKaryLgrEdit' type="text" autocomplete="off" spellcheck="false" class="form-control" placeholder="Ketikkan No. KTP/ NIK / Nama Karyawan" value="">
-                                                       <input type="hidden" id="authLgrEdit" name="authLgrEdit" value="<?= $langgar['auth_langgar']; ?>" readonly></small>
-                                                       <input type="hidden" id="authkary" name="authkary" value="<?= $langgar['auth_kary']; ?>" readonly></small>
+                                                       <input type="hidden" id="authprsLgrEdit" name="authprsLgrEdit" value="<?= $langgar['auth_m_per']; ?>"></small>
+                                                       <input type="hidden" id="authLgrEdit" name="authLgrEdit" value="<?= $langgar['auth_langgar']; ?>"></small>
+                                                       <input type="hidden" id="authkary" name="authkary" value="<?= $langgar['auth_kary']; ?>"></small>
                                                        <?= form_error('authkary', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-3 col-sm-12">
                                                        <label for="">No. KTP :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['no_nik']; ?>" readonly><br>
+                                                       <input id="txtKTPKaryLgrEdit" name="txtKTPKaryLgrEdit" type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['no_nik']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-3 col-sm-12">
                                                        <label for="">NIK :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['no_nik']; ?>" readonly><br>
+                                                       <input id="txtNIKKaryLgrEdit" name="txtNIKKaryLgrEdit" type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['no_nik']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-6 col-md-6 col-sm-12">
                                                        <label for="">Nama Karyawan :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['nama_lengkap']; ?>" readonly><br>
+                                                       <input id="txtNamaKaryLgrEdit" name="txtNamaKaryLgrEdit" type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['nama_lengkap']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-6 col-md-6 col-sm-12">
                                                        <label for="">Departemen :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['depart']; ?>" readonly><br>
+                                                       <input id="txtDepartKaryLgrEdit" name="txtDepartKaryLgrEdit" type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['depart']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-6 col-md-6 col-sm-12">
                                                        <label for="">Posisi :</label><br>
-                                                       <input type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['posisi']; ?>" readonly><br>
+                                                       <input id="txtPosisiKaryLgrEdit" name="txtPosisiKaryLgrEdit" type="text" autocomplete="off" spellcheck="false" class="form-control" value="<?= $langgar['posisi']; ?>" readonly><br>
                                                   </div>
                                                   <div class="col-lg-3 col-md-6 col-sm-12">
                                                        <label for="tglLgrEdit">Tgl Pelanggaran :</label><br>

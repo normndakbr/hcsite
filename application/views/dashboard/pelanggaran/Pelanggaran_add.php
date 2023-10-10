@@ -62,6 +62,7 @@
                                    <?= $this->session->flashdata('msg'); ?>
                                    <?= $this->session->unset_userdata('msg'); ?>
                               </div>
+
                               <form action="<?= base_url('pelanggaran/add') ?>" method="post" enctype="multipart/form-data">
                                    <div class="row ">
                                         <?php
@@ -158,7 +159,7 @@
                                         </div>
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                              <label for=""><span class="text-danger font-weight-bold font-italic">* </span>Berkas Punishment <span class="text-danger font-weight-bold font-italic">(Berkas dengan format pdf, ukuran maksimal 100 kb)</span> :</label>
-                                             <input id='berkasPunish' name='berkasPunish' type="file" class="form-control-file">
+                                             <input id='berkasPunish' name='berkasPunish' type="file" class="form-control-file" accept=".pdf">
                                              <small id="error8" class="text-danger font-italic font-weight-bold"></small>
                                              <?= form_error('berkasPunish', '<small class="text-danger font-italic font-weight-bold">', '</small>'); ?>
                                              <?php
