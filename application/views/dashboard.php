@@ -80,7 +80,7 @@
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-8">
-                                            <h4 class="text-c-red">0</h4>
+                                            <h4 class="text-c-red"><?= $jml_lgr_aktif ?></h4>
                                             <h6 class="text-muted m-b-0">Pelanggaran</h6>
                                         </div>
                                         <div class="col-4 text-right">
@@ -129,19 +129,16 @@
                             <h5>Jumlah Karyawan Tanggal (Contractor + Sub Contractor): <?= date("d-M-Y"); ?></h5>
                             <div class="card-header-right">
                                 <div class="btn-group card-option">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="feather icon-more-horizontal"></i>
                                     </button>
                                     <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                         <li class="dropdown-item full-card">
                                             <a href="#!"><span><i class="feather icon-maximize"></i>
-                                                    Perbesar</span><span style="display: none"><i
-                                                        class="feather icon-minimize"></i> Restore</span></a>
+                                                    Perbesar</span><span style="display: none"><i class="feather icon-minimize"></i> Restore</span></a>
                                         </li>
                                         <li class="dropdown-item minimize-card">
-                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span
-                                                    style="display: none"><i class="feather icon-plus"></i>
+                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display: none"><i class="feather icon-plus"></i>
                                                     expand</span></a>
                                         </li>
                                         <li class="dropdown-item reload-card">
@@ -174,8 +171,7 @@
                                 <div class="card-footer bg-c-blue">
                                     <div class="row align-items-center">
                                         <div class="col-9">
-                                            <a href="<?= base_url('dataterbaru'); ?>" target="_blank"
-                                                class="text-white m-b-0">Detail</a>
+                                            <a href="<?= base_url('dataterbaru'); ?>" target="_blank" class="text-white m-b-0">Detail</a>
                                         </div>
                                     </div>
                                 </div>
@@ -187,20 +183,17 @@
                                     <h5>Jenis Kelamin : <?= date("d-M-Y"); ?></h5>
                                     <div class="card-header-right">
                                         <div class="btn-group card-option">
-                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
+                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="feather icon-more-horizontal"></i>
                                             </button>
                                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                                 <li class="dropdown-item full-card">
                                                     <a href="#!"><span><i class="feather icon-maximize"></i>
-                                                            Perbesar</span><span style="display: none"><i
-                                                                class="feather icon-minimize"></i> Restore</span></a>
+                                                            Perbesar</span><span style="display: none"><i class="feather icon-minimize"></i> Restore</span></a>
                                                 </li>
                                                 <li class="dropdown-item minimize-card">
                                                     <a href="#!"><span><i class="feather icon-minus"></i>
-                                                            collapse</span><span style="display: none"><i
-                                                                class="feather icon-plus"></i> expand</span></a>
+                                                            collapse</span><span style="display: none"><i class="feather icon-plus"></i> expand</span></a>
                                                 </li>
                                                 <li class="dropdown-item reload-card">
                                                     <a href="#!"><i class="feather icon-refresh-cw"></i> reload</a>
@@ -220,20 +213,17 @@
                                     <h5>Lokasi Terima : <?= date("d-M-Y"); ?></h5>
                                     <div class="card-header-right">
                                         <div class="btn-group card-option">
-                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                                aria-haspopup="true" aria-expanded="false">
+                                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="feather icon-more-horizontal"></i>
                                             </button>
                                             <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                                 <li class="dropdown-item full-card">
                                                     <a href="#!"><span><i class="feather icon-maximize"></i>
-                                                            Perbesar</span><span style="display: none"><i
-                                                                class="feather icon-minimize"></i> Restore</span></a>
+                                                            Perbesar</span><span style="display: none"><i class="feather icon-minimize"></i> Restore</span></a>
                                                 </li>
                                                 <li class="dropdown-item minimize-card">
                                                     <a href="#!"><span><i class="feather icon-minus"></i>
-                                                            collapse</span><span style="display: none"><i
-                                                                class="feather icon-plus"></i> expand</span></a>
+                                                            collapse</span><span style="display: none"><i class="feather icon-plus"></i> expand</span></a>
                                                 </li>
                                                 <li class="dropdown-item reload-card">
                                                     <a href="#!"><i class="feather icon-refresh-cw"></i> reload</a>
@@ -255,19 +245,16 @@
                             <h5>Residence : <?= date("d-M-Y"); ?></h5>
                             <div class="card-header-right">
                                 <div class="btn-group card-option">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="feather icon-more-horizontal"></i>
                                     </button>
                                     <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                         <li class="dropdown-item full-card">
                                             <a href="#!"><span><i class="feather icon-maximize"></i>
-                                                    Perbesar</span><span style="display: none"><i
-                                                        class="feather icon-minimize"></i> Restore</span></a>
+                                                    Perbesar</span><span style="display: none"><i class="feather icon-minimize"></i> Restore</span></a>
                                         </li>
                                         <li class="dropdown-item minimize-card">
-                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span
-                                                    style="display: none"><i class="feather icon-plus"></i>
+                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display: none"><i class="feather icon-plus"></i>
                                                     expand</span></a>
                                         </li>
                                         <li class="dropdown-item reload-card">
@@ -288,19 +275,16 @@
                             <h5>Klasifikasi : <?= date("d-M-Y"); ?></h5>
                             <div class="card-header-right">
                                 <div class="btn-group card-option">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="feather icon-more-horizontal"></i>
                                     </button>
                                     <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                         <li class="dropdown-item full-card">
                                             <a href="#!"><span><i class="feather icon-maximize"></i>
-                                                    Perbesar</span><span style="display: none"><i
-                                                        class="feather icon-minimize"></i> Restore</span></a>
+                                                    Perbesar</span><span style="display: none"><i class="feather icon-minimize"></i> Restore</span></a>
                                         </li>
                                         <li class="dropdown-item minimize-card">
-                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span
-                                                    style="display: none"><i class="feather icon-plus"></i>
+                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display: none"><i class="feather icon-plus"></i>
                                                     expand</span></a>
                                         </li>
                                         <li class="dropdown-item reload-card">
@@ -321,19 +305,16 @@
                             <h5>Pendidikan : <?= date("d-M-Y"); ?></h5>
                             <div class="card-header-right">
                                 <div class="btn-group card-option">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="feather icon-more-horizontal"></i>
                                     </button>
                                     <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                         <li class="dropdown-item full-card">
                                             <a href="#!"><span><i class="feather icon-maximize"></i>
-                                                    Perbesar</span><span style="display: none"><i
-                                                        class="feather icon-minimize"></i> Restore</span></a>
+                                                    Perbesar</span><span style="display: none"><i class="feather icon-minimize"></i> Restore</span></a>
                                         </li>
                                         <li class="dropdown-item minimize-card">
-                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span
-                                                    style="display: none"><i class="feather icon-plus"></i>
+                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display: none"><i class="feather icon-plus"></i>
                                                     expand</span></a>
                                         </li>
                                         <li class="dropdown-item reload-card">
@@ -354,19 +335,16 @@
                             <h5>Sertifikasi : <?= date("d-M-Y"); ?></h5>
                             <div class="card-header-right">
                                 <div class="btn-group card-option">
-                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">
+                                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <i class="feather icon-more-horizontal"></i>
                                     </button>
                                     <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
                                         <li class="dropdown-item full-card">
                                             <a href="#!"><span><i class="feather icon-maximize"></i>
-                                                    Perbesar</span><span style="display: none"><i
-                                                        class="feather icon-minimize"></i> Restore</span></a>
+                                                    Perbesar</span><span style="display: none"><i class="feather icon-minimize"></i> Restore</span></a>
                                         </li>
                                         <li class="dropdown-item minimize-card">
-                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span
-                                                    style="display: none"><i class="feather icon-plus"></i>
+                                            <a href="#!"><span><i class="feather icon-minus"></i> collapse</span><span style="display: none"><i class="feather icon-plus"></i>
                                                     expand</span></a>
                                         </li>
                                         <li class="dropdown-item reload-card">
@@ -386,7 +364,7 @@
     </div>
 
     <?php $this->load->view('components/footer_js') ?>
-    
+
     <script src="<?= base_url() ?>assets/js/dashboard.js"></script>
 
 </body>
