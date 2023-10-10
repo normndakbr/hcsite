@@ -11,6 +11,20 @@ class Pelanggaran extends My_Controller
 
      public function index()
      {
+          if ($this->session->has_userdata('id_m_perusahaan_main')) {
+               $idmper = $this->session->userdata('id_m_perusahaan_main');
+               if ($idmper != "") {
+                    $data['permst'] = $this->str->getMaster($idmper, "");
+                    $data['perstr'] = $this->str->getMenu($idmper, "");
+               } else {
+                    $data['permst'] = "";
+                    $data['perstr'] = "";
+               }
+          } else {
+               $idmper = "";
+               $data['permst'] = "";
+               $data['perstr'] = "";
+          }
           $data['nama'] = $this->session->userdata("nama");
           $data['email'] = $this->session->userdata("email");
           $data['menu'] = $this->session->userdata("id_menu");
@@ -50,46 +64,64 @@ class Pelanggaran extends My_Controller
 
      public function ajax_list()
      {
-          $list = $this->lgr->get_datatables();
-          $data = array();
-          $no = $_POST['start'];
-          foreach ($list as $lgr) {
-               $no++;
-               $row = array();
-               $row['no'] = $no;
-               $row['no_nik'] = $lgr->no_nik;
-               $row['nama_lengkap'] = $lgr->nama_lengkap;
-               $row['depart'] = $lgr->depart;
-               $row['posisi'] = $lgr->posisi;
-               $row['langgar_jenis'] = $lgr->langgar_jenis;
-               $row['tgl_akhir_langgar'] = date('d-M-Y', strtotime($lgr->tgl_akhir_langgar));
+          $auth = htmlspecialchars($this->input->get("authtoken", true));
+          $cekauth = $this->cek_auth($auth);
 
-               $tglnow = date('Y-m-d');
-               $tglakhir = date('Y-m-d', strtotime($lgr->tgl_akhir_langgar));
-               if ($tglnow < $tglakhir) {
-                    $row['stat_langgar'] = "<span class='btn btn-success btn-sm' style='cursor:text;'>AKTIF</span>";
-               } else {
-                    $row['stat_langgar'] = "<span class='btn btn-danger btn-sm' style='cursor:text;'>NONAKTIF</span>";
-               }
+          if ($cekauth == 501) {
+               $output = array(
+                    "draw" => '',
+                    "recordsTotal" => 0,
+                    "recordsFiltered" => 0,
+                    "data" => '',
+                    "pesan" => "Autentikasi tidak valid, refresh data"
 
-               $row['ket_langgar'] = $lgr->ket_langgar;
-               $row['kode_perusahaan'] = $lgr->kode_perusahaan;
-               $row['tgl_buat'] = date('d-M-Y', strtotime($lgr->tgl_buat));
-               $row['tgl_edit'] = date('d-M-Y', strtotime($lgr->tgl_edit));
-               $row['proses'] = '<a href="' . base_url('pelanggaran/detail/' . $lgr->auth_langgar) . '" target="_blank" class="btn btn-primary btn-sm font-weight-bold text-white" title="Detail" value=""> <i class="fas fa-asterisk"></i> </a> 
+               );
+
+               echo json_encode($output);
+          } else {
+               $auth_per = htmlspecialchars($this->input->get("auth_per", true));
+               $list = $this->lgr->get_datatables($auth_per);
+               $data = array();
+               $no = $_POST['start'];
+               foreach ($list as $lgr) {
+                    $no++;
+                    $row = array();
+                    $row['no'] = $no;
+                    $row['no_nik'] = $lgr->no_nik;
+                    $row['nama_lengkap'] = $lgr->nama_lengkap;
+                    $row['depart'] = $lgr->depart;
+                    $row['posisi'] = $lgr->posisi;
+                    $row['langgar_jenis'] = $lgr->langgar_jenis;
+                    $row['tgl_akhir_langgar'] = date('d-M-Y', strtotime($lgr->tgl_akhir_langgar));
+
+                    $tglnow = date('Y-m-d');
+                    $tglakhir = date('Y-m-d', strtotime($lgr->tgl_akhir_langgar));
+                    if ($tglnow < $tglakhir) {
+                         $row['stat_langgar'] = "<span class='btn btn-success btn-sm' style='cursor:text;'>AKTIF</span>";
+                    } else {
+                         $row['stat_langgar'] = "<span class='btn btn-danger btn-sm' style='cursor:text;'>NONAKTIF</span>";
+                    }
+
+                    $row['ket_langgar'] = $lgr->ket_langgar;
+                    $row['kode_perusahaan'] = $lgr->kode_perusahaan;
+                    $row['tgl_buat'] = date('d-M-Y', strtotime($lgr->tgl_buat));
+                    $row['tgl_edit'] = date('d-M-Y', strtotime($lgr->tgl_edit));
+                    $row['proses'] = '<a href="' . base_url('pelanggaran/detail/' . $lgr->auth_langgar) . '" target="_blank" class="btn btn-primary btn-sm font-weight-bold text-white" title="Detail" value=""> <i class="fas fa-asterisk"></i> </a> 
                     <a href="' . base_url('pelanggaran/edit/' . $lgr->auth_langgar) . '" target="_blank" class="btn btn-warning btn-sm font-weight-bold text-white" title="Edit" value=""> <i class="fas fa-edit"></i> </a> 
                     <button id="' . $lgr->auth_langgar . '" class="btn btn-danger btn-sm font-weight-bold text-white hapuslanggar" title="Hapus" value=""> <i class="fas fa-trash-alt"></i> </button>';
-               $data[] = $row;
-          }
+                    $data[] = $row;
+               }
 
-          $output = array(
-               "draw" => $_POST['draw'],
-               "recordsTotal" => $this->lgr->count_all(),
-               "recordsFiltered" => $this->lgr->count_filtered(),
-               "data" => $data,
-          );
-          //output to json format
-          echo json_encode($output);
+               $output = array(
+                    "draw" => $_POST['draw'],
+                    "recordsTotal" => $this->lgr->count_all(),
+                    "recordsFiltered" => $this->lgr->count_filtered($auth_per),
+                    "data" => $data,
+               );
+
+               //output to json format
+               echo json_encode($output);
+          }
      }
 
      public function tglpunish()
@@ -214,29 +246,14 @@ class Pelanggaran extends My_Controller
                $ketLanggar = htmlspecialchars($this->input->post("ketLanggar"));
                $id_jenis = $this->lgr->get_id_by_auth($jenisPunish);
                $id_kary = $this->kry->get_id_karyawan($authKTPKaryLanggar);
-               $foldername = md5($id_kary);
+               $id_personal = $this->kry->get_id_personal_by_kary($authKTPKaryLanggar);
+               $foldername = md5($id_personal);
                $now = date('YmdHis');
                $nama_file = $now . "-LGR.pdf";
 
-               $data = [
-                    'id_kary' => $id_kary,
-                    'tgl_langgar' => $tglLanggar,
-                    'tgl_punishment' => $tglPunish,
-                    'id_langgar_jenis' => $id_jenis,
-                    'ket_langgar' => $ketLanggar,
-                    'url_langgar' => '',
-                    'tgl_akhir_langgar' => $tglAkhirPunish,
-                    'tgl_buat' => date('Y-m-d H:i:s'),
-                    'tgl_edit' => date('Y-m-d H:i:s'),
-                    'id_user' => $this->session->userdata('id_user_main'),
-               ];
-
-               $langgar = $this->lgr->input_langgar($data);
-               if ($langgar) {
-                    $this->session->set_flashdata('msg', '<div class="err_psn_langgar_add alert alert-info animate__animated animate__bounce"> Data pelanggaran berhasil dibuat </div>');
-                    redirect('pelanggaran/new', 'refresh');
-               } else {
-                    $this->session->set_flashdata('msg', '<div class="err_psn_langgar_add alert alert-danger animate__animated animate__bounce"> Data pelanggaran gagal dibuat </div>');
+               $cekdata = $this->lgr->cek_data($id_kary, $id_jenis);
+               if ($cekdata) {
+                    $this->session->set_flashdata('msg', '<div class="err_psn_langgar_add alert alert-danger animate__animated animate__bounce"> Karyawan yang dipilih masih memiliki punishment yang aktif </div>');
                     if ($this->session->has_userdata('id_m_perusahaan_main')) {
                          $idmper = $this->session->userdata('id_m_perusahaan_main');
                          if ($idmper != "") {
@@ -260,60 +277,103 @@ class Pelanggaran extends My_Controller
                     $this->load->view('dashboard/modal/mdlform');
                     $this->load->view('dashboard/template/footer', $data);
                     $this->load->view('dashboard/code/pelanggaran');
+                    return;
                }
 
                if (is_dir('./berkas/karyawan/' . $foldername) == false) {
                     mkdir('./berkas/karyawan/' . $foldername, 0775, TRUE);
                }
 
-               // if (is_dir('./berkas/karyawan/' . $foldername)) {
-               //      $config['upload_path'] = './berkas/karyawan/' . $foldername;
-               //      $config['allowed_types'] = 'pdf';
-               //      $config['max_size'] = 100;
-               //      $config['file_name'] = $nama_file;
+               if (is_dir('./berkas/karyawan/' . $foldername)) {
+                    $config['upload_path'] = './berkas/karyawan/' . $foldername;
+                    $config['allowed_types'] = '*';
+                    $config['max_size'] = 100;
+                    $config['file_name'] = $nama_file;
 
-               //      $this->load->library('upload', $config);
+                    $this->load->library('upload', $config);
 
-               // if (!$this->upload->do_upload($_FILES['berkasPunish']['name'])) {
-               //      $err = $this->upload->display_errors();
-               //      if ($err == "<p>The file you are attempting to upload is larger than the permitted size.</p>") {
-               //           $error = "<p>Ukuran file maksimal 100 kb.</p>";
-               //      } else if ($err == "<p>The filetype you are attempting to upload is not allowed.</p>") {
-               //           $error = "<p>Format file nya dalam bentuk pdf</p>";
-               //      } else if ($err == "<p>You did not select a file to upload.</p>") {
-               //           $error = "<p>Tidak ada file yang dipilih</p>";
-               //      } else {
-               //           $error = $err;
-               //      }
+                    if (!$this->upload->do_upload('berkasPunish')) {
+                         $err = $this->upload->display_errors();
+                         if ($err == "<p>The file you are attempting to upload is larger than the permitted size.</p>") {
+                              $error = "<p>Ukuran file maksimal 100 kb.</p>";
+                         } else if ($err == "<p>The filetype you are attempting to upload is not allowed.</p>") {
+                              $error = "<p>Format file nya dalam bentuk pdf</p>";
+                         } else if ($err == "<p>You did not select a file to upload.</p>") {
+                              $error = "<p>Tidak ada file yang dipilih</p>";
+                         } else {
+                              $error = $err;
+                         }
 
-               //      if ($this->session->has_userdata('id_m_perusahaan_main')) {
-               //           $idmper = $this->session->userdata('id_m_perusahaan_main');
-               //           if ($idmper != "") {
-               //                $data['permst'] = $this->str->getMaster($idmper, "");
-               //                $data['perstr'] = $this->str->getMenu($idmper, "");
-               //           } else {
-               //                $data['permst'] = "";
-               //                $data['perstr'] = "";
-               //           }
-               //      } else {
-               //           $idmper = "";
-               //           $data['permst'] = "";
-               //           $data['perstr'] = "";
-               //      }
-               //      $data['nama'] = $this->session->userdata("nama");
-               //      $data['email'] = $this->session->userdata("email");
-               //      $data['menu'] = $this->session->userdata("id_menu");
-               //      $data['langgar_jenis'] = $this->lgr->get_data_punish();
-               //      $data['err_upl'] = $error;
-               //      $this->load->view('dashboard/template/header', $data);
-               //      $this->load->view('dashboard/pelanggaran/pelanggaran_add');
-               //      $this->load->view('dashboard/modal/mdlform');
-               //      $this->load->view('dashboard/template/footer', $data);
-               //      $this->load->view('dashboard/code/pelanggaran');
-               // } else {
+                         if ($this->session->has_userdata('id_m_perusahaan_main')) {
+                              $idmper = $this->session->userdata('id_m_perusahaan_main');
+                              if ($idmper != "") {
+                                   $data['permst'] = $this->str->getMaster($idmper, "");
+                                   $data['perstr'] = $this->str->getMenu($idmper, "");
+                              } else {
+                                   $data['permst'] = "";
+                                   $data['perstr'] = "";
+                              }
+                         } else {
+                              $idmper = "";
+                              $data['permst'] = "";
+                              $data['perstr'] = "";
+                         }
+                         $data['nama'] = $this->session->userdata("nama");
+                         $data['email'] = $this->session->userdata("email");
+                         $data['menu'] = $this->session->userdata("id_menu");
+                         $data['langgar_jenis'] = $this->lgr->get_data_punish();
+                         $data['err_upl'] = $error;
+                         $this->load->view('dashboard/template/header', $data);
+                         $this->load->view('dashboard/pelanggaran/pelanggaran_add');
+                         $this->load->view('dashboard/modal/mdlform');
+                         $this->load->view('dashboard/template/footer', $data);
+                         $this->load->view('dashboard/code/pelanggaran');
+                    } else { //sukses upload
+                         $data = [
+                              'id_kary' => $id_kary,
+                              'tgl_langgar' => $tglLanggar,
+                              'tgl_punishment' => $tglPunish,
+                              'id_langgar_jenis' => $id_jenis,
+                              'ket_langgar' => $ketLanggar,
+                              'url_langgar' =>  $nama_file,
+                              'tgl_akhir_langgar' => $tglAkhirPunish,
+                              'tgl_buat' => date('Y-m-d H:i:s'),
+                              'tgl_edit' => date('Y-m-d H:i:s'),
+                              'id_user' => $this->session->userdata('id_user_main'),
+                         ];
 
-               // }
-               // }
+                         $langgar = $this->lgr->input_langgar($data);
+                         if ($langgar) {
+                              $this->session->set_flashdata('msg', '<div class="err_psn_langgar_add alert alert-info animate__animated animate__bounce"> Data pelanggaran berhasil dibuat </div>');
+                              redirect('pelanggaran/new', 'refresh');
+                         } else {
+                              $this->session->set_flashdata('msg', '<div class="err_psn_langgar_add alert alert-danger animate__animated animate__bounce"> Data pelanggaran gagal dibuat </div>');
+                              if ($this->session->has_userdata('id_m_perusahaan_main')) {
+                                   $idmper = $this->session->userdata('id_m_perusahaan_main');
+                                   if ($idmper != "") {
+                                        $data['permst'] = $this->str->getMaster($idmper, "");
+                                        $data['perstr'] = $this->str->getMenu($idmper, "");
+                                   } else {
+                                        $data['permst'] = "";
+                                        $data['perstr'] = "";
+                                   }
+                              } else {
+                                   $idmper = "";
+                                   $data['permst'] = "";
+                                   $data['perstr'] = "";
+                              }
+                              $data['nama'] = $this->session->userdata("nama");
+                              $data['email'] = $this->session->userdata("email");
+                              $data['menu'] = $this->session->userdata("id_menu");
+                              $data['langgar_jenis'] = $this->lgr->get_data_punish();
+                              $this->load->view('dashboard/template/header', $data);
+                              $this->load->view('dashboard/pelanggaran/pelanggaran_add');
+                              $this->load->view('dashboard/modal/mdlform');
+                              $this->load->view('dashboard/template/footer', $data);
+                              $this->load->view('dashboard/code/pelanggaran');
+                         }
+                    }
+               }
           }
      }
 
@@ -362,6 +422,7 @@ class Pelanggaran extends My_Controller
                          'kode_langgar_jenis' => $list->kode_langgar_jenis,
                          'langgar_jenis' => $list->langgar_jenis,
                          'tgl_akhir_langgar' => date('d-M-Y', strtotime($list->tgl_akhir_langgar)),
+                         'url_berkas' => base_url('pelanggaran/berkas/') . $auth_langgar,
                          'ket_langgar' => $list->ket_langgar,
                          'status' => $status,
                          'tgl_buat' => date('d-M-Y H:i:s', strtotime($list->tgl_buat)),
@@ -399,6 +460,7 @@ class Pelanggaran extends My_Controller
                          'pesan' => 'Sukses',
                          'kode_perusahaan' => $list->kode_perusahaan,
                          'nama_perusahaan' => $list->nama_m_perusahaan,
+                         'auth_m_per' => $list->auth_m_per,
                          'auth_langgar' => $list->auth_langgar,
                          'auth_langgar_jenis' => $list->auth_langgar_jenis,
                          'auth_kary' => $list->auth_kary,
@@ -468,6 +530,13 @@ class Pelanggaran extends My_Controller
                $id_jenis = $this->lgr->get_id_by_auth($jenisLgrEdit);
                $id_kary = $this->kry->get_id_karyawan($authkary);
 
+               $cekdata = $this->lgr->cek_data_edit($id_kary, $id_jenis, $authLgrEdit);
+               if ($cekdata) {
+                    $this->session->set_flashdata('msg', '<div class="err_psn_langgar_add alert alert-danger animate__animated animate__bounce"> Karyawan yang dipilih masih memiliki punishment yang aktif </div>');
+                    redirect(base_url('pelanggaran/edit/') . $authLgrEdit);
+                    return;
+               }
+
                $dt_lgr = [
                     'id_kary' => $id_kary,
                     'tgl_langgar' => $tglLgrEdit,
@@ -516,6 +585,11 @@ class Pelanggaran extends My_Controller
                if (!empty($dtlanggar)) {
                     foreach ($dtlanggar as $list) {
                          $id_personal = $list->id_personal;
+                    }
+
+                    $foldername = md5($id_personal);
+                    if (is_dir('./berkas/karyawan/' . $foldername) == false) {
+                         mkdir('./berkas/karyawan/' . $foldername, 0775, TRUE);
                     }
 
                     $foldername = md5($id_personal);
@@ -578,6 +652,10 @@ class Pelanggaran extends My_Controller
                }
 
                $foldername = md5($id_personal);
+
+               // echo json_encode([$foldername]);
+               // return;
+
                if (is_file("berkas/karyawan/" . $foldername . "/" . $url_file)) {
                     $tofile = realpath("berkas/karyawan/" . $foldername . "/" . $url_file);
                     header('Content-Type: application/pdf');

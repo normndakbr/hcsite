@@ -118,7 +118,7 @@
                                                   <input type="text" autocomplete="off" spellcheck="false" class="form-control bg-white" value="<?= $langgar['pembuat']; ?>" readonly><br>
                                              </div>
                                              <div class="col-lg-12 col-md-12 col-sm-12 mt-2">
-                                                  <a href="#!" type="button" class="btn font-weight-bold btn-primary">Berkas Punishment</a>
+                                                  <a href="<?= $langgar['url_berkas']; ?>" target="_blank" type="button" class="btn font-weight-bold btn-primary">Berkas Punishment</a>
                                              </div>
                                         </div>
                                    </div>

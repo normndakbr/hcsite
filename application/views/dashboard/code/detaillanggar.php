@@ -78,5 +78,34 @@
             });
 
         }, true);
+
+        $("#txtCariKaryLgrEdit").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: "<?= base_url('karyawan/getKaryawan'); ?>",
+                    type: 'post',
+                    dataType: "json",
+                    data: {
+                        search: request.term,
+                        auth_m_per: $("#authprsLgrEdit").val(),
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+            select: function(event, ui) {
+                if (ui.item.value != "") {
+                    $('#authkary').val(ui.item.value);
+                    $('#txtKTPKaryLgrEdit').val(ui.item.ktp);
+                    $('#txtNIKKaryLgrEdit').val(ui.item.nik);
+                    $('#txtNamaKaryLgrEdit').val(ui.item.nama);
+                    $('#txtDepartKaryLgrEdit').val(ui.item.depart);
+                    $('#txtPosisiKaryLgrEdit').val(ui.item.posisi);
+                    $("#txtCariKaryLgrEdit").val('');
+                }
+                return false;
+            }
+        });
     });
 </script>

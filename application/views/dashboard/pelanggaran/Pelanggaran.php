@@ -63,6 +63,23 @@
                                    <?= $this->session->unset_userdata('msg'); ?>
                               </div>
                               <div class="row">
+                                   <?php
+
+                                   if (!$this->session->csrf_token) {
+                                        $this->session->csrf_token = hash("sha1", time());
+                                   }
+
+                                   ?>
+
+                                   <input type="hidden" id="token" name="token" value="<?= $this->session->csrf_token ?>">
+                                   <div class="col-lg-6 col-md-12 col-sm-12 mt-2">
+                                        <label for="perLanggarData">Pilih Perusahaan :</label><br>
+                                        <select id='perLanggarData' name='perLanggarData' class="form-control form-control-user">
+                                             <option value="">-- PILIH PERUSAHAAN --</option>
+                                             <?= $permst . $perstr; ?>
+                                        </select>
+                                        <small class="error1 text-danger font-italic font-weight-bold"></small><br>
+                                   </div>
                                    <div class="col-lg-12">
                                         <div class="table-responsive">
                                              <table id="tbmLanggar" class="table table-striped table-bordered table-hover text-black" style="width:100%;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
