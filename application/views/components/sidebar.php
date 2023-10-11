@@ -88,7 +88,7 @@
                     <a href="javascript:void(0);" class="nav-link"><span class="pcoded-micon"><i class="feather icon-book"></i></span><span class="pcoded-mtext">Data</span></a>
                     <ul class="pcoded-submenu">
                         <li><a href="#">SIMPER/Mine Permit</a></li>
-                        <li><a href="<?= base_url('Pelanggaran'); ?>">Pelanggaran</a></li>
+                        <li><a href="<?= base_url('pelanggaran'); ?>">Pelanggaran</a></li>
                     </ul>
                 </li>
                 <li class="nav-item pcoded-menu-caption">

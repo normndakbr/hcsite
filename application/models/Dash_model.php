@@ -25,12 +25,34 @@ class Dash_model extends CI_Model
           return $this->db->get_where('vw_langgar', ['tgl_akhir_langgar >' => $now])->num_rows();
      }
 
+     public function data_langgar_aktif($prs)
+     {
+          if ($prs == 0) {
+               $now = date('Y-m-d');
+               $this->db->where('tgl_akhir_langgar >', $now);
+               $this->db->from('vw_langgar');
+               $this->db->order_by('tgl_punishment', 'DESC');
+               $query = $this->db->get()->result();
+
+               return $query;
+          } else {
+               $now = date('Y-m-d');
+               $this->db->where('tgl_akhir_langgar >', $now);
+               $this->db->where('auth_m_per', $prs);
+               $this->db->from('vw_langgar');
+               $this->db->order_by('tgl_punishment', 'DESC');
+               $query = $this->db->get()->result();
+
+               return $query;
+          }
+     }
+
      public function new_emp()
      {
           $tglnowstart = date('Y-m-d 00:00:00');
           $tglnowend = date('Y-m-d 23:59:59');
 
-          return $this->db->query("SELECT auth_karyawan FROM vw_karyawan WHERE tgl_nonaktif is null AND (tgl_buat >= '" . $tglnowstart . "' AND tgl_buat <= '" . $tglnowend . "')")->num_rows();
+          $query = $this->db->query("SELECT auth_karyawan FROM vw_karyawan WHERE tgl_nonaktif is null AND (tgl_buat >= '" . $tglnowstart . "' AND tgl_buat <= '" . $tglnowend . "')")->num_rows();
      }
 
      public function data_grafik_1()
