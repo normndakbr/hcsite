@@ -11,6 +11,20 @@ class Dash extends My_Controller
 
      public function index()
      {
+          if ($this->session->has_userdata('id_m_perusahaan_main')) {
+               $idmper = $this->session->userdata('id_m_perusahaan_main');
+               if ($idmper != "") {
+                    $data['permst'] = $this->str->getMaster($idmper, "");
+                    $data['perstr'] = $this->str->getMenu($idmper, "");
+               } else {
+                    $data['permst'] = "";
+                    $data['perstr'] = "";
+               }
+          } else {
+               $idmper = "";
+               $data['permst'] = "";
+               $data['perstr'] = "";
+          }
           $jml_karyawan = $this->dsmod->count_all_karyawan();
           $new_kry = $this->dsmod->new_emp();
           $jml_user = $this->dsmod->count_all_user();
@@ -28,6 +42,12 @@ class Dash extends My_Controller
      public function form_modal()
      {
           $this->load->view("dashboard/mdlform");
+     }
+
+     public function data_langgar_aktif($prs)
+     {
+          $data['prs'] = $prs;
+          $this->load->view("dashboard/datalanggaraktif", $data);
      }
 
      public function logout()

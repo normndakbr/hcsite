@@ -69,7 +69,7 @@
                                 <div class="card-footer bg-c-green">
                                     <div class="row align-items-center">
                                         <div class="col-9">
-                                            <a href="#" onclick="tableMap()" class="text-white m-b-0">Detail</a>
+                                            <a href="#" onclick="" class="text-white m-b-0">Detail</a>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                                 <div class="card-footer bg-c-red">
                                     <div class="row align-items-center">
                                         <div class="col-9">
-                                            <a href="#" class="text-white m-b-0">Detail</a>
+                                            <a href='#!' id='detLanggar' name='detLanggar' class="text-white m-b-0">Detail</a>
                                         </div>
 
                                     </div>
@@ -363,8 +363,58 @@
         </div>
     </div>
 
-    <?php $this->load->view('components/footer_js') ?>
+    <div class="modal fade" id="mdlDetLanggarAktif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="margin-left: auto; margin-right: auto;max-width:90%;">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-white" id="exampleModalLabel"><i class="fas fa-exclamation-triangle"></i> Data Pelanggaran Aktif</h5>
+                </div>
+                <div style="background-color:rgba(240,240,240,1);" class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
+                            <label for="">Perusahaan :</label><br>
+                            <select id="perDetLgrAktif" name="perDetLgrAktif" class="form-control">
+                                <option value="0">-- SEMUA PERUSAHAAN --</option>
+                                <?= $permst . $perstr; ?>
+                            </select><br>
+                        </div>
 
+                        <div class="col-lg-12">
+                            <div id="tbLanggarAktif" class="data"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-end p-2" style="margin-top:10px;">
+                    <button type="button" id="btnSelesaiDetLanggar" id="btnSelesaiDetLanggar" data-dismiss="modal" class="btn font-weight-bold btn-primary">Selesai</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php $this->load->view('components/footer_js') ?>
+    <script>
+        $("#detLanggar").click(function() {
+            let prs = $('#perDetLgrAktif').val();
+
+            $.LoadingOverlay('show');
+            $('#mdlDetLanggarAktif').modal('show');
+            $('#tbLanggarAktif').load(site_url + "dash/data_langgar_aktif/" + prs);
+        });
+
+        $('#perDetLgrAktif').select2({
+            theme: 'bootstrap4',
+            width: '100%',
+            dropdownParent: $('#mdlDetLanggarAktif')
+        });
+
+        $('#perDetLgrAktif').change(function() {
+            let prs = $('#perDetLgrAktif').val();
+
+            $.LoadingOverlay('show');
+            $('#tbLanggarAktif').empty();
+            $('#tbLanggarAktif').load(site_url + "dash/data_langgar_aktif/" + prs);
+        });
+    </script>
     <script src="<?= base_url() ?>assets/js/dashboard.js"></script>
 
 </body>
