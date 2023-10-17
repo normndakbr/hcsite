@@ -3,10 +3,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Karyawan_model extends CI_Model
 {
-    var $table = 'vw_kry';
-    var $column_order = array(null, 'no_nik', 'nama_lengkap', 'depart', 'posisi', 'kode_perusahaan', 'nama_perusahaan', 'tgl_buat', null); //set column field database for datatable orderable
-    var $column_search = array('no_nik', 'nama_lengkap', 'depart', 'posisi', 'kode_perusahaan', 'nama_perusahaan', 'tgl_buat',); //set column field database for datatable searchable just firstname , lastname , address are searchable
-    var $order = array('depart' => 'asc'); // default order 
+    public $table = 'vw_kry';
+    public $column_order = array(null, 'no_nik', 'nama_lengkap', 'depart', 'posisi', 'kode_perusahaan', 'nama_perusahaan', 'tgl_buat', null); //set column field database for datatable orderable
+    public $column_search = array('no_nik', 'nama_lengkap', 'depart', 'posisi', 'kode_perusahaan', 'nama_perusahaan', 'tgl_buat'); //set column field database for datatable searchable just firstname , lastname , address are searchable
+    public $order = array('depart' => 'asc'); // default order
 
     public function __construct()
     {
@@ -30,7 +30,7 @@ class Karyawan_model extends CI_Model
 
         $i = 0;
 
-        foreach ($this->column_search as $item) // loop column 
+        foreach ($this->column_search as $item) // loop column
         {
             if ($_POST['search']['value']) // if datatable send POST for search
             {
@@ -42,7 +42,10 @@ class Karyawan_model extends CI_Model
                     $this->db->or_like($item, $_POST['search']['value']);
                 }
                 if (count($this->column_search) - 1 == $i) //last loop
-                    $this->db->group_end(); //close bracket
+                {
+                    $this->db->group_end();
+                }
+                //close bracket
             }
             $i++;
         }
@@ -56,7 +59,7 @@ class Karyawan_model extends CI_Model
         }
     }
 
-    function get_datatables($auth_m_per, $ck)
+    public function get_datatables($auth_m_per, $ck)
     {
         if ($_POST['length'] != -1) {
             $this->_get_datatables_query($auth_m_per, $ck);
@@ -66,7 +69,7 @@ class Karyawan_model extends CI_Model
         return $query->result();
     }
 
-    function count_filtered($auth_m_per, $ck)
+    public function count_filtered($auth_m_per, $ck)
     {
         $this->_get_datatables_query($auth_m_per, $ck);
         $query = $this->db->get();
@@ -108,18 +111,9 @@ class Karyawan_model extends CI_Model
         return $query->row();
     }
 
-    public function get_by_auth($auth_karyawan)
-    {
-        $this->db->from('vw_karyawan');
-        $this->db->where('auth_karyawan', $auth_karyawan);
-        $query = $this->db->get();
-
-        return $query->row();
-    }
-
     public function get_kary_by_auth_m_per($auth_m_per)
     {
-        $this->db->select('no_nik, no_ktp, nama_lengkap, depart, auth_m_perusahaan, auth_karyawan, auth_m_perusahaan',);
+        $this->db->select('no_nik, no_ktp, nama_lengkap, depart, auth_m_perusahaan, auth_karyawan, auth_m_perusahaan', );
         $this->db->from('vw_karyawan');
         $this->db->where('auth_m_perusahaan', $auth_m_per);
         $query = $this->db->get();
@@ -352,7 +346,6 @@ class Karyawan_model extends CI_Model
                 $this->db->delete('tb_izin_tambang', ['id_kary' => $idkaryawan]);
             }
 
-
             if (!empty($idpersonal)) {
                 $this->db->delete('tb_alamat_ktp', ['id_personal' => $idpersonal]);
                 $this->db->delete('tb_vaksin_kary', ['id_personal' => $idpersonal]);
@@ -428,7 +421,7 @@ class Karyawan_model extends CI_Model
         }
     }
 
-    function getKaryawan($postData)
+    public function getKaryawan($postData)
     {
         $response = array();
         $auth_m_per = $postData['auth_m_per'];
@@ -446,7 +439,7 @@ class Karyawan_model extends CI_Model
                     "nama" => $row->nama_lengkap,
                     "depart" => $row->depart,
                     "posisi" => $row->posisi,
-                    "label" => $row->no_ktp . " | " . $row->no_nik . " | " . $row->nama_lengkap . " | " . $row->depart
+                    "label" => $row->no_ktp . " | " . $row->no_nik . " | " . $row->nama_lengkap . " | " . $row->depart,
                 );
             }
         }
@@ -672,6 +665,25 @@ class Karyawan_model extends CI_Model
         }
     }
 
+    public function get_by_auth($auth_karyawan)
+    {
+        $this->db->from('vw_karyawan');
+        $this->db->where('auth_karyawan', $auth_karyawan);
+        $query = $this->db->get();
+
+        return $query->row();
+    }
+
+    public function get_by_auth_like($caridata)
+    {
+
+        $query = $this->db->query("SELECT * FROM vw_karyawan WHERE no_ktp like '%" . $caridata .
+            "%' OR no_nik LIKE '%" . $caridata . "%' OR nama_lengkap like '%" . $caridata .
+            "%' OR no_kk LIKE '%" . $caridata . "%'");
+
+        return $query->result();
+    }
+
     public function get_personal_by_auth($auth_person)
     {
         $query = $this->db->get_where('vw_personal', ['auth_personal' => $auth_person])->result();
@@ -723,7 +735,6 @@ class Karyawan_model extends CI_Model
         }
     }
 
-
     public function get_id_mcu($auth_person)
     {
         $query = $this->db->get_where('vw_mcu', ['auth_personal' => $auth_person])->result();
@@ -772,7 +783,6 @@ class Karyawan_model extends CI_Model
             foreach ($cek_id as $list) {
                 $id_personal = $list->id_personal;
             }
-
 
             $this->db->where('id_personal', $id_personal);
             $this->db->update('tb_personal', $dtpersonal);
@@ -953,7 +963,7 @@ class Karyawan_model extends CI_Model
     {
         $cekdata = array(
             'no_nik' => $no_nik,
-            'id_perusahaan' => $id_per
+            'id_perusahaan' => $id_per,
         );
 
         $query = $this->db->get_where('vw_karyawan', $cekdata)->result();
@@ -1030,9 +1040,9 @@ class Karyawan_model extends CI_Model
         }
     }
 
-    function get_stat_janji($stat_kerja)
+    public function get_stat_janji($stat_kerja)
     {
-        $query  = $this->db->get_where('tb_stat_perjanjian', ['id_stat_perjanjian' => $stat_kerja])->result();
+        $query = $this->db->get_where('tb_stat_perjanjian', ['id_stat_perjanjian' => $stat_kerja])->result();
         if (!empty($query)) {
             foreach ($query as $list) {
                 $stat_waktu = $list->stat_waktu;
