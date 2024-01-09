@@ -30,7 +30,7 @@
                 "serverSide": true,
                 "ordering": true,
                 "order": [
-                    [1, 'desc']
+                    [7, 'ASC']
                 ],
                 "ajax": {
                     "url": "<?= base_url('dataterbaru/ajax_list'); ?>",

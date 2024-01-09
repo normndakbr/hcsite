@@ -468,7 +468,7 @@
      </script>
      <script src="<?=base_url()?>assets/js/dashboard.js"></script>
      <script>
-     let site_url = "http://localhost:8080/hcsite/";
+     let site_url = '<?=base_url()?>';
      </script>
      <script>
      $("#txtcarikary").on('keypress', function(e) {

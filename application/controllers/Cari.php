@@ -13,9 +13,9 @@ class Cari extends My_Controller
     {
         $caridata = htmlspecialchars(trim($this->input->get('fdt', true)));
 
-        $data['nama'] = $this->session->userdata("nama");
-        $data['email'] = $this->session->userdata("email");
-        $data['menu'] = $this->session->userdata("id_menu");
+        $data['nama'] = $this->session->userdata("nama_main");
+        $data['email'] = $this->session->userdata("email_main");
+        $data['menu'] = $this->session->userdata("id_menu_main");
         $data["data_kry"] = $this->kry->get_by_auth_like($caridata);
         $data["textcari"] = $caridata;
         $this->load->view('dashboard/template/header', $data);

@@ -14,7 +14,11 @@ class Perusahaan extends My_Controller
           $data['nama'] = $this->session->userdata("nama");
           $data['email'] = $this->session->userdata("email");
           $data['menu'] = $this->session->userdata("id_menu");
-          $this->load->view('perusahaan/view', $data);
+          $this->load->view('dashboard/template/header', $data);
+          $this->load->view('dashboard/perusahaan/perusahaan');
+          $this->load->view('dashboard/modal/perusahaan');
+          $this->load->view('dashboard/template/footer', $data);
+          $this->load->view('dashboard/code/perusahaan');
      }
 
      public function new()
@@ -22,7 +26,6 @@ class Perusahaan extends My_Controller
           $data['nama'] = $this->session->userdata("nama");
           $data['email'] = $this->session->userdata("email");
           $data['menu'] = $this->session->userdata("id_menu");
-          // $this->load->view('perusahaan/create', $data);
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/perusahaan/perusahaan_add');
           $this->load->view('dashboard/template/footer', $data);
@@ -497,23 +500,9 @@ class Perusahaan extends My_Controller
           }
      }
 
-
-     public function get_per_by_id($id_perusahaan)
-     {
-          $query = $this->db->get_where('tb_perusahaan', ['id_perusahaan' => $id_perusahaan]);
-          if (!empty($query->result())) {
-               foreach ($query->result() as $list) {
-                    return $list->kode_perusahaan;
-               }
-          } else {
-               return;
-          }
-     }
-
      public function get_all()
      {
-          $id_m_perusahaan = $this->session->userdata("id_m_perusahaan_main");
-          $query = $this->prs->get_all($id_m_perusahaan);
+          $query = $this->prs->get_all();
           $output = "<option value=''>-- Pilih Perusahaan --</option>";
           if (!empty($query)) {
                foreach ($query as $list) {

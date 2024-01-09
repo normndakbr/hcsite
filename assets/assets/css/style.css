@@ -7,7 +7,7 @@ File: style.css
 =========================================================================
 =================================================================================== */
 /* cyrillic-ext */
-@import url(animate.min.css);
+@import url(plugins/animate.min.css);
 
 @font-face {
     font-family: 'Open Sans';
@@ -10784,7 +10784,7 @@ a.text-dark:hover, a.text-dark:focus {
   h3 {
         page-break-after: avoid;
     }
-  @page {
+  @    page {
         size: a3;
     }
 
@@ -22356,11 +22356,6 @@ pre[class*=language-]:before {
     top: -10px;
     font-size: 0.75rem;
     color: #4680ff;
-}
-
-.form-group.is-invalid * {
-    color: #dc3545;
-    border-color: #dc3545;
 }
 
 .spinner-border {
