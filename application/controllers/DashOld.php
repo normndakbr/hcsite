@@ -25,11 +25,10 @@ class Dash extends My_Controller
                $data['permst'] = "";
                $data['perstr'] = "";
           }
- 	  $tgl_now = date('Y-m-d');
+
           $jml_karyawan = $this->dsmod->count_all_karyawan();
           $new_kry = $this->dsmod->new_emp();
-          $jml_user = $this->dsmod->count_all_perusahaan();
-	  $kary_sum = $this->dsmod->get_data_sum($tgl_now);
+          $jml_user = $this->dsmod->count_all_user();
           $jml_lgr_aktif = $this->dsmod->get_langgar_aktif();
           $data['nama'] = $this->session->userdata("nama_main");
           $data['email'] = $this->session->userdata("email_main");
@@ -37,7 +36,6 @@ class Dash extends My_Controller
           $data['jml_karyawan'] = $jml_karyawan;
           $data['jml_user'] = $jml_user;
           $data['new_kry'] = $new_kry;
- 	  $data['kary_sum'] = $kary_sum;
   	  $data['jml_lgr_aktif'] = $jml_lgr_aktif;
           $this->load->view('dashboard/template/header', $data);
           $this->load->view('dashboard/beranda', $data);
@@ -45,18 +43,6 @@ class Dash extends My_Controller
           $this->load->view('dashboard/template/footer', $data);
           $this->load->view('dashboard/code/all');
      }
-
-   public function show_jml_kary()
-    {
-        $ta = $this->input->get('ta');
-        if ($ta == 0) {
-            $ta = date('Y-m-d');
-        }
-        $kary_sum = $this->dsmod->get_data_sum($ta);
-        $data['kary_sum'] = $kary_sum;
- 	$data['tgln'] = date('d-M-Y', strtotime($ta));
-        $this->load->view('dashboard/perusahaan/jml_prs_beranda', $data);
-    }
 
      public function form_modal()
      {

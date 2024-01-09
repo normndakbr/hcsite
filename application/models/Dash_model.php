@@ -3,21 +3,89 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Dash_model extends CI_Model
 {
-     public function get_menu()
-     {
-          $idmenu = $this->session->userdata('id_menu_hcdata');
-          return $this->db->get_where('vw_modul_role_menu', ['id_menu' => $idmenu])->result();
-     }
 
      public function count_all_user()
      {
           return $this->db->count_all_results('vw_user');
      }
 
+    public function count_all_perusahaan()
+    {
+        $sql = "SELECT kode_perusahaan, id_parent, id_m_perusahaan FROM vw_m_prs WHERE stat_m_perusahaan = 'T' AND (id_parent = 0 OR id_parent = 1) ORDER BY id_m_perusahaan ASC";
+        $query = $this->db->query($sql);
+        return $query->num_rows();
+
+    }
+
      public function count_all_karyawan()
      {
           return $this->db->get_where('vw_karyawan', ['tgl_nonaktif' => null])->num_rows();
      }
+
+     public function new_emp()
+     {
+
+	  $tglnowstart = date('Y-m-d 00:00:00');
+          $tglnowend = date('Y-m-d 23:59:59');
+
+          return $this->db->query("SELECT auth_karyawan FROM vw_karyawan WHERE tgl_nonaktif is null AND (tgl_buat >= '" . $tglnowstart . "' AND tgl_buat <= '" . $tglnowend . "') order by tgl_buat asc")->num_rows();
+
+     }
+
+ 	public function get_data_sum($tgl_aktif)
+    {
+
+        $sql = "SELECT kode_perusahaan, id_parent, id_m_perusahaan, nama_perusahaan FROM vw_m_prs WHERE stat_m_perusahaan = 'T' AND  id_parent = 0 OR id_parent =1 ORDER BY id_m_perusahaan ASC";
+        $query = $this->db->query($sql)->result();
+
+        if (!empty($query)) {
+            foreach ($query as $prs) {
+                $id_parent = $prs->id_parent;
+                $id_m_perusahaan = $prs->id_m_perusahaan;
+                $kode_perusahaan = $prs->kode_perusahaan;
+                $nama_perusahaan = $prs->nama_perusahaan;
+
+                if ($id_parent == 0) {
+                    $sql = "SELECT COUNT(tahun_doh) as bulan_now, id_perusahaan FROM vw_jml_karyawan WHERE id_parent = 0 AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                    $sqlr = "SELECT COUNT(id_kary) as jml_r FROM vw_karyawan WHERE id_parent = 0 AND id_stat_tinggal=1 AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                    $sqlnr = "SELECT COUNT(id_kary) as jml_nr FROM vw_karyawan WHERE id_parent = 0 AND id_stat_tinggal=2 AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                    $sqllkl = "SELECT COUNT(id_kary) as jml_l FROM vw_karyawan WHERE id_parent = 0 AND jenis_lokasi='LOKAL' AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                    $sqlnlkl = "SELECT COUNT(id_kary) as jml_nl FROM vw_karyawan WHERE id_parent = 0 AND jenis_lokasi='NONLOKAL' AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                } else {
+                    $sql = "SELECT COUNT(tahun_doh) as bulan_now, id_perusahaan FROM vw_jml_karyawan WHERE (id_m_perusahaan = " . $id_m_perusahaan . " OR id_parent = " . $id_m_perusahaan . ") AND doh <='" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                    $sqlr = "SELECT COUNT(id_kary) as jml_r FROM vw_karyawan WHERE (id_m_perusahaan = " . $id_m_perusahaan . " OR id_parent = " . $id_m_perusahaan . ") AND id_stat_tinggal=1 AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                    $sqlnr = "SELECT COUNT(id_kary) as jml_nr FROM vw_karyawan WHERE (id_m_perusahaan = " . $id_m_perusahaan . " OR id_parent = " . $id_m_perusahaan . ") AND id_stat_tinggal=2 AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                    $sqllkl = "SELECT COUNT(id_kary) as jml_l FROM vw_karyawan WHERE (id_m_perusahaan = " . $id_m_perusahaan . " OR id_parent = " . $id_m_perusahaan . ") AND jenis_lokasi='LOKAL' AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                    $sqlnlkl = "SELECT COUNT(id_kary) as jml_nl FROM vw_karyawan WHERE (id_m_perusahaan = " . $id_m_perusahaan . " OR id_parent = " . $id_m_perusahaan . ") AND jenis_lokasi='NONLOKAL' AND doh <= '" . $tgl_aktif . "' AND tgl_nonaktif is null";
+                }
+
+                $query1 = $this->db->query($sql)->result();
+                foreach ($query1 as $list) {
+                    $rsd = $this->db->query($sqlr)->row();
+                    $nonrsd = $this->db->query($sqlnr)->row();
+                    $lkl = $this->db->query($sqllkl)->row();
+                    $nonlkl = $this->db->query($sqlnlkl)->row();
+                    $jml = $list->bulan_now;
+                    $data[] = array(
+                        "nama_per" => $nama_perusahaan,
+                        "kode_per" => $kode_perusahaan,
+                        "jml" => $jml,
+                        'r' => $rsd->jml_r,
+                        'nr' => $nonrsd->jml_nr,
+                        'lkl' => $lkl->jml_l,
+                        'nlkl' => $nonlkl->jml_nl,
+                    );
+                }
+            }
+
+            $sqljml = "SELECT COUNT(id_kary) as jmlkary FROM vw_jml_karyawan WHERE stat_m_perusahaan = 'T' AND doh <='" . $tgl_aktif. "' AND tgl_nonaktif = null";
+            $qjml = $this->db->query($sqljml)->row();
+
+            $dtakary['data'] = $data;
+            $dtakary['jmlall'] = $qjml->jmlkary;
+            return $dtakary;
+        }
+    }
 
      public function get_langgar_aktif()
      {
@@ -47,14 +115,6 @@ class Dash_model extends CI_Model
           }
      }
 
-     public function new_emp()
-     {
-          $tglnowstart = date('Y-m-d 00:00:00');
-          $tglnowend = date('Y-m-d 23:59:59');
-
-          $query = $this->db->query("SELECT auth_karyawan FROM vw_karyawan WHERE tgl_nonaktif is null AND (tgl_buat >= '" . $tglnowstart . "' AND tgl_buat <= '" . $tglnowend . "')")->num_rows();
-     }
-
      public function data_grafik_1()
      {
           return $this->db->get('vw_grafik1_1')->result();
@@ -73,7 +133,7 @@ class Dash_model extends CI_Model
      public function get_data_grafik()
      {
 
-          $sql = "SELECT kode_perusahaan, id_parent, id_m_perusahaan FROM vw_m_prs WHERE stat_m_perusahaan = 'T' AND  id_parent = 0 OR id_parent =1 ORDER BY id_m_perusahaan ASC";
+          $sql = "SELECT kode_perusahaan, id_parent, id_m_perusahaan FROM vw_m_prs WHERE stat_m_perusahaan = 'T' AND (id_parent = 0 OR id_parent =1) ORDER BY id_m_perusahaan ASC";
           $query = $this->db->query($sql)->result();
 
           if (!empty($query)) {

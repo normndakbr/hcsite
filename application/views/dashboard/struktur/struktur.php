@@ -9,7 +9,7 @@
                               </div>
                               <ul class="breadcrumb">
                                    <li class="breadcrumb-item">
-                                        <a href="<?=base_url('dash');?>">
+                                        <a href="<?= base_url('dash'); ?>">
                                              <i class="feather icon-home"></i>
                                         </a>
                                    </li>
@@ -56,8 +56,8 @@
                          <div class="card-body">
                               <div class="mt-3">
                                    <div class="mb-2">
-                                        <a href="<?=base_url('struktur');?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
-                                        <a id="addbtn" href="<?=base_url('struktur/new');?>" class="btn btn-success font-weight-bold">Tambah Data</a>
+                                        <a href="<?= base_url('struktur'); ?>" class="btn btn-primary font-weight-bold">Refresh / Data</a>
+                                        <a id="addbtn" href="<?= base_url('struktur/new'); ?>" class="btn btn-success font-weight-bold">Tambah Data</a>
                                    </div>
                                    <div class="alert alert-danger err_psn_struktur animate__animated animate__bounce d-none"></div>
                               </div>
@@ -70,7 +70,6 @@
                                                             <th style="text-align:center;width:1%;">No.</th>
                                                             <th>Perusahaan</th>
                                                             <th>Jenis Perusahaan</th>
-                                                            <th style="text-align:center;">Kode. 1DB</th>
                                                             <th>No. Izin</th>
                                                             <th>No. SIO</th>
                                                             <th style="text-align:center;">Kode</th>
@@ -79,93 +78,91 @@
                                                   </thead>
                                                   <tbody>
                                                        <?php
-function GetStruktur($idparent)
-{
+                                                       function GetStruktur($idparent)
+                                                       {
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "db_kary";
+                                                            $servername = "localhost";
+                                                            $username = "arc.system";
+                                                            $password = "S3rverApps#IDC@2023";
+                                                            $dbname = "db_kary";
 
-    static $space;
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    $sql = "SELECT * from vw_m_perusahaan where id_parent=" . $idparent;
+                                                            static $space;
+                                                            $conn = mysqli_connect($servername, $username, $password, $dbname);
+                                                            $sql = "SELECT * from vw_m_perusahaan where id_parent=" . $idparent;
 
-    $result = mysqli_query($conn, $sql);
+                                                            $result = mysqli_query($conn, $sql);
 
-    $no = 0;
-    $id = 0;
-    $penerbit = "";
-    if (mysqli_num_rows($result) > 0) {
-        $space .= " " . "&roarr;";
+                                                            $no = 0;
+                                                            $id = 0;
+                                                            $penerbit = "";
+                                                            if (mysqli_num_rows($result) > 0) {
+                                                                 $space .= " " . "&roarr;";
 
-        while ($row = mysqli_fetch_assoc($result)) {
+                                                                 while ($row = mysqli_fetch_assoc($result)) {
 
-            $id = $row["id_m_perusahaan"];
-            $nama_per = $row["nama_perusahaan"];
-            $jenis_per = $row["jenis_perusahaan"];
-            $no_jenis_per = $row["no_jenis_perusahaan"];
-            $no_izin = $row["no_izin_perusahaan"];
-            $no_sio = $row["no_sio_perusahaan"];
-            $kode_per = $row["kode_perusahaan"];
+                                                                      $id = $row["id_m_perusahaan"];
+                                                                      $nama_per = $row["nama_perusahaan"];
+                                                                      $jenis_per = $row["jenis_perusahaan"];
+                                                                      $no_jenis_per = $row["no_jenis_perusahaan"];
+                                                                      $no_izin = $row["no_izin_perusahaan"];
+                                                                      $no_sio = $row["no_sio_perusahaan"];
+                                                                      $kode_per = $row["kode_perusahaan"];
 
-            echo "<tr class='rataTengah'>";
+                                                                      echo "<tr class='rataTengah'>";
 
-            if ($idparent == 0) {
-                $no++;
-                echo "<td class='align-middle' style='text-align:center;width:1%;'>" . $no . "</td>";
-                echo "<td class='align-middle' style='color:red;width:25%;'><b>" . $nama_per . "</b></td>";
-                echo "<td class='align-middle' style='width:15%;'>" . $jenis_per . "</td>";
-                echo "<td class='align-middle' style='width:8%;text-align:center'>" . $no_jenis_per . "</td>";
-                if ($no_izin == null) {
-                    echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada izin</span></td>";
-                } else {
-                    echo "<td class='align-middle' style='width:15%;'>" . $no_izin . "</td>";
-                }
-                if ($no_sio == null) {
-                    echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada SIO</span></td>";
-                } else {
-                    echo "<td class='align-middle' style='width:15%;'>" . $no_sio . "</td>";
-                }
-                echo "<td class='align-middle' style='width:1%;text-align:center'>" . $kode_per . "</td>";
-            } else {
-                $no = "";
-                echo "<td class='align-middle' style='text-align:center;width:1%;'>" . $no . "</td>";
-                echo "<td class='align-middle' style='width:25%;'><b>" . $space . " " . $nama_per . "</b></td>";
-                echo "<td class='align-middle' style='width:15%;'>" . $jenis_per . "</td>";
-                echo "<td class='align-middle' style='width:8%;text-align:center'>" . $no_jenis_per . "</td>";
-                if ($no_izin == null) {
-                    echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada izin</span></td>";
-                } else {
-                    echo "<td class='align-middle' style='width:15%;'>" . $no_izin . "</td>";
-                }
-                if ($no_sio == null) {
-                    echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada SIO</span></td>";
-                } else {
-                    echo "<td class='align-middle' style='width:15%;'>" . $no_sio . "</td>";
-                }
+                                                                      if ($idparent == 0) {
+                                                                           $no++;
+                                                                           echo "<td class='align-middle' style='text-align:center;width:1%;'>" . $no . "</td>";
+                                                                           echo "<td class='align-middle' style='color:red;width:25%;'><b>" . $nama_per . "</b></td>";
+                                                                           echo "<td class='align-middle' style='width:15%;'>" . $jenis_per . "</td>";
+                                                                           if ($no_izin == null) {
+                                                                                echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada izin</span></td>";
+                                                                           } else {
+                                                                                echo "<td class='align-middle' style='width:15%;'>" . $no_izin . "</td>";
+                                                                           }
+                                                                           if ($no_sio == null) {
+                                                                                echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada SIO</span></td>";
+                                                                           } else {
+                                                                                echo "<td class='align-middle' style='width:15%;'>" . $no_sio . "</td>";
+                                                                           }
+                                                                           echo "<td class='align-middle' style='width:1%;text-align:center'>" . $kode_per . "</td>";
+                                                                      } else {
+                                                                           $no = "";
+                                                                           echo "<td class='align-middle' style='text-align:center;width:1%;'>" . $no . "</td>";
+                                                                           echo "<td class='align-middle' style='width:25%;'><b>" . $space . " " . $nama_per . "</b></td>";
+                                                                           echo "<td class='align-middle' style='width:15%;'>" . $jenis_per . "</td>";
+                                                                           if ($no_izin == null) {
+                                                                                echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada izin</span></td>";
+                                                                           } else {
+                                                                                echo "<td class='align-middle' style='width:15%;'>" . $no_izin . "</td>";
+                                                                           }
+                                                                           if ($no_sio == null) {
+                                                                                echo "<td class='align-middle' style='width:15%;'><span class='btn btn-sm btn-danger'>Belum Ada SIO</span></td>";
+                                                                           } else {
+                                                                                echo "<td class='align-middle' style='width:15%;'>" . $no_sio . "</td>";
+                                                                           }
 
-                echo "<td class='align-middle' style='width:1%;text-align:center'>" . $kode_per . "</td>";
-            }
-            echo "<td class='align-middle' style='width:1%;text-align:center'>";
-            echo "<button class='btn btn-primary btn-sm' title='Detail'><i class='fas fa-asterisk'></i></button> ";
-            echo "<button class='btn btn-success btn-sm' title='Edit'><i class='fas fa-edit'></i></button> ";
-            echo "<button class='btn btn-danger btn-sm' title='Hapus'><i class='fas fa-trash'></i></button> ";
-            echo "</td>";
-            echo "</tr>";
+                                                                           echo "<td class='align-middle' style='width:1%;text-align:center'>" . $kode_per . "</td>";
+                                                                      }
+                                                                      echo "<td class='align-middle' style='width:1%;text-align:center'>";
+                                                                      echo "<button class='btn btn-primary btn-sm' title='Detail'><i class='fas fa-asterisk'></i></button> ";
+                                                                      echo "<button class='btn btn-success btn-sm' title='Edit'><i class='fas fa-edit'></i></button> ";
+                                                                      echo "<button class='btn btn-danger btn-sm' title='Hapus'><i class='fas fa-trash'></i></button> ";
+                                                                      echo "</td>";
+                                                                      echo "</tr>";
 
-            GetStruktur($id);
-        }
+                                                                      GetStruktur($id);
+                                                                 }
 
-        $space = substr($space, 0, strlen($space) - 7);
-    }
+                                                                 $space = substr($space, 0, strlen($space) - 7);
+                                                            }
 
-    mysqli_close($conn);
-}
+                                                            mysqli_close($conn);
+                                                       }
 
-GetStruktur(0);
+                                                       GetStruktur(0);
 
-?>
+                                                       ?>
                                                   </tbody>
                                              </table>
                                         </div>

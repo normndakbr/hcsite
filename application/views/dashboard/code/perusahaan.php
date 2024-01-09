@@ -837,7 +837,7 @@
 
           tbmPerusahaan = $('#tbmPerusahaan').DataTable({
                "processing": true,
-               "responsive": false,
+               "responsive": true,
                "serverSide": true,
                "ordering": true,
                "order": [
@@ -882,7 +882,7 @@
                     {
                          "data": 'alamat_perusahaan',
                          "className": "text-nowrap  align-middle",
-                         "width": "1%"
+                         "width": "35%"
                     },
                     {
                          "data": 'stat_perusahaan',
@@ -897,7 +897,7 @@
                     {
                          "data": 'proses',
                          "className": "text-center text-nowrap  align-middle",
-                         "width": "10%"
+                         "width": "1%"
                     }
                ]
           });
