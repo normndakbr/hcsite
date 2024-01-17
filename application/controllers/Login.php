@@ -153,8 +153,7 @@ class Login extends My_Controller
 
                     $err = $this->lgn->get_err_log($data_err);
 
-                    redirect(base_url('errauth'));
-                    die;
+                    redirect('errauth');
                }
 
                if ($captcha_save != "") {
@@ -178,7 +177,7 @@ class Login extends My_Controller
                                    );
 
                                    $this->session->set_userdata($session_data);
-                                   redirect('dash');
+                                   redirect('dashboard');
                               } else if ($data->{'statusCode'} == 201) {
                                    $dtcap = array(
                                         'captcha' => $this->create_captcha(),
@@ -207,7 +206,7 @@ class Login extends My_Controller
 
                                    $err = $this->lgn->get_err_log($data_err);
 
-                                   redirect(base_url('blokir'));
+                                   redirect('blokir');
                               }
                          } else {
                               $this->session->set_flashdata('pesan', '<div class="pesan alert alert-danger animate__animated animate__bounce" role="alert"> Email tidak ditemukan</div>');
@@ -250,5 +249,11 @@ class Login extends My_Controller
                     $this->load->view('login/login', $dtcap);
                }
           }
+     }
+
+     public function logout()
+     {
+          $this->session->sess_destroy();
+          redirect('login_view');
      }
 }

@@ -24,8 +24,9 @@
                 </li>
                 <li class="nav-item pcoded-hasmenu 
                     <?= $this->uri->segment(1) == 'perusahaan' ||
-                        $this->uri->segment(1) == 'view_create_perusahaan' ||
-                        $this->uri->segment(1) == 'struktur' ? 'active pcoded-trigger' : '' ?>">
+                        $this->uri->segment(1) == 'tambah_perusahaan' ||
+                        $this->uri->segment(1) == 'struktur' ||
+                        $this->uri->segment(1) == 'tambah_struktur' ? 'active pcoded-trigger' : '' ?>">
                     <a href="javascript:void(0);" class="nav-link">
                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                         <span class="pcoded-mtext">Data
@@ -33,8 +34,9 @@
                     </a>
                     <ul class="pcoded-submenu">
                         <li <?= $this->uri->segment(1) == 'perusahaan' ||
-                                $this->uri->segment(1) == 'view_create_perusahaan' ? 'class="active"' : '' ?>><a href="javascript:void(0);">Perusahaan</a></li>
-                        <li <?= $this->uri->segment(1) == 'struktur' ? 'class="active"' : '' ?>><a href="javascript:void(0);">Struktur Perusahaan</a></li>
+                                $this->uri->segment(1) == 'tambah_perusahaan' ? 'class="active"' : '' ?>><a href="<?= base_url('perusahaan') ?>">Perusahaan</a></li>
+                        <li <?= $this->uri->segment(1) == 'struktur' ||
+                        $this->uri->segment(1) == 'tambah_struktur' ? 'class="active"' : '' ?>><a href="<?= base_url('struktur') ?>">Struktur Perusahaan</a></li>
                     </ul>
                 </li>
                 <li class="nav-item pcoded-hasmenu">
