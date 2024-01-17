@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php $this->load->view('components/header');?>
-
-<body class=" bg-c-blue">
-     <div class="loader-bg">
-          <div class="loader-track">
-               <div class="loader-fill"></div>
-          </div>
-     </div>
-
-     <?php $this->load->view('components/sidebar');?>
-
-     <?php $this->load->view('components/navbar')?>
-
-     <div class="pcoded-main-container">
+<div class="pcoded-main-container">
           <div class="pcoded-content">
                <div class="page-header">
                     <div class="page-block">
@@ -48,7 +32,7 @@
                                         <div class="card-footer bg-c-yellow">
                                              <div class="row align-items-center">
                                                   <div class="col-9">
-                                                       <a href="#!" onclick="tabelUser()"
+                                                       <a href="#!" id="detailKaryawan"
                                                             class="text-white m-b-0">Detail</a>
                                                   </div>
                                              </div>
@@ -71,7 +55,7 @@
                                         <div class="card-footer bg-c-green">
                                              <div class="row align-items-center">
                                                   <div class="col-9">
-                                                       <a href="#" onclick="" class="text-white m-b-0">Detail</a>
+                                                       <a href="#" onclick="" class="text-white m-b-0 onprocess">Detail</a>
                                                   </div>
                                              </div>
                                         </div>
@@ -117,7 +101,7 @@
                                         <div class="card-footer bg-c-blue">
                                              <div class="row align-items-center">
                                                   <div class="col-9">
-                                                       <a href="#" class="text-white m-b-0">Detail</a>
+                                                       <a href="#" class="text-white m-b-0 onprocess">Detail</a>
                                                   </div>
 
                                              </div>
@@ -409,75 +393,3 @@
                </div>
           </div>
      </div>
-
-     <div class="modal fade" id="mdlDetLanggarAktif" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-          aria-hidden="true" data-backdrop="static" data-keyboard="false">
-          <div class="modal-dialog modal-dialog-centered" role="document"
-               style="margin-left: auto; margin-right: auto;max-width:90%;">
-               <div class="modal-content">
-                    <div class="modal-header bg-primary">
-                         <h5 class="modal-title text-white" id="exampleModalLabel"><i
-                                   class="fas fa-exclamation-triangle"></i> Data Pelanggaran Aktif</h5>
-                    </div>
-                    <div style="background-color:rgba(240,240,240,1);" class="modal-body">
-                         <div class="row">
-                              <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
-                                   <label for="">Perusahaan :</label><br>
-                                   <select id="perDetLgrAktif" name="perDetLgrAktif" class="form-control">
-                                        <option value="0">-- SEMUA PERUSAHAAN --</option>
-                                        <?=$permst . $perstr;?>
-                                   </select><br>
-                              </div>
-
-                              <div class="col-lg-12">
-                                   <div id="tbLanggarAktif" class="data"></div>
-                              </div>
-                         </div>
-                    </div>
-                    <div class="modal-footer d-flex justify-content-end p-2" style="margin-top:10px;">
-                         <button type="button" id="btnSelesaiDetLanggar" id="btnSelesaiDetLanggar" data-dismiss="modal"
-                              class="btn font-weight-bold btn-primary">Selesai</button>
-                    </div>
-               </div>
-          </div>
-     </div>
-
-     <?php $this->load->view('components/footer_js')?>
-     <script>
-     $("#detLanggar").click(function() {
-          let prs = $('#perDetLgrAktif').val();
-
-          $.LoadingOverlay('show');
-          $('#mdlDetLanggarAktif').modal('show');
-          $('#tbLanggarAktif').load(site_url + "dash/data_langgar_aktif/" + prs);
-     });
-
-     $('#perDetLgrAktif').select2({
-          theme: 'bootstrap4',
-          width: '100%',
-          dropdownParent: $('#mdlDetLanggarAktif')
-     });
-
-     $('#perDetLgrAktif').change(function() {
-          let prs = $('#perDetLgrAktif').val();
-
-          $.LoadingOverlay('show');
-          $('#tbLanggarAktif').empty();
-          $('#tbLanggarAktif').load(site_url + "dash/data_langgar_aktif/" + prs);
-     });
-     </script>
-     <script src="<?=base_url()?>assets/js/dashboard.js"></script>
-     <script>
-     let site_url = '<?=base_url()?>';
-     </script>
-     <script>
-     $("#txtcarikary").on('keypress', function(e) {
-          if (e.which == 13) {
-               let txt = $("#txtcarikary").val().replace(/' '/g, "_");
-               window.open(site_url + "cari?fdt=" + txt, '_blank');
-          }
-     });
-     </script>
-</body>
-
-</html>

@@ -25,7 +25,7 @@
                             </div>
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="<?= base_url('dash'); ?>">
+                                    <a href="<?= base_url('dashboard'); ?>">
                                         <i class="feather icon-home"></i>
                                     </a>
                                 </li>

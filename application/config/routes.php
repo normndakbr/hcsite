@@ -53,4 +53,18 @@ $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+// Unknown
 $route['karyawan/detail_karyawan/(:any)'] = 'karyawan/detail_karyawan/$1';
+
+// Authentication
+$route['login_view'] = 'Login';
+$route['login_process'] = 'Login/auth';
+$route['logout'] = 'Login/logout';
+
+// Dashboard
+$route['dashboard'] = 'Dash';
+
+// Data Perusahaan
+// Perusahaan
+$route['perusahaan'] = 'Perusahaan';
+$route['tambah_perusahaan'] = 'Perusahaan/new';
